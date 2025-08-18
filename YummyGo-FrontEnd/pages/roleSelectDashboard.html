@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Uber Eats Styled Video</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="/css/Style.css">
+</head>
+<body>
+
+  <div id="main-container">
+    <video autoplay muted playsinline id="home-video" src="/assets/video/home video.mp4"></video>
+
+    <div id="card-container">
+
+      <a id="cards" href="/pages/register.html?role=CLIENT" class="role-card">
+        <p id="card-title" class="fs-1 fw-bold">Client</p>
+        <img id="card-image" src="/assets/image/food eat man register select .png" alt="">
+      </a>
+
+      <a id="cards" href="/pages/register.html?role=PARTNER" class="role-card">
+        <p id="card-title" class="fs-1 fw-bold">Partner</p>
+        <img id="card-image" src="/assets/image/food divery man and bike register select.png" alt="">
+      </a>
+
+      <a id="cards" href="/pages/register.html?role=BUSINESS" class="role-card">
+        <p id="card-title" class="fs-1 fw-bold">Business</p>
+        <img id="card-image" src="/assets/image/food selling people register select.png" alt="">
+      </a>
+    </div>
+  </div>
+  </div>
+
+<script src="/js/roleSelectDashboard.js"></script>
+<script>
+  const video = document.getElementById('home-video');
+
+  video.addEventListener('loadedmetadata', function () {
+    const duration = video.duration;
+    const loopStart = duration - 2;
+    const loopEnd = duration;
+
+    video.currentTime = 0;
+    video.play();
+
+    video.addEventListener('timeupdate', function () {
+      if (video.currentTime >= loopEnd) {
+        video.currentTime = loopStart;
+        // Optional: Add small delay for smoother loop
+        setTimeout(() => video.play(), 10);
+      }
+    });
+  });
+
+  window.addEventListener('DOMContentLoaded', () => {
+    const cards = document.querySelectorAll('#cards');
+
+    cards.forEach((card, index) => {
+      // Initial hidden state
+      card.style.opacity = '0';
+      card.style.transform = 'translateY(100px)';
+      card.style.transition = 'all 0.8s ease';
+
+      // Delayed reveal
+      setTimeout(() => {
+        card.style.opacity = '1';
+        card.style.transform = 'translateY(0)';
+      }, index * 500); // 2s delay per card
+    });
+  });
+
+  window.addEventListener('DOMContentLoaded', () => {
+    const cards = document.querySelectorAll('#card-container > a');
+
+    cards.forEach((card, index) => {
+      // Initial hidden state
+      card.style.opacity = '0';
+      card.style.transform = 'translateY(50px)';
+      card.style.transition = 'all 0.6s ease';
+
+      // Appear one-by-one with 0.2s delay per card
+      setTimeout(() => {
+        card.style.opacity = '1';
+        card.style.transform = 'translateY(0)';
+      }, index * 200);
+
+      // Hover effect using JavaScript
+      card.addEventListener('mouseenter', () => {
+        card.style.boxShadow = '0 8px 40px rgba(0, 0, 0, 0.3)';
+        card.style.transform = 'scale(1.05)';
+      });
+
+      card.addEventListener('mouseleave', () => {
+        card.style.boxShadow = '0 4px 30px rgba(0, 0, 0, 0.2)';
+        card.style.transform = 'scale(1)';
+      });
+    });
+  });
+  
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+</body>
+</html>

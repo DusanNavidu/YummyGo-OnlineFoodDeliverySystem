@@ -1,9 +1,19 @@
 package lk.ijse.gdse72.yummygobackend.dto;
 
+import lombok.Data;
+
 /**
  * @author Dusan
  * @date 8/6/2025
  */
 
+@Data
+
 public class RegisterDTO {
+    private String fullName;
+    private String phoneNumber;
+    private String email;
+    private String username;
+    private String password;
+    private String role;
 }

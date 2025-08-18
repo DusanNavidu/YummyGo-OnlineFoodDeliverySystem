@@ -1,5 +1,5 @@
-package lk.ijse.practiseproject.entity;
+package lk.ijse.gdse72.yummygobackend.entity;
 
 public enum Role {
-    ADMIN, USER
+    ADMIN, CLIENT, PARTNER, BUSINESS
 }

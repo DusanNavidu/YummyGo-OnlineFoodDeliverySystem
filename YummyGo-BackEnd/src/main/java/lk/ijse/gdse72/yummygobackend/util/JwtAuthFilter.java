@@ -1,4 +1,4 @@
-package lk.ijse.practiseproject.util;
+package lk.ijse.gdse72.yummygobackend.util;
 
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;

@@ -1,4 +1,4 @@
-package lk.ijse.practiseproject.dto;
+package lk.ijse.gdse72.yummygobackend.dto;
 
 import lombok.Data;
 

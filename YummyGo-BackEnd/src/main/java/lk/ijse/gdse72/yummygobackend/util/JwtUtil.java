@@ -1,6 +1,5 @@
-package lk.ijse.practiseproject.util;
+package lk.ijse.gdse72.yummygobackend.util;
 
-import io.jsonwebtoken.JwtBuilder;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
 import io.jsonwebtoken.security.Keys;

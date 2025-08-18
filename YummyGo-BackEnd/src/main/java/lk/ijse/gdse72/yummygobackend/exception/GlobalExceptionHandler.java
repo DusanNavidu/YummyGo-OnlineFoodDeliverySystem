@@ -1,8 +1,8 @@
-package lk.ijse.practiseproject.exception;
+package lk.ijse.gdse72.yummygobackend.exception;
 
 import io.jsonwebtoken.ExpiredJwtException;
-import lk.ijse.practiseproject.dto.ApiResponse;
-import lk.ijse.practiseproject.util.APIResponse;
+import lk.ijse.gdse72.yummygobackend.dto.ApiResponse;
+import lk.ijse.gdse72.yummygobackend.util.APIResponse;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.BadCredentialsException;
@@ -14,7 +14,6 @@ import org.springframework.web.bind.annotation.RestControllerAdvice;
 
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Objects;
 
 @RestControllerAdvice
 public class GlobalExceptionHandler {

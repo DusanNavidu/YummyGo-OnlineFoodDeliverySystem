@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
+    <title>Business Dashboard</title>
+    <link rel="stylesheet" href="/css/Style.css">
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand ps-5" href="#"><span class="fw-bold fs-3 text-light">YUMMY</span><span class="fs-3 fw-bold text-warning">GO</span> </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="#">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Features</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Pricing</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+       
+    <div class="p-5">
+        <button id="Business-add-button" class="btn rounded-0" 
+            data-bs-toggle="modal" data-bs-target="#Business-add-modal">
+            +
+        </button>
+    </div>
+
+    <div class="container mt-5">
+        <h3>All Businesses</h3>
+        <div id="business-list" class="row"></div>
+    </div>
+
+
+    <div class="modal fade" id="Business-add-modal" tabindex="-1" aria-labelledby="add-business-modal-label" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="add-business-modal-label">Add Business</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <form id="add-business-form">
+                    <div class="modal-body">
+                        <input type="text" placeholder="Business Name" class="form-control mb-3 border-black" id="business-name">
+                        <input type="text" placeholder="Business Contact Number 1" class="form-control mb-3 border-black" id="business-contact1">
+                        <input type="text" placeholder="Business Contact Number 2" class="form-control mb-3 border-black" id="business-contact2">
+                        <input type="email" placeholder="Business Email" class="form-control mb-3 border-black" id="business-email">
+                        <input type="text" placeholder="Business Address" class="form-control mb-3 border-black" id="business-address">
+                        <input type="text" placeholder="Business Area Postal Code" class="form-control mb-3 border-black" id="business-postal-code">
+                        <select id="Business-Place-Category" class="form-control mb-3 border-black">
+                            <option value="" disabled selected>Add Category</option>
+                            <option>Hotel</option>
+                            <option>Cafe</option>
+                            <option>Restaurant</option>
+                            <option>Bakery</option>
+                            <option>Food Truck</option>
+                            <option>Other</option>
+                        </select>
+
+                        <textarea name="textarea" id="business-description" class="form-control mb-3 border-black" placeholder="Business Description"></textarea>
+                         <!-- Drag and Drop Area -->
+                        <div id="drop-area" 
+                                style="border: 2px dashed #ccc; border-radius: 6px; padding: 20px; text-align: center; cursor: pointer;">
+                            <p>Drag & Drop your business image here or click to select</p>
+                            <input type="file" id="fileElem" accept="image/*" style="display:none" />
+                            <img id="preview" src="" alt="Image preview" style="max-width: 100%; margin-top: 10px; display:none;" />
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="reset" class="btn btn-info" id="resetBtn">Reset Form</button>
+                        <button type="submit" class="btn btn-success" id="addBusinessButton">Add Business</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- SweetAlert2 -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    <script>
+        document.getElementById("resetBtn").addEventListener("click", function (e) {
+            e.preventDefault(); // prevent instant reset
+            Swal.fire({
+                title: "Are you sure?",
+                text: "This will clear all form data!",
+                icon: "warning",
+                showCancelButton: true,
+                confirmButtonColor: "#3085d6",
+                cancelButtonColor: "#d33",
+                confirmButtonText: "Yes, reset it!",
+                background: "rgba(0,0,0,0.9)",
+                color: "#fff"
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    document.getElementById("add-business-form").reset();
+                    document.getElementById("preview").style.display = "none"; // hide preview image
+                    Swal.fire({
+                        title: "Form Reset!",
+                        text: "All fields have been cleared.",
+                        icon: "success",
+                        timer: 1500,
+                        showConfirmButton: false,
+                        background: "rgba(0,0,0,0.9)",
+                        color: "#fff"
+                    });
+                }
+            });
+        });
+    </script>
+
+
+    <script>
+        const dropArea = document.getElementById('drop-area');
+        const fileInput = document.getElementById('fileElem');
+        const preview = document.getElementById('preview');
+
+        // Click on drop area opens file dialog
+        dropArea.addEventListener('click', () => fileInput.click());
+
+        // When file selected via dialog
+        fileInput.addEventListener('change', handleFiles);
+
+        // Prevent default behaviors for drag and drop events
+        ;['dragenter', 'dragover', 'dragleave', 'drop'].forEach(eventName => {
+            dropArea.addEventListener(eventName, preventDefaults, false);
+        });
+
+        function preventDefaults(e) {
+            e.preventDefault();
+            e.stopPropagation();
+        }
+
+        // Highlight drop area on dragover
+        ;['dragenter', 'dragover'].forEach(eventName => {
+            dropArea.addEventListener(eventName, () => {
+            dropArea.style.borderColor = '#333';
+            dropArea.style.backgroundColor = '#f8f9fa';
+            }, false);
+        });
+
+        ;['dragleave', 'drop'].forEach(eventName => {
+            dropArea.addEventListener(eventName, () => {
+            dropArea.style.borderColor = '#ccc';
+            dropArea.style.backgroundColor = 'transparent';
+            }, false);
+        });
+
+        // Handle dropped files
+        dropArea.addEventListener('drop', (e) => {
+            const dt = e.dataTransfer;
+            const files = dt.files;
+            handleFiles({ target: { files } });
+        });
+
+        function handleFiles(e) {
+            const files = e.target.files;
+            if (files.length === 0) return;
+
+            const file = files[0];
+
+            if (!file.type.startsWith('image/')) {
+            alert('Please upload an image file.');
+            return;
+            }
+
+            // Show preview
+            const reader = new FileReader();
+            reader.onload = (event) => {
+            preview.src = event.target.result;
+            preview.style.display = 'block';
+            };
+            reader.readAsDataURL(file);
+
+            // You can save file in form data here for submit
+        }
+    </script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="/js/businessDashboard.js"></script>
+</body>
+</html>

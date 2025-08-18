@@ -1,0 +1,253 @@
+/* Main Dashboard Styles */
+
+#home-video::-webkit-media-controls {
+    display: none !important;
+}
+
+#home-video {
+    position: absolute;
+    /* top: -5%; */
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80% !important;
+    height: 80% !important;
+    border: #09b95b solid 4px;
+}
+
+#main-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #09b95b;
+    width: 100%;
+    height: 100vh;
+}
+
+#card-container {
+    width: 80%;
+    height: 200px;
+    position: absolute;
+    bottom: 5%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+}
+
+#cards {
+    position: relative;
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    height: 100%;
+    padding: 20px;
+    border-radius: 20px;
+    background: rgb(0, 0, 0);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+    text-decoration: none;
+}
+
+#cards:hover {
+    box-shadow: 0 8px 40px rgba(0, 0, 0, 0.3);
+    transform: scale(1.05);
+    transition: all 0.3s ease-in-out;
+}
+
+/* Shine effect */
+#cards::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(
+    120deg,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0.5) 50%,
+    rgba(255, 255, 255, 0) 100%
+    );
+    transform: rotate(25deg);
+    animation: shine 3s infinite linear;
+    z-index: 0;
+}
+
+@keyframes shine {
+    0% {
+    transform: rotate(25deg) translateX(-100%);
+    }
+    100% {
+    transform: rotate(25deg) translateX(100%);
+    }
+}
+
+#card-title {
+    z-index: 1;
+    position: relative;
+    color: #fff;
+    font-size: 2rem;
+    font-weight: bold;
+    text-align: center;
+}
+
+#card-image {
+    z-index: 1;
+    position: relative;
+    width: 80%;
+    object-fit: contain;
+    height: auto;
+    display: block;
+}
+
+
+/* registration form styles */
+
+#register-Google-logo {
+    width: 20px;
+    height: 20px;
+    margin-right: 10px;
+}
+
+#register-left-side-text {
+    font-size: 3rem;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+}
+
+#register-page {
+    background-color: #09b95b;
+    height: 100vh;
+}
+
+#register-container {
+    background-color: #fff;
+    width: 70%;
+    border-radius: 20px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.2);
+}
+
+#register-left-side {
+    background-color: #000000;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+}
+
+#register-left-side-image {
+    width: 300px;
+    height: auto;
+    object-fit: contain;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1;
+}
+
+#register-right-side {
+    padding: 50px;
+}
+
+
+/* Login Form Styles */
+
+
+#login-Google-logo {
+    width: 20px;
+    height: 20px;
+    margin-right: 10px;
+}
+
+#login-left-side-text {
+    font-size: 3rem;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+}
+
+#login-page {
+    background-color: #09b95b;
+    height: 100vh;
+}
+
+#login-container {
+    background-color: #fff;
+    width: 70%;
+    border-radius: 20px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.2);
+}
+
+#login-left-side {
+    background-color: #000000;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+}
+
+#login-left-side-image {
+    width: 300px;
+    height: auto;
+    object-fit: contain;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1;
+}
+
+#login-right-side {
+    padding: 50px;
+}
+
+
+/* Business Dashboard Styles */
+
+
+.glass-shine {
+    background-color: #ffffff;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    color: rgb(0, 0, 0);
+    height: 100vh;
+}
+
+#Business-add-button {
+    width: 300px;
+    height: 300px;
+    background-color: black;
+    border: 1px solid #000000;
+    font-size: 100px;
+    color: white;
+}
+
+#Business-add-button:hover {
+    background-color: #202020;
+    border: 1px solid #202020;
+    color: rgb(255, 255, 255);
+}
+
+#Business-nav-home-video {
+    width: 100px;
+    height: auto;
+}
