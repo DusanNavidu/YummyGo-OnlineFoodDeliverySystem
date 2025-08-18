@@ -53,4 +53,5 @@ public class BusinessDTO {
     private Timestamp updatedAt;
 
     private Long userId; // who owns this business
+    //
 }
