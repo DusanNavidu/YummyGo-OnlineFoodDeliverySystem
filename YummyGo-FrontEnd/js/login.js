@@ -23,27 +23,31 @@ $(document).ready(function () {
           if (response.code === 200) {
             console.log("Login successful", response);
 
-            cookieStore.set("token", response.data.accessToken);
-            const user = response.data.role;
+            const token = response.data.accessToken;
+            const userRole = response.data.role;
+            const userId = response.data.userId; // <-- save userId
 
-            if (user === "ADMIN") {
+            cookieStore.set("token", token);
+            localStorage.setItem("userId", userId); // <-- save for business creation
+
+            if (userRole === "ADMIN") {
               $("#message").html('<div class="alert alert-success">Admin Login successful! Redirecting...</div>');
-            } else if (user === "CLIENT") {
+            } else if (userRole === "CLIENT") {
               $("#message").html('<div class="alert alert-success">CLIENT Login successful! Redirecting...</div>');
-            } else if (user === "PARTNER") {
+            } else if (userRole === "PARTNER") {
               $("#message").html('<div class="alert alert-success">PARTNER Login successful! Redirecting...</div>');
-            } else if (user === "BUSINESS") {
+            } else if (userRole === "BUSINESS") {
               $("#message").html('<div class="alert alert-success">BUSINESS Login successful! Redirecting...</div>');
             }
 
             setTimeout(() => {
-              if (user === "ADMIN") {
+              if (userRole === "ADMIN") {
                 window.location.href = "/pages/dashboardAdmin.html";
-              } else if (user === "CLIENT") {
+              } else if (userRole === "CLIENT") {
                 window.location.href = "/pages/clientDashboard.html";
-              } else if (user === "PARTNER") {
+              } else if (userRole === "PARTNER") {
                 window.location.href = "/pages/dashboardPartner.html";
-              } else if (user === "BUSINESS") {
+              } else if (userRole === "BUSINESS") {
                 window.location.href = "/pages/businessDashboard.html";
               }
             }, 1000);

@@ -3,15 +3,22 @@ $(document).ready(async function() {
 
     const backendUrl = "http://localhost:8080"; // backend URL
 
-    // --- Load all businesses ---
+    // --- Load logged-in user's businesses ---
     async function loadAllBusinesses() {
         const cookie = await cookieStore.get('token');
         const token = cookie?.value;
+        const userId = localStorage.getItem('userId'); // get logged-in user's ID
+
+        if (!userId) {
+            alert("User ID not found. Please log in again.");
+            return;
+        }
 
         $.ajax({
             method: 'GET',
-            url: backendUrl + '/api/v1/business/getAll',
+            url: backendUrl + '/api/v1/business/getAllThisUserBusinesses',
             headers: token ? { 'Authorization': 'Bearer ' + token } : {},
+            data: { userId: userId },
             success: function(response) {
                 const container = $('#business-list');
                 container.empty();
@@ -31,7 +38,7 @@ $(document).ready(async function() {
                 });
             },
             error: function(xhr) {
-                console.error("Error fetching businesses:", xhr.responseText);
+                console.error("Error fetching user businesses:", xhr.responseText);
             }
         });
     }
@@ -51,6 +58,12 @@ $(document).ready(async function() {
             return;
         }
 
+        const userId = localStorage.getItem('userId');
+        if (!userId) {
+            alert("User ID not found. Please log in again.");
+            return;
+        }
+
         const formData = new FormData();
         formData.append('businessName', $('#business-name').val());
         formData.append('contactNumber1', $('#business-contact1').val());
@@ -62,6 +75,7 @@ $(document).ready(async function() {
         formData.append('businessDescription', $('#business-description').val());
         formData.append('businessStatus', 'ACTIVE');
         formData.append('logo', fileInput.files[0]);
+        formData.append('userId', userId);
 
         $.ajax({
             method: 'POST',
@@ -75,7 +89,7 @@ $(document).ready(async function() {
                 $('#Business-add-modal').modal('hide');
                 $('#add-business-form')[0].reset();
                 $('#preview').hide();
-                loadAllBusinesses();
+                loadAllBusinesses(); // reload user businesses
             },
             error: function(xhr) {
                 console.error(xhr.responseText);
