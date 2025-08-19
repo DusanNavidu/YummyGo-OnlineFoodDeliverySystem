@@ -63,6 +63,6 @@ public class AuthService {
         System.out.println("Generated Token: " + token);
         System.out.println("User Role: " + role);
         System.out.println("Authentication successful for user: " + authDTO.getUsername());
-        return  new AuthResponseDTO(token , role);
+        return  new AuthResponseDTO(token, role, user.getId());
     }
 }

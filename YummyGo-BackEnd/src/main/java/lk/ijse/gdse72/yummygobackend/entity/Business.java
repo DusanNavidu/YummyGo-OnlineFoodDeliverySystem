@@ -28,10 +28,11 @@ public class Business {
     private String businessLogo;
     private String businessDescription;
     private String businessStatus;
+
+    @ManyToOne
+    @JoinColumn(name = "id", nullable = false)
+    private User user;
+
     private Timestamp createdAt;
     private Timestamp updatedAt;
-
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "user_id", nullable = false) // foreign key → user
-    private User user;
 }

@@ -49,9 +49,9 @@ public class BusinessDTO {
     private String businessDescription;
 
     private String businessStatus;
+
+    private Long userId; // maps to User.id
+
     private Timestamp createdAt;
     private Timestamp updatedAt;
-
-    private Long userId; // who owns this business
-    //
 }

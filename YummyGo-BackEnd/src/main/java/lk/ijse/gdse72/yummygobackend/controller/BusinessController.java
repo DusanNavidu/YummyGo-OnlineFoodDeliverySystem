@@ -40,6 +40,7 @@ public class BusinessController {
             @RequestParam String businessCategory,
             @RequestParam String businessDescription,
             @RequestParam String businessStatus,
+            @RequestParam Long userId,
             @RequestPart("logo") MultipartFile logoFile
     ) {
         try {
@@ -64,6 +65,7 @@ public class BusinessController {
             businessDTO.setBusinessDescription(businessDescription);
             businessDTO.setBusinessStatus(businessStatus);
             businessDTO.setBusinessLogo("/uploads/business-logos/" + fileName);
+            businessDTO.setUserId(userId);
 
             System.out.println("Business DTO: " + businessDTO);
 
@@ -93,6 +95,23 @@ public class BusinessController {
             log.error("Error fetching businesses", e);
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
                     .body(new APIResponse<>(500, "Error fetching businesses", null));
+        }
+    }
+
+    @GetMapping("/getAllThisUserBusinesses")
+    public ResponseEntity<APIResponse<List<BusinessDTO>>> getAllThisUserBusinesses(@RequestParam Long userId) {
+        try {
+            List<Business> businesses = businessService.getBusinessesByUserId(userId);
+            List<BusinessDTO> businessDTOs = businesses.stream()
+                    .map(b -> modelMapper.map(b, BusinessDTO.class))
+                    .toList();
+
+            return ResponseEntity.ok(new APIResponse<>(200, "User businesses fetched successfully", businessDTOs));
+
+        } catch (Exception e) {
+            log.error("Error fetching user businesses", e);
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
+                    .body(new APIResponse<>(500, "Error fetching user businesses", null));
         }
     }
 }
