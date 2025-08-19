@@ -29,4 +29,5 @@ public class Item {
     private String itemImage;
     private String itemStatus;
     private String itemAvailability;
+
 }
