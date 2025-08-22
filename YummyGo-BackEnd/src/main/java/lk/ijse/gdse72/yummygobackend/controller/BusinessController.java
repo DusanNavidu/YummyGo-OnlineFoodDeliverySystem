@@ -19,6 +19,11 @@ import java.nio.file.Paths;
 import java.nio.file.StandardCopyOption;
 import java.util.List;
 
+/**
+ * @author Dusan
+ * @date 8/20/2025
+ */
+
 @RestController
 @RequestMapping("/api/v1/business")
 @RequiredArgsConstructor

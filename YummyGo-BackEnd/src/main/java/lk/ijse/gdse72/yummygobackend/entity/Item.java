@@ -6,6 +6,8 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.sql.Timestamp;
+
 /**
  * @author Dusan
  * @date 8/18/2025
@@ -23,11 +25,16 @@ public class Item {
     private Long itemId;
 
     private String itemName;
-    private String itemDescription;
     private String itemPrice;
     private String itemCategory;
+    private String itemDescription;
     private String itemImage;
     private String itemStatus;
     private String itemAvailability;
+    private Timestamp createdAt;
+    private Timestamp updatedAt;
 
+    @ManyToOne
+    @JoinColumn(name = "businessId", nullable = false)
+    private Business business;
 }

@@ -25,15 +25,19 @@ $(document).ready(async function() {
 
                 response.data.forEach(b => {
                     container.append(`
-                        <div class="col-md-4 mb-3">
+                        <a href="/pages/businessItemDashboard.html?businessId=${b.businessId}" 
+                                class="col-md-4 mb-3" style="text-decoration:none;">
+
                             <div class="card p-2">
-                                <img src="${backendUrl}${b.businessLogo}" class="img-fluid mb-2" style="max-height:150px;">
+                                <img src="${backendUrl}${b.businessLogo}" 
+                                    class="img-fluid mb-2" 
+                                    style="max-height:150px; object-fit:contain;">
                                 <h5>${b.businessName}</h5>
                                 <p>${b.businessDescription}</p>
                                 <p>${b.businessAddress}, ${b.businessAreaPostalCode}</p>
                                 <p>${b.businessEmail} | ${b.contactNumber1}</p>
                             </div>
-                        </div>
+                        </a>
                     `);
                 });
             },
@@ -44,6 +48,17 @@ $(document).ready(async function() {
     }
 
     loadAllBusinesses();
+
+    $('#logoutBtn').click(async function () {
+        try {
+            await cookieStore.delete('token');
+            await cookieStore.delete('username');
+            window.location.href = '/index.html';
+        } catch (error) {
+            console.error('Error during logout:', error);
+            window.location.href = '/index.html';
+        }
+    });
 
     // --- Add Business ---
     $('#addBusinessButton').click(async function (e) {

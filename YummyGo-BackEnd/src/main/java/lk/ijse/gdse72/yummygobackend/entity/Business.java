@@ -7,12 +7,14 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.sql.Timestamp;
+import java.util.List;
 
 @Entity
 @AllArgsConstructor
 @NoArgsConstructor
 @Getter
 @Setter
+@Table(name = "business")
 public class Business {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -32,6 +34,9 @@ public class Business {
     @ManyToOne
     @JoinColumn(name = "id", nullable = false)
     private User user;
+
+    @OneToMany(mappedBy = "business", cascade = CascadeType.ALL)
+    private List<Item> items;
 
     private Timestamp createdAt;
     private Timestamp updatedAt;

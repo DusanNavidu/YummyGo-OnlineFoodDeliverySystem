@@ -1,21 +1,21 @@
-2025-08-19T09:11:07.327+05:30  INFO 18016 --- [YummyGo-BackEnd] [main] l.i.g.y.YummyGoBackEndApplication        : Starting YummyGoBackEndApplication using Java 21.0.5 with PID 18016 (D:\Campus IJSE\Campus Documents\YummyGo-OnlineFoodDeliverySystem\YummyGo-BackEnd\target\classes started by USER in D:\Campus IJSE\Campus Documents\YummyGo-OnlineFoodDeliverySystem)
-2025-08-19T09:11:07.333+05:30  INFO 18016 --- [YummyGo-BackEnd] [main] l.i.g.y.YummyGoBackEndApplication        : No active profile set, falling back to 1 default profile: "default"
-2025-08-19T09:11:08.941+05:30  INFO 18016 --- [YummyGo-BackEnd] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2025-08-19T09:11:09.087+05:30  INFO 18016 --- [YummyGo-BackEnd] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 119 ms. Found 2 JPA repository interfaces.
-2025-08-19T09:11:09.915+05:30  INFO 18016 --- [YummyGo-BackEnd] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
-2025-08-19T09:11:09.929+05:30  INFO 18016 --- [YummyGo-BackEnd] [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2025-08-19T09:11:09.929+05:30  INFO 18016 --- [YummyGo-BackEnd] [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.43]
-2025-08-19T09:11:09.974+05:30  INFO 18016 --- [YummyGo-BackEnd] [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2025-08-19T09:11:09.974+05:30  INFO 18016 --- [YummyGo-BackEnd] [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2525 ms
-2025-08-19T09:11:10.108+05:30  INFO 18016 --- [YummyGo-BackEnd] [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
-2025-08-19T09:11:10.256+05:30  INFO 18016 --- [YummyGo-BackEnd] [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.6.22.Final
-2025-08-19T09:11:10.339+05:30  INFO 18016 --- [YummyGo-BackEnd] [main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
-2025-08-19T09:11:10.767+05:30  INFO 18016 --- [YummyGo-BackEnd] [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
-2025-08-19T09:11:10.800+05:30  INFO 18016 --- [YummyGo-BackEnd] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2025-08-19T09:11:12.172+05:30  INFO 18016 --- [YummyGo-BackEnd] [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@77ce8bc5
-2025-08-19T09:11:12.177+05:30  INFO 18016 --- [YummyGo-BackEnd] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2025-08-19T09:11:12.357+05:30  WARN 18016 --- [YummyGo-BackEnd] [main] org.hibernate.orm.deprecation            : HHH90000025: MySQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
-2025-08-19T09:11:12.397+05:30  INFO 18016 --- [YummyGo-BackEnd] [main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+2025-08-23T03:21:07.561+05:30  INFO 13244 --- [YummyGo-BackEnd] [main] l.i.g.y.YummyGoBackEndApplication        : Starting YummyGoBackEndApplication using Java 21.0.5 with PID 13244 (D:\Campus IJSE\Campus Documents\YummyGo-OnlineFoodDeliverySystem\YummyGo-BackEnd\target\classes started by USER in D:\Campus IJSE\Campus Documents\YummyGo-OnlineFoodDeliverySystem)
+2025-08-23T03:21:07.565+05:30  INFO 13244 --- [YummyGo-BackEnd] [main] l.i.g.y.YummyGoBackEndApplication        : No active profile set, falling back to 1 default profile: "default"
+2025-08-23T03:21:08.263+05:30  INFO 13244 --- [YummyGo-BackEnd] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-08-23T03:21:08.322+05:30  INFO 13244 --- [YummyGo-BackEnd] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 51 ms. Found 3 JPA repository interfaces.
+2025-08-23T03:21:09.045+05:30  INFO 13244 --- [YummyGo-BackEnd] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2025-08-23T03:21:09.060+05:30  INFO 13244 --- [YummyGo-BackEnd] [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-08-23T03:21:09.061+05:30  INFO 13244 --- [YummyGo-BackEnd] [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.43]
+2025-08-23T03:21:09.113+05:30  INFO 13244 --- [YummyGo-BackEnd] [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-08-23T03:21:09.114+05:30  INFO 13244 --- [YummyGo-BackEnd] [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1491 ms
+2025-08-23T03:21:09.302+05:30  INFO 13244 --- [YummyGo-BackEnd] [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-08-23T03:21:09.360+05:30  INFO 13244 --- [YummyGo-BackEnd] [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.6.22.Final
+2025-08-23T03:21:09.393+05:30  INFO 13244 --- [YummyGo-BackEnd] [main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2025-08-23T03:21:09.722+05:30  INFO 13244 --- [YummyGo-BackEnd] [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-08-23T03:21:09.749+05:30  INFO 13244 --- [YummyGo-BackEnd] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2025-08-23T03:21:11.373+05:30  INFO 13244 --- [YummyGo-BackEnd] [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@2cadcff6
+2025-08-23T03:21:11.376+05:30  INFO 13244 --- [YummyGo-BackEnd] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2025-08-23T03:21:11.546+05:30  WARN 13244 --- [YummyGo-BackEnd] [main] org.hibernate.orm.deprecation            : HHH90000025: MySQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-08-23T03:21:11.585+05:30  INFO 13244 --- [YummyGo-BackEnd] [main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
 	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
 	Database driver: undefined/unknown
 	Database version: 8.0.39
@@ -23,287 +23,287 @@
 	Isolation level: undefined/unknown
 	Minimum pool size: undefined/unknown
 	Maximum pool size: undefined/unknown
-2025-08-19T09:11:14.586+05:30  INFO 18016 --- [YummyGo-BackEnd] [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
-2025-08-19T09:11:15.801+05:30  WARN 18016 --- [YummyGo-BackEnd] [main] o.h.t.s.i.ExceptionHandlerLoggedImpl     : GenerationTarget encountered exception accepting command : Error executing DDL "create table item (item_id varchar(255) not null auto_increment, item_category varchar(255), item_description varchar(255), item_image varchar(255), item_name varchar(255), item_price varchar(255), item_status varchar(255), primary key (item_id)) engine=InnoDB" via JDBC [Incorrect column specifier for column 'item_id']
-
-org.hibernate.tool.schema.spi.CommandAcceptanceException: Error executing DDL "create table item (item_id varchar(255) not null auto_increment, item_category varchar(255), item_description varchar(255), item_image varchar(255), item_name varchar(255), item_price varchar(255), item_status varchar(255), primary key (item_id)) engine=InnoDB" via JDBC [Incorrect column specifier for column 'item_id']
-	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:94) ~[hibernate-core-6.6.22.Final.jar:6.6.22.Final]
-	at org.hibernate.tool.schema.internal.AbstractSchemaMigrator.applySqlString(AbstractSchemaMigrator.java:576) ~[hibernate-core-6.6.22.Final.jar:6.6.22.Final]
-	at org.hibernate.tool.schema.internal.AbstractSchemaMigrator.applySqlStrings(AbstractSchemaMigrator.java:516) ~[hibernate-core-6.6.22.Final.jar:6.6.22.Final]
-	at org.hibernate.tool.schema.internal.AbstractSchemaMigrator.createTable(AbstractSchemaMigrator.java:316) ~[hibernate-core-6.6.22.Final.jar:6.6.22.Final]
-	at org.hibernate.tool.schema.internal.GroupedSchemaMigratorImpl.performTablesMigration(GroupedSchemaMigratorImpl.java:80) ~[hibernate-core-6.6.22.Final.jar:6.6.22.Final]
-	at org.hibernate.tool.schema.internal.AbstractSchemaMigrator.performMigration(AbstractSchemaMigrator.java:233) ~[hibernate-core-6.6.22.Final.jar:6.6.22.Final]
-	at org.hibernate.tool.schema.internal.AbstractSchemaMigrator.doMigration(AbstractSchemaMigrator.java:112) ~[hibernate-core-6.6.22.Final.jar:6.6.22.Final]
-	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.performDatabaseAction(SchemaManagementToolCoordinator.java:280) ~[hibernate-core-6.6.22.Final.jar:6.6.22.Final]
-	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.lambda$process$5(SchemaManagementToolCoordinator.java:144) ~[hibernate-core-6.6.22.Final.jar:6.6.22.Final]
-	at java.base/java.util.HashMap.forEach(HashMap.java:1429) ~[na:na]
-	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.process(SchemaManagementToolCoordinator.java:141) ~[hibernate-core-6.6.22.Final.jar:6.6.22.Final]
-	at org.hibernate.boot.internal.SessionFactoryObserverForSchemaExport.sessionFactoryCreated(SessionFactoryObserverForSchemaExport.java:37) ~[hibernate-core-6.6.22.Final.jar:6.6.22.Final]
-	at org.hibernate.internal.SessionFactoryObserverChain.sessionFactoryCreated(SessionFactoryObserverChain.java:35) ~[hibernate-core-6.6.22.Final.jar:6.6.22.Final]
-	at org.hibernate.internal.SessionFactoryImpl.<init>(SessionFactoryImpl.java:324) ~[hibernate-core-6.6.22.Final.jar:6.6.22.Final]
-	at org.hibernate.boot.internal.SessionFactoryBuilderImpl.build(SessionFactoryBuilderImpl.java:463) ~[hibernate-core-6.6.22.Final.jar:6.6.22.Final]
-	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:1517) ~[hibernate-core-6.6.22.Final.jar:6.6.22.Final]
-	at org.springframework.orm.jpa.vendor.SpringHibernateJpaPersistenceProvider.createContainerEntityManagerFactory(SpringHibernateJpaPersistenceProvider.java:66) ~[spring-orm-6.2.9.jar:6.2.9]
-	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.createNativeEntityManagerFactory(LocalContainerEntityManagerFactoryBean.java:390) ~[spring-orm-6.2.9.jar:6.2.9]
-	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:419) ~[spring-orm-6.2.9.jar:6.2.9]
-	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.afterPropertiesSet(AbstractEntityManagerFactoryBean.java:400) ~[spring-orm-6.2.9.jar:6.2.9]
-	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.afterPropertiesSet(LocalContainerEntityManagerFactoryBean.java:366) ~[spring-orm-6.2.9.jar:6.2.9]
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1873) ~[spring-beans-6.2.9.jar:6.2.9]
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1822) ~[spring-beans-6.2.9.jar:6.2.9]
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:607) ~[spring-beans-6.2.9.jar:6.2.9]
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:529) ~[spring-beans-6.2.9.jar:6.2.9]
-	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:339) ~[spring-beans-6.2.9.jar:6.2.9]
-	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:373) ~[spring-beans-6.2.9.jar:6.2.9]
-	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:337) ~[spring-beans-6.2.9.jar:6.2.9]
-	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:202) ~[spring-beans-6.2.9.jar:6.2.9]
-	at org.springframework.beans.factory.support.BeanDefinitionValueResolver.resolveReference(BeanDefinitionValueResolver.java:365) ~[spring-beans-6.2.9.jar:6.2.9]
-	at org.springframework.beans.factory.support.BeanDefinitionValueResolver.resolveValueIfNecessary(BeanDefinitionValueResolver.java:135) ~[spring-beans-6.2.9.jar:6.2.9]
-	at org.springframework.beans.factory.support.ConstructorResolver.resolveConstructorArguments(ConstructorResolver.java:691) ~[spring-beans-6.2.9.jar:6.2.9]
-	at org.springframework.beans.factory.support.ConstructorResolver.instantiateUsingFactoryMethod(ConstructorResolver.java:513) ~[spring-beans-6.2.9.jar:6.2.9]
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateUsingFactoryMethod(AbstractAutowireCapableBeanFactory.java:1375) ~[spring-beans-6.2.9.jar:6.2.9]
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1205) ~[spring-beans-6.2.9.jar:6.2.9]
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:569) ~[spring-beans-6.2.9.jar:6.2.9]
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:529) ~[spring-beans-6.2.9.jar:6.2.9]
-	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:339) ~[spring-beans-6.2.9.jar:6.2.9]
-	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:373) ~[spring-beans-6.2.9.jar:6.2.9]
-	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:337) ~[spring-beans-6.2.9.jar:6.2.9]
-	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:202) ~[spring-beans-6.2.9.jar:6.2.9]
-	at org.springframework.beans.factory.support.BeanDefinitionValueResolver.resolveReference(BeanDefinitionValueResolver.java:365) ~[spring-beans-6.2.9.jar:6.2.9]
-	at org.springframework.beans.factory.support.BeanDefinitionValueResolver.resolveValueIfNecessary(BeanDefinitionValueResolver.java:135) ~[spring-beans-6.2.9.jar:6.2.9]
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.applyPropertyValues(AbstractAutowireCapableBeanFactory.java:1725) ~[spring-beans-6.2.9.jar:6.2.9]
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.populateBean(AbstractAutowireCapableBeanFactory.java:1474) ~[spring-beans-6.2.9.jar:6.2.9]
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:606) ~[spring-beans-6.2.9.jar:6.2.9]
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:529) ~[spring-beans-6.2.9.jar:6.2.9]
-	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:339) ~[spring-beans-6.2.9.jar:6.2.9]
-	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:373) ~[spring-beans-6.2.9.jar:6.2.9]
-	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:337) ~[spring-beans-6.2.9.jar:6.2.9]
-	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:202) ~[spring-beans-6.2.9.jar:6.2.9]
-	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1683) ~[spring-beans-6.2.9.jar:6.2.9]
-	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1628) ~[spring-beans-6.2.9.jar:6.2.9]
-	at org.springframework.beans.factory.support.ConstructorResolver.resolveAutowiredArgument(ConstructorResolver.java:913) ~[spring-beans-6.2.9.jar:6.2.9]
-	at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:791) ~[spring-beans-6.2.9.jar:6.2.9]
-	at org.springframework.beans.factory.support.ConstructorResolver.autowireConstructor(ConstructorResolver.java:240) ~[spring-beans-6.2.9.jar:6.2.9]
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.autowireConstructor(AbstractAutowireCapableBeanFactory.java:1395) ~[spring-beans-6.2.9.jar:6.2.9]
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1232) ~[spring-beans-6.2.9.jar:6.2.9]
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:569) ~[spring-beans-6.2.9.jar:6.2.9]
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:529) ~[spring-beans-6.2.9.jar:6.2.9]
-	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:339) ~[spring-beans-6.2.9.jar:6.2.9]
-	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:373) ~[spring-beans-6.2.9.jar:6.2.9]
-	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:337) ~[spring-beans-6.2.9.jar:6.2.9]
-	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:202) ~[spring-beans-6.2.9.jar:6.2.9]
-	at org.springframework.beans.factory.support.ConstructorResolver.instantiateUsingFactoryMethod(ConstructorResolver.java:413) ~[spring-beans-6.2.9.jar:6.2.9]
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateUsingFactoryMethod(AbstractAutowireCapableBeanFactory.java:1375) ~[spring-beans-6.2.9.jar:6.2.9]
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1205) ~[spring-beans-6.2.9.jar:6.2.9]
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:569) ~[spring-beans-6.2.9.jar:6.2.9]
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:529) ~[spring-beans-6.2.9.jar:6.2.9]
-	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:339) ~[spring-beans-6.2.9.jar:6.2.9]
-	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:373) ~[spring-beans-6.2.9.jar:6.2.9]
-	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:337) ~[spring-beans-6.2.9.jar:6.2.9]
-	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:202) ~[spring-beans-6.2.9.jar:6.2.9]
-	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1683) ~[spring-beans-6.2.9.jar:6.2.9]
-	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1628) ~[spring-beans-6.2.9.jar:6.2.9]
-	at org.springframework.beans.factory.support.ConstructorResolver.resolveAutowiredArgument(ConstructorResolver.java:913) ~[spring-beans-6.2.9.jar:6.2.9]
-	at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:791) ~[spring-beans-6.2.9.jar:6.2.9]
-	at org.springframework.beans.factory.support.ConstructorResolver.autowireConstructor(ConstructorResolver.java:240) ~[spring-beans-6.2.9.jar:6.2.9]
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.autowireConstructor(AbstractAutowireCapableBeanFactory.java:1395) ~[spring-beans-6.2.9.jar:6.2.9]
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1232) ~[spring-beans-6.2.9.jar:6.2.9]
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:569) ~[spring-beans-6.2.9.jar:6.2.9]
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:529) ~[spring-beans-6.2.9.jar:6.2.9]
-	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:339) ~[spring-beans-6.2.9.jar:6.2.9]
-	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:373) ~[spring-beans-6.2.9.jar:6.2.9]
-	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:337) ~[spring-beans-6.2.9.jar:6.2.9]
-	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:207) ~[spring-beans-6.2.9.jar:6.2.9]
-	at org.springframework.boot.web.servlet.ServletContextInitializerBeans.getOrderedBeansOfType(ServletContextInitializerBeans.java:230) ~[spring-boot-3.5.4.jar:3.5.4]
-	at org.springframework.boot.web.servlet.ServletContextInitializerBeans.addAsRegistrationBean(ServletContextInitializerBeans.java:184) ~[spring-boot-3.5.4.jar:3.5.4]
-	at org.springframework.boot.web.servlet.ServletContextInitializerBeans.addAsRegistrationBean(ServletContextInitializerBeans.java:179) ~[spring-boot-3.5.4.jar:3.5.4]
-	at org.springframework.boot.web.servlet.ServletContextInitializerBeans.addAdaptableBeans(ServletContextInitializerBeans.java:164) ~[spring-boot-3.5.4.jar:3.5.4]
-	at org.springframework.boot.web.servlet.ServletContextInitializerBeans.<init>(ServletContextInitializerBeans.java:96) ~[spring-boot-3.5.4.jar:3.5.4]
-	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.getServletContextInitializerBeans(ServletWebServerApplicationContext.java:271) ~[spring-boot-3.5.4.jar:3.5.4]
-	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.selfInitialize(ServletWebServerApplicationContext.java:245) ~[spring-boot-3.5.4.jar:3.5.4]
-	at org.springframework.boot.web.embedded.tomcat.TomcatStarter.onStartup(TomcatStarter.java:52) ~[spring-boot-3.5.4.jar:3.5.4]
-	at org.apache.catalina.core.StandardContext.startInternal(StandardContext.java:4464) ~[tomcat-embed-core-10.1.43.jar:10.1.43]
-	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:164) ~[tomcat-embed-core-10.1.43.jar:10.1.43]
-	at org.apache.catalina.core.ContainerBase$StartChild.call(ContainerBase.java:1203) ~[tomcat-embed-core-10.1.43.jar:10.1.43]
-	at org.apache.catalina.core.ContainerBase$StartChild.call(ContainerBase.java:1193) ~[tomcat-embed-core-10.1.43.jar:10.1.43]
-	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317) ~[na:na]
-	at org.apache.tomcat.util.threads.InlineExecutorService.execute(InlineExecutorService.java:75) ~[tomcat-embed-core-10.1.43.jar:10.1.43]
-	at java.base/java.util.concurrent.AbstractExecutorService.submit(AbstractExecutorService.java:145) ~[na:na]
-	at org.apache.catalina.core.ContainerBase.startInternal(ContainerBase.java:749) ~[tomcat-embed-core-10.1.43.jar:10.1.43]
-	at org.apache.catalina.core.StandardHost.startInternal(StandardHost.java:772) ~[tomcat-embed-core-10.1.43.jar:10.1.43]
-	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:164) ~[tomcat-embed-core-10.1.43.jar:10.1.43]
-	at org.apache.catalina.core.ContainerBase$StartChild.call(ContainerBase.java:1203) ~[tomcat-embed-core-10.1.43.jar:10.1.43]
-	at org.apache.catalina.core.ContainerBase$StartChild.call(ContainerBase.java:1193) ~[tomcat-embed-core-10.1.43.jar:10.1.43]
-	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317) ~[na:na]
-	at org.apache.tomcat.util.threads.InlineExecutorService.execute(InlineExecutorService.java:75) ~[tomcat-embed-core-10.1.43.jar:10.1.43]
-	at java.base/java.util.concurrent.AbstractExecutorService.submit(AbstractExecutorService.java:145) ~[na:na]
-	at org.apache.catalina.core.ContainerBase.startInternal(ContainerBase.java:749) ~[tomcat-embed-core-10.1.43.jar:10.1.43]
-	at org.apache.catalina.core.StandardEngine.startInternal(StandardEngine.java:203) ~[tomcat-embed-core-10.1.43.jar:10.1.43]
-	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:164) ~[tomcat-embed-core-10.1.43.jar:10.1.43]
-	at org.apache.catalina.core.StandardService.startInternal(StandardService.java:412) ~[tomcat-embed-core-10.1.43.jar:10.1.43]
-	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:164) ~[tomcat-embed-core-10.1.43.jar:10.1.43]
-	at org.apache.catalina.core.StandardServer.startInternal(StandardServer.java:870) ~[tomcat-embed-core-10.1.43.jar:10.1.43]
-	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:164) ~[tomcat-embed-core-10.1.43.jar:10.1.43]
-	at org.apache.catalina.startup.Tomcat.start(Tomcat.java:438) ~[tomcat-embed-core-10.1.43.jar:10.1.43]
-	at org.springframework.boot.web.embedded.tomcat.TomcatWebServer.initialize(TomcatWebServer.java:128) ~[spring-boot-3.5.4.jar:3.5.4]
-	at org.springframework.boot.web.embedded.tomcat.TomcatWebServer.<init>(TomcatWebServer.java:107) ~[spring-boot-3.5.4.jar:3.5.4]
-	at org.springframework.boot.web.embedded.tomcat.TomcatServletWebServerFactory.getTomcatWebServer(TomcatServletWebServerFactory.java:517) ~[spring-boot-3.5.4.jar:3.5.4]
-	at org.springframework.boot.web.embedded.tomcat.TomcatServletWebServerFactory.getWebServer(TomcatServletWebServerFactory.java:219) ~[spring-boot-3.5.4.jar:3.5.4]
-	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.createWebServer(ServletWebServerApplicationContext.java:193) ~[spring-boot-3.5.4.jar:3.5.4]
-	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.onRefresh(ServletWebServerApplicationContext.java:167) ~[spring-boot-3.5.4.jar:3.5.4]
-	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:621) ~[spring-context-6.2.9.jar:6.2.9]
-	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146) ~[spring-boot-3.5.4.jar:3.5.4]
-	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:752) ~[spring-boot-3.5.4.jar:3.5.4]
-	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:439) ~[spring-boot-3.5.4.jar:3.5.4]
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:318) ~[spring-boot-3.5.4.jar:3.5.4]
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1361) ~[spring-boot-3.5.4.jar:3.5.4]
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1350) ~[spring-boot-3.5.4.jar:3.5.4]
-	at lk.ijse.gdse72.yummygobackend.YummyGoBackEndApplication.main(YummyGoBackEndApplication.java:12) ~[classes/:na]
-Caused by: java.sql.SQLSyntaxErrorException: Incorrect column specifier for column 'item_id'
-	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:112) ~[mysql-connector-j-9.3.0.jar:9.3.0]
-	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:114) ~[mysql-connector-j-9.3.0.jar:9.3.0]
-	at com.mysql.cj.jdbc.StatementImpl.executeInternal(StatementImpl.java:837) ~[mysql-connector-j-9.3.0.jar:9.3.0]
-	at com.mysql.cj.jdbc.StatementImpl.execute(StatementImpl.java:685) ~[mysql-connector-j-9.3.0.jar:9.3.0]
-	at com.zaxxer.hikari.pool.ProxyStatement.execute(ProxyStatement.java:95) ~[HikariCP-6.3.1.jar:na]
-	at com.zaxxer.hikari.pool.HikariProxyStatement.execute(HikariProxyStatement.java) ~[HikariCP-6.3.1.jar:na]
-	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:80) ~[hibernate-core-6.6.22.Final.jar:6.6.22.Final]
-	... 130 common frames omitted
-
-2025-08-19T09:11:15.922+05:30  INFO 18016 --- [YummyGo-BackEnd] [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2025-08-19T09:11:17.485+05:30  WARN 18016 --- [YummyGo-BackEnd] [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2025-08-19T09:11:17.621+05:30  INFO 18016 --- [YummyGo-BackEnd] [main] eAuthenticationProviderManagerConfigurer : Global AuthenticationManager configured with AuthenticationProvider bean with name authenticationProvider
-2025-08-19T09:11:17.622+05:30  WARN 18016 --- [YummyGo-BackEnd] [main] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with an AuthenticationProvider bean. UserDetailsService beans will not be used by Spring Security for automatically configuring username/password login. Consider removing the AuthenticationProvider bean. Alternatively, consider using the UserDetailsService in a manually instantiated DaoAuthenticationProvider. If the current configuration is intentional, to turn off this warning, increase the logging level of 'org.springframework.security.config.annotation.authentication.configuration.InitializeUserDetailsBeanManagerConfigurer' to ERROR
-2025-08-19T09:11:18.274+05:30 DEBUG 18016 --- [YummyGo-BackEnd] [main] s.w.s.m.m.a.RequestMappingHandlerMapping : 8 mappings in 'requestMappingHandlerMapping'
-2025-08-19T09:11:18.577+05:30 DEBUG 18016 --- [YummyGo-BackEnd] [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Patterns [/webjars/**, /**, /uploads/**] in 'resourceHandlerMapping'
-2025-08-19T09:11:18.905+05:30 DEBUG 18016 --- [YummyGo-BackEnd] [main] s.w.s.m.m.a.RequestMappingHandlerAdapter : ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
-2025-08-19T09:11:19.036+05:30 DEBUG 18016 --- [YummyGo-BackEnd] [main] .m.m.a.ExceptionHandlerExceptionResolver : ControllerAdvice beans: 1 @ExceptionHandler, 1 ResponseBodyAdvice
-2025-08-19T09:11:19.655+05:30  INFO 18016 --- [YummyGo-BackEnd] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path '/'
-2025-08-19T09:11:19.673+05:30  INFO 18016 --- [YummyGo-BackEnd] [main] l.i.g.y.YummyGoBackEndApplication        : Started YummyGoBackEndApplication in 13.104 seconds (process running for 15.638)
-2025-08-19T09:12:06.567+05:30  INFO 18016 --- [YummyGo-BackEnd] [SpringApplicationShutdownHook] o.s.b.w.e.tomcat.GracefulShutdown        : Commencing graceful shutdown. Waiting for active requests to complete
-2025-08-19T09:12:06.581+05:30  INFO 18016 --- [YummyGo-BackEnd] [tomcat-shutdown] o.s.b.w.e.tomcat.GracefulShutdown        : Graceful shutdown complete
-2025-08-19T09:12:06.589+05:30  INFO 18016 --- [YummyGo-BackEnd] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
-2025-08-19T09:12:06.596+05:30  INFO 18016 --- [YummyGo-BackEnd] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
-2025-08-19T09:12:06.615+05:30  INFO 18016 --- [YummyGo-BackEnd] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
-2025-08-19T09:12:13.083+05:30  INFO 17692 --- [YummyGo-BackEnd] [main] l.i.g.y.YummyGoBackEndApplication        : Starting YummyGoBackEndApplication using Java 21.0.5 with PID 17692 (D:\Campus IJSE\Campus Documents\YummyGo-OnlineFoodDeliverySystem\YummyGo-BackEnd\target\classes started by USER in D:\Campus IJSE\Campus Documents\YummyGo-OnlineFoodDeliverySystem)
-2025-08-19T09:12:13.085+05:30  INFO 17692 --- [YummyGo-BackEnd] [main] l.i.g.y.YummyGoBackEndApplication        : No active profile set, falling back to 1 default profile: "default"
-2025-08-19T09:12:13.753+05:30  INFO 17692 --- [YummyGo-BackEnd] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2025-08-19T09:12:13.827+05:30  INFO 17692 --- [YummyGo-BackEnd] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 64 ms. Found 2 JPA repository interfaces.
-2025-08-19T09:12:14.378+05:30  INFO 17692 --- [YummyGo-BackEnd] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
-2025-08-19T09:12:14.391+05:30  INFO 17692 --- [YummyGo-BackEnd] [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2025-08-19T09:12:14.391+05:30  INFO 17692 --- [YummyGo-BackEnd] [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.43]
-2025-08-19T09:12:14.431+05:30  INFO 17692 --- [YummyGo-BackEnd] [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2025-08-19T09:12:14.431+05:30  INFO 17692 --- [YummyGo-BackEnd] [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1308 ms
-2025-08-19T09:12:14.574+05:30  INFO 17692 --- [YummyGo-BackEnd] [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
-2025-08-19T09:12:14.650+05:30  INFO 17692 --- [YummyGo-BackEnd] [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.6.22.Final
-2025-08-19T09:12:14.704+05:30  INFO 17692 --- [YummyGo-BackEnd] [main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
-2025-08-19T09:12:14.930+05:30  INFO 17692 --- [YummyGo-BackEnd] [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
-2025-08-19T09:12:14.956+05:30  INFO 17692 --- [YummyGo-BackEnd] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2025-08-19T09:12:15.701+05:30  INFO 17692 --- [YummyGo-BackEnd] [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@1ff542a3
-2025-08-19T09:12:15.703+05:30  INFO 17692 --- [YummyGo-BackEnd] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2025-08-19T09:12:15.781+05:30  WARN 17692 --- [YummyGo-BackEnd] [main] org.hibernate.orm.deprecation            : HHH90000025: MySQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
-2025-08-19T09:12:15.813+05:30  INFO 17692 --- [YummyGo-BackEnd] [main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
-	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
-	Database driver: undefined/unknown
-	Database version: 8.0.39
-	Autocommit mode: undefined/unknown
-	Isolation level: undefined/unknown
-	Minimum pool size: undefined/unknown
-	Maximum pool size: undefined/unknown
-2025-08-19T09:12:16.884+05:30  INFO 17692 --- [YummyGo-BackEnd] [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
-2025-08-19T09:12:17.157+05:30  INFO 17692 --- [YummyGo-BackEnd] [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2025-08-19T09:12:17.571+05:30  WARN 17692 --- [YummyGo-BackEnd] [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2025-08-19T09:12:17.611+05:30  INFO 17692 --- [YummyGo-BackEnd] [main] eAuthenticationProviderManagerConfigurer : Global AuthenticationManager configured with AuthenticationProvider bean with name authenticationProvider
-2025-08-19T09:12:17.611+05:30  WARN 17692 --- [YummyGo-BackEnd] [main] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with an AuthenticationProvider bean. UserDetailsService beans will not be used by Spring Security for automatically configuring username/password login. Consider removing the AuthenticationProvider bean. Alternatively, consider using the UserDetailsService in a manually instantiated DaoAuthenticationProvider. If the current configuration is intentional, to turn off this warning, increase the logging level of 'org.springframework.security.config.annotation.authentication.configuration.InitializeUserDetailsBeanManagerConfigurer' to ERROR
-2025-08-19T09:12:17.763+05:30 DEBUG 17692 --- [YummyGo-BackEnd] [main] s.w.s.m.m.a.RequestMappingHandlerMapping : 8 mappings in 'requestMappingHandlerMapping'
-2025-08-19T09:12:17.868+05:30 DEBUG 17692 --- [YummyGo-BackEnd] [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Patterns [/webjars/**, /**, /uploads/**] in 'resourceHandlerMapping'
-2025-08-19T09:12:17.962+05:30 DEBUG 17692 --- [YummyGo-BackEnd] [main] s.w.s.m.m.a.RequestMappingHandlerAdapter : ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
-2025-08-19T09:12:18.003+05:30 DEBUG 17692 --- [YummyGo-BackEnd] [main] .m.m.a.ExceptionHandlerExceptionResolver : ControllerAdvice beans: 1 @ExceptionHandler, 1 ResponseBodyAdvice
-2025-08-19T09:12:18.171+05:30  INFO 17692 --- [YummyGo-BackEnd] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path '/'
-2025-08-19T09:12:18.178+05:30  INFO 17692 --- [YummyGo-BackEnd] [main] l.i.g.y.YummyGoBackEndApplication        : Started YummyGoBackEndApplication in 5.53 seconds (process running for 6.66)
-2025-08-19T09:13:05.049+05:30  INFO 17692 --- [YummyGo-BackEnd] [http-nio-8080-exec-2] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
-2025-08-19T09:13:05.050+05:30  INFO 17692 --- [YummyGo-BackEnd] [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-2025-08-19T09:13:05.050+05:30 DEBUG 17692 --- [YummyGo-BackEnd] [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Detected StandardServletMultipartResolver
-2025-08-19T09:13:05.050+05:30 DEBUG 17692 --- [YummyGo-BackEnd] [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Detected AcceptHeaderLocaleResolver
-2025-08-19T09:13:05.050+05:30 DEBUG 17692 --- [YummyGo-BackEnd] [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Detected FixedThemeResolver
-2025-08-19T09:13:05.052+05:30 DEBUG 17692 --- [YummyGo-BackEnd] [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Detected org.springframework.web.servlet.view.DefaultRequestToViewNameTranslator@125bc00d
-2025-08-19T09:13:05.053+05:30 DEBUG 17692 --- [YummyGo-BackEnd] [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Detected org.springframework.web.servlet.support.SessionFlashMapManager@6cf34b88
-2025-08-19T09:13:05.053+05:30 DEBUG 17692 --- [YummyGo-BackEnd] [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : enableLoggingRequestDetails='false': request parameters and headers will be masked to prevent unsafe logging of potentially sensitive data
-2025-08-19T09:13:05.054+05:30  INFO 17692 --- [YummyGo-BackEnd] [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Completed initialization in 3 ms
-2025-08-19T09:13:05.119+05:30 DEBUG 17692 --- [YummyGo-BackEnd] [http-nio-8080-exec-5] o.s.web.servlet.DispatcherServlet        : POST "/api/v1/auth/login", parameters={}
-2025-08-19T09:13:05.122+05:30 DEBUG 17692 --- [YummyGo-BackEnd] [http-nio-8080-exec-5] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to lk.ijse.gdse72.yummygobackend.controller.AuthController#login(AuthDTO)
-2025-08-19T09:13:05.276+05:30 DEBUG 17692 --- [YummyGo-BackEnd] [http-nio-8080-exec-5] m.m.a.RequestResponseBodyMethodProcessor : Read "application/json;charset=UTF-8" to [AuthDTO(username=Dusan4, password=1234)]
-2025-08-19T09:13:05.963+05:30 DEBUG 17692 --- [YummyGo-BackEnd] [http-nio-8080-exec-5] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [*/*] and supported [application/json, application/*+json]
-2025-08-19T09:13:05.970+05:30 DEBUG 17692 --- [YummyGo-BackEnd] [http-nio-8080-exec-5] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [ApiResponse(code=200, status=OK, data=AuthResponseDTO(accessToken=eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJEd (truncated)...]
-2025-08-19T09:13:05.994+05:30 DEBUG 17692 --- [YummyGo-BackEnd] [http-nio-8080-exec-5] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
-2025-08-19T09:13:07.446+05:30 DEBUG 17692 --- [YummyGo-BackEnd] [http-nio-8080-exec-6] o.s.web.servlet.DispatcherServlet        : GET "/api/v1/business/getAllThisUserBusinesses?userId=1", parameters={masked}
-2025-08-19T09:13:07.447+05:30 DEBUG 17692 --- [YummyGo-BackEnd] [http-nio-8080-exec-6] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to lk.ijse.gdse72.yummygobackend.controller.BusinessController#getAllThisUserBusinesses(Long)
-2025-08-19T09:13:07.579+05:30 DEBUG 17692 --- [YummyGo-BackEnd] [http-nio-8080-exec-6] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [*/*] and supported [application/json, application/*+json]
-2025-08-19T09:13:07.581+05:30 DEBUG 17692 --- [YummyGo-BackEnd] [http-nio-8080-exec-6] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [lk.ijse.gdse72.yummygobackend.util.APIResponse@737e19b4]
-2025-08-19T09:13:07.604+05:30 DEBUG 17692 --- [YummyGo-BackEnd] [http-nio-8080-exec-6] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
-2025-08-19T09:13:07.626+05:30 DEBUG 17692 --- [YummyGo-BackEnd] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : GET "/uploads/business-logos/1755530347255_dj-with-headphones-shirt-that-says-rock-band_1125607-1934.jpg", parameters={}
-2025-08-19T09:13:07.628+05:30 DEBUG 17692 --- [YummyGo-BackEnd] [http-nio-8080-exec-1] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [URL [file:uploads/]]
-2025-08-19T09:13:07.639+05:30 DEBUG 17692 --- [YummyGo-BackEnd] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
-2025-08-19T09:14:54.842+05:30 DEBUG 17692 --- [YummyGo-BackEnd] [http-nio-8080-exec-10] o.s.web.servlet.DispatcherServlet        : POST "/api/v1/business/create", parameters={multipart}
-2025-08-19T09:14:54.976+05:30 DEBUG 17692 --- [YummyGo-BackEnd] [http-nio-8080-exec-10] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to lk.ijse.gdse72.yummygobackend.controller.BusinessController#createBusiness(String, String, String, String, String, String, String, String, String, Long, MultipartFile)
-2025-08-19T09:14:55.197+05:30 DEBUG 17692 --- [YummyGo-BackEnd] [http-nio-8080-exec-10] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [*/*] and supported [application/json, application/*+json]
-2025-08-19T09:14:55.197+05:30 DEBUG 17692 --- [YummyGo-BackEnd] [http-nio-8080-exec-10] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [lk.ijse.gdse72.yummygobackend.util.APIResponse@652a7bd]
-2025-08-19T09:14:55.208+05:30 DEBUG 17692 --- [YummyGo-BackEnd] [http-nio-8080-exec-10] o.s.web.servlet.DispatcherServlet        : Completed 201 CREATED
-2025-08-19T09:14:57.726+05:30 DEBUG 17692 --- [YummyGo-BackEnd] [http-nio-8080-exec-5] o.s.web.servlet.DispatcherServlet        : GET "/api/v1/business/getAllThisUserBusinesses?userId=1", parameters={masked}
-2025-08-19T09:14:57.734+05:30 DEBUG 17692 --- [YummyGo-BackEnd] [http-nio-8080-exec-5] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to lk.ijse.gdse72.yummygobackend.controller.BusinessController#getAllThisUserBusinesses(Long)
-2025-08-19T09:14:57.847+05:30 DEBUG 17692 --- [YummyGo-BackEnd] [http-nio-8080-exec-5] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [*/*] and supported [application/json, application/*+json]
-2025-08-19T09:14:57.847+05:30 DEBUG 17692 --- [YummyGo-BackEnd] [http-nio-8080-exec-5] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [lk.ijse.gdse72.yummygobackend.util.APIResponse@68b0b6e8]
-2025-08-19T09:14:57.860+05:30 DEBUG 17692 --- [YummyGo-BackEnd] [http-nio-8080-exec-5] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
-2025-08-19T09:14:57.879+05:30 DEBUG 17692 --- [YummyGo-BackEnd] [http-nio-8080-exec-3] o.s.web.servlet.DispatcherServlet        : GET "/uploads/business-logos/1755530347255_dj-with-headphones-shirt-that-says-rock-band_1125607-1934.jpg", parameters={}
-2025-08-19T09:14:57.880+05:30 DEBUG 17692 --- [YummyGo-BackEnd] [http-nio-8080-exec-8] o.s.web.servlet.DispatcherServlet        : GET "/uploads/business-logos/1755575094990_3916903-removebg-preview%20(1).png", parameters={}
-2025-08-19T09:14:57.881+05:30 DEBUG 17692 --- [YummyGo-BackEnd] [http-nio-8080-exec-8] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [URL [file:uploads/]]
-2025-08-19T09:14:57.881+05:30 DEBUG 17692 --- [YummyGo-BackEnd] [http-nio-8080-exec-3] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [URL [file:uploads/]]
-2025-08-19T09:14:57.892+05:30 DEBUG 17692 --- [YummyGo-BackEnd] [http-nio-8080-exec-3] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
-2025-08-19T09:14:57.894+05:30 DEBUG 17692 --- [YummyGo-BackEnd] [http-nio-8080-exec-8] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
-2025-08-19T09:15:09.285+05:30 DEBUG 17692 --- [YummyGo-BackEnd] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : GET "/api/v1/auth/roleSelector", parameters={}
-2025-08-19T09:15:09.287+05:30 DEBUG 17692 --- [YummyGo-BackEnd] [http-nio-8080-exec-1] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to lk.ijse.gdse72.yummygobackend.controller.AuthController#getRoleSelector()
-2025-08-19T09:15:09.289+05:30 DEBUG 17692 --- [YummyGo-BackEnd] [http-nio-8080-exec-1] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [*/*] and supported [application/json, application/*+json]
-2025-08-19T09:15:09.289+05:30 DEBUG 17692 --- [YummyGo-BackEnd] [http-nio-8080-exec-1] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [ApiResponse(code=200, status=ok, data=Role Selected Successfully)]
-2025-08-19T09:15:09.291+05:30 DEBUG 17692 --- [YummyGo-BackEnd] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
-2025-08-19T09:15:21.814+05:30 DEBUG 17692 --- [YummyGo-BackEnd] [http-nio-8080-exec-7] o.s.web.servlet.DispatcherServlet        : POST "/api/v1/auth/login", parameters={}
-2025-08-19T09:15:21.814+05:30 DEBUG 17692 --- [YummyGo-BackEnd] [http-nio-8080-exec-7] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to lk.ijse.gdse72.yummygobackend.controller.AuthController#login(AuthDTO)
-2025-08-19T09:15:21.815+05:30 DEBUG 17692 --- [YummyGo-BackEnd] [http-nio-8080-exec-7] m.m.a.RequestResponseBodyMethodProcessor : Read "application/json;charset=UTF-8" to [AuthDTO(username=Dusan5, password=1234)]
-2025-08-19T09:15:21.965+05:30 DEBUG 17692 --- [YummyGo-BackEnd] [http-nio-8080-exec-7] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [*/*] and supported [application/json, application/*+json]
-2025-08-19T09:15:21.966+05:30 DEBUG 17692 --- [YummyGo-BackEnd] [http-nio-8080-exec-7] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [ApiResponse(code=200, status=OK, data=AuthResponseDTO(accessToken=eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJEd (truncated)...]
-2025-08-19T09:15:21.967+05:30 DEBUG 17692 --- [YummyGo-BackEnd] [http-nio-8080-exec-7] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
-2025-08-19T09:15:23.093+05:30 DEBUG 17692 --- [YummyGo-BackEnd] [http-nio-8080-exec-4] o.s.web.servlet.DispatcherServlet        : GET "/api/v1/business/getAllThisUserBusinesses?userId=2", parameters={masked}
-2025-08-19T09:15:23.095+05:30 DEBUG 17692 --- [YummyGo-BackEnd] [http-nio-8080-exec-4] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to lk.ijse.gdse72.yummygobackend.controller.BusinessController#getAllThisUserBusinesses(Long)
-2025-08-19T09:15:23.126+05:30 DEBUG 17692 --- [YummyGo-BackEnd] [http-nio-8080-exec-4] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [*/*] and supported [application/json, application/*+json]
-2025-08-19T09:15:23.126+05:30 DEBUG 17692 --- [YummyGo-BackEnd] [http-nio-8080-exec-4] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [lk.ijse.gdse72.yummygobackend.util.APIResponse@489b9e8d]
-2025-08-19T09:15:23.129+05:30 DEBUG 17692 --- [YummyGo-BackEnd] [http-nio-8080-exec-4] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
-2025-08-19T09:15:23.140+05:30 DEBUG 17692 --- [YummyGo-BackEnd] [http-nio-8080-exec-10] o.s.web.servlet.DispatcherServlet        : GET "/uploads/business-logos/1755531387539_3916903-removebg-preview%20(1).png", parameters={}
-2025-08-19T09:15:23.145+05:30 DEBUG 17692 --- [YummyGo-BackEnd] [http-nio-8080-exec-10] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [URL [file:uploads/]]
-2025-08-19T09:15:23.154+05:30 DEBUG 17692 --- [YummyGo-BackEnd] [http-nio-8080-exec-10] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
-2025-08-19T09:15:40.714+05:30 DEBUG 17692 --- [YummyGo-BackEnd] [http-nio-8080-exec-8] o.s.web.servlet.DispatcherServlet        : GET "/api/v1/business/getAllThisUserBusinesses?userId=2", parameters={masked}
-2025-08-19T09:15:40.714+05:30 DEBUG 17692 --- [YummyGo-BackEnd] [http-nio-8080-exec-8] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to lk.ijse.gdse72.yummygobackend.controller.BusinessController#getAllThisUserBusinesses(Long)
-2025-08-19T09:15:40.729+05:30 DEBUG 17692 --- [YummyGo-BackEnd] [http-nio-8080-exec-8] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [*/*] and supported [application/json, application/*+json]
-2025-08-19T09:15:40.730+05:30 DEBUG 17692 --- [YummyGo-BackEnd] [http-nio-8080-exec-8] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [lk.ijse.gdse72.yummygobackend.util.APIResponse@7d8d9e71]
-2025-08-19T09:15:40.731+05:30 DEBUG 17692 --- [YummyGo-BackEnd] [http-nio-8080-exec-8] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
-2025-08-19T09:15:40.736+05:30 DEBUG 17692 --- [YummyGo-BackEnd] [http-nio-8080-exec-6] o.s.web.servlet.DispatcherServlet        : GET "/uploads/business-logos/1755531387539_3916903-removebg-preview%20(1).png", parameters={}
-2025-08-19T09:15:40.738+05:30 DEBUG 17692 --- [YummyGo-BackEnd] [http-nio-8080-exec-6] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [URL [file:uploads/]]
-2025-08-19T09:15:40.745+05:30 DEBUG 17692 --- [YummyGo-BackEnd] [http-nio-8080-exec-6] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
-2025-08-19T09:15:50.711+05:30 DEBUG 17692 --- [YummyGo-BackEnd] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : POST "/api/v1/auth/login", parameters={}
-2025-08-19T09:15:50.711+05:30 DEBUG 17692 --- [YummyGo-BackEnd] [http-nio-8080-exec-1] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to lk.ijse.gdse72.yummygobackend.controller.AuthController#login(AuthDTO)
-2025-08-19T09:15:50.712+05:30 DEBUG 17692 --- [YummyGo-BackEnd] [http-nio-8080-exec-1] m.m.a.RequestResponseBodyMethodProcessor : Read "application/json;charset=UTF-8" to [AuthDTO(username=Dusan4, password=1234)]
-2025-08-19T09:15:50.865+05:30 DEBUG 17692 --- [YummyGo-BackEnd] [http-nio-8080-exec-1] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [*/*] and supported [application/json, application/*+json]
-2025-08-19T09:15:50.865+05:30 DEBUG 17692 --- [YummyGo-BackEnd] [http-nio-8080-exec-1] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [ApiResponse(code=200, status=OK, data=AuthResponseDTO(accessToken=eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJEd (truncated)...]
-2025-08-19T09:15:50.867+05:30 DEBUG 17692 --- [YummyGo-BackEnd] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
-2025-08-19T09:15:51.968+05:30 DEBUG 17692 --- [YummyGo-BackEnd] [http-nio-8080-exec-7] o.s.web.servlet.DispatcherServlet        : GET "/api/v1/business/getAllThisUserBusinesses?userId=1", parameters={masked}
-2025-08-19T09:15:51.969+05:30 DEBUG 17692 --- [YummyGo-BackEnd] [http-nio-8080-exec-7] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to lk.ijse.gdse72.yummygobackend.controller.BusinessController#getAllThisUserBusinesses(Long)
-2025-08-19T09:15:51.996+05:30 DEBUG 17692 --- [YummyGo-BackEnd] [http-nio-8080-exec-7] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [*/*] and supported [application/json, application/*+json]
-2025-08-19T09:15:51.997+05:30 DEBUG 17692 --- [YummyGo-BackEnd] [http-nio-8080-exec-7] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [lk.ijse.gdse72.yummygobackend.util.APIResponse@39f67029]
-2025-08-19T09:15:52.001+05:30 DEBUG 17692 --- [YummyGo-BackEnd] [http-nio-8080-exec-7] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
-2025-08-19T09:15:52.014+05:30 DEBUG 17692 --- [YummyGo-BackEnd] [http-nio-8080-exec-9] o.s.web.servlet.DispatcherServlet        : GET "/uploads/business-logos/1755530347255_dj-with-headphones-shirt-that-says-rock-band_1125607-1934.jpg", parameters={}
-2025-08-19T09:15:52.014+05:30 DEBUG 17692 --- [YummyGo-BackEnd] [http-nio-8080-exec-4] o.s.web.servlet.DispatcherServlet        : GET "/uploads/business-logos/1755575094990_3916903-removebg-preview%20(1).png", parameters={}
-2025-08-19T09:15:52.016+05:30 DEBUG 17692 --- [YummyGo-BackEnd] [http-nio-8080-exec-4] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [URL [file:uploads/]]
-2025-08-19T09:15:52.017+05:30 DEBUG 17692 --- [YummyGo-BackEnd] [http-nio-8080-exec-9] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [URL [file:uploads/]]
-2025-08-19T09:15:52.024+05:30 DEBUG 17692 --- [YummyGo-BackEnd] [http-nio-8080-exec-9] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
-2025-08-19T09:15:52.026+05:30 DEBUG 17692 --- [YummyGo-BackEnd] [http-nio-8080-exec-4] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
-2025-08-19T09:16:42.837+05:30  INFO 17692 --- [YummyGo-BackEnd] [SpringApplicationShutdownHook] o.s.b.w.e.tomcat.GracefulShutdown        : Commencing graceful shutdown. Waiting for active requests to complete
-2025-08-19T09:16:42.853+05:30  INFO 17692 --- [YummyGo-BackEnd] [tomcat-shutdown] o.s.b.w.e.tomcat.GracefulShutdown        : Graceful shutdown complete
-2025-08-19T09:16:42.870+05:30  INFO 17692 --- [YummyGo-BackEnd] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
-2025-08-19T09:16:42.879+05:30  INFO 17692 --- [YummyGo-BackEnd] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
-2025-08-19T09:16:42.907+05:30  INFO 17692 --- [YummyGo-BackEnd] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2025-08-23T03:21:12.528+05:30  INFO 13244 --- [YummyGo-BackEnd] [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-08-23T03:21:12.739+05:30  INFO 13244 --- [YummyGo-BackEnd] [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-08-23T03:21:13.161+05:30  INFO 13244 --- [YummyGo-BackEnd] [main] o.s.d.j.r.query.QueryEnhancerFactory     : Hibernate is in classpath; If applicable, HQL parser will be used.
+2025-08-23T03:21:13.650+05:30  WARN 13244 --- [YummyGo-BackEnd] [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-08-23T03:21:13.687+05:30  INFO 13244 --- [YummyGo-BackEnd] [main] eAuthenticationProviderManagerConfigurer : Global AuthenticationManager configured with AuthenticationProvider bean with name authenticationProvider
+2025-08-23T03:21:13.688+05:30  WARN 13244 --- [YummyGo-BackEnd] [main] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with an AuthenticationProvider bean. UserDetailsService beans will not be used by Spring Security for automatically configuring username/password login. Consider removing the AuthenticationProvider bean. Alternatively, consider using the UserDetailsService in a manually instantiated DaoAuthenticationProvider. If the current configuration is intentional, to turn off this warning, increase the logging level of 'org.springframework.security.config.annotation.authentication.configuration.InitializeUserDetailsBeanManagerConfigurer' to ERROR
+2025-08-23T03:21:13.833+05:30 DEBUG 13244 --- [YummyGo-BackEnd] [main] s.w.s.m.m.a.RequestMappingHandlerMapping : 14 mappings in 'requestMappingHandlerMapping'
+2025-08-23T03:21:13.939+05:30 DEBUG 13244 --- [YummyGo-BackEnd] [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Patterns [/webjars/**, /**, /uploads/**] in 'resourceHandlerMapping'
+2025-08-23T03:21:14.035+05:30 DEBUG 13244 --- [YummyGo-BackEnd] [main] s.w.s.m.m.a.RequestMappingHandlerAdapter : ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
+2025-08-23T03:21:14.086+05:30 DEBUG 13244 --- [YummyGo-BackEnd] [main] .m.m.a.ExceptionHandlerExceptionResolver : ControllerAdvice beans: 1 @ExceptionHandler, 1 ResponseBodyAdvice
+2025-08-23T03:21:14.255+05:30  INFO 13244 --- [YummyGo-BackEnd] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path '/'
+2025-08-23T03:21:14.263+05:30  INFO 13244 --- [YummyGo-BackEnd] [main] l.i.g.y.YummyGoBackEndApplication        : Started YummyGoBackEndApplication in 7.278 seconds (process running for 11.798)
+2025-08-23T03:21:46.403+05:30  INFO 13244 --- [YummyGo-BackEnd] [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-08-23T03:21:46.405+05:30  INFO 13244 --- [YummyGo-BackEnd] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2025-08-23T03:21:46.405+05:30 DEBUG 13244 --- [YummyGo-BackEnd] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Detected StandardServletMultipartResolver
+2025-08-23T03:21:46.405+05:30 DEBUG 13244 --- [YummyGo-BackEnd] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Detected AcceptHeaderLocaleResolver
+2025-08-23T03:21:46.405+05:30 DEBUG 13244 --- [YummyGo-BackEnd] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Detected FixedThemeResolver
+2025-08-23T03:21:46.407+05:30 DEBUG 13244 --- [YummyGo-BackEnd] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Detected org.springframework.web.servlet.view.DefaultRequestToViewNameTranslator@3bc57af4
+2025-08-23T03:21:46.408+05:30 DEBUG 13244 --- [YummyGo-BackEnd] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Detected org.springframework.web.servlet.support.SessionFlashMapManager@72b8b04f
+2025-08-23T03:21:46.408+05:30 DEBUG 13244 --- [YummyGo-BackEnd] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : enableLoggingRequestDetails='false': request parameters and headers will be masked to prevent unsafe logging of potentially sensitive data
+2025-08-23T03:21:46.408+05:30  INFO 13244 --- [YummyGo-BackEnd] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 3 ms
+2025-08-23T03:21:46.493+05:30 DEBUG 13244 --- [YummyGo-BackEnd] [http-nio-8080-exec-3] o.s.web.servlet.DispatcherServlet        : POST "/api/v1/auth/login", parameters={}
+2025-08-23T03:21:46.497+05:30 DEBUG 13244 --- [YummyGo-BackEnd] [http-nio-8080-exec-3] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to lk.ijse.gdse72.yummygobackend.controller.AuthController#login(AuthDTO)
+2025-08-23T03:21:46.647+05:30 DEBUG 13244 --- [YummyGo-BackEnd] [http-nio-8080-exec-3] m.m.a.RequestResponseBodyMethodProcessor : Read "application/json;charset=UTF-8" to [AuthDTO(username=Dusan4, password=1234)]
+2025-08-23T03:21:47.208+05:30 DEBUG 13244 --- [YummyGo-BackEnd] [http-nio-8080-exec-3] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [*/*] and supported [application/json, application/*+json]
+2025-08-23T03:21:47.214+05:30 DEBUG 13244 --- [YummyGo-BackEnd] [http-nio-8080-exec-3] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [ApiResponse(code=200, status=OK, data=AuthResponseDTO(accessToken=eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJEd (truncated)...]
+2025-08-23T03:21:47.230+05:30 DEBUG 13244 --- [YummyGo-BackEnd] [http-nio-8080-exec-3] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2025-08-23T03:21:48.540+05:30 DEBUG 13244 --- [YummyGo-BackEnd] [http-nio-8080-exec-4] o.s.web.servlet.DispatcherServlet        : GET "/api/v1/business/getAllThisUserBusinesses?userId=1", parameters={masked}
+2025-08-23T03:21:48.541+05:30 DEBUG 13244 --- [YummyGo-BackEnd] [http-nio-8080-exec-4] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to lk.ijse.gdse72.yummygobackend.controller.BusinessController#getAllThisUserBusinesses(Long)
+2025-08-23T03:21:48.712+05:30 DEBUG 13244 --- [YummyGo-BackEnd] [http-nio-8080-exec-4] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [*/*] and supported [application/json, application/*+json]
+2025-08-23T03:21:48.712+05:30 DEBUG 13244 --- [YummyGo-BackEnd] [http-nio-8080-exec-4] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [lk.ijse.gdse72.yummygobackend.util.APIResponse@58a6cb57]
+2025-08-23T03:21:48.735+05:30 DEBUG 13244 --- [YummyGo-BackEnd] [http-nio-8080-exec-4] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2025-08-23T03:21:48.755+05:30 DEBUG 13244 --- [YummyGo-BackEnd] [http-nio-8080-exec-8] o.s.web.servlet.DispatcherServlet        : GET "/uploads/business-logos/1755575094990_3916903-removebg-preview%20(1).png", parameters={}
+2025-08-23T03:21:48.755+05:30 DEBUG 13244 --- [YummyGo-BackEnd] [http-nio-8080-exec-5] o.s.web.servlet.DispatcherServlet        : GET "/uploads/business-logos/1755530347255_dj-with-headphones-shirt-that-says-rock-band_1125607-1934.jpg", parameters={}
+2025-08-23T03:21:48.757+05:30 DEBUG 13244 --- [YummyGo-BackEnd] [http-nio-8080-exec-8] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [URL [file:uploads/]]
+2025-08-23T03:21:48.757+05:30 DEBUG 13244 --- [YummyGo-BackEnd] [http-nio-8080-exec-5] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [URL [file:uploads/]]
+2025-08-23T03:21:48.769+05:30 DEBUG 13244 --- [YummyGo-BackEnd] [http-nio-8080-exec-5] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2025-08-23T03:21:48.774+05:30 DEBUG 13244 --- [YummyGo-BackEnd] [http-nio-8080-exec-8] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2025-08-23T03:21:55.116+05:30 DEBUG 13244 --- [YummyGo-BackEnd] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : GET "/api/v1/item/getAllThisBusinessItems/1", parameters={}
+2025-08-23T03:21:55.117+05:30 DEBUG 13244 --- [YummyGo-BackEnd] [http-nio-8080-exec-1] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to lk.ijse.gdse72.yummygobackend.controller.ItemController#getItemsByBusinessId(Long)
+2025-08-23T03:21:55.170+05:30 DEBUG 13244 --- [YummyGo-BackEnd] [http-nio-8080-exec-1] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [*/*] and supported [application/json, application/*+json]
+2025-08-23T03:21:55.171+05:30 DEBUG 13244 --- [YummyGo-BackEnd] [http-nio-8080-exec-1] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [lk.ijse.gdse72.yummygobackend.util.APIResponse@5b7d1be5]
+2025-08-23T03:21:55.176+05:30 DEBUG 13244 --- [YummyGo-BackEnd] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2025-08-23T03:21:55.187+05:30 DEBUG 13244 --- [YummyGo-BackEnd] [http-nio-8080-exec-3] o.s.web.servlet.DispatcherServlet        : GET "/uploads/item-images/1755770121708_chocolatecake_800x.webp", parameters={}
+2025-08-23T03:21:55.188+05:30 DEBUG 13244 --- [YummyGo-BackEnd] [http-nio-8080-exec-3] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [URL [file:uploads/]]
+2025-08-23T03:21:55.196+05:30 DEBUG 13244 --- [YummyGo-BackEnd] [http-nio-8080-exec-3] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2025-08-23T03:22:03.446+05:30 DEBUG 13244 --- [YummyGo-BackEnd] [http-nio-8080-exec-5] o.s.web.servlet.DispatcherServlet        : GET "/api/v1/business/getAllThisUserBusinesses?userId=1", parameters={masked}
+2025-08-23T03:22:03.447+05:30 DEBUG 13244 --- [YummyGo-BackEnd] [http-nio-8080-exec-5] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to lk.ijse.gdse72.yummygobackend.controller.BusinessController#getAllThisUserBusinesses(Long)
+2025-08-23T03:22:03.467+05:30 DEBUG 13244 --- [YummyGo-BackEnd] [http-nio-8080-exec-5] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [*/*] and supported [application/json, application/*+json]
+2025-08-23T03:22:03.468+05:30 DEBUG 13244 --- [YummyGo-BackEnd] [http-nio-8080-exec-5] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [lk.ijse.gdse72.yummygobackend.util.APIResponse@36b99d32]
+2025-08-23T03:22:03.470+05:30 DEBUG 13244 --- [YummyGo-BackEnd] [http-nio-8080-exec-5] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2025-08-23T03:22:03.477+05:30 DEBUG 13244 --- [YummyGo-BackEnd] [http-nio-8080-exec-8] o.s.web.servlet.DispatcherServlet        : GET "/uploads/business-logos/1755530347255_dj-with-headphones-shirt-that-says-rock-band_1125607-1934.jpg", parameters={}
+2025-08-23T03:22:03.477+05:30 DEBUG 13244 --- [YummyGo-BackEnd] [http-nio-8080-exec-7] o.s.web.servlet.DispatcherServlet        : GET "/uploads/business-logos/1755575094990_3916903-removebg-preview%20(1).png", parameters={}
+2025-08-23T03:22:03.478+05:30 DEBUG 13244 --- [YummyGo-BackEnd] [http-nio-8080-exec-8] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [URL [file:uploads/]]
+2025-08-23T03:22:03.478+05:30 DEBUG 13244 --- [YummyGo-BackEnd] [http-nio-8080-exec-7] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [URL [file:uploads/]]
+2025-08-23T03:22:03.482+05:30 DEBUG 13244 --- [YummyGo-BackEnd] [http-nio-8080-exec-8] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2025-08-23T03:22:03.486+05:30 DEBUG 13244 --- [YummyGo-BackEnd] [http-nio-8080-exec-7] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2025-08-23T03:22:06.851+05:30 DEBUG 13244 --- [YummyGo-BackEnd] [http-nio-8080-exec-6] o.s.web.servlet.DispatcherServlet        : GET "/api/v1/item/getAllThisBusinessItems/3", parameters={}
+2025-08-23T03:22:06.852+05:30 DEBUG 13244 --- [YummyGo-BackEnd] [http-nio-8080-exec-6] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to lk.ijse.gdse72.yummygobackend.controller.ItemController#getItemsByBusinessId(Long)
+2025-08-23T03:22:06.886+05:30 DEBUG 13244 --- [YummyGo-BackEnd] [http-nio-8080-exec-6] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [*/*] and supported [application/json, application/*+json]
+2025-08-23T03:22:06.886+05:30 DEBUG 13244 --- [YummyGo-BackEnd] [http-nio-8080-exec-6] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [lk.ijse.gdse72.yummygobackend.util.APIResponse@1fbbed4b]
+2025-08-23T03:22:06.887+05:30 DEBUG 13244 --- [YummyGo-BackEnd] [http-nio-8080-exec-6] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2025-08-23T03:23:28.902+05:30 DEBUG 13244 --- [YummyGo-BackEnd] [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : GET "/api/v1/business/getAllThisUserBusinesses?userId=1", parameters={masked}
+2025-08-23T03:23:28.903+05:30 DEBUG 13244 --- [YummyGo-BackEnd] [http-nio-8080-exec-2] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to lk.ijse.gdse72.yummygobackend.controller.BusinessController#getAllThisUserBusinesses(Long)
+2025-08-23T03:23:28.929+05:30 DEBUG 13244 --- [YummyGo-BackEnd] [http-nio-8080-exec-2] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [*/*] and supported [application/json, application/*+json]
+2025-08-23T03:23:28.929+05:30 DEBUG 13244 --- [YummyGo-BackEnd] [http-nio-8080-exec-2] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [lk.ijse.gdse72.yummygobackend.util.APIResponse@71711ed1]
+2025-08-23T03:23:28.929+05:30 DEBUG 13244 --- [YummyGo-BackEnd] [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2025-08-23T03:23:28.941+05:30 DEBUG 13244 --- [YummyGo-BackEnd] [http-nio-8080-exec-4] o.s.web.servlet.DispatcherServlet        : GET "/uploads/business-logos/1755530347255_dj-with-headphones-shirt-that-says-rock-band_1125607-1934.jpg", parameters={}
+2025-08-23T03:23:28.941+05:30 DEBUG 13244 --- [YummyGo-BackEnd] [http-nio-8080-exec-5] o.s.web.servlet.DispatcherServlet        : GET "/uploads/business-logos/1755575094990_3916903-removebg-preview%20(1).png", parameters={}
+2025-08-23T03:23:28.948+05:30 DEBUG 13244 --- [YummyGo-BackEnd] [http-nio-8080-exec-5] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [URL [file:uploads/]]
+2025-08-23T03:23:28.948+05:30 DEBUG 13244 --- [YummyGo-BackEnd] [http-nio-8080-exec-4] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [URL [file:uploads/]]
+2025-08-23T03:23:28.949+05:30 DEBUG 13244 --- [YummyGo-BackEnd] [http-nio-8080-exec-4] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2025-08-23T03:23:28.949+05:30 DEBUG 13244 --- [YummyGo-BackEnd] [http-nio-8080-exec-5] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2025-08-23T03:23:30.348+05:30 DEBUG 13244 --- [YummyGo-BackEnd] [http-nio-8080-exec-6] o.s.web.servlet.DispatcherServlet        : GET "/api/v1/item/getAllThisBusinessItems/1", parameters={}
+2025-08-23T03:23:30.351+05:30 DEBUG 13244 --- [YummyGo-BackEnd] [http-nio-8080-exec-6] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to lk.ijse.gdse72.yummygobackend.controller.ItemController#getItemsByBusinessId(Long)
+2025-08-23T03:23:30.367+05:30 DEBUG 13244 --- [YummyGo-BackEnd] [http-nio-8080-exec-6] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [*/*] and supported [application/json, application/*+json]
+2025-08-23T03:23:30.367+05:30 DEBUG 13244 --- [YummyGo-BackEnd] [http-nio-8080-exec-6] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [lk.ijse.gdse72.yummygobackend.util.APIResponse@620fa4b4]
+2025-08-23T03:23:30.369+05:30 DEBUG 13244 --- [YummyGo-BackEnd] [http-nio-8080-exec-6] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2025-08-23T03:23:30.380+05:30 DEBUG 13244 --- [YummyGo-BackEnd] [http-nio-8080-exec-10] o.s.web.servlet.DispatcherServlet        : GET "/uploads/item-images/1755770121708_chocolatecake_800x.webp", parameters={}
+2025-08-23T03:23:30.382+05:30 DEBUG 13244 --- [YummyGo-BackEnd] [http-nio-8080-exec-10] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [URL [file:uploads/]]
+2025-08-23T03:23:30.388+05:30 DEBUG 13244 --- [YummyGo-BackEnd] [http-nio-8080-exec-10] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2025-08-23T03:24:14.588+05:30 DEBUG 13244 --- [YummyGo-BackEnd] [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : GET "/api/v1/item/getAllThisBusinessItems/1", parameters={}
+2025-08-23T03:24:14.589+05:30 DEBUG 13244 --- [YummyGo-BackEnd] [http-nio-8080-exec-2] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to lk.ijse.gdse72.yummygobackend.controller.ItemController#getItemsByBusinessId(Long)
+2025-08-23T03:24:14.599+05:30 DEBUG 13244 --- [YummyGo-BackEnd] [http-nio-8080-exec-2] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [*/*] and supported [application/json, application/*+json]
+2025-08-23T03:24:14.599+05:30 DEBUG 13244 --- [YummyGo-BackEnd] [http-nio-8080-exec-2] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [lk.ijse.gdse72.yummygobackend.util.APIResponse@19c26e20]
+2025-08-23T03:24:14.603+05:30 DEBUG 13244 --- [YummyGo-BackEnd] [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2025-08-23T03:24:14.617+05:30 DEBUG 13244 --- [YummyGo-BackEnd] [http-nio-8080-exec-4] o.s.web.servlet.DispatcherServlet        : GET "/uploads/item-images/1755770121708_chocolatecake_800x.webp", parameters={}
+2025-08-23T03:24:14.618+05:30 DEBUG 13244 --- [YummyGo-BackEnd] [http-nio-8080-exec-4] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [URL [file:uploads/]]
+2025-08-23T03:24:14.621+05:30 DEBUG 13244 --- [YummyGo-BackEnd] [http-nio-8080-exec-4] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2025-08-23T03:24:15.949+05:30 DEBUG 13244 --- [YummyGo-BackEnd] [http-nio-8080-exec-5] o.s.web.servlet.DispatcherServlet        : GET "/api/v1/item/getAllThisBusinessItems/1", parameters={}
+2025-08-23T03:24:15.949+05:30 DEBUG 13244 --- [YummyGo-BackEnd] [http-nio-8080-exec-5] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to lk.ijse.gdse72.yummygobackend.controller.ItemController#getItemsByBusinessId(Long)
+2025-08-23T03:24:15.959+05:30 DEBUG 13244 --- [YummyGo-BackEnd] [http-nio-8080-exec-5] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [*/*] and supported [application/json, application/*+json]
+2025-08-23T03:24:15.959+05:30 DEBUG 13244 --- [YummyGo-BackEnd] [http-nio-8080-exec-5] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [lk.ijse.gdse72.yummygobackend.util.APIResponse@3e337595]
+2025-08-23T03:24:15.969+05:30 DEBUG 13244 --- [YummyGo-BackEnd] [http-nio-8080-exec-5] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2025-08-23T03:24:15.978+05:30 DEBUG 13244 --- [YummyGo-BackEnd] [http-nio-8080-exec-7] o.s.web.servlet.DispatcherServlet        : GET "/uploads/item-images/1755770121708_chocolatecake_800x.webp", parameters={}
+2025-08-23T03:24:15.979+05:30 DEBUG 13244 --- [YummyGo-BackEnd] [http-nio-8080-exec-7] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [URL [file:uploads/]]
+2025-08-23T03:24:15.979+05:30 DEBUG 13244 --- [YummyGo-BackEnd] [http-nio-8080-exec-7] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2025-08-23T03:24:30.318+05:30 DEBUG 13244 --- [YummyGo-BackEnd] [http-nio-8080-exec-6] o.s.web.servlet.DispatcherServlet        : GET "/api/v1/item/getAllThisBusinessItems/1", parameters={}
+2025-08-23T03:24:30.319+05:30 DEBUG 13244 --- [YummyGo-BackEnd] [http-nio-8080-exec-6] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to lk.ijse.gdse72.yummygobackend.controller.ItemController#getItemsByBusinessId(Long)
+2025-08-23T03:24:30.329+05:30 DEBUG 13244 --- [YummyGo-BackEnd] [http-nio-8080-exec-6] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [*/*] and supported [application/json, application/*+json]
+2025-08-23T03:24:30.329+05:30 DEBUG 13244 --- [YummyGo-BackEnd] [http-nio-8080-exec-6] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [lk.ijse.gdse72.yummygobackend.util.APIResponse@74072d7c]
+2025-08-23T03:24:30.329+05:30 DEBUG 13244 --- [YummyGo-BackEnd] [http-nio-8080-exec-6] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2025-08-23T03:24:30.348+05:30 DEBUG 13244 --- [YummyGo-BackEnd] [http-nio-8080-exec-10] o.s.web.servlet.DispatcherServlet        : GET "/uploads/item-images/1755770121708_chocolatecake_800x.webp", parameters={}
+2025-08-23T03:24:30.349+05:30 DEBUG 13244 --- [YummyGo-BackEnd] [http-nio-8080-exec-10] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [URL [file:uploads/]]
+2025-08-23T03:24:30.349+05:30 DEBUG 13244 --- [YummyGo-BackEnd] [http-nio-8080-exec-10] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2025-08-23T03:24:33.309+05:30 DEBUG 13244 --- [YummyGo-BackEnd] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : GET "/api/v1/item/getAllThisBusinessItems/1", parameters={}
+2025-08-23T03:24:33.309+05:30 DEBUG 13244 --- [YummyGo-BackEnd] [http-nio-8080-exec-1] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to lk.ijse.gdse72.yummygobackend.controller.ItemController#getItemsByBusinessId(Long)
+2025-08-23T03:24:33.323+05:30 DEBUG 13244 --- [YummyGo-BackEnd] [http-nio-8080-exec-1] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [*/*] and supported [application/json, application/*+json]
+2025-08-23T03:24:33.324+05:30 DEBUG 13244 --- [YummyGo-BackEnd] [http-nio-8080-exec-1] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [lk.ijse.gdse72.yummygobackend.util.APIResponse@1f523897]
+2025-08-23T03:24:33.324+05:30 DEBUG 13244 --- [YummyGo-BackEnd] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2025-08-23T03:24:33.328+05:30 DEBUG 13244 --- [YummyGo-BackEnd] [http-nio-8080-exec-3] o.s.web.servlet.DispatcherServlet        : GET "/uploads/item-images/1755770121708_chocolatecake_800x.webp", parameters={}
+2025-08-23T03:24:33.328+05:30 DEBUG 13244 --- [YummyGo-BackEnd] [http-nio-8080-exec-3] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [URL [file:uploads/]]
+2025-08-23T03:24:33.338+05:30 DEBUG 13244 --- [YummyGo-BackEnd] [http-nio-8080-exec-3] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2025-08-23T03:24:48.640+05:30 DEBUG 13244 --- [YummyGo-BackEnd] [http-nio-8080-exec-7] o.s.web.servlet.DispatcherServlet        : PUT "/api/v1/item/toggleAvailability/1", parameters={}
+2025-08-23T03:24:48.640+05:30 DEBUG 13244 --- [YummyGo-BackEnd] [http-nio-8080-exec-7] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to lk.ijse.gdse72.yummygobackend.controller.ItemController#toggleAvailability(Long)
+2025-08-23T03:24:49.063+05:30 DEBUG 13244 --- [YummyGo-BackEnd] [http-nio-8080-exec-7] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [*/*] and supported [application/json, application/*+json]
+2025-08-23T03:24:49.063+05:30 DEBUG 13244 --- [YummyGo-BackEnd] [http-nio-8080-exec-7] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [lk.ijse.gdse72.yummygobackend.util.APIResponse@7380433]
+2025-08-23T03:24:49.067+05:30 DEBUG 13244 --- [YummyGo-BackEnd] [http-nio-8080-exec-7] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2025-08-23T03:24:51.794+05:30 DEBUG 13244 --- [YummyGo-BackEnd] [http-nio-8080-exec-8] o.s.web.servlet.DispatcherServlet        : PUT "/api/v1/item/toggleAvailability/1", parameters={}
+2025-08-23T03:24:51.794+05:30 DEBUG 13244 --- [YummyGo-BackEnd] [http-nio-8080-exec-8] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to lk.ijse.gdse72.yummygobackend.controller.ItemController#toggleAvailability(Long)
+2025-08-23T03:24:51.809+05:30 DEBUG 13244 --- [YummyGo-BackEnd] [http-nio-8080-exec-8] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [*/*] and supported [application/json, application/*+json]
+2025-08-23T03:24:51.809+05:30 DEBUG 13244 --- [YummyGo-BackEnd] [http-nio-8080-exec-8] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [lk.ijse.gdse72.yummygobackend.util.APIResponse@60851614]
+2025-08-23T03:24:51.809+05:30 DEBUG 13244 --- [YummyGo-BackEnd] [http-nio-8080-exec-8] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2025-08-23T03:24:56.599+05:30 DEBUG 13244 --- [YummyGo-BackEnd] [http-nio-8080-exec-6] o.s.web.servlet.DispatcherServlet        : PUT "/api/v1/item/toggleAvailability/1", parameters={}
+2025-08-23T03:24:56.599+05:30 DEBUG 13244 --- [YummyGo-BackEnd] [http-nio-8080-exec-6] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to lk.ijse.gdse72.yummygobackend.controller.ItemController#toggleAvailability(Long)
+2025-08-23T03:24:56.623+05:30 DEBUG 13244 --- [YummyGo-BackEnd] [http-nio-8080-exec-6] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [*/*] and supported [application/json, application/*+json]
+2025-08-23T03:24:56.623+05:30 DEBUG 13244 --- [YummyGo-BackEnd] [http-nio-8080-exec-6] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [lk.ijse.gdse72.yummygobackend.util.APIResponse@6c00d3f2]
+2025-08-23T03:24:56.623+05:30 DEBUG 13244 --- [YummyGo-BackEnd] [http-nio-8080-exec-6] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2025-08-23T03:25:56.377+05:30 DEBUG 13244 --- [YummyGo-BackEnd] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : PUT "/api/v1/item/toggleAvailability/1", parameters={}
+2025-08-23T03:25:56.377+05:30 DEBUG 13244 --- [YummyGo-BackEnd] [http-nio-8080-exec-1] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to lk.ijse.gdse72.yummygobackend.controller.ItemController#toggleAvailability(Long)
+2025-08-23T03:25:56.406+05:30 DEBUG 13244 --- [YummyGo-BackEnd] [http-nio-8080-exec-1] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [*/*] and supported [application/json, application/*+json]
+2025-08-23T03:25:56.406+05:30 DEBUG 13244 --- [YummyGo-BackEnd] [http-nio-8080-exec-1] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [lk.ijse.gdse72.yummygobackend.util.APIResponse@72fdb0b8]
+2025-08-23T03:25:56.406+05:30 DEBUG 13244 --- [YummyGo-BackEnd] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2025-08-23T03:26:13.335+05:30 DEBUG 13244 --- [YummyGo-BackEnd] [http-nio-8080-exec-4] o.s.web.servlet.DispatcherServlet        : GET "/api/v1/business/getAllThisUserBusinesses?userId=1", parameters={masked}
+2025-08-23T03:26:13.337+05:30 DEBUG 13244 --- [YummyGo-BackEnd] [http-nio-8080-exec-4] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to lk.ijse.gdse72.yummygobackend.controller.BusinessController#getAllThisUserBusinesses(Long)
+2025-08-23T03:26:13.371+05:30 DEBUG 13244 --- [YummyGo-BackEnd] [http-nio-8080-exec-4] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [*/*] and supported [application/json, application/*+json]
+2025-08-23T03:26:13.371+05:30 DEBUG 13244 --- [YummyGo-BackEnd] [http-nio-8080-exec-4] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [lk.ijse.gdse72.yummygobackend.util.APIResponse@5d791d0e]
+2025-08-23T03:26:13.371+05:30 DEBUG 13244 --- [YummyGo-BackEnd] [http-nio-8080-exec-4] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2025-08-23T03:26:13.386+05:30 DEBUG 13244 --- [YummyGo-BackEnd] [http-nio-8080-exec-5] o.s.web.servlet.DispatcherServlet        : GET "/uploads/business-logos/1755575094990_3916903-removebg-preview%20(1).png", parameters={}
+2025-08-23T03:26:13.387+05:30 DEBUG 13244 --- [YummyGo-BackEnd] [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : GET "/uploads/business-logos/1755530347255_dj-with-headphones-shirt-that-says-rock-band_1125607-1934.jpg", parameters={}
+2025-08-23T03:26:13.388+05:30 DEBUG 13244 --- [YummyGo-BackEnd] [http-nio-8080-exec-5] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [URL [file:uploads/]]
+2025-08-23T03:26:13.388+05:30 DEBUG 13244 --- [YummyGo-BackEnd] [http-nio-8080-exec-2] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [URL [file:uploads/]]
+2025-08-23T03:26:13.400+05:30 DEBUG 13244 --- [YummyGo-BackEnd] [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2025-08-23T03:26:13.401+05:30 DEBUG 13244 --- [YummyGo-BackEnd] [http-nio-8080-exec-5] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2025-08-23T03:26:30.950+05:30 DEBUG 13244 --- [YummyGo-BackEnd] [http-nio-8080-exec-6] o.s.web.servlet.DispatcherServlet        : GET "/api/v1/item/getAllThisBusinessItems/1", parameters={}
+2025-08-23T03:26:30.952+05:30 DEBUG 13244 --- [YummyGo-BackEnd] [http-nio-8080-exec-6] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to lk.ijse.gdse72.yummygobackend.controller.ItemController#getItemsByBusinessId(Long)
+2025-08-23T03:26:30.968+05:30 DEBUG 13244 --- [YummyGo-BackEnd] [http-nio-8080-exec-6] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [*/*] and supported [application/json, application/*+json]
+2025-08-23T03:26:30.969+05:30 DEBUG 13244 --- [YummyGo-BackEnd] [http-nio-8080-exec-6] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [lk.ijse.gdse72.yummygobackend.util.APIResponse@337e2dda]
+2025-08-23T03:26:30.971+05:30 DEBUG 13244 --- [YummyGo-BackEnd] [http-nio-8080-exec-6] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2025-08-23T03:26:30.983+05:30 DEBUG 13244 --- [YummyGo-BackEnd] [http-nio-8080-exec-10] o.s.web.servlet.DispatcherServlet        : GET "/uploads/item-images/1755770121708_chocolatecake_800x.webp", parameters={}
+2025-08-23T03:26:30.988+05:30 DEBUG 13244 --- [YummyGo-BackEnd] [http-nio-8080-exec-10] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [URL [file:uploads/]]
+2025-08-23T03:26:30.999+05:30 DEBUG 13244 --- [YummyGo-BackEnd] [http-nio-8080-exec-10] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2025-08-23T03:27:08.557+05:30 DEBUG 13244 --- [YummyGo-BackEnd] [http-nio-8080-exec-4] o.s.web.servlet.DispatcherServlet        : GET "/uploads/item-images/1755770121708_chocolatecake_800x.webp", parameters={}
+2025-08-23T03:27:08.557+05:30 DEBUG 13244 --- [YummyGo-BackEnd] [http-nio-8080-exec-4] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [URL [file:uploads/]]
+2025-08-23T03:27:08.561+05:30 DEBUG 13244 --- [YummyGo-BackEnd] [http-nio-8080-exec-4] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2025-08-23T03:27:16.566+05:30 DEBUG 13244 --- [YummyGo-BackEnd] [http-nio-8080-exec-5] o.s.web.servlet.DispatcherServlet        : GET "/uploads/item-images/1755770121708_chocolatecake_800x.webp", parameters={}
+2025-08-23T03:27:16.567+05:30 DEBUG 13244 --- [YummyGo-BackEnd] [http-nio-8080-exec-5] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [URL [file:uploads/]]
+2025-08-23T03:27:16.574+05:30 DEBUG 13244 --- [YummyGo-BackEnd] [http-nio-8080-exec-5] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2025-08-23T03:32:05.753+05:30 DEBUG 13244 --- [YummyGo-BackEnd] [http-nio-8080-exec-7] o.s.web.servlet.DispatcherServlet        : GET "/api/v1/item/getAllThisBusinessItems/1", parameters={}
+2025-08-23T03:32:05.757+05:30 DEBUG 13244 --- [YummyGo-BackEnd] [http-nio-8080-exec-7] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to lk.ijse.gdse72.yummygobackend.controller.ItemController#getItemsByBusinessId(Long)
+2025-08-23T03:32:05.842+05:30 DEBUG 13244 --- [YummyGo-BackEnd] [http-nio-8080-exec-7] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [*/*] and supported [application/json, application/*+json]
+2025-08-23T03:32:05.849+05:30 DEBUG 13244 --- [YummyGo-BackEnd] [http-nio-8080-exec-7] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [lk.ijse.gdse72.yummygobackend.util.APIResponse@1a371b86]
+2025-08-23T03:32:05.853+05:30 DEBUG 13244 --- [YummyGo-BackEnd] [http-nio-8080-exec-7] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2025-08-23T03:32:05.908+05:30 DEBUG 13244 --- [YummyGo-BackEnd] [http-nio-8080-exec-9] o.s.web.servlet.DispatcherServlet        : GET "/uploads/item-images/1755770121708_chocolatecake_800x.webp", parameters={}
+2025-08-23T03:32:05.910+05:30 DEBUG 13244 --- [YummyGo-BackEnd] [http-nio-8080-exec-9] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [URL [file:uploads/]]
+2025-08-23T03:32:05.913+05:30 DEBUG 13244 --- [YummyGo-BackEnd] [http-nio-8080-exec-9] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2025-08-23T03:35:35.198+05:30 DEBUG 13244 --- [YummyGo-BackEnd] [http-nio-8080-exec-3] o.s.web.servlet.DispatcherServlet        : GET "/api/v1/item/getAllThisBusinessItems/1", parameters={}
+2025-08-23T03:35:35.206+05:30 DEBUG 13244 --- [YummyGo-BackEnd] [http-nio-8080-exec-3] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to lk.ijse.gdse72.yummygobackend.controller.ItemController#getItemsByBusinessId(Long)
+2025-08-23T03:35:35.231+05:30 DEBUG 13244 --- [YummyGo-BackEnd] [http-nio-8080-exec-3] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [*/*] and supported [application/json, application/*+json]
+2025-08-23T03:35:35.232+05:30 DEBUG 13244 --- [YummyGo-BackEnd] [http-nio-8080-exec-3] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [lk.ijse.gdse72.yummygobackend.util.APIResponse@647c418a]
+2025-08-23T03:35:35.241+05:30 DEBUG 13244 --- [YummyGo-BackEnd] [http-nio-8080-exec-3] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2025-08-23T03:35:35.256+05:30 DEBUG 13244 --- [YummyGo-BackEnd] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : GET "/uploads/item-images/1755770121708_chocolatecake_800x.webp", parameters={}
+2025-08-23T03:35:35.258+05:30 DEBUG 13244 --- [YummyGo-BackEnd] [http-nio-8080-exec-1] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [URL [file:uploads/]]
+2025-08-23T03:35:35.264+05:30 DEBUG 13244 --- [YummyGo-BackEnd] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2025-08-23T03:35:39.559+05:30 DEBUG 13244 --- [YummyGo-BackEnd] [http-nio-8080-exec-5] o.s.web.servlet.DispatcherServlet        : GET "/api/v1/item/getAllThisBusinessItems/1", parameters={}
+2025-08-23T03:35:39.559+05:30 DEBUG 13244 --- [YummyGo-BackEnd] [http-nio-8080-exec-5] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to lk.ijse.gdse72.yummygobackend.controller.ItemController#getItemsByBusinessId(Long)
+2025-08-23T03:35:39.575+05:30 DEBUG 13244 --- [YummyGo-BackEnd] [http-nio-8080-exec-5] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [*/*] and supported [application/json, application/*+json]
+2025-08-23T03:35:39.575+05:30 DEBUG 13244 --- [YummyGo-BackEnd] [http-nio-8080-exec-5] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [lk.ijse.gdse72.yummygobackend.util.APIResponse@170be8f0]
+2025-08-23T03:35:39.583+05:30 DEBUG 13244 --- [YummyGo-BackEnd] [http-nio-8080-exec-5] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2025-08-23T03:35:39.599+05:30 DEBUG 13244 --- [YummyGo-BackEnd] [http-nio-8080-exec-8] o.s.web.servlet.DispatcherServlet        : GET "/uploads/item-images/1755770121708_chocolatecake_800x.webp", parameters={}
+2025-08-23T03:35:39.599+05:30 DEBUG 13244 --- [YummyGo-BackEnd] [http-nio-8080-exec-8] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [URL [file:uploads/]]
+2025-08-23T03:35:39.604+05:30 DEBUG 13244 --- [YummyGo-BackEnd] [http-nio-8080-exec-8] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2025-08-23T03:38:56.004+05:30 DEBUG 13244 --- [YummyGo-BackEnd] [http-nio-8080-exec-6] o.s.web.servlet.DispatcherServlet        : GET "/api/v1/item/getAllThisBusinessItems/1", parameters={}
+2025-08-23T03:38:56.005+05:30 DEBUG 13244 --- [YummyGo-BackEnd] [http-nio-8080-exec-6] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to lk.ijse.gdse72.yummygobackend.controller.ItemController#getItemsByBusinessId(Long)
+2025-08-23T03:38:56.015+05:30 DEBUG 13244 --- [YummyGo-BackEnd] [http-nio-8080-exec-6] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [*/*] and supported [application/json, application/*+json]
+2025-08-23T03:38:56.016+05:30 DEBUG 13244 --- [YummyGo-BackEnd] [http-nio-8080-exec-6] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [lk.ijse.gdse72.yummygobackend.util.APIResponse@6c7bfc50]
+2025-08-23T03:38:56.017+05:30 DEBUG 13244 --- [YummyGo-BackEnd] [http-nio-8080-exec-6] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2025-08-23T03:38:56.032+05:30 DEBUG 13244 --- [YummyGo-BackEnd] [http-nio-8080-exec-10] o.s.web.servlet.DispatcherServlet        : GET "/uploads/item-images/1755770121708_chocolatecake_800x.webp", parameters={}
+2025-08-23T03:38:56.034+05:30 DEBUG 13244 --- [YummyGo-BackEnd] [http-nio-8080-exec-10] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [URL [file:uploads/]]
+2025-08-23T03:38:56.043+05:30 DEBUG 13244 --- [YummyGo-BackEnd] [http-nio-8080-exec-10] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2025-08-23T03:39:04.603+05:30 DEBUG 13244 --- [YummyGo-BackEnd] [http-nio-8080-exec-4] o.s.web.servlet.DispatcherServlet        : GET "/api/v1/item/getAllThisBusinessItems/1", parameters={}
+2025-08-23T03:39:04.603+05:30 DEBUG 13244 --- [YummyGo-BackEnd] [http-nio-8080-exec-4] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to lk.ijse.gdse72.yummygobackend.controller.ItemController#getItemsByBusinessId(Long)
+2025-08-23T03:39:04.613+05:30 DEBUG 13244 --- [YummyGo-BackEnd] [http-nio-8080-exec-4] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [*/*] and supported [application/json, application/*+json]
+2025-08-23T03:39:04.613+05:30 DEBUG 13244 --- [YummyGo-BackEnd] [http-nio-8080-exec-4] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [lk.ijse.gdse72.yummygobackend.util.APIResponse@25baa9e1]
+2025-08-23T03:39:04.613+05:30 DEBUG 13244 --- [YummyGo-BackEnd] [http-nio-8080-exec-4] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2025-08-23T03:39:04.632+05:30 DEBUG 13244 --- [YummyGo-BackEnd] [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : GET "/uploads/item-images/1755770121708_chocolatecake_800x.webp", parameters={}
+2025-08-23T03:39:04.637+05:30 DEBUG 13244 --- [YummyGo-BackEnd] [http-nio-8080-exec-2] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [URL [file:uploads/]]
+2025-08-23T03:39:04.648+05:30 DEBUG 13244 --- [YummyGo-BackEnd] [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2025-08-23T03:41:53.761+05:30 DEBUG 13244 --- [YummyGo-BackEnd] [http-nio-8080-exec-7] o.s.web.servlet.DispatcherServlet        : GET "/api/v1/item/getAllThisBusinessItems/1", parameters={}
+2025-08-23T03:41:53.770+05:30 DEBUG 13244 --- [YummyGo-BackEnd] [http-nio-8080-exec-7] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to lk.ijse.gdse72.yummygobackend.controller.ItemController#getItemsByBusinessId(Long)
+2025-08-23T03:41:53.791+05:30 DEBUG 13244 --- [YummyGo-BackEnd] [http-nio-8080-exec-7] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [*/*] and supported [application/json, application/*+json]
+2025-08-23T03:41:53.791+05:30 DEBUG 13244 --- [YummyGo-BackEnd] [http-nio-8080-exec-7] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [lk.ijse.gdse72.yummygobackend.util.APIResponse@547d609b]
+2025-08-23T03:41:53.800+05:30 DEBUG 13244 --- [YummyGo-BackEnd] [http-nio-8080-exec-7] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2025-08-23T03:41:53.821+05:30 DEBUG 13244 --- [YummyGo-BackEnd] [http-nio-8080-exec-9] o.s.web.servlet.DispatcherServlet        : GET "/uploads/item-images/1755770121708_chocolatecake_800x.webp", parameters={}
+2025-08-23T03:41:53.821+05:30 DEBUG 13244 --- [YummyGo-BackEnd] [http-nio-8080-exec-9] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [URL [file:uploads/]]
+2025-08-23T03:41:53.831+05:30 DEBUG 13244 --- [YummyGo-BackEnd] [http-nio-8080-exec-9] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2025-08-23T03:43:33.061+05:30 DEBUG 13244 --- [YummyGo-BackEnd] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : GET "/api/v1/item/getAllThisBusinessItems/1", parameters={}
+2025-08-23T03:43:33.061+05:30 DEBUG 13244 --- [YummyGo-BackEnd] [http-nio-8080-exec-1] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to lk.ijse.gdse72.yummygobackend.controller.ItemController#getItemsByBusinessId(Long)
+2025-08-23T03:43:33.080+05:30 DEBUG 13244 --- [YummyGo-BackEnd] [http-nio-8080-exec-1] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [*/*] and supported [application/json, application/*+json]
+2025-08-23T03:43:33.080+05:30 DEBUG 13244 --- [YummyGo-BackEnd] [http-nio-8080-exec-1] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [lk.ijse.gdse72.yummygobackend.util.APIResponse@93d2687]
+2025-08-23T03:43:33.080+05:30 DEBUG 13244 --- [YummyGo-BackEnd] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2025-08-23T03:43:33.100+05:30 DEBUG 13244 --- [YummyGo-BackEnd] [http-nio-8080-exec-3] o.s.web.servlet.DispatcherServlet        : GET "/uploads/item-images/1755770121708_chocolatecake_800x.webp", parameters={}
+2025-08-23T03:43:33.100+05:30 DEBUG 13244 --- [YummyGo-BackEnd] [http-nio-8080-exec-3] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [URL [file:uploads/]]
+2025-08-23T03:43:33.108+05:30 DEBUG 13244 --- [YummyGo-BackEnd] [http-nio-8080-exec-3] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2025-08-23T03:43:35.278+05:30 DEBUG 13244 --- [YummyGo-BackEnd] [http-nio-8080-exec-4] o.s.web.servlet.DispatcherServlet        : GET "/api/v1/item/getAllThisBusinessItems/1", parameters={}
+2025-08-23T03:43:35.278+05:30 DEBUG 13244 --- [YummyGo-BackEnd] [http-nio-8080-exec-4] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to lk.ijse.gdse72.yummygobackend.controller.ItemController#getItemsByBusinessId(Long)
+2025-08-23T03:43:35.287+05:30 DEBUG 13244 --- [YummyGo-BackEnd] [http-nio-8080-exec-4] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [*/*] and supported [application/json, application/*+json]
+2025-08-23T03:43:35.287+05:30 DEBUG 13244 --- [YummyGo-BackEnd] [http-nio-8080-exec-4] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [lk.ijse.gdse72.yummygobackend.util.APIResponse@1ff7e9d3]
+2025-08-23T03:43:35.288+05:30 DEBUG 13244 --- [YummyGo-BackEnd] [http-nio-8080-exec-4] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2025-08-23T03:43:35.295+05:30 DEBUG 13244 --- [YummyGo-BackEnd] [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : GET "/uploads/item-images/1755770121708_chocolatecake_800x.webp", parameters={}
+2025-08-23T03:43:35.296+05:30 DEBUG 13244 --- [YummyGo-BackEnd] [http-nio-8080-exec-2] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [URL [file:uploads/]]
+2025-08-23T03:43:35.298+05:30 DEBUG 13244 --- [YummyGo-BackEnd] [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2025-08-23T03:43:38.700+05:30 DEBUG 13244 --- [YummyGo-BackEnd] [http-nio-8080-exec-7] o.s.web.servlet.DispatcherServlet        : GET "/api/v1/item/getAllThisBusinessItems/1", parameters={}
+2025-08-23T03:43:38.700+05:30 DEBUG 13244 --- [YummyGo-BackEnd] [http-nio-8080-exec-7] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to lk.ijse.gdse72.yummygobackend.controller.ItemController#getItemsByBusinessId(Long)
+2025-08-23T03:43:38.710+05:30 DEBUG 13244 --- [YummyGo-BackEnd] [http-nio-8080-exec-7] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [*/*] and supported [application/json, application/*+json]
+2025-08-23T03:43:38.713+05:30 DEBUG 13244 --- [YummyGo-BackEnd] [http-nio-8080-exec-7] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [lk.ijse.gdse72.yummygobackend.util.APIResponse@6c68d61f]
+2025-08-23T03:43:38.713+05:30 DEBUG 13244 --- [YummyGo-BackEnd] [http-nio-8080-exec-7] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2025-08-23T03:43:38.720+05:30 DEBUG 13244 --- [YummyGo-BackEnd] [http-nio-8080-exec-9] o.s.web.servlet.DispatcherServlet        : GET "/uploads/item-images/1755770121708_chocolatecake_800x.webp", parameters={}
+2025-08-23T03:43:38.720+05:30 DEBUG 13244 --- [YummyGo-BackEnd] [http-nio-8080-exec-9] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [URL [file:uploads/]]
+2025-08-23T03:43:38.728+05:30 DEBUG 13244 --- [YummyGo-BackEnd] [http-nio-8080-exec-9] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2025-08-23T03:44:32.075+05:30 DEBUG 13244 --- [YummyGo-BackEnd] [http-nio-8080-exec-3] o.s.web.servlet.DispatcherServlet        : POST "/api/v1/item/create", parameters={multipart}
+2025-08-23T03:44:32.420+05:30 DEBUG 13244 --- [YummyGo-BackEnd] [http-nio-8080-exec-3] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to lk.ijse.gdse72.yummygobackend.controller.ItemController#createItem(String, String, String, String, String, String, Long, MultipartFile)
+2025-08-23T03:44:33.102+05:30 DEBUG 13244 --- [YummyGo-BackEnd] [http-nio-8080-exec-3] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [*/*] and supported [application/json, application/*+json]
+2025-08-23T03:44:33.102+05:30 DEBUG 13244 --- [YummyGo-BackEnd] [http-nio-8080-exec-3] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [lk.ijse.gdse72.yummygobackend.util.APIResponse@32ee3eae]
+2025-08-23T03:44:33.111+05:30 DEBUG 13244 --- [YummyGo-BackEnd] [http-nio-8080-exec-3] o.s.web.servlet.DispatcherServlet        : Completed 201 CREATED
+2025-08-23T03:44:35.148+05:30 DEBUG 13244 --- [YummyGo-BackEnd] [http-nio-8080-exec-4] o.s.web.servlet.DispatcherServlet        : GET "/api/v1/item/getAllThisBusinessItems/1", parameters={}
+2025-08-23T03:44:35.150+05:30 DEBUG 13244 --- [YummyGo-BackEnd] [http-nio-8080-exec-4] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to lk.ijse.gdse72.yummygobackend.controller.ItemController#getItemsByBusinessId(Long)
+2025-08-23T03:44:35.184+05:30 DEBUG 13244 --- [YummyGo-BackEnd] [http-nio-8080-exec-4] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [*/*] and supported [application/json, application/*+json]
+2025-08-23T03:44:35.184+05:30 DEBUG 13244 --- [YummyGo-BackEnd] [http-nio-8080-exec-4] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [lk.ijse.gdse72.yummygobackend.util.APIResponse@afcd512]
+2025-08-23T03:44:35.197+05:30 DEBUG 13244 --- [YummyGo-BackEnd] [http-nio-8080-exec-4] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2025-08-23T03:44:35.219+05:30 DEBUG 13244 --- [YummyGo-BackEnd] [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : GET "/uploads/item-images/1755770121708_chocolatecake_800x.webp", parameters={}
+2025-08-23T03:44:35.222+05:30 DEBUG 13244 --- [YummyGo-BackEnd] [http-nio-8080-exec-2] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [URL [file:uploads/]]
+2025-08-23T03:44:35.219+05:30 DEBUG 13244 --- [YummyGo-BackEnd] [http-nio-8080-exec-8] o.s.web.servlet.DispatcherServlet        : GET "/uploads/item-images/1755900872529_f6ec44fc-2e7a-4659-992a-386d4b6a93d0-removebg-preview.png", parameters={}
+2025-08-23T03:44:35.228+05:30 DEBUG 13244 --- [YummyGo-BackEnd] [http-nio-8080-exec-8] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [URL [file:uploads/]]
+2025-08-23T03:44:35.233+05:30 DEBUG 13244 --- [YummyGo-BackEnd] [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2025-08-23T03:44:35.268+05:30 DEBUG 13244 --- [YummyGo-BackEnd] [http-nio-8080-exec-8] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2025-08-23T03:44:47.160+05:30 DEBUG 13244 --- [YummyGo-BackEnd] [http-nio-8080-exec-6] o.s.web.servlet.DispatcherServlet        : GET "/uploads/item-images/1755900872529_f6ec44fc-2e7a-4659-992a-386d4b6a93d0-removebg-preview.png", parameters={}
+2025-08-23T03:44:47.160+05:30 DEBUG 13244 --- [YummyGo-BackEnd] [http-nio-8080-exec-6] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [URL [file:uploads/]]
+2025-08-23T03:44:47.177+05:30 DEBUG 13244 --- [YummyGo-BackEnd] [http-nio-8080-exec-6] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2025-08-23T03:44:56.062+05:30 DEBUG 13244 --- [YummyGo-BackEnd] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : PUT "/api/v1/item/update", parameters={multipart}
+2025-08-23T03:44:56.125+05:30 DEBUG 13244 --- [YummyGo-BackEnd] [http-nio-8080-exec-1] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to lk.ijse.gdse72.yummygobackend.controller.ItemController#updateItem(Long, String, String, String, String, String, String, MultipartFile)
+2025-08-23T03:44:56.242+05:30 DEBUG 13244 --- [YummyGo-BackEnd] [http-nio-8080-exec-1] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [*/*] and supported [application/json, application/*+json]
+2025-08-23T03:44:56.243+05:30 DEBUG 13244 --- [YummyGo-BackEnd] [http-nio-8080-exec-1] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [lk.ijse.gdse72.yummygobackend.util.APIResponse@63b3f515]
+2025-08-23T03:44:56.256+05:30 DEBUG 13244 --- [YummyGo-BackEnd] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2025-08-23T03:44:58.053+05:30 DEBUG 13244 --- [YummyGo-BackEnd] [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : GET "/api/v1/item/getAllThisBusinessItems/1", parameters={}
+2025-08-23T03:44:58.053+05:30 DEBUG 13244 --- [YummyGo-BackEnd] [http-nio-8080-exec-2] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to lk.ijse.gdse72.yummygobackend.controller.ItemController#getItemsByBusinessId(Long)
+2025-08-23T03:44:58.079+05:30 DEBUG 13244 --- [YummyGo-BackEnd] [http-nio-8080-exec-2] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [*/*] and supported [application/json, application/*+json]
+2025-08-23T03:44:58.079+05:30 DEBUG 13244 --- [YummyGo-BackEnd] [http-nio-8080-exec-2] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [lk.ijse.gdse72.yummygobackend.util.APIResponse@62c514f4]
+2025-08-23T03:44:58.083+05:30 DEBUG 13244 --- [YummyGo-BackEnd] [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2025-08-23T03:44:58.099+05:30 DEBUG 13244 --- [YummyGo-BackEnd] [http-nio-8080-exec-7] o.s.web.servlet.DispatcherServlet        : GET "/uploads/item-images/1755900896138_3707363-removebg-preview.png", parameters={}
+2025-08-23T03:44:58.099+05:30 DEBUG 13244 --- [YummyGo-BackEnd] [http-nio-8080-exec-8] o.s.web.servlet.DispatcherServlet        : GET "/uploads/item-images/1755770121708_chocolatecake_800x.webp", parameters={}
+2025-08-23T03:44:58.100+05:30 DEBUG 13244 --- [YummyGo-BackEnd] [http-nio-8080-exec-8] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [URL [file:uploads/]]
+2025-08-23T03:44:58.100+05:30 DEBUG 13244 --- [YummyGo-BackEnd] [http-nio-8080-exec-7] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [URL [file:uploads/]]
+2025-08-23T03:44:58.102+05:30 DEBUG 13244 --- [YummyGo-BackEnd] [http-nio-8080-exec-8] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2025-08-23T03:44:58.109+05:30 DEBUG 13244 --- [YummyGo-BackEnd] [http-nio-8080-exec-7] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2025-08-23T03:44:59.862+05:30 DEBUG 13244 --- [YummyGo-BackEnd] [http-nio-8080-exec-5] o.s.web.servlet.DispatcherServlet        : GET "/uploads/item-images/1755900896138_3707363-removebg-preview.png", parameters={}
+2025-08-23T03:44:59.862+05:30 DEBUG 13244 --- [YummyGo-BackEnd] [http-nio-8080-exec-5] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [URL [file:uploads/]]
+2025-08-23T03:44:59.865+05:30 DEBUG 13244 --- [YummyGo-BackEnd] [http-nio-8080-exec-5] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2025-08-23T03:45:09.579+05:30 DEBUG 13244 --- [YummyGo-BackEnd] [http-nio-8080-exec-9] o.s.web.servlet.DispatcherServlet        : PUT "/api/v1/item/update", parameters={multipart}
+2025-08-23T03:45:09.617+05:30 DEBUG 13244 --- [YummyGo-BackEnd] [http-nio-8080-exec-9] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to lk.ijse.gdse72.yummygobackend.controller.ItemController#updateItem(Long, String, String, String, String, String, String, MultipartFile)
+2025-08-23T03:45:09.651+05:30 DEBUG 13244 --- [YummyGo-BackEnd] [http-nio-8080-exec-9] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [*/*] and supported [application/json, application/*+json]
+2025-08-23T03:45:09.652+05:30 DEBUG 13244 --- [YummyGo-BackEnd] [http-nio-8080-exec-9] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [lk.ijse.gdse72.yummygobackend.util.APIResponse@6889ea45]
+2025-08-23T03:45:09.657+05:30 DEBUG 13244 --- [YummyGo-BackEnd] [http-nio-8080-exec-9] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2025-08-23T03:45:11.383+05:30 DEBUG 13244 --- [YummyGo-BackEnd] [http-nio-8080-exec-6] o.s.web.servlet.DispatcherServlet        : GET "/api/v1/item/getAllThisBusinessItems/1", parameters={}
+2025-08-23T03:45:11.383+05:30 DEBUG 13244 --- [YummyGo-BackEnd] [http-nio-8080-exec-6] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to lk.ijse.gdse72.yummygobackend.controller.ItemController#getItemsByBusinessId(Long)
+2025-08-23T03:45:11.421+05:30 DEBUG 13244 --- [YummyGo-BackEnd] [http-nio-8080-exec-6] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [*/*] and supported [application/json, application/*+json]
+2025-08-23T03:45:11.421+05:30 DEBUG 13244 --- [YummyGo-BackEnd] [http-nio-8080-exec-6] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [lk.ijse.gdse72.yummygobackend.util.APIResponse@4b34a421]
+2025-08-23T03:45:11.428+05:30 DEBUG 13244 --- [YummyGo-BackEnd] [http-nio-8080-exec-6] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2025-08-23T03:45:11.452+05:30 DEBUG 13244 --- [YummyGo-BackEnd] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : GET "/uploads/item-images/1755900909617_f6ec44fc-2e7a-4659-992a-386d4b6a93d0-removebg-preview.png", parameters={}
+2025-08-23T03:45:11.452+05:30 DEBUG 13244 --- [YummyGo-BackEnd] [http-nio-8080-exec-10] o.s.web.servlet.DispatcherServlet        : GET "/uploads/item-images/1755770121708_chocolatecake_800x.webp", parameters={}
+2025-08-23T03:45:11.457+05:30 DEBUG 13244 --- [YummyGo-BackEnd] [http-nio-8080-exec-10] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [URL [file:uploads/]]
+2025-08-23T03:45:11.457+05:30 DEBUG 13244 --- [YummyGo-BackEnd] [http-nio-8080-exec-1] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [URL [file:uploads/]]
+2025-08-23T03:45:11.464+05:30 DEBUG 13244 --- [YummyGo-BackEnd] [http-nio-8080-exec-10] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2025-08-23T03:45:11.474+05:30 DEBUG 13244 --- [YummyGo-BackEnd] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed 200 OK

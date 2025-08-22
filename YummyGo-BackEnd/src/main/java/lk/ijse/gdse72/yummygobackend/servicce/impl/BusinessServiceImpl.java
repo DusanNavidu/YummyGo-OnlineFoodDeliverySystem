@@ -52,5 +52,4 @@ public class BusinessServiceImpl implements BusinessService {
                 .orElseThrow(() -> new RuntimeException("User not found with ID: " + userId));
         return businessRepository.findByUser(user); // <-- use repository method
     }
-
 }
