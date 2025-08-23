@@ -52,4 +52,15 @@ public class BusinessServiceImpl implements BusinessService {
                 .orElseThrow(() -> new RuntimeException("User not found with ID: " + userId));
         return businessRepository.findByUser(user); // <-- use repository method
     }
+
+    @Override
+    public List<Business> getBusinessesByLocation(String location) {
+        return businessRepository.findByBusinessAddress(location);
+    }
+
+
+    @Override
+    public List<Business> getBusinessesByKeyword(String keyword, String location) {
+        return businessRepository.searchBusinesses(keyword, location);
+    }
 }

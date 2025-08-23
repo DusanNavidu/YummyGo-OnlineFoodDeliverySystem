@@ -44,7 +44,7 @@ $(document).ready(function () {
               if (userRole === "ADMIN") {
                 window.location.href = "/pages/dashboardAdmin.html";
               } else if (userRole === "CLIENT") {
-                window.location.href = "/pages/clientDashboard.html";
+                window.location.href = "/pages/mainDashboard.html";
               } else if (userRole === "PARTNER") {
                 window.location.href = "/pages/dashboardPartner.html";
               } else if (userRole === "BUSINESS") {

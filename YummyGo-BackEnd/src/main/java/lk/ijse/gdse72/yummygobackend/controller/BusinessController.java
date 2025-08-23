@@ -119,4 +119,40 @@ public class BusinessController {
                     .body(new APIResponse<>(500, "Error fetching user businesses", null));
         }
     }
+
+    @GetMapping("/getAllBusinessThisCategory")
+    public ResponseEntity<APIResponse<List<BusinessDTO>>> getAllBusinessThisCategory(
+            @RequestParam String location) {
+        try {
+            List<Business> businesses = businessService.getBusinessesByLocation(location);
+            List<BusinessDTO> businessDTOs = businesses.stream()
+                    .map(b -> modelMapper.map(b, BusinessDTO.class))
+                    .toList();
+
+            return ResponseEntity.ok(new APIResponse<>(200, "Businesses fetched successfully", businessDTOs));
+
+        } catch (Exception e) {
+            log.error("Error fetching businesses by location", e);
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
+                    .body(new APIResponse<>(500, "Error fetching businesses", null));
+        }
+    }
+
+    @GetMapping("/getAllBusinesSearch/{keyword}")
+    public ResponseEntity<APIResponse<List<BusinessDTO>>> searchBusiness(
+            @PathVariable String keyword, @RequestParam String location) {
+        try {
+            List<Business> businesses = businessService.getBusinessesByKeyword(keyword, location);
+            List<BusinessDTO> businessDTOs = businesses.stream()
+                    .map(b -> modelMapper.map(b, BusinessDTO.class))
+                    .toList();
+
+            return ResponseEntity.ok(new APIResponse<>(200, "Businesses search successfully", businessDTOs));
+
+        } catch (Exception e) {
+            log.error("Error searching businesses", e);
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
+                    .body(new APIResponse<>(500, "Error searching businesses", null));
+        }
+    }
 }

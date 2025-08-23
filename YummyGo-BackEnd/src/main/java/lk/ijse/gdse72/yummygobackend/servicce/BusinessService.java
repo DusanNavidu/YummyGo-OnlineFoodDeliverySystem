@@ -6,7 +6,11 @@ import lk.ijse.gdse72.yummygobackend.entity.Business;
 import java.util.List;
 
 public interface BusinessService {
+
+
     void SaveBusiness(BusinessDTO businessDTO);
     List<Business> getAllBusinessesEntity();
     List<Business> getBusinessesByUserId(Long userId);
+    List<Business> getBusinessesByLocation(String location);
+    List<Business> getBusinessesByKeyword(String keyword, String location);
 }

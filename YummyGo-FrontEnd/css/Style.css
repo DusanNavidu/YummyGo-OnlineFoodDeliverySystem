@@ -133,3 +133,34 @@
     width: 100px;
     height: auto;
 }
+
+/* Main Dashboard Styles */
+
+#map-pin {
+    width: 24px;
+    height: 24px;
+    margin-right: 8px;
+}
+
+#search-icon {
+    width: 25px;
+    height: 25px;
+    margin-right: 3px;
+    margin-left: 50;
+}
+
+#search-data {
+    /* height: 40px; */
+    width: 100%;
+}
+
+#shopping-cart {
+    width: 25px;
+    height: 25px;
+}
+
+#shopping-cart-btn {
+    border-radius: 50%;
+    height: 50px;
+    width: 50px;
+}
