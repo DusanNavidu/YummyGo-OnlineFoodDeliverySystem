@@ -28,6 +28,9 @@ public class Business {
     private String businessAreaPostalCode;
     private String businessCategory;
     private String businessLogo;
+    private String openTime;
+    private String closeTime;
+    private String openOrClose; // "Open" or "Close"
     private String businessDescription;
     private String businessStatus;
 

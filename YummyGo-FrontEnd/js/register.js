@@ -27,6 +27,7 @@ $(document).ready(function() {
             email: $("#email").val(),
             username: $("#username").val(),
             password: confirmPassword,
+            userStatus: "Active",
             role: role
         };
         console.log(user);

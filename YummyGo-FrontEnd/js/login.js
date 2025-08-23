@@ -28,7 +28,7 @@ $(document).ready(function () {
             const userId = response.data.userId; // <-- save userId
 
             cookieStore.set("token", token);
-            localStorage.setItem("userId", userId); // <-- save for business creation
+            sessionStorage.setItem("userId", userId); // instead of localStorage
 
             if (userRole === "ADMIN") {
               $("#message").html('<div class="alert alert-success">Admin Login successful! Redirecting...</div>');

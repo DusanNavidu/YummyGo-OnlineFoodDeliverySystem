@@ -15,5 +15,6 @@ public class RegisterDTO {
     private String email;
     private String username;
     private String password;
+    private String userStatus; // "Active" or "Inactive"
     private String role;
 }

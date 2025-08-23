@@ -45,6 +45,14 @@ public class BusinessDTO {
     @NotBlank(message = "Business logo cannot be blank")
     private String businessLogo;
 
+    @NotBlank(message = "Open time cannot be blank")
+    private String openTime;
+
+    @NotBlank(message = "Close time cannot be blank")
+    private String closeTime;
+
+    private String openOrClose;
+
     @NotBlank(message = "Business description cannot be blank")
     private String businessDescription;
 

@@ -100,7 +100,14 @@
                             <option>Food Truck</option>
                             <option>Other</option>
                         </select>
-
+                        <label for="business-opening-time">Opening Time</label>
+                        <input type="time" class="form-control mb-3 border-black" id="business-opening-time">
+                        <label for="business-closing-time">Closing Time</label>
+                        <input type="time" class="form-control mb-3 border-black" id="business-closing-time">
+                        <div class="mb-3">
+                            <label>Now 'Opened' or 'Closed'</label><br>
+                            <button type="button" id="now-btn" class="btn btn-success form-control">Opened</button>
+                        </div>
                         <textarea name="textarea" id="business-description" class="form-control mb-3 border-black" placeholder="Business Description"></textarea>
                          <!-- Drag and Drop Area -->
                         <div id="drop-area" 
@@ -118,6 +125,28 @@
             </div>
         </div>
     </div>
+
+    <!-- <script>
+        // Get elements
+        const nowBtn = document.getElementById('now-btn');
+        const nowValue = document.getElementById('now-value');
+
+        // Toggle opened/closed
+        nowBtn.addEventListener('click', () => {
+            if (nowBtn.classList.contains('btn-success')) {
+                nowBtn.classList.remove('btn-success');
+                nowBtn.classList.add('btn-danger');
+                nowBtn.textContent = 'Closed';
+                nowValue.value = 'Closed';
+            } else {
+                nowBtn.classList.remove('btn-danger');
+                nowBtn.classList.add('btn-success');
+                nowBtn.textContent = 'Opened';
+                nowValue.value = 'Opened';
+            }
+        });
+    </script> -->
+
 
     <!-- SweetAlert2 -->
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>

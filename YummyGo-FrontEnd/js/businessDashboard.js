@@ -7,7 +7,7 @@ $(document).ready(async function() {
     async function loadAllBusinesses() {
         const cookie = await cookieStore.get('token');
         const token = cookie?.value;
-        const userId = localStorage.getItem('userId'); // get logged-in user's ID
+        const userId = sessionStorage.getItem("userId"); // get logged-in user's ID
 
         if (!userId) {
             alert("User ID not found. Please log in again.");
@@ -73,7 +73,7 @@ $(document).ready(async function() {
             return;
         }
 
-        const userId = localStorage.getItem('userId');
+        const userId = sessionStorage.getItem("userId");
         if (!userId) {
             alert("User ID not found. Please log in again.");
             return;
@@ -87,6 +87,9 @@ $(document).ready(async function() {
         formData.append('businessAddress', $('#business-address').val());
         formData.append('businessAreaPostalCode', $('#business-postal-code').val());
         formData.append('businessCategory', $('#Business-Place-Category').val());
+        formData.append('openTime', $('#business-opening-time').val());
+        formData.append('closeTime', $('#business-closing-time').val());
+        formData.append('currentStatus', $('#now-value').val());
         formData.append('businessDescription', $('#business-description').val());
         formData.append('businessStatus', 'ACTIVE');
         formData.append('logo', fileInput.files[0]);

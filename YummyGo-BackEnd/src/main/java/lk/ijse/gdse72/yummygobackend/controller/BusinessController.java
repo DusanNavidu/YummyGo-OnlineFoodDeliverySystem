@@ -43,6 +43,8 @@ public class BusinessController {
             @RequestParam String businessAddress,
             @RequestParam String businessAreaPostalCode,
             @RequestParam String businessCategory,
+            @RequestParam String openTime,
+            @RequestParam String closeTime,
             @RequestParam String businessDescription,
             @RequestParam String businessStatus,
             @RequestParam Long userId,
@@ -67,6 +69,8 @@ public class BusinessController {
             businessDTO.setBusinessAddress(businessAddress);
             businessDTO.setBusinessAreaPostalCode(businessAreaPostalCode);
             businessDTO.setBusinessCategory(businessCategory);
+            businessDTO.setOpenTime(openTime);
+            businessDTO.setCloseTime(closeTime);
             businessDTO.setBusinessDescription(businessDescription);
             businessDTO.setBusinessStatus(businessStatus);
             businessDTO.setBusinessLogo("/uploads/business-logos/" + fileName);

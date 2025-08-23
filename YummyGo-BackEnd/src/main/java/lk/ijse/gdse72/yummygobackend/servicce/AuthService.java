@@ -37,6 +37,7 @@ public class AuthService {
                 .email(registerDTO.getEmail())
                 .username(registerDTO.getUsername())
                 .password(passwordEncoder.encode(registerDTO.getPassword()))
+                .userStatus(registerDTO.getUserStatus())
                 .role(Role.valueOf(registerDTO.getRole()))
                 .build();
         userRepository.save(user);
