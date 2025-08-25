@@ -9,7 +9,7 @@
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark position-fixed top-0 start-0 w-100 z-1">
         <div class="container-fluid">
             <a class="navbar-brand ps-5" href="#"><span class="fw-bold fs-3 text-light">YUMMY</span><span class="fs-3 fw-bold text-warning">GO</span> </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
@@ -35,7 +35,7 @@
         </div>
     </nav>
        
-    <div class="p-5">
+    <div class="p-5 mt-5">
         <button id="Business-add-button" class="btn rounded-0" 
             data-bs-toggle="modal" data-bs-target="#Business-add-modal">
             +
@@ -107,7 +107,9 @@
                         <div class="mb-3">
                             <label>Now 'Opened' or 'Closed'</label><br>
                             <button type="button" id="now-btn" class="btn btn-success form-control">Opened</button>
+                            <input type="hidden" id="now-value" value="Opened"> <!-- hidden field for backend -->
                         </div>
+
                         <textarea name="textarea" id="business-description" class="form-control mb-3 border-black" placeholder="Business Description"></textarea>
                          <!-- Drag and Drop Area -->
                         <div id="drop-area" 
