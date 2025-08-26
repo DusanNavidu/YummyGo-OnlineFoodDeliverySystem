@@ -4,10 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" /> -->
     <title>Business Dashboard</title>
     <link rel="stylesheet" href="/css/Style.css">
 </head>
-
 <body>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark position-fixed top-0 start-0 w-100 z-1">
         <div class="container-fluid">
@@ -47,7 +47,7 @@
         <div id="business-list" class="row"></div>
     </div>
 
-
+    <!-- Business Add Modal -->
     <div class="modal fade" id="Business-add-modal" tabindex="-1" aria-labelledby="add-business-modal-label" aria-hidden="true">
         <div class="modal-dialog modal-lg">
             <div class="modal-content">
@@ -111,7 +111,11 @@
                         </div>
 
                         <textarea name="textarea" id="business-description" class="form-control mb-3 border-black" placeholder="Business Description"></textarea>
-                         <!-- Drag and Drop Area -->
+                        <div id="map" style="width: 100%; height: 400px;"></div>
+                        <input type="hidden" id="latitude">
+                        <input type="hidden" id="longitude">
+
+                        <!-- Drag and Drop Area -->
                         <div id="drop-area" 
                                 style="border: 2px dashed #ccc; border-radius: 6px; padding: 20px; text-align: center; cursor: pointer;">
                             <p>Drag & Drop your business image here or click to select</p>
@@ -128,32 +132,95 @@
         </div>
     </div>
 
-    <!-- <script>
-        // Get elements
-        const nowBtn = document.getElementById('now-btn');
-        const nowValue = document.getElementById('now-value');
+    <!-- Update Business Modal -->
+    <div class="modal fade" id="Business-update-modal" tabindex="-1" aria-labelledby="update-business-modal-label" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="update-business-modal-label">Update Business</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <form id="update-business-form">
+                    <div class="modal-body">
+                        <input type="hidden" id="update-business-id">
+                        <input type="text" placeholder="Business Name" class="form-control mb-3 border-black" id="update-business-name">
+                        <input type="text" placeholder="Business Contact Number 1" class="form-control mb-3 border-black" id="update-business-contact1">
+                        <input type="text" placeholder="Business Contact Number 2" class="form-control mb-3 border-black" id="update-business-contact2">
+                        <input type="email" placeholder="Business Email" class="form-control mb-3 border-black" id="update-business-email">
+                        <select id="update-business-address" class="form-select mb-3">
+                            <option>Select a district</option>
+                            <option>Colombo</option>
+                            <option>Gampaha</option>
+                            <option>Kalutara</option>
+                            <option>Kandy</option>
+                            <option>Matale</option>
+                            <option>Nuwara Eliya</option>
+                            <option>Galle</option>
+                            <option>Matara</option>
+                            <option>Hambantota</option>
+                            <option>Jaffna</option>
+                            <option>Kilinochchi</option>
+                            <option>Mannar</option>
+                            <option>Mullaitivu</option>
+                            <option>Vavuniya</option>
+                            <option>Ampara</option>
+                            <option>Batticaloa</option>
+                            <option>Trincomalee</option>
+                            <option>Anuradhapura</option>
+                            <option>Polonnaruwa</option>
+                            <option>Kurunegala</option>
+                            <option>Puttalam</option>
+                            <option>Badulla</option>
+                            <option>Monaragala</option>
+                            <option>Kegalle</option>
+                            <option>Ratnapura</option>
+                        </select>
+                        <input type="text" placeholder="Business Area Postal Code" class="form-control mb-3 border-black" id="update-business-postal-code">
+                        <select id="update-Business-Place-Category" class="form-control mb-3 border-black">
+                            <option value="" disabled selected>Add Category</option>
+                            <option>Hotel</option>
+                            <option>Cafe</option>
+                            <option>Restaurant</option>
+                            <option>Bakery</option>
+                            <option>Food Truck</option>
+                            <option>Other</option>
+                        </select>
+                        <label for="update-business-opening-time">Opening Time</label>
+                        <input type="time" class="form-control mb-3 border-black" id="update-business-opening-time">
+                        <label for="update-business-closing-time">Closing Time</label>
+                        <input type="time" class="form-control mb-3 border-black" id="update-business-closing-time">
+                        <div class="mb-3">
+                            <label>Now 'Opened' or 'Closed'</label><br>
+                            <button type="button" id="update-now-btn" class="btn btn-success form-control">Opened</button>
+                            <input type="hidden" id="update-now-value" value="Opened">
+                        </div>
+                        <textarea name="textarea" id="update-business-description" class="form-control mb-3 border-black" placeholder="Business Description"></textarea>
+                        <div id="update-map" style="width: 100%; height: 400px;"></div>
+                        <input type="hidden" id="update-latitude">
+                        <input type="hidden" id="update-longitude">
 
-        // Toggle opened/closed
-        nowBtn.addEventListener('click', () => {
-            if (nowBtn.classList.contains('btn-success')) {
-                nowBtn.classList.remove('btn-success');
-                nowBtn.classList.add('btn-danger');
-                nowBtn.textContent = 'Closed';
-                nowValue.value = 'Closed';
-            } else {
-                nowBtn.classList.remove('btn-danger');
-                nowBtn.classList.add('btn-success');
-                nowBtn.textContent = 'Opened';
-                nowValue.value = 'Opened';
-            }
-        });
-    </script> -->
+                        <!-- Drag and Drop Area -->
+                        <div id="update-drop-area" 
+                                style="border: 2px dashed #ccc; border-radius: 6px; padding: 20px; text-align: center; cursor: pointer;">
+                            <p>Drag & Drop your business image here or click to select</p>
+                            <input type="file" id="update-fileElem" accept="image/*" style="display:none" />
+                            <img id="update-preview" src="" alt="Image preview" style="max-width: 100%; margin-top: 10px; display:none;" />
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="reset" class="btn btn-info" id="updateResetBtn">Reset Form</button>
+                        <button type="submit" class="btn btn-success" id="updateBusinessButton">Update Business</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
 
 
     <!-- SweetAlert2 -->
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
-    <script>
+    <!-- <script>
         document.getElementById("resetBtn").addEventListener("click", function (e) {
             e.preventDefault(); // prevent instant reset
             Swal.fire({
@@ -182,73 +249,126 @@
                 }
             });
         });
-    </script>
-
-    <!-- <script>
-        const dropArea = document.getElementById('drop-area');
-        const fileInput = document.getElementById('fileElem');
-        const preview = document.getElementById('preview');
-
-        // Click on drop area opens file dialog
-        dropArea.addEventListener('click', () => fileInput.click());
-
-        // When file selected via dialog
-        fileInput.addEventListener('change', handleFiles);
-
-        // Prevent default behaviors for drag and drop events
-        ;['dragenter', 'dragover', 'dragleave', 'drop'].forEach(eventName => {
-            dropArea.addEventListener(eventName, preventDefaults, false);
-        });
-
-        function preventDefaults(e) {
-            e.preventDefault();
-            e.stopPropagation();
-        }
-
-        // Highlight drop area on dragover
-        ;['dragenter', 'dragover'].forEach(eventName => {
-            dropArea.addEventListener(eventName, () => {
-            dropArea.style.borderColor = '#333';
-            dropArea.style.backgroundColor = '#f8f9fa';
-            }, false);
-        });
-
-        ;['dragleave', 'drop'].forEach(eventName => {
-            dropArea.addEventListener(eventName, () => {
-            dropArea.style.borderColor = '#ccc';
-            dropArea.style.backgroundColor = 'transparent';
-            }, false);
-        });
-
-        // Handle dropped files
-        dropArea.addEventListener('drop', (e) => {
-            const dt = e.dataTransfer;
-            const files = dt.files;
-            handleFiles({ target: { files } });
-        });
-
-        function handleFiles(e) {
-            const files = e.target.files;
-            if (files.length === 0) return;
-
-            const file = files[0];
-
-            if (!file.type.startsWith('image/')) {
-            alert('Please upload an image file.');
-            return;
-            }
-
-            // Show preview
-            const reader = new FileReader();
-            reader.onload = (event) => {
-            preview.src = event.target.result;
-            preview.style.display = 'block';
-            };
-            reader.readAsDataURL(file);
-
-            // You can save file in form data here for submit
-        }
     </script> -->
+
+    <!-- Leaflet + JS -->
+<link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+<script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+
+<script>
+let map, marker, liveMarker;
+
+function initMap() {
+    if (map) return; // prevent multiple initializations
+
+    // Default map center
+    map = L.map('map').setView([6.9271, 79.8612], 12);
+
+    // Free & fast tiles
+    L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
+        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OSM</a> &copy; <a href="https://carto.com/">CARTO</a>',
+        subdomains: 'abcd',
+        maxZoom: 19
+    }).addTo(map);
+
+    // Draggable business marker
+    marker = L.marker([6.9271, 79.8612], { draggable: true }).addTo(map);
+
+    function updateLatLng(lat, lng) {
+        document.getElementById("latitude").value = lat;
+        document.getElementById("longitude").value = lng;
+    }
+    updateLatLng(6.9271, 79.8612);
+
+    // Drag or click to update location
+    marker.on('dragend', function() {
+        let latlng = marker.getLatLng();
+        updateLatLng(latlng.lat, latlng.lng);
+    });
+
+    map.on('click', function(e) {
+        marker.setLatLng(e.latlng);
+        updateLatLng(e.latlng.lat, e.latlng.lng);
+    });
+
+    // Set live location ONCE
+    setLiveLocation();
+
+    // Fix map size inside modal
+    setTimeout(() => { map.invalidateSize(); }, 500);
+}
+
+// Function to get live location & reset marker/map
+function setLiveLocation() {
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(function(position) {
+            let lat = position.coords.latitude;
+            let lng = position.coords.longitude;
+
+            map.setView([lat, lng], 15);
+            marker.setLatLng([lat, lng]);
+            document.getElementById("latitude").value = lat;
+            document.getElementById("longitude").value = lng;
+
+            if (!liveMarker) {
+                liveMarker = L.circleMarker([lat, lng], {
+                    radius: 8,
+                    fillColor: "blue",
+                    color: "white",
+                    weight: 2,
+                    opacity: 1,
+                    fillOpacity: 0.9
+                }).addTo(map).bindPopup("📍 Your Live Location").openPopup();
+            } else {
+                liveMarker.setLatLng([lat, lng]);
+            }
+        }, function(error) {
+            console.error("Location error:", error.message);
+        });
+    }
+}
+
+// Modal open → load map
+document.getElementById('Business-add-modal').addEventListener('shown.bs.modal', function () {
+    initMap();
+    map.invalidateSize();
+});
+
+// Reset button → clear form + reset map
+document.getElementById("resetBtn").addEventListener("click", function (e) {
+    e.preventDefault();
+    Swal.fire({
+        title: "Are you sure?",
+        text: "This will clear all form data and reset the map!",
+        icon: "warning",
+        showCancelButton: true,
+        confirmButtonColor: "#3085d6",
+        cancelButtonColor: "#d33",
+        confirmButtonText: "Yes, reset it!",
+        background: "rgba(0,0,0,0.9)",
+        color: "#fff"
+    }).then((result) => {
+        if (result.isConfirmed) {
+            document.getElementById("add-business-form").reset();
+            document.getElementById("preview").style.display = "none";
+            setLiveLocation(); // ⬅ Reset map to live location
+
+            Swal.fire({
+                title: "Form Reset!",
+                text: "Form cleared & map reset to live location.",
+                icon: "success",
+                timer: 1500,
+                showConfirmButton: false,
+                background: "rgba(0,0,0,0.9)",
+                color: "#fff"
+            });
+        }
+    });
+});
+</script>
+
+
+
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"></script>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="/js/businessDashboard.js"></script>

@@ -6,6 +6,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.math.BigDecimal;
 import java.sql.Timestamp;
 import java.util.List;
 
@@ -33,6 +34,12 @@ public class Business {
     private String openOrClose; // "Open" or "Close"
     private String businessDescription;
     private String businessStatus;
+
+    @Column(precision = 9, scale = 6)
+    private BigDecimal latitude;
+
+    @Column(precision = 9, scale = 6)
+    private BigDecimal longitude;
 
     @ManyToOne
     @JoinColumn(name = "id", nullable = false)

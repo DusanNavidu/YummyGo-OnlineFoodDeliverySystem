@@ -10,6 +10,7 @@ import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
+import java.util.Optional;
 
 /**
  * @author Dusan
@@ -29,4 +30,6 @@ public interface BusinessRepository extends JpaRepository<Business, Long> {
             "OR LOWER(b.businessCategory) LIKE LOWER(CONCAT('%', :keyword, '%')) " +
             "OR LOWER(b.businessAddress) LIKE LOWER(CONCAT('%', :keyword, '%')))")
     List<Business> searchBusinesses(@Param("keyword") String keyword, @Param("location") String location);
+
+    Optional<Business> findByBusinessId(Long businessId);
 }

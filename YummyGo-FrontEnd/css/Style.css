@@ -163,4 +163,21 @@
     border-radius: 50%;
     height: 50px;
     width: 50px;
+    background-color: #09b95b;
 }
+
+#shopping-cart-btn:hover {
+    background-color: #068843;
+}
+
+/* Business Profile Styles */
+
+/* Mobile (≤768px) */
+@media (max-width: 768px) { 
+    #business-profile {
+        display: flex;
+        flex-direction: column;
+    }
+}
+
+/* business item */

@@ -1,5 +1,6 @@
 package lk.ijse.gdse72.yummygobackend.dto;
 
+import jakarta.persistence.Column;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Pattern;
 import lombok.AllArgsConstructor;
@@ -7,6 +8,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.math.BigDecimal;
 import java.sql.Timestamp;
 
 @AllArgsConstructor
@@ -55,6 +57,14 @@ public class BusinessDTO {
 
     @NotBlank(message = "Business description cannot be blank")
     private String businessDescription;
+
+    @NotBlank(message = "Latitude cannot be blank")
+    @Column(precision = 9, scale = 6)
+    private BigDecimal latitude;
+
+    @NotBlank(message = "Longitude cannot be blank")
+    @Column(precision = 9, scale = 6)
+    private BigDecimal longitude;
 
     private String businessStatus;
 

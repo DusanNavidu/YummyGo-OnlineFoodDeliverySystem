@@ -61,15 +61,15 @@ $(document).ready(async function() {
     });
 
     // Toggle Opened/Closed
-$('#now-btn').click(function () {
-    if ($(this).hasClass('btn-success')) {
-        $(this).removeClass('btn-success').addClass('btn-danger').text('Closed');
-        $('#now-value').val('Closed');
-    } else {
-        $(this).removeClass('btn-danger').addClass('btn-success').text('Opened');
-        $('#now-value').val('Opened');
-    }
-});
+    $('#now-btn').click(function () {
+        if ($(this).hasClass('btn-success')) {
+            $(this).removeClass('btn-success').addClass('btn-danger').text('Closed');
+            $('#now-value').val('Closed');
+        } else {
+            $(this).removeClass('btn-danger').addClass('btn-success').text('Opened');
+            $('#now-value').val('Opened');
+        }
+    });
 
 
     // --- Add Business ---
@@ -103,6 +103,8 @@ $('#now-btn').click(function () {
         formData.append('closeTime', $('#business-closing-time').val());
         formData.append('openOrClose', $('#now-value').val());
         formData.append('businessDescription', $('#business-description').val());
+        formData.append('latitude', $('#latitude').val());
+        formData.append('longitude', $('#longitude').val());
         formData.append('businessStatus', 'ACTIVE');
         formData.append('logo', fileInput.files[0]);
         formData.append('userId', userId);
@@ -147,4 +149,5 @@ $('#now-btn').click(function () {
         };
         reader.readAsDataURL(file);
     }
+
 });

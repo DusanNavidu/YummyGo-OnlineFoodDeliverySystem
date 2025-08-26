@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
+import java.math.BigDecimal;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -47,6 +48,8 @@ public class BusinessController {
             @RequestParam String closeTime,
             @RequestParam String openOrClose,
             @RequestParam String businessDescription,
+            @RequestParam BigDecimal latitude,
+            @RequestParam BigDecimal longitude,
             @RequestParam String businessStatus,
             @RequestParam Long userId,
             @RequestPart("logo") MultipartFile logoFile
@@ -74,6 +77,8 @@ public class BusinessController {
             businessDTO.setCloseTime(closeTime);
             businessDTO.setOpenOrClose(openOrClose);
             businessDTO.setBusinessDescription(businessDescription);
+            businessDTO.setLatitude(latitude);
+            businessDTO.setLongitude(longitude);
             businessDTO.setBusinessStatus(businessStatus);
             businessDTO.setBusinessLogo("/uploads/business-logos/" + fileName);
             businessDTO.setUserId(userId);
@@ -161,4 +166,21 @@ public class BusinessController {
                     .body(new APIResponse<>(500, "Error searching businesses", null));
         }
     }
+
+    @GetMapping("/getBusinessProfile/{businessId}")
+    public ResponseEntity<APIResponse<BusinessDTO>> getBusinessProfile(@PathVariable Long businessId) {
+        try {
+            return businessService.getBusinessProfile(businessId)
+                    .map(b -> modelMapper.map(b, BusinessDTO.class))
+                    .map(businessDTO -> ResponseEntity.ok(new APIResponse<>(200, "Business profile fetched successfully", businessDTO)))
+                    .orElseGet(() -> ResponseEntity.status(HttpStatus.NOT_FOUND)
+                            .body(new APIResponse<>(404, "Business not found", null)));
+
+        } catch (Exception e) {
+            log.error("Error fetching business profile", e);
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
+                    .body(new APIResponse<>(500, "Error fetching business profile", null));
+        }
+    }
+
 }
