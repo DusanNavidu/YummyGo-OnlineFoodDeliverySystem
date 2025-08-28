@@ -220,7 +220,7 @@
     <!-- SweetAlert2 -->
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
-    <!-- <script>
+    <script>
         document.getElementById("resetBtn").addEventListener("click", function (e) {
             e.preventDefault(); // prevent instant reset
             Swal.fire({
@@ -249,125 +249,96 @@
                 }
             });
         });
-    </script> -->
+    </script>
 
-    <!-- Leaflet + JS -->
+<!-- Leaflet + JS -->
 <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
 <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
 
 <script>
-let map, marker, liveMarker;
+    let map, marker, liveMarker;
 
-function initMap() {
-    if (map) return; // prevent multiple initializations
+    function initMap(savedLat = null, savedLng = null) {
+        // Default center (Colombo)
+        let defaultLat = 6.9271;
+        let defaultLng = 79.8612;
 
-    // Default map center
-    map = L.map('map').setView([6.9271, 79.8612], 12);
+        // If saved coordinates exist → use them, otherwise default center
+        let startLat = savedLat || defaultLat;
+        let startLng = savedLng || defaultLng;
 
-    // Free & fast tiles
-    L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
-        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OSM</a> &copy; <a href="https://carto.com/">CARTO</a>',
-        subdomains: 'abcd',
-        maxZoom: 19
-    }).addTo(map);
+        // If map already exists → remove it completely
+        if (map) {
+            map.remove();
+            map = null;
+        }
 
-    // Draggable business marker
-    marker = L.marker([6.9271, 79.8612], { draggable: true }).addTo(map);
+        // Create a fresh map each time
+        map = L.map('map').setView([startLat, startLng], 12);
 
-    function updateLatLng(lat, lng) {
-        document.getElementById("latitude").value = lat;
-        document.getElementById("longitude").value = lng;
-    }
-    updateLatLng(6.9271, 79.8612);
+        // Map tiles
+        L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
+            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OSM</a> &copy; <a href="https://carto.com/">CARTO</a>',
+            subdomains: 'abcd',
+            maxZoom: 19
+        }).addTo(map);
 
-    // Drag or click to update location
-    marker.on('dragend', function() {
-        let latlng = marker.getLatLng();
-        updateLatLng(latlng.lat, latlng.lng);
-    });
+        // Draggable marker
+        marker = L.marker([startLat, startLng], { draggable: true }).addTo(map);
 
-    map.on('click', function(e) {
-        marker.setLatLng(e.latlng);
-        updateLatLng(e.latlng.lat, e.latlng.lng);
-    });
-
-    // Set live location ONCE
-    setLiveLocation();
-
-    // Fix map size inside modal
-    setTimeout(() => { map.invalidateSize(); }, 500);
-}
-
-// Function to get live location & reset marker/map
-function setLiveLocation() {
-    if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(function(position) {
-            let lat = position.coords.latitude;
-            let lng = position.coords.longitude;
-
-            map.setView([lat, lng], 15);
-            marker.setLatLng([lat, lng]);
+        function updateLatLng(lat, lng) {
             document.getElementById("latitude").value = lat;
             document.getElementById("longitude").value = lng;
-
-            if (!liveMarker) {
-                liveMarker = L.circleMarker([lat, lng], {
-                    radius: 8,
-                    fillColor: "blue",
-                    color: "white",
-                    weight: 2,
-                    opacity: 1,
-                    fillOpacity: 0.9
-                }).addTo(map).bindPopup("📍 Your Live Location").openPopup();
-            } else {
-                liveMarker.setLatLng([lat, lng]);
-            }
-        }, function(error) {
-            console.error("Location error:", error.message);
-        });
-    }
-}
-
-// Modal open → load map
-document.getElementById('Business-add-modal').addEventListener('shown.bs.modal', function () {
-    initMap();
-    map.invalidateSize();
-});
-
-// Reset button → clear form + reset map
-document.getElementById("resetBtn").addEventListener("click", function (e) {
-    e.preventDefault();
-    Swal.fire({
-        title: "Are you sure?",
-        text: "This will clear all form data and reset the map!",
-        icon: "warning",
-        showCancelButton: true,
-        confirmButtonColor: "#3085d6",
-        cancelButtonColor: "#d33",
-        confirmButtonText: "Yes, reset it!",
-        background: "rgba(0,0,0,0.9)",
-        color: "#fff"
-    }).then((result) => {
-        if (result.isConfirmed) {
-            document.getElementById("add-business-form").reset();
-            document.getElementById("preview").style.display = "none";
-            setLiveLocation(); // ⬅ Reset map to live location
-
-            Swal.fire({
-                title: "Form Reset!",
-                text: "Form cleared & map reset to live location.",
-                icon: "success",
-                timer: 1500,
-                showConfirmButton: false,
-                background: "rgba(0,0,0,0.9)",
-                color: "#fff"
-            });
         }
+        updateLatLng(startLat, startLng);
+
+        // Drag or click to update marker
+        marker.on('dragend', function () {
+            let pos = marker.getLatLng();
+            updateLatLng(pos.lat, pos.lng);
+        });
+
+        map.on('click', function (e) {
+            marker.setLatLng(e.latlng);
+            updateLatLng(e.latlng.lat, e.latlng.lng);
+        });
+
+        // If no saved location → request live location each time
+        if (!savedLat || !savedLng) {
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(function (position) {
+                    let lat = position.coords.latitude;
+                    let lng = position.coords.longitude;
+                    map.setView([lat, lng], 15);
+                    marker.setLatLng([lat, lng]);
+                    updateLatLng(lat, lng);
+
+                    // Show blue dot for live location
+                    liveMarker = L.circleMarker([lat, lng], {
+                        radius: 8,
+                        fillColor: "blue",
+                        color: "white",
+                        weight: 2,
+                        opacity: 1,
+                        fillOpacity: 0.9
+                    }).addTo(map).bindPopup("📍 Your Live Location").openPopup();
+                }, function (error) {
+                    console.error("Location error:", error.message);
+                });
+            }
+        }
+
+        // Fix sizing issue in modal
+        setTimeout(() => { map.invalidateSize(); }, 500);
+    }
+
+    // Modal open → always reinitialize
+    document.getElementById('Business-add-modal').addEventListener('shown.bs.modal', function () {
+        let savedLat = document.getElementById("latitude").value;
+        let savedLng = document.getElementById("longitude").value;
+        initMap(savedLat || null, savedLng || null);
     });
-});
 </script>
-
-
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"></script>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>

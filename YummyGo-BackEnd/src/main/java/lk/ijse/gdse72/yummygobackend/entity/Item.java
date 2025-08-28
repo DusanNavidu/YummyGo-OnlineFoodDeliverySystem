@@ -7,6 +7,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.sql.Timestamp;
+import java.util.List;
 
 /**
  * @author Dusan
@@ -37,4 +38,7 @@ public class Item {
     @ManyToOne
     @JoinColumn(name = "businessId", nullable = false)
     private Business business;
+
+    @OneToMany(mappedBy = "item", cascade = CascadeType.ALL)
+    private List<OrderDetails> orderDetailsList;
 }
