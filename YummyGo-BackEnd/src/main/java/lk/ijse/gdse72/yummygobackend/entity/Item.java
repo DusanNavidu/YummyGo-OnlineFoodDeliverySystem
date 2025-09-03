@@ -28,6 +28,8 @@ public class Item {
     private String itemName;
     private String itemPrice;
     private String itemCategory;
+
+    @Lob
     private String itemDescription;
     private String itemImage;
     private String itemStatus;

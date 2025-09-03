@@ -32,6 +32,8 @@ public class Business {
     private String openTime;
     private String closeTime;
     private String openOrClose; // "Open" or "Close"
+
+    @Lob
     private String businessDescription;
     private String businessStatus;
 

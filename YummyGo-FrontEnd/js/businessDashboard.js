@@ -28,14 +28,14 @@ $(document).ready(async function() {
                         <a href="/pages/businessItemDashboard.html?businessId=${b.businessId}" 
                                 class="col-md-4 mb-3" style="text-decoration:none;">
 
-                            <div class="card p-2">
+                            <div class="card">
                                 <img src="${backendUrl}${b.businessLogo}" 
                                     class="img-fluid mb-2" 
-                                    style="max-height:150px; object-fit:contain;">
-                                <h5>${b.businessName}</h5>
-                                <p>${b.businessDescription}</p>
-                                <p>${b.businessAddress}, ${b.businessAreaPostalCode}</p>
-                                <p>${b.businessEmail} | ${b.contactNumber1}</p>
+                                    style="max-height:150px; object-fit:cover;">
+                                <h5 class="p-2">${b.businessName}</h5>
+                                <small class="text-secondary p-2" style="overflow-y:auto; max-height:80px; height:80px;">${b.businessDescription}</small>
+                                <p class="p-2">${b.businessAddress}, ${b.businessAreaPostalCode}</p>
+                                <p class="p-2">${b.businessEmail} | ${b.contactNumber1}</p>
                             </div>
                         </a>
                     `);
