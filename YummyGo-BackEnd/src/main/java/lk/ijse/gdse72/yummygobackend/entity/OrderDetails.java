@@ -6,6 +6,8 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.sql.Timestamp;
+
 /**
  * @author Dusan
  * @date 8/26/2025
@@ -31,4 +33,7 @@ public class OrderDetails {
     @ManyToOne
     @JoinColumn(name = "item_id", nullable = false)
     private Item item;
+
+    private Integer quantity;
+    private String price; // Price at the time of order
 }

@@ -7,7 +7,6 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.sql.Timestamp;
-import java.util.Date;
 import java.util.List;
 
 /**
@@ -31,6 +30,12 @@ public class Orders {
 
     @OneToMany(mappedBy = "orders", cascade = CascadeType.ALL)
     private List<OrderDetails> orderDetailsList;
+
+//    private String orderStatus; // e.g., "Pending", "Cooking", "Complete", "Delivery", "Cancelled"
+//    private String paymentStatus; // e.g., "Paid", "Unpaid"
+//    private String paymentMethod; // e.g., "Cash", "Online Payment"
+//    private String rideCost;
+//    private String totalAmount;
 
     private Timestamp createdAt;
     private Timestamp updatedAt;

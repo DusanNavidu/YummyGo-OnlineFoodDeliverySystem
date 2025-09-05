@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
-    <data-source source="LOCAL" name="yummygo@localhost" uuid="8b24f2f5-84c9-450f-a29e-cf4aca1fb282">
+    <data-source source="LOCAL" name="yummygo@localhost" uuid="0e1e351f-3b11-4e67-95fb-f59c298f7c26">
       <driver-ref>mysql_aurora.aws_wrapper</driver-ref>
       <synchronize>true</synchronize>
       <jdbc-driver>software.amazon.jdbc.Driver</jdbc-driver>

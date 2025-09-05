@@ -39,6 +39,8 @@ public class AuthService {
                 .password(passwordEncoder.encode(registerDTO.getPassword()))
                 .userStatus(registerDTO.getUserStatus())
                 .role(Role.valueOf(registerDTO.getRole()))
+                .createdAt(new java.sql.Timestamp(System.currentTimeMillis()))
+                .updatedAt(new java.sql.Timestamp(System.currentTimeMillis()))
                 .build();
         userRepository.save(user);
         return "User Registration Success...";
