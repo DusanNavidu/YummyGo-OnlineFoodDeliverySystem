@@ -1,6 +1,7 @@
 package lk.ijse.gdse72.yummygobackend.servicce.impl;
 
 import lk.ijse.gdse72.yummygobackend.dto.UserDTO;
+import lk.ijse.gdse72.yummygobackend.entity.Role;
 import lk.ijse.gdse72.yummygobackend.entity.User;
 import lk.ijse.gdse72.yummygobackend.repository.UserRepository;
 import lk.ijse.gdse72.yummygobackend.servicce.UserService;
@@ -27,17 +28,45 @@ public class UserServiceImpl implements UserService {
     @Override
     public List<UserDTO> getAllUsers() {
         List<User> allUsers = userRepository.findAll();
-        if (allUsers.isEmpty()) {
-            throw new RuntimeException("No Users Found");
-        }
         return modelMapper.map(allUsers, new org.modelmapper.TypeToken<List<UserDTO>>() {}.getType());
     }
 
     @Override
-    public Page<UserDTO> getAllUsers(Pageable pageable) {
-        Page<User> usersPage = userRepository.findAll(pageable);
+    public Page<UserDTO> getAllNonAdminUsers(Pageable pageable) {
+        Page<User> usersPage = userRepository.findAllByRoleNot(Role.ADMIN, pageable);
         return usersPage.map(user -> modelMapper.map(user, UserDTO.class));
     }
+
+    @Override
+    public Page<UserDTO> getAllBusinessUsers(Pageable pageable) {
+        Page<User> usersPage = userRepository.findAllByRole(Role.BUSINESS, pageable);
+        return usersPage.map(user -> modelMapper.map(user, UserDTO.class));
+    }
+
+    @Override
+    public Page<UserDTO> getAllPartnerUsers(Pageable pageable) {
+        Page<User> usersPage = userRepository.findAllByRole(Role.PARTNER, pageable);
+        return usersPage.map(user -> modelMapper.map(user, UserDTO.class));
+    }
+
+    @Override
+    public Page<UserDTO> getAllClientUsers(Pageable pageable) {
+        Page<User> usersPage = userRepository.findAllByRole(Role.CLIENT, pageable);
+        return usersPage.map(user -> modelMapper.map(user, UserDTO.class));
+    }
+
+    @Override
+    public Page<UserDTO> getAllActiveUsers(Pageable pageable) {
+        Page<User> usersPage = userRepository.findAllByUserStatusIgnoreCase("active", pageable);
+        return usersPage.map(user -> modelMapper.map(user, UserDTO.class));
+    }
+
+    @Override
+    public Page<UserDTO> getAllInactiveUsers(Pageable pageable) {
+        Page<User> usersPage = userRepository.findAllByUserStatusIgnoreCase("inactive", pageable);
+        return usersPage.map(user -> modelMapper.map(user, UserDTO.class));
+    }
+
 
     @Override
     public Long getUserCount() {

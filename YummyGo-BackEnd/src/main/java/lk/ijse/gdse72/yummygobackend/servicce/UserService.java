@@ -14,7 +14,17 @@ import java.util.List;
 public interface UserService {
     List<UserDTO> getAllUsers();
 
-    Page<UserDTO> getAllUsers(Pageable pageable);
+    Page<UserDTO> getAllNonAdminUsers(Pageable pageable);
+
+    Page<UserDTO> getAllBusinessUsers(Pageable pageable);
+
+    Page<UserDTO> getAllPartnerUsers(Pageable pageable);
+
+    Page<UserDTO> getAllClientUsers(Pageable pageable);
+
+    Page<UserDTO> getAllActiveUsers(Pageable pageable);
+
+    Page<UserDTO> getAllInactiveUsers(Pageable pageable);
 
     Long getUserCount();
 }

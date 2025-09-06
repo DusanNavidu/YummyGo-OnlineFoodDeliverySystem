@@ -1,18 +1,15 @@
 package lk.ijse.gdse72.yummygobackend.controller;
 
 import lk.ijse.gdse72.yummygobackend.dto.UserDTO;
-import lk.ijse.gdse72.yummygobackend.entity.User;
 import lk.ijse.gdse72.yummygobackend.servicce.UserService;
 import lk.ijse.gdse72.yummygobackend.util.APIResponse;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
-import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-import java.util.stream.Collectors;
 
 /**
  * @author Dusan
@@ -29,13 +26,41 @@ public class AdminDashboardUsersManage {
     private final UserService userService;
 
     @GetMapping("/getAllUsers")
-    public ResponseEntity<APIResponse<List<UserDTO>>> getAllUsers() {
-        List<UserDTO> allUsers = userService.getAllUsers();
-        List<UserDTO> nonAdminUsers = allUsers.stream()
-                .filter(user -> !"ADMIN".equalsIgnoreCase(user.getRole()))
-                .toList();
-        return ResponseEntity.ok(new APIResponse<>(200, "All Users Retrieved Successfully", nonAdminUsers));
+    public ResponseEntity<APIResponse<Page<UserDTO>>> getAllUsers(
+            @RequestParam(defaultValue = "0") int page,
+            @RequestParam(defaultValue = "10") int size
+    ) {
+        Page<UserDTO> pagedUsers = userService.getAllNonAdminUsers(PageRequest.of(page, size));
+        return ResponseEntity.ok(new APIResponse<>(200, "All Users Retrieved Successfully", pagedUsers));
     }
+
+    @GetMapping("/getAllBusinessUsers")
+    public ResponseEntity<APIResponse<Page<UserDTO>>> getAllBusinessUsers(
+            @RequestParam(defaultValue = "0") int page,
+            @RequestParam(defaultValue = "10") int size
+    ) {
+        Page<UserDTO> pagedUsers = userService.getAllBusinessUsers(PageRequest.of(page, size));
+        return ResponseEntity.ok(new APIResponse<>(200, "All Business Users Retrieved Successfully", pagedUsers));
+    }
+
+    @GetMapping("/getAllPartnerUsers")
+    public ResponseEntity<APIResponse<Page<UserDTO>>> getAllPartnerUsers(
+            @RequestParam(defaultValue = "0") int page,
+            @RequestParam(defaultValue = "10") int size
+    ) {
+        Page<UserDTO> pagedUsers = userService.getAllPartnerUsers(PageRequest.of(page, size));
+        return ResponseEntity.ok(new APIResponse<>(200, "All Partner Users Retrieved Successfully", pagedUsers));
+    }
+
+    @GetMapping("/getAllClientUsers")
+    public ResponseEntity<APIResponse<Page<UserDTO>>> getAllClientUsers(
+            @RequestParam(defaultValue = "0") int page,
+            @RequestParam(defaultValue = "10") int size
+    ) {
+        Page<UserDTO> pagedUsers = userService.getAllClientUsers(PageRequest.of(page, size));
+        return ResponseEntity.ok(new APIResponse<>(200, "All Client Users Retrieved Successfully", pagedUsers));
+    }
+
 
     @GetMapping("/getUserCount")
     public ResponseEntity<APIResponse<Long>> getUserCount() {
@@ -97,25 +122,48 @@ public class AdminDashboardUsersManage {
         return ResponseEntity.ok(new APIResponse<>(200, "Inactive User Count Retrieved Successfully", inactiveUserCount));
     }
 
-    // ✅ FIXED Paged endpoint
-    @GetMapping("/getAllUsers/paged")
-    public ResponseEntity<APIResponse<Page<UserDTO>>> getAllUsersPaged(
+    @GetMapping("/getAllActiveUsers")
+    public ResponseEntity<APIResponse<Page<UserDTO>>> getAllActiveUsers(
             @RequestParam(defaultValue = "0") int page,
             @RequestParam(defaultValue = "10") int size
     ) {
-        Page<UserDTO> usersPage = userService.getAllUsers(PageRequest.of(page, size));
-
-        List<UserDTO> filtered = usersPage.getContent().stream()
-                .filter(user -> !"ADMIN".equalsIgnoreCase(user.getRole()))
-                .collect(Collectors.toList());
-
-        Page<UserDTO> nonAdminUsers = new PageImpl<>(
-                filtered,
-                usersPage.getPageable(),
-                filtered.size()   // ✅ ensures consistency
-        );
-
-        return ResponseEntity.ok(new APIResponse<>(200, "Users Retrieved Successfully", nonAdminUsers));
+        Page<UserDTO> pagedUsers = userService.getAllActiveUsers(PageRequest.of(page, size));
+        return ResponseEntity.ok(new APIResponse<>(200, "Active Users Retrieved Successfully", pagedUsers));
     }
 
+    @GetMapping("/getAllInactiveUsers")
+    public ResponseEntity<APIResponse<Page<UserDTO>>> getAllInactiveUsers(
+            @RequestParam(defaultValue = "0") int page,
+            @RequestParam(defaultValue = "10") int size
+    ) {
+        Page<UserDTO> pagedUsers = userService.getAllInactiveUsers(PageRequest.of(page, size));
+        return ResponseEntity.ok(new APIResponse<>(200, "Inactive Users Retrieved Successfully", pagedUsers));
+    }
+
+    @GetMapping("/searchUsers")
+    public ResponseEntity<APIResponse<List<UserDTO>>> searchUsers(String keyword) {
+        List<UserDTO> allUsers = userService.getAllUsers();
+
+        if (keyword == null || keyword.isEmpty()) {
+            // Return all non-admin users if no keyword
+            List<UserDTO> nonAdminUsers = allUsers.stream()
+                    .filter(user -> !"ADMIN".equalsIgnoreCase(user.getRole()))
+                    .toList();
+            return ResponseEntity.ok(new APIResponse<>(200, "All Users Retrieved Successfully", nonAdminUsers));
+        }
+
+        String lowerKeyword = keyword.toLowerCase();
+        List<UserDTO> filteredUsers = allUsers.stream()
+                .filter(user -> !"ADMIN".equalsIgnoreCase(user.getRole()))
+                .filter(user ->
+                        (user.getFullName() != null && user.getFullName().toLowerCase().contains(lowerKeyword)) ||
+                                (user.getEmail() != null && user.getEmail().toLowerCase().contains(lowerKeyword)) ||
+                                (user.getUsername() != null && user.getUsername().toLowerCase().contains(lowerKeyword)) ||
+                                (user.getPhoneNumber() != null && user.getPhoneNumber().toLowerCase().contains(lowerKeyword)) ||
+                                (user.getId() != null && user.getId().toString().contains(lowerKeyword))
+                )
+                .toList();
+
+        return ResponseEntity.ok(new APIResponse<>(200, "Users Retrieved Successfully", filteredUsers));
+    }
 }

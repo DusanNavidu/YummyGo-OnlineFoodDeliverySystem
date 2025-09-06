@@ -4,20 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0e4c2015-418c-4087-b1aa-100aa7dab4bc" name="Changes" comment="map update">
-      <change afterPath="$PROJECT_DIR$/YummyGo-BackEnd/src/main/java/lk/ijse/gdse72/yummygobackend/controller/AdminDashboardUsersManage.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/YummyGo-BackEnd/src/main/java/lk/ijse/gdse72/yummygobackend/dto/UserDTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/YummyGo-BackEnd/src/main/java/lk/ijse/gdse72/yummygobackend/servicce/UserService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/YummyGo-BackEnd/src/main/java/lk/ijse/gdse72/yummygobackend/servicce/impl/UserServiceImpl.java" afterDir="false" />
+    <list default="true" id="0e4c2015-418c-4087-b1aa-100aa7dab4bc" name="Changes" comment="Admin Update">
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/YummyGo-BackEnd/src/main/java/lk/ijse/gdse72/yummygobackend/controller/AuthController.java" beforeDir="false" afterPath="$PROJECT_DIR$/YummyGo-BackEnd/src/main/java/lk/ijse/gdse72/yummygobackend/controller/AuthController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/YummyGo-BackEnd/src/main/java/lk/ijse/gdse72/yummygobackend/entity/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/YummyGo-BackEnd/src/main/java/lk/ijse/gdse72/yummygobackend/entity/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/YummyGo-BackEnd/src/main/java/lk/ijse/gdse72/yummygobackend/controller/AdminDashboardUsersManage.java" beforeDir="false" afterPath="$PROJECT_DIR$/YummyGo-BackEnd/src/main/java/lk/ijse/gdse72/yummygobackend/controller/AdminDashboardUsersManage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/YummyGo-BackEnd/src/main/java/lk/ijse/gdse72/yummygobackend/repository/UserRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/YummyGo-BackEnd/src/main/java/lk/ijse/gdse72/yummygobackend/repository/UserRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/YummyGo-BackEnd/src/main/java/lk/ijse/gdse72/yummygobackend/servicce/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/YummyGo-BackEnd/src/main/java/lk/ijse/gdse72/yummygobackend/servicce/UserService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/YummyGo-BackEnd/src/main/java/lk/ijse/gdse72/yummygobackend/servicce/impl/UserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/YummyGo-BackEnd/src/main/java/lk/ijse/gdse72/yummygobackend/servicce/impl/UserServiceImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/YummyGo-FrontEnd/css/Style.css" beforeDir="false" afterPath="$PROJECT_DIR$/YummyGo-FrontEnd/css/Style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/YummyGo-FrontEnd/js/login.js" beforeDir="false" afterPath="$PROJECT_DIR$/YummyGo-FrontEnd/js/login.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/YummyGo-FrontEnd/pages/businessDashboard.html" beforeDir="false" afterPath="$PROJECT_DIR$/YummyGo-FrontEnd/pages/businessDashboard.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/YummyGo-FrontEnd/pages/client.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/YummyGo-FrontEnd/pages/loging.html" beforeDir="false" afterPath="$PROJECT_DIR$/YummyGo-FrontEnd/pages/loging.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/YummyGo-FrontEnd/pages/roleSelectDashboard.html" beforeDir="false" afterPath="$PROJECT_DIR$/YummyGo-FrontEnd/pages/roleSelectDashboard.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/logs/application.log" beforeDir="false" afterPath="$PROJECT_DIR$/logs/application.log" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -188,7 +183,9 @@
       <workItem from="1756908904202" duration="1368000" />
       <workItem from="1756926280088" duration="3036000" />
       <workItem from="1756956909305" duration="2582000" />
-      <workItem from="1757082972021" duration="17270000" />
+      <workItem from="1757082972021" duration="19594000" />
+      <workItem from="1757160242653" duration="1894000" />
+      <workItem from="1757166316427" duration="6018000" />
     </task>
     <task id="LOCAL-00001" summary="font end add">
       <option name="closed" value="true" />
@@ -294,7 +291,15 @@
       <option name="project" value="LOCAL" />
       <updated>1757084854587</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="Admin Update">
+      <option name="closed" value="true" />
+      <created>1757117934041</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1757117934041</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -331,6 +336,7 @@
     <MESSAGE value="front end add the system" />
     <MESSAGE value="Client dashboard build" />
     <MESSAGE value="map update" />
-    <option name="LAST_COMMIT_MESSAGE" value="map update" />
+    <MESSAGE value="Admin Update" />
+    <option name="LAST_COMMIT_MESSAGE" value="Admin Update" />
   </component>
 </project>
