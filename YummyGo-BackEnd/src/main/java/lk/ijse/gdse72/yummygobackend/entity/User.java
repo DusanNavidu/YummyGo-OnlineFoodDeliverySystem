@@ -25,7 +25,7 @@ public class User {
     private String email;
     private String username;
     private String password;
-    private String userStatus; // "Active" or "Inactive"
+    private String userStatus; // "Active" or "INACTIVE"
 
     @Enumerated(EnumType.STRING)
     private Role role;    //   ADMIN, CLIENT, PARTNER, BUSINESS
