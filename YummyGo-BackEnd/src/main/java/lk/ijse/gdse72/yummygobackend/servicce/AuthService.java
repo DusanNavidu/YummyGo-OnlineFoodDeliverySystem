@@ -5,6 +5,7 @@ import lk.ijse.gdse72.yummygobackend.dto.AuthResponseDTO;
 import lk.ijse.gdse72.yummygobackend.dto.RegisterDTO;
 import lk.ijse.gdse72.yummygobackend.entity.Role;
 import lk.ijse.gdse72.yummygobackend.entity.User;
+import lk.ijse.gdse72.yummygobackend.exception.InactiveUserException;
 import lk.ijse.gdse72.yummygobackend.repository.UserRepository;
 import lk.ijse.gdse72.yummygobackend.util.JwtUtil;
 import lombok.RequiredArgsConstructor;
@@ -55,6 +56,12 @@ public class AuthService {
                                 ()->new UsernameNotFoundException
                                         ("Username not found"));
         System.out.println("User found: " + user.getUsername());
+
+        // Check if user is inactive
+        if ("Inactive".equalsIgnoreCase(user.getUserStatus())) {
+            throw new InactiveUserException("Your account is deactivated. Please contact support.");
+        }
+
         if (!passwordEncoder.matches(
                 authDTO.getPassword(),
                 user.getPassword())) {

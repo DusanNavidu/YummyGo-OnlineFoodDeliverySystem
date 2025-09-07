@@ -27,4 +27,8 @@ public interface UserService {
     Page<UserDTO> getAllInactiveUsers(Pageable pageable);
 
     Long getUserCount();
+
+    void deactivateUser(Long userId);
+
+    void activateUser(Long userId);
 }

@@ -55,9 +55,19 @@ $(document).ready(function () {
             $("#message").html('<div class="alert alert-danger">Invalid credentials. Please try again.</div>');
           }
         },
-        error: function (err) {
-          console.error("Login failed", err);
-          $("#message").html('<div class="alert alert-danger">Login failed. Please try again.</div>');
+        error: function (xhr) {
+          console.error("Login failed", xhr);
+
+          let errorMessage = "Login failed. Please try again.";
+
+          if (xhr.responseJSON) {
+            const apiResponse = xhr.responseJSON;
+            errorMessage = apiResponse.data || apiResponse.status || errorMessage;
+          }
+
+          $("#message").html(
+            `<div class="alert alert-danger">${errorMessage}</div>`
+          );
         }
       });
     });

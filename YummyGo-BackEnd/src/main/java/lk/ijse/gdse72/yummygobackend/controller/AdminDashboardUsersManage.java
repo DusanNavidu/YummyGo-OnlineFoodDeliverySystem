@@ -1,6 +1,9 @@
 package lk.ijse.gdse72.yummygobackend.controller;
 
+import lk.ijse.gdse72.yummygobackend.dto.ApiResponse;
+import lk.ijse.gdse72.yummygobackend.dto.RegisterDTO;
 import lk.ijse.gdse72.yummygobackend.dto.UserDTO;
+import lk.ijse.gdse72.yummygobackend.servicce.AuthService;
 import lk.ijse.gdse72.yummygobackend.servicce.UserService;
 import lk.ijse.gdse72.yummygobackend.util.APIResponse;
 import lombok.RequiredArgsConstructor;
@@ -24,6 +27,7 @@ import java.util.List;
 public class AdminDashboardUsersManage {
 
     private final UserService userService;
+    private final AuthService authService;
 
     @GetMapping("/getAllUsers")
     public ResponseEntity<APIResponse<Page<UserDTO>>> getAllUsers(
@@ -165,5 +169,27 @@ public class AdminDashboardUsersManage {
                 .toList();
 
         return ResponseEntity.ok(new APIResponse<>(200, "Users Retrieved Successfully", filteredUsers));
+    }
+
+    @PatchMapping("/deactivateUser/{id}")
+    public ResponseEntity<APIResponse<String>> deactivateUser(@PathVariable("id") Long id) {
+        userService.deactivateUser(id);
+        return ResponseEntity.ok(new APIResponse<>(200, "User Deactivated Successfully", null));
+    }
+
+    @PatchMapping("/activateUser/{id}")
+    public ResponseEntity<APIResponse<String>> activateUser(@PathVariable("id") Long id) {
+        userService.activateUser(id);
+        return ResponseEntity.ok(new APIResponse<>(200, "User Activated Successfully", null));
+    }
+
+    @PostMapping("/admin/saveuser")
+    public ResponseEntity<ApiResponse> registerUser(@RequestBody RegisterDTO registerDTO) {
+        System.out.println("registerDTO = " + registerDTO);
+        return ResponseEntity.ok(new ApiResponse(
+                200,
+                "ok",
+                authService.register(registerDTO)
+        ));
     }
 }

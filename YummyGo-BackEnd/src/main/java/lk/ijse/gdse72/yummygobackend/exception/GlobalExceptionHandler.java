@@ -56,6 +56,11 @@ public class GlobalExceptionHandler {
                 "Unauthorized",
                 "Invalid username or password");
     }
+    @ExceptionHandler(InactiveUserException.class)
+    @ResponseStatus(HttpStatus.UNAUTHORIZED)
+    public ApiResponse handleInactiveUserException(InactiveUserException ex) {
+        return new ApiResponse(401, "Unauthorized", ex.getMessage());
+    }
     @ExceptionHandler(ExpiredJwtException.class)
     @ResponseStatus(HttpStatus.UNAUTHORIZED)
     public ApiResponse handleExpiredJwtException

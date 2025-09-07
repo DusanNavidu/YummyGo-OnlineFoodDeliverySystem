@@ -67,9 +67,24 @@ public class UserServiceImpl implements UserService {
         return usersPage.map(user -> modelMapper.map(user, UserDTO.class));
     }
 
-
     @Override
     public Long getUserCount() {
         return userRepository.count();
+    }
+
+    @Override
+    public void deactivateUser(Long userId) {
+        if (userId == null) {
+            throw new IllegalArgumentException("User ID cannot be null");
+        }
+        userRepository.updateUserStatus(userId);
+    }
+
+    @Override
+    public void activateUser(Long userId) {
+        if (userId == null) {
+            throw new IllegalArgumentException("User ID cannot be null");
+        }
+        userRepository.updateUserStatusActive(userId);
     }
 }
