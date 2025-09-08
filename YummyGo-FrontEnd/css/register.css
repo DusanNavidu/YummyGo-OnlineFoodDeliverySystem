@@ -1,0 +1,131 @@
+/* General Styles */
+#register-page {
+    background-color: #09b95b;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+}
+
+#register-container {
+    background-color: #fff;
+    width: 100%;
+    max-width: 900px;
+    border-radius: 20px;
+    box-shadow: 0 4px 30px rgba(0,0,0,0.2);
+    display: flex;
+    flex-direction: row;
+    overflow: hidden;
+    max-height: 95vh; /* limit height for scrolling */
+}
+
+/* Left Side */
+#register-left-side {
+    background-color: #000;
+    color: #fff;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+    min-height: 250px;
+}
+
+#register-left-side-text {
+    font-size: 3rem;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    text-align: center;
+    z-index: 2;
+}
+
+#register-left-side-image {
+    width: 250px;
+    object-fit: contain;
+    margin-top: 10px;
+}
+
+/* Right Side */
+#register-right-side {
+    flex: 1;
+    padding: 40px;
+    overflow-y: auto; /* enable scrolling if content overflows */
+    max-height: 95vh;  /* make scroll effective */
+}
+
+#register-Google-logo {
+    width: 20px;
+    height: 20px;
+    margin-right: 10px;
+}
+
+/* ---------------- Responsive ---------------- */
+
+/* Tablets (≤992px) */
+@media (max-width: 992px) {
+    #register-container { flex-direction: column; }
+    #register-left-side { min-height: 150px; border-radius: 20px 20px 0 0; margin-bottom: 15px; }
+    #register-left-side-text { font-size: 2.5rem; }
+    #register-left-side-image { width: 180px; }
+    #register-right-side { padding: 30px; }
+    .toggle-password { width: 70px; } /* smaller toggle button */
+}
+
+/* Mobile (≤768px) */
+@media (max-width: 768px) {
+    #register-left-side { display: flex; min-height: 120px; margin-bottom: 10px; }
+    #register-left-side-text { font-size: 2rem; }
+    #register-left-side-image { width: 140px; }
+    #register-right-side { width: 100%; padding: 20px; }
+    #register-right-side h2 { font-size: 1.5rem; }
+    #register-right-side input, #register-right-side label { font-size: 0.95rem; }
+    #register-right-side .btn { width: 90% !important; }
+    .toggle-password { width: 60px; } /* smaller toggle button */
+}
+
+/* Small Mobile (≤480px) */
+@media (max-width: 480px) {
+    #register-left-side-text { font-size: 1.8rem; }
+    #register-left-side-image { width: 120px; }
+    #register-right-side h2 { font-size: 1.4rem; }
+    #register-right-side input, #register-right-side label { font-size: 0.9rem; }
+    #register-right-side .btn { font-size: 0.9rem; }
+    #register-Google-logo { width: 18px; height: 18px; }
+    .toggle-password { width: 50px; } /* smallest toggle button */
+}
+
+/* Password toggle adjustments */
+.input-group .toggle-password {
+    padding: 0 10px;
+    min-width: auto;   /* allow it to shrink */
+    max-width: 40px;   /* limit max width */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Tablets (≤992px) */
+@media (max-width: 992px) {
+    .input-group .toggle-password {
+        max-width: 35px;
+    }
+}
+
+/* Mobile (≤768px) */
+@media (max-width: 768px) {
+    .input-group .toggle-password {
+        max-width: 30px;
+    }
+}
+
+/* Small Mobile (≤480px) */
+@media (max-width: 480px) {
+    .input-group .toggle-password {
+        max-width: 28px;
+        padding: 0 5px;
+    }
+}

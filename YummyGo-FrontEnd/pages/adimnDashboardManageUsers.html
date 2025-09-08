@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Google Fonts (Roboto Slab) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/css/Style.css">
+    <style>
+        .sidebar {
+            width: 280px;
+            height: 100vh;
+            transition: all 0.3s ease;
+        }
+
+        .sidebar.hidden {
+            width: 0;
+            overflow: hidden;
+        }
+
+        .content {
+            transition: all 0.3s ease;
+        }
+
+        .content.full {
+            margin-left: 0;
+        }
+    </style>
+</head>
+<body class="d-flex position-relative">
+
+    <button class="position-absolute top-0 end-0 btn btn-dark rounded-3 m-3"
+        style="box-shadow: -5px -5px 10px rgba(0,0,0,0.5);" id="menu-toggle">
+        <img src="/assets/logo/menu.png" alt="menu btn" style="width: 30px;">
+    </button>
+
+    <div class="sidebar bg-black d-flex flex-column">
+        <div class="text-center mb-5 mt-3"><span class="fw-bold fs-3 text-light">YUMMY</span><span class="fs-3 fw-bold text-warning">GO</span></div>
+        <a href="/pages/adminDashbordHome.html">Home</a>
+        <a href="/pages/adimnDashboardManageUsers.html">Manage Users</a>
+        <a href="">Manage Businesses</a>
+        <a href="">Manage Items</a>
+        <a href="">Manage Orders</a>
+        <a id="reports-link" href="">Reports</a>
+        <a id="settings-link" href="">Settings</a>
+        <a id="logout-link" href="">Logout</a>
+    </div>
+
+    <div id="usersManagement" class="content p-4">
+        <h1>Manage Users</h1>
+
+        <div id="btn-set-admin-user-manage" class="d-flex gap-3 mt-5">
+            <button class="data-box gap-2" id="userCount">
+                <img src="/assets/logo/multiple-users-silhouette.png" alt="User Icon" style="width: 20px;">
+                <span>Total Users: </span><span id="userCountValue"></span></button>
+            <button class="data-box gap-2" id="userAdmins">
+                <img src="/assets/logo/setting.png" alt="Admin Icon" style="width: 20px;">
+                <span>Admins: </span><span id="userAdminsValue"></span></button>
+            <button class="data-box gap-2" id="userClients">
+                <img src="/assets/logo/eating.png" alt="Client Icon" style="width: 20px;">
+                <span>Clients: </span><span id="userClientsValue"></span></button>
+            <button class="data-box gap-2" id="userBusinesses">
+                <img src="/assets/logo/coffee-shop.png" alt="Business Icon" style="width: 20px;">
+                <span>Businesses: </span><span id="userBusinessesValue"></span></button>
+            <button class="data-box gap-2" id="userPartners">
+                <img src="/assets/logo/app.png" alt="Partner Icon" style="width: 20px;">
+                <span>Partners: </span><span id="userPartnersValue"></span></button>
+            <button class="data-box" id="activeUsers"><span>Active Users: </span><span id="activeUsersValue"></span></button>
+            <button class="data-box" id="inactiveUsers"><span>Inactive Users: </span><span id="inactiveUsersValue"></span></button>
+            <button class="data-box bg-primary text-white" id="addUserButton"
+                data-bs-toggle="modal" data-bs-target="#user-add-modal">+ Add Users</button>
+        </div>
+
+        <input type="text" id="searchInput" placeholder="Search users..." class="form-control my-3 rounded-5"/>
+
+        <div class="table-responsive">
+            <table class="table table-striped table-hover" id="usersTable">
+                <thead class="table-light">
+                    <tr>
+                        <th>ID</th>
+                        <th>FULL NAME</th>
+                        <th>PHONE NUMBER</th>
+                        <th>EMAIL</th>
+                        <th>USERNAME</th>
+                        <th>STATUS</th>
+                        <th>ROLE</th>
+                        <th>CREATED AT</th>
+                        <th>UPDATED AT</th>
+                        <th>ACTIONS</th>
+                    </tr>
+                </thead>
+                <tbody id="usersTableBody"></tbody>
+            </table>
+
+            <nav class="d-flex justify-content-center">
+                <ul class="pagination" id="pagination"></ul>
+            </nav>
+        </div>
+    </div>
+    
+    <!-- Add User Modal -->
+    <div class="modal fade" id="user-add-modal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Add New User</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="addUserForm">
+                        <div class="mb-3">
+                            <label for="fullName" class="form-label">Full Name</label>
+                            <input type="text" class="form-control border-black" id="fullName" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="phoneNumber" class="form-label">Phone Number</label>
+                            <input type="text" class="form-control border-black" id="phoneNumber" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="email" class="form-label">Email</label>
+                            <input type="email" class="form-control border-black" id="email" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="username" class="form-label">Username</label>
+                            <input type="text" class="form-control border-black" id="username" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="password" class="form-label">Password</label>
+                            <input type="password" class="form-control border-black" id="password" required>
+                        </div>
+                        <div>
+                            <label for="confirm-password" class="form-label">Confirm Password</label>
+                            <input type="password" class="form-control border-black" id="confirm-password" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="role" class="form-label">Role</label>
+                            <select class="form-select border-black" id="role" required>
+                                <option value="" disabled selected>Select role</option>
+                                <option>Client</option>
+                                <option>Business</option>
+                                <option>Partner</option>
+                            </select>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                            <button type="submit" class="btn btn-success">Add User</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="/js/AdminDashBoardManageUser.js"></script>
+    <script src="/js/btn.js"></script>
+</body>
+</html>

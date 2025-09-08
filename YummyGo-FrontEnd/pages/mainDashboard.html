@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Main Dashboard</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Epunda+Slab:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/css/Style.css">
+    <style>
+        .business-description-size {
+            height: 70px;
+        }
+        .business-card {
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
+        border-radius: 15px;
+        background: #fff;
+        overflow: hidden;
+        }
+        .business-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+        }
+        .business-card img {
+            border-radius: 15px 15px 0 0;
+            height: 180px;
+            object-fit: cover;
+            background: #f8f9fa;
+        }
+        .business-description {
+            overflow-y: auto;
+            max-height: 70px;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark position-fixed top-0 start-0 w-100 z-1">
+        <div class="container-fluid">
+            <a class="navbar-brand ps-5" href="#"><span class="fw-bold fs-3 text-light">YUMMY</span><span class="fs-3 fw-bold text-warning">GO</span> </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="#">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-light" href="#">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <button class="btn btn-dark" id="logoutBtn">
+                            Logout
+                        </button>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="mt-5 pt-4">
+        <div class="d-flex align-items-center justify-content-between">
+            <button class="btn fs-5 fw-semibold font-family d-flex align-items-center" data-bs-toggle="modal" data-bs-target="#location-add-modal">
+                <img src="/assets/logo/maps-and-flags.png" id="map-pin" alt="map pin image">
+                <span id="current-location" class="pe-2"></span>
+                    Now location
+            </button>
+            <button id="shopping-cart-btn" class="btn shadow border-black me-2">
+                <img id="shopping-cart" src="/assets/logo/shopping-cart.png" alt="">
+            </button>
+        </div>
+        <div class="container position-relative w-75">
+            <input type="text" id="search-data" class="ps-5 rounded-5 border-black p-2 form-control" placeholder="Search YummyGo">
+            <img class="mt-2 ms-4 position-absolute start-0 top-0" src="/assets/logo/magnifier.png" id="search-icon" alt="">
+        </div>
+    </div>
+
+    <!-- Location Modal -->
+    <div class="modal fade mt-5" id="location-add-modal" tabindex="-1" aria-labelledby="location-add-modal-label" aria-hidden="true">
+        <div class="modal-dialog modal-sm">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title" id="location-add-modal-label">Delivery Location</h4>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <form id="location-form">
+                    <div class="modal-body">
+                        <select id="location-select" class="form-select mb-3 border-black rounded-5">
+                            <option>Select a district</option>
+                            <option>Colombo</option>
+                            <option>Gampaha</option>
+                            <option>Kalutara</option>
+                            <option>Kandy</option>
+                            <option>Matale</option>
+                            <option>Nuwara Eliya</option>
+                            <option>Galle</option>
+                            <option>Matara</option>
+                            <option>Hambantota</option>
+                            <option>Jaffna</option>
+                            <option>Kilinochchi</option>
+                            <option>Mannar</option>
+                            <option>Mullaitivu</option>
+                            <option>Vavuniya</option>
+                            <option>Ampara</option>
+                            <option>Batticaloa</option>
+                            <option>Trincomalee</option>
+                            <option>Anuradhapura</option>
+                            <option>Polonnaruwa</option>
+                            <option>Kurunegala</option>
+                            <option>Puttalam</option>
+                            <option>Badulla</option>
+                            <option>Monaragala</option>
+                            <option>Kegalle</option>
+                            <option>Ratnapura</option>
+                        </select>
+                        <button type="button" id="save-location" class="btn btn-primary w-100 mb-3 btn-dark rounded-5">Save Location</button>
+                        <h6>Saved Addresses</h6>
+                        <div id="saved-locations"></div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div class="container mt-5">
+        <h3><span id="current-location-business" class="pe-2"></span> Businesses</h3>
+        <div id="business-list" class="row"></div>
+    </div>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+    const locationSelect = document.getElementById("location-select");
+    const saveLocationBtn = document.getElementById("save-location");
+    const savedLocationsDiv = document.getElementById("saved-locations");
+    const currentLocationSpan = document.getElementById("current-location");
+
+    let savedLocations = JSON.parse(sessionStorage.getItem("savedLocations")) || [];
+
+    // Render saved locations
+    function renderLocations() {
+        savedLocationsDiv.innerHTML = "";
+        savedLocations.forEach((loc, index) => {
+            let div = document.createElement("div");
+            div.className = "location-item d-flex justify-content-between align-items-center mb-1 p-1 border rounded";
+            div.innerHTML = `
+                <span class="location-name" data-index="${index}" style="cursor:pointer;">
+                    <img src="/assets/logo/maps-and-flags.png" id="map-pin" alt="map pin image"> ${loc}
+                </span> 
+                <span class="delete-btn text-danger" data-index="${index}" style="cursor:pointer;">
+                    <img src="/assets/logo/bin.png" id="map-pin" alt="map pin image">
+                </span>`;
+            savedLocationsDiv.appendChild(div);
+        });
+
+        // Delete buttons
+        document.querySelectorAll(".delete-btn").forEach(btn => {
+            btn.addEventListener("click", function () {
+                let i = this.getAttribute("data-index");
+                savedLocations.splice(i, 1);
+                sessionStorage.setItem("savedLocations", JSON.stringify(savedLocations));
+                renderLocations();
+                if (savedLocations.length > 0) {
+                    currentLocationSpan.innerText = savedLocations[savedLocations.length - 1];
+                    location.reload();
+                } else {
+                    currentLocationSpan.innerText = "Now location";
+                }
+            });
+        });
+
+        // Click on location name → set as last element & refresh
+        document.querySelectorAll(".location-name").forEach(item => {
+            item.addEventListener("click", function () {
+                let index = this.getAttribute("data-index");
+                let selectedLocation = savedLocations[index];
+                savedLocations.splice(index, 1);
+                savedLocations.push(selectedLocation);
+                sessionStorage.setItem("savedLocations", JSON.stringify(savedLocations));
+
+                currentLocationSpan.innerText = selectedLocation;
+
+                let modal = bootstrap.Modal.getInstance(document.getElementById("location-add-modal"));
+                modal.hide();
+
+                location.reload();
+            });
+        });
+
+        if (savedLocations.length > 0) {
+            currentLocationSpan.innerText = savedLocations[savedLocations.length - 1];
+        }
+    }
+
+    // Save location button
+    saveLocationBtn.addEventListener("click", function () {
+        let selectedLocation = locationSelect.value;
+        if (selectedLocation !== "Select a district" && !savedLocations.includes(selectedLocation)) {
+            savedLocations.push(selectedLocation);
+            sessionStorage.setItem("savedLocations", JSON.stringify(savedLocations));
+            renderLocations();
+            location.reload();
+        }
+    });
+
+    renderLocations();
+});
+</script>
+
+
+
+
+    <!-- <div class="container">
+        <h3>Business Items</h3>
+        <div class="container text-center">
+            <div id="business-items-container" class="row g-3"></div>
+        </div>
+    </div>
+
+    <div class="container">
+        <h3>Business Items</h3>
+        <div class="container text-center">
+            <div id="business-items-container" class="row g-3"></div>
+        </div>
+    </div> -->
+
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="/js/mainDashboard.js"></script>
+</body>
+</html>
