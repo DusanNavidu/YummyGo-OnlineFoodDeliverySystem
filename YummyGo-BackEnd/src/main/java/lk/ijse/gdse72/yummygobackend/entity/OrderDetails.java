@@ -24,16 +24,16 @@ public class OrderDetails {
     @EmbeddedId
     private OrderDetailsID orderDetailsID;
 
-    @MapsId("orderId")  // Map orderId from OrderDetailsID to cartId column
+    private Integer quantity;
+    private String price;
+
+    @MapsId("orderId")
     @ManyToOne
     @JoinColumn(name = "order_id", nullable = false)
     private Orders orders;
 
-    @MapsId("itemId")  // Map itemId from OrderDetailsID to itemId column
+    @MapsId("itemId")
     @ManyToOne
     @JoinColumn(name = "item_id", nullable = false)
     private Item item;
-
-    private Integer quantity;
-    private String price; // Price at the time of order
 }

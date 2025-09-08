@@ -23,20 +23,21 @@ import java.util.List;
 public class Orders {
 
     @Id
-    @GeneratedValue(strategy = jakarta.persistence.GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long orderId;
 
     private Long userId;
 
-    @OneToMany(mappedBy = "orders", cascade = CascadeType.ALL)
-    private List<OrderDetails> orderDetailsList;
+    private String subTotal;
+    private String deliveryFee;
+    private String total;
 
-//    private String orderStatus; // e.g., "Pending", "Cooking", "Complete", "Delivery", "Cancelled"
-//    private String paymentStatus; // e.g., "Paid", "Unpaid"
-//    private String paymentMethod; // e.g., "Cash", "Online Payment"
-//    private String rideCost;
-//    private String totalAmount;
+    @OneToMany(mappedBy = "orders", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<OrderDetails> orderDetailsList;
 
     private Timestamp createdAt;
     private Timestamp updatedAt;
+
+    @OneToOne(mappedBy = "orders", cascade = CascadeType.ALL)
+    private Payment payment;
 }

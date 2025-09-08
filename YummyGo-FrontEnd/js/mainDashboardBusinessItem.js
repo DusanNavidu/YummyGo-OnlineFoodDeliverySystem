@@ -2,9 +2,14 @@ $(document).ready(async function() {
     console.log("Main Business Item Dashboard is ready");
 
     const backendUrl = "http://localhost:8080";
-    const urlParams = new URLSearchParams(window.location.search);
-    const businessId = urlParams.get('businessId');
-    const userId = sessionStorage.getItem("userId"); 
+
+    // Get businessId from URL or sessionStorage
+    let businessId = new URLSearchParams(window.location.search).get('businessId');
+    if (businessId) {
+        sessionStorage.setItem("businessId", businessId);
+    } else {
+        businessId = sessionStorage.getItem("businessId");
+    }
 
     if (!businessId) {
         alert("Business not selected!");
@@ -13,6 +18,7 @@ $(document).ready(async function() {
 
     let cart = [];
     let map, businessMarker, userMarker, routeControl;
+    let currentStep = parseInt(sessionStorage.getItem("currentStep")) || 1;
 
     // ======================
     // Logout
@@ -29,10 +35,10 @@ $(document).ready(async function() {
         }
     });
 
-    // ========================
+    // ======================
     // Load Business Profile
-    // ========================
-    async function loadBusinesProfile() {
+    // ======================
+    async function loadBusinessProfile() {
         try {
             const token = (await cookieStore.get('token'))?.value;
 
@@ -69,7 +75,7 @@ $(document).ready(async function() {
             console.error("Error fetching token or items:", err);
         }
     }
-    loadBusinesProfile();
+    loadBusinessProfile();
 
     // =========================
     // Load Business Items
@@ -194,7 +200,7 @@ $(document).ready(async function() {
         html += `</tbody></table>`;
         $("#cart-table-container").html(html);
         saveCart();
-        updateOrderSummary();
+        loadOrderSummary();
     }
 
     $(document).on('click', '.remove-item', function () {
@@ -224,39 +230,142 @@ $(document).ready(async function() {
         sessionStorage.setItem("cart", JSON.stringify(cart));
     }
 
-    function updateOrderSummary() {
+    // ==============================
+    // Wizard Steps
+    // ==============================
+    function showStep(step) {
+        sessionStorage.setItem("currentStep", step);
+        $(".wizard-step").addClass("d-none");
+        $("#step-" + step).removeClass("d-none");
+
+        $(".step-indicator").removeClass("active");
+        $(`.step-indicator[data-step="${step}"]`).addClass("active");
+
+        if (step === 1) {
+            $("#prevStepBtn").hide();
+            $("#nextStepBtn").show();
+            $("#placeOrderBtn").hide();
+            $("#payBtn").hide();
+        } else if (step === 2) {
+            $("#prevStepBtn").show();
+            $("#nextStepBtn").hide();
+            $("#placeOrderBtn").show();
+            $("#payBtn").hide();
+        } else if (step === 3) {
+            $("#prevStepBtn").show();
+            $("#nextStepBtn").hide();
+            $("#placeOrderBtn").hide();
+            $("#payBtn").show();
+        }
+    }
+
+    showStep(currentStep);
+
+    $("#nextStepBtn").click(function () {
+        if (currentStep < 3) {
+            currentStep++;
+            showStep(currentStep);
+        }
+    });
+
+    $("#prevStepBtn").click(function () {
+        if (currentStep > 1) {
+            currentStep--;
+            showStep(currentStep);
+        }
+    });
+
+    $('#cancelOrderBtn').click(function() {
+        // Hide the order wizard
+        $('#Order-place-container').hide();
+
+        // Show the business profile container
+        $('#business-profile-container').show();
+
+        // Show navbar again if it was hidden
+        $('#placeholder-nav-bar').show();
+
+        // Reset wizard to step 1
+        currentStep = 1;
+        showStep(currentStep);
+
+        // Restore cart if needed
+        cart = JSON.parse(sessionStorage.getItem('cart')) || [];
+        updateCartTable();
+    });
+
+    // ==============================
+    // Order Summary
+    // ==============================
+    function loadOrderSummary() {
         let subtotal = 0;
         cart.forEach(item => subtotal += item.price * item.quantity);
         let deliveryFee = parseFloat($("#delivery-fee").text()) || 0;
         let total = subtotal + deliveryFee;
+
         $("#subtotal-amount").text(subtotal.toFixed(2));
         $("#total-amount").text(total.toFixed(2));
     }
-    function updateDeliveryFee(newFee) {
-        $("#delivery-fee").text(newFee.toFixed(2));
-        updateOrderSummary();
-    }
 
     // ==============================
-    // Wizard Steps
+    // Place Order
     // ==============================
-    let currentStep = 1, totalSteps = 4;
-    function showStep(step) {
-        $(".wizard-step").addClass("d-none");
-        $(`#step-${step}`).removeClass("d-none");
-        $("#prevStepBtn").prop("disabled", step === 1);
-        $("#nextStepBtn").toggle(step < totalSteps);
-        $("#placeOrderBtn").toggle(step === totalSteps);
-        $(".step-circle").removeClass("active");
-        $(`.step-indicator[data-step=${step}] .step-circle`).addClass("active");
-        if (step === 2) {
-            const lat = $('#update-latitude').val(), lng = $('#update-longitude').val();
-            initMap(lat || null, lng || null);
+    $("#placeOrderBtn").click(async function(e){
+        e.preventDefault();
+
+        const token = (await cookieStore.get('token'))?.value;
+        if (!token) { alert("User not authenticated!"); return; }
+
+        if(cart.length === 0) {
+            $("#order-message").html('<div class="alert alert-warning">Cart is empty. Add items to cart.</div>');
+            return;
         }
-    }
-    $("#nextStepBtn").click(function () { if (currentStep < totalSteps) { currentStep++; showStep(currentStep); } });
-    $("#prevStepBtn").click(function () { if (currentStep > 1) { currentStep--; showStep(currentStep); } });
-    $(".step-indicator").click(function () { const step = parseInt($(this).attr("data-step")); if (step <= currentStep) { currentStep = step; showStep(step); } });
+
+        const userId = await cookieStore.get('username'); // Replace with actual userId logic
+
+        const orderData = {
+            userId: userId?.value || 1,
+            subTotal: parseFloat($("#subtotal-amount").text()),
+            deliveryFee: parseFloat($("#delivery-fee").text()),
+            total: parseFloat($("#total-amount").text()),
+            items: cart.map(i => ({
+                itemId: i.id,
+                quantity: i.quantity,
+                price: i.price
+            }))
+        };
+
+        $.ajax({
+            url: `${backendUrl}/api/v1/orders/placeorder`,
+            type: "POST",
+            contentType: "application/json",
+            headers: { 'Authorization': 'Bearer ' + token },
+            data: JSON.stringify(orderData),
+            success: function (response) {
+                console.log("Raw response:", response); // DEBUG
+
+                const code = response.code || response.statusCode || 0;
+                const message = response.status || response.message || "Something went wrong!";
+
+                if (code === 200) {
+                    $("#order-message").html(`<div class="alert alert-success">${message}</div>`);
+                    cart = [];
+                    updateCartTable();
+                    sessionStorage.removeItem("cart");
+                    currentStep = 3;
+                    showStep(currentStep);
+                    initPayPalButton();
+                    console.log("Order Response:", response);
+                } else {
+                    $("#order-message").html(`<div class="alert alert-danger">${message}</div>`);
+                }
+            },
+            error: function(xhr) {
+                console.error("Error placing order:", xhr.responseText);
+                $("#order-message").html('<div class="alert alert-danger">Something went wrong. Try again.</div>');
+            }
+        });
+    });
 
     // ==============================
     // Payment method toggle
@@ -266,57 +375,11 @@ $(document).ready(async function() {
         if (method === "card") {
             $("#card-payment-fields").removeClass("d-none");
             $("#paypal-button-container").removeClass("d-none");
-            initPayPalButton();
         } else {
             $("#card-payment-fields").addClass("d-none");
             $("#paypal-button-container").addClass("d-none");
         }
     });
-
-    // ==============================
-    // PayPal Integration
-    // ==============================
-    function initPayPalButton() {
-        $("#paypal-button-container").empty();
-        paypal.Buttons({
-            style: { color: 'gold', shape: 'pill', label: 'pay', height: 40 },
-            createOrder: function (data, actions) {
-                let totalAmount = $("#total-amount").text();
-                return actions.order.create({
-                    purchase_units: [{ amount: { value: totalAmount } }]
-                });
-            },
-            onApprove: function (data, actions) {
-                return actions.order.capture().then(function (details) {
-                    alert("Payment successful! Thank you, " + details.payer.name.given_name);
-
-                    // send to backend
-                    $.ajax({
-                        url: backendUrl + "/api/v1/order/placeOrder",
-                        method: "POST",
-                        contentType: "application/json",
-                        headers: { "Authorization": "Bearer " + (cookieStore.get('token')?.value || "") },
-                        data: JSON.stringify({
-                            userId: userId,
-                            businessId: businessId,
-                            cart: cart,
-                            total: $("#total-amount").text(),
-                            paymentId: details.id,
-                            paymentMethod: "PayPal"
-                        }),
-                        success: function () {
-                            sessionStorage.removeItem("cart");
-                            window.location.href = "/success.html";
-                        }
-                    });
-                });
-            },
-            onError: function (err) {
-                console.error("PayPal error:", err);
-                alert("Something went wrong with PayPal payment.");
-            }
-        }).render("#paypal-button-container");
-    }
 
     // ==============================
     // Map + Routing
@@ -342,6 +405,7 @@ $(document).ready(async function() {
         }
         setTimeout(() => map.invalidateSize(), 400);
     }
+
     function showUserAndRoute(businessLoc, userLoc) {
         if (userMarker) map.removeLayer(userMarker);
         userMarker = L.marker(userLoc, { draggable: true }).addTo(map).bindPopup("Your Location").openPopup();
@@ -351,6 +415,7 @@ $(document).ready(async function() {
             showDeliveryRoute(businessLoc, [newPos.lat, newPos.lng]);
         });
     }
+
     function showDeliveryRoute(businessLoc, userLoc) {
         if (routeControl) map.removeControl(routeControl);
         routeControl = L.Routing.control({
@@ -364,7 +429,38 @@ $(document).ready(async function() {
             let cost = distanceKm <= 1 ? 100 : 100 + ((distanceKm - 1) * 70);
             const roundedKm = distanceKm.toFixed(2), roundedCost = Math.ceil(cost);
             $("#route-info").html(`<p class="mt-2 text-center fw-bold">Distance: ${roundedKm} km | Delivery Cost: Rs ${roundedCost}</p>`);
-            updateDeliveryFee(roundedCost);
+            $("#delivery-fee").text(roundedCost.toFixed(2));
+            loadOrderSummary();
         });
     }
+
+    // ==============================
+    // PayPal Button Init
+    // ==============================
+    function initPayPalButton() {
+        $("#paypal-button-container").empty();
+        if (typeof paypal === "undefined") return;
+
+        paypal.Buttons({
+            createOrder: function(data, actions) {
+                let total = parseFloat($("#total-amount").text());
+                return actions.order.create({
+                    purchase_units: [{ amount: { value: total.toFixed(2) } }]
+                });
+            },
+            onApprove: function(data, actions) {
+                return actions.order.capture().then(function(details) {
+                    alert("Payment completed by " + details.payer.name.given_name);
+                });
+            }
+        }).render('#paypal-button-container');
+    }
 });
+
+function resetWizard() {
+    cart = [];
+    updateCartTable();
+    currentStep = 1;
+    sessionStorage.removeItem("currentStep");
+    showStep(currentStep);
+}

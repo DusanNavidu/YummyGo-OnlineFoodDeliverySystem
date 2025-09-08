@@ -20,7 +20,6 @@ $(document).ready(function() {
             return;
         }
 
-
         const user = {
             fullName: $("#fullName").val(),
             phoneNumber: $("#phone_number").val(),

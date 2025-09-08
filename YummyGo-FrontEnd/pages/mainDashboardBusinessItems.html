@@ -9,7 +9,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Epunda+Slab:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
-    <script src="https://www.paypal.com/sdk/js?client-id=YOUR_CLIENT_ID&currency=LKR"></script>
+    <!-- <script src="https://www.paypal.com/sdk/js?client-id=YOUR_CLIENT_ID&currency=LKR"></script> -->
     <link rel="stylesheet" href="/css/Style.css">
     <title>Business profile Dashboard</title>
     <style>
@@ -22,6 +22,35 @@
         }
         .item-card:hover .position-absolute {
             opacity: 1;
+        }
+        #step-footer {
+            position: fixed; /* sticks to bottom */
+            bottom: 0;
+            left: 0;
+            right: 0;
+            z-index: 1050;
+        }
+
+        .step-indicator {
+            flex: 1;
+        }
+
+        .step-circle {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: #ddd;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 5px auto;
+            font-weight: bold;
+            color: #555;
+        }
+
+        .step-indicator.active .step-circle {
+            background: #0d6efd; /* Bootstrap primary color */
+            color: white;
         }
     </style>
 </head>
@@ -92,10 +121,6 @@
                     <div class="step-circle">3</div>
                     <div>Payment</div>
                 </div>
-                <div class="step-indicator text-center" data-step="4">
-                    <div class="step-circle">4</div>
-                    <div>Confirmation</div>
-                </div>
             </div>
 
             <!-- Step 1: Cart Table -->
@@ -107,7 +132,8 @@
             <div class="wizard-step d-none" id="step-2">
                 <label for="update-map-location-name">Location Name</label>
                 <input type="text" id="update-map-location-name" class="form-control border-black mb-4 mt-3" placeholder="Enter location name">
-
+                <div id="order-message"></div>
+                
                 <div id="update-map" style="width: 100%; height: 300px;"></div>
                 <input type="hidden" id="update-latitude">
                 <input type="hidden" id="update-longitude">
@@ -131,6 +157,7 @@
                     <input class="form-check-input" type="radio" name="payment-method" id="payment-cod" value="cod" checked>
                     <label class="form-check-label" for="payment-cod">Cash on Delivery</label>
                 </div>
+                <div id="payment-message"></div>
                 <div id="card-payment-fields" class="d-none mt-3">
                     <input type="text" id="card-number" class="form-control mb-2" placeholder="Card Number">
                     <input type="text" id="expiry-date" class="form-control mb-2" placeholder="MM/YY">
@@ -138,18 +165,14 @@
                     <input type="text" id="card-holder" class="form-control mb-2" placeholder="Card Holder Name">
                 </div>
             </div>
-
-            <!-- Step 4: Confirmation -->
-            <div>
-            
-            </div>
         </div>
 
         <div class="modal-footer gap-2">
-            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-            <button type="button" class="btn btn-outline-dark" id="prevStepBtn" disabled>Previous</button>
+            <button type="button" class="btn btn-secondary" id="cancelOrderBtn">Close</button>
+            <button type="button" class="btn btn-outline-dark" id="prevStepBtn">Previous</button>
             <button type="button" class="btn btn-primary" id="nextStepBtn">Next</button>
-            <button type="submit" class="btn btn-success d-none" id="placeOrderBtn">Place Order</button>
+            <button type="button" class="btn btn-success" id="placeOrderBtn">Place Order</button>
+            <button type="submit" class="btn btn-success" id="payBtn">Pay</button>
         </div>
         </form>
     </div>
@@ -166,24 +189,24 @@
     <script src="/js/mainDashboardBusinessItem.js"></script>
     
     <script>
-$(document).ready(function() {
-    // Make sure cart exists
-    let cart = JSON.parse(sessionStorage.getItem('cart')) || [];
+        $(document).ready(function() {
+            // Make sure cart exists
+            let cart = JSON.parse(sessionStorage.getItem('cart')) || [];
 
-    $('#shopping-cart-btn').click(function() {
-        // Hide business profile container
-        $('#business-profile-container').hide();
+            $('#shopping-cart-btn').click(function() {
+                // Hide business profile container
+                $('#business-profile-container').hide();
 
-        // Show order container
-        $('#Order-place-container').css('display', 'block');
+                // Show order container
+                $('#Order-place-container').css('display', 'block');
 
-        $('#placeholder-nav-bar').css('display', 'none');
+                $('#placeholder-nav-bar').css('display', 'none');
 
-        // Save current cart to sessionStorage
-        // sessionStorage.setItem('cart', JSON.stringify(cart));
-    });
-});
-</script>
+                // Save current cart to sessionStorage
+                // sessionStorage.setItem('cart', JSON.stringify(cart));
+            });
+        });
+    </script>
 
 </body>
 </html>

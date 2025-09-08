@@ -15,14 +15,11 @@ import java.sql.Timestamp;
  * @date 8/26/2025
  */
 
+@Embeddable
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-@Builder
-@Embeddable
 public class OrderDetailsID implements Serializable {
     private Long orderId;
     private Long itemId;
-    private Timestamp createdAt;
-    private Timestamp updatedAt;
 }
