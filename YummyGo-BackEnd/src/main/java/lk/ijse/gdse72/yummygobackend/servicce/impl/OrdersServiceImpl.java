@@ -32,6 +32,7 @@ public class OrdersServiceImpl implements OrdersService {
         }
 
         Orders order = Orders.builder()
+                .orderId(ordersDTO.getOrderId())
                 .userId(ordersDTO.getUserId())
                 .subTotal(ordersDTO.getSubTotal())
                 .deliveryFee(ordersDTO.getDeliveryFee())

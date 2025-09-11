@@ -17,7 +17,7 @@ public class PaymentDTO {
     private String paymentStatus; // e.g., "Paid", "Unpaid", "Pending"
     private String paymentMethod; // e.g., "Cash on Delivery", "Credit/Debit Card"
     private BigDecimal totalAmount;
-    private Long orderId;
+    private String orderId;
 
     private Timestamp createdAt;
 }

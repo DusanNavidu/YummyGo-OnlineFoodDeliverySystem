@@ -25,9 +25,6 @@ public class OrdersController {
     @PostMapping("/placeorder")
     public ResponseEntity<APIResponse<String>> placeOrder(@RequestBody @Valid OrdersDTO ordersDTO, HttpServletResponse httpServletResponse) {
         ordersService.placeOrder(ordersDTO);
-//        System.out.println(ordersDTO);
-//        System.out.println("Order placed successfully");
-//        System.out.println(httpServletResponse);
         return ResponseEntity.ok(new APIResponse<>(200, "Order placed successfully", null));
     }
 }

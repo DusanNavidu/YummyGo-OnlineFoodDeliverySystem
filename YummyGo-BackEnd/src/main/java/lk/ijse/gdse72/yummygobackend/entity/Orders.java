@@ -23,8 +23,8 @@ import java.util.List;
 public class Orders {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long orderId;
+//    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private String orderId;
 
     private Long userId;
 

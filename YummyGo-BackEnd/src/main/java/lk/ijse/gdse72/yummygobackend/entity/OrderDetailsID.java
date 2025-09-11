@@ -20,6 +20,6 @@ import java.sql.Timestamp;
 @NoArgsConstructor
 @AllArgsConstructor
 public class OrderDetailsID implements Serializable {
-    private Long orderId;
+    private String orderId;
     private Long itemId;
 }

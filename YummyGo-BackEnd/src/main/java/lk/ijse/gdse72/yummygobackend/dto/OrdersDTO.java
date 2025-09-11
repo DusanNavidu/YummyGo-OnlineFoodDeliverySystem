@@ -7,6 +7,7 @@ import java.util.List;
 
 @Data
 public class OrdersDTO {
+    private String orderId;
     private Long userId;
     private String subTotal;
     private String deliveryFee;

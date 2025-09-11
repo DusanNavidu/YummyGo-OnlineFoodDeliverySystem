@@ -305,3 +305,25 @@ body {
     overflow-y: hidden;
     overflow: scroll;
 }
+
+/* Success Page Styles */
+
+#success-title {
+    color: #28a745;
+    font-size: 3rem;
+    font-weight: bold;
+    text-align: center;
+}
+
+#success-image {
+    width: 120px;
+    height: auto;
+}
+
+
+/* 404 Page Styles */
+
+#error-image {
+    width: 100%;
+    height: auto;
+}
