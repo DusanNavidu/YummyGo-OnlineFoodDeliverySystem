@@ -136,9 +136,7 @@ $(document).ready(async function() {
                                     <div class="card-body d-flex flex-column">
                                         <h5 style="overflow-y:auto; max-height:70px; height:70px; overflow:hidden;">${item.itemName}</h5>
                                         <p style="overflow-y:auto; max-height:50px; height:50px; overflow:hidden;">Item Price: <span class="fst-italic">LKR </span>${item.itemPrice}</p>
-                                        <div class="item-description flex-grow-1" style="overflow-y:auto; height:70px; max-height:70px;">
-                                            <small class="text-secondary mt-2 mb-3">${item.itemDescription}</small>
-                                        </div>
+
                                         <p class="status-text mt-2">Status: ${item.itemAvailability}</p>
                                     </div>
                                 </div>
@@ -227,7 +225,12 @@ $(document).ready(async function() {
 
         if (step === 1) { 
             $("#prevStepBtn").hide(); 
-            $("#nextStepBtn").show(); 
+            // if (cart.length === 0) {
+            //     $("#nextStepBtn").prop("disabled", true);
+            // } else {
+            //     $("#nextStepBtn").prop("disabled", false);
+            // }
+            $("#nextStepBtn").show();
             $("#placeOrderBtn").hide(); 
             $("#payBtn").hide();
         } else if (step === 2) {
@@ -290,8 +293,8 @@ $(document).ready(async function() {
         const payment = {
             sandbox: true,
             merchant_id: "1231965",
-            return_url: undefined,
-            cancel_url: undefined,
+            return_url: `${window.location.origin}/infomation-pages/success.html`,
+            cancel_url: `${window.location.origin}/infomation-pages/cancel.html`,
             notify_url: `${backendUrl}/api/v1/orders/payment/notify`,
             order_id: orderId,
             items: "Business Order",
@@ -402,7 +405,8 @@ $(document).ready(async function() {
 
         const orderId = generateOrderId();
         sessionStorage.setItem("orderId", orderId);
-
+        
+        const businessId = sessionStorage.getItem("businessId");
         const userId = sessionStorage.getItem("userId");
         console.log("Placing order:", orderId, userId, cart);
         // const userId = (await cookieStore.get('username'))?.value || 1;
@@ -410,6 +414,7 @@ $(document).ready(async function() {
         const orderData={
             orderId: orderId,
             userId: userId, 
+            businessId: businessId,
             subTotal:parseFloat($("#subtotal-amount").text()), 
             deliveryFee:parseFloat($("#delivery-fee").text()), 
             total:parseFloat($("#total-amount").text()), 

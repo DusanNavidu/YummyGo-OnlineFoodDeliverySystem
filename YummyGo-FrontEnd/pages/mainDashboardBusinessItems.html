@@ -30,11 +30,9 @@
             right: 0;
             z-index: 1050;
         }
-
         .step-indicator {
             flex: 1;
         }
-
         .step-circle {
             width: 40px;
             height: 40px;
@@ -47,7 +45,6 @@
             font-weight: bold;
             color: #555;
         }
-
         .step-indicator.active .step-circle {
             background: #0d6efd; /* Bootstrap primary color */
             color: white;
@@ -57,29 +54,47 @@
 <body class="position-relative">
     <nav id="placeholder-nav-bar" class="navbar navbar-expand-lg navbar-dark bg-dark position-fixed top-0 start-0 w-100 z-1">
         <div class="container-fluid">
-            <a class="navbar-brand ps-5" href="#"><span class="fw-bold fs-3 text-light">YUMMY</span><span class="fs-3 fw-bold text-warning">GO</span> </a>
+            <a class="navbar-brand ps-2" href="#"><span class="fw-bold fs-3 text-light">YUMMY</span><span class="fs-3 fw-bold text-warning">GO</span> </a>
+            <button id="profile-btn" class="btn"
+                style="position: absolute; top: 7px; right: 70px;">
+                <img class="img-fluid rounded-circle" style="width: 40px;" src="/assets/image/download (5).png" alt="User Profile">
+            </button>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
                     aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
 
-            <div class="collapse navbar-collapse" id="navbarNav">
+            <div class="collapse navbar-collapse" id="navbarNav" style="margin-right: 150px;">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="#">Home</a>
+                        <a class="nav-link active" aria-current="page" href="#">About</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Features</a>
+                        <a class="nav-link active" href="#">Orders</a>
                     </li>
                     <li class="nav-item">
-                        <button class="btn btn-dark" id="logoutBtn">
-                            Logout
-                        </button>
+                        
                     </li>
                 </ul>
             </div>
         </div>
     </nav>
+
+    <div id="profile-container" class="profile-modal position-fixed top-0 end-0">
+        <div class="profile-content position-relative">
+            <div class="position-relative">
+                <img src="/assets/image/download (5).png" alt="profile image" class="profile-img">
+                <button id="edit-profile-btn" class="btn btn-warning position-absolute" style="top: 0px; margin-left: -30px; border: 1px solid white; border-radius: 4px; padding: 5px;">
+                    <img src="/assets/logo/compose.png" style="width: 20px; height: 20px;" alt="Edit Profile btn">
+                </button>
+            </div>
+            <p id="full-name">John Doe</p>
+            <p id="email">john@example.com</p>
+            <p id="role">Guest</p>
+            <button class="btn btn-dark" id="logoutBtn">Logout</button>            
+            <button id="close-profile-btn" class="btn position-absolute top-0 end-0 m-2">X</button>
+        </div>
+    </div>
 
     <div id="business-profile-container" class="container mt-5">
         <button id="shopping-cart-btn" class="btn border-black position-absolute top-0 end-0">
@@ -197,6 +212,25 @@
             });
         });
     </script>
+    <script>
+        $(document).ready(function () {
+            // Show modal on profile button click
+            $("#profile-btn").click(function () {
+                $("#profile-container").fadeIn();
+            });
 
+            // Close modal on close button
+            $("#close-profile-btn").click(function () {
+                $("#profile-container").fadeOut();
+            });
+
+            // Close modal if background clicked
+            $("#profile-container").click(function (e) {
+                if (e.target.id === "profile-container") {
+                    $(this).fadeOut();
+                }
+            });
+        });
+    </script>
 </body>
 </html>

@@ -1,9 +1,8 @@
 package lk.ijse.gdse72.yummygobackend.controller;
 
-import lk.ijse.gdse72.yummygobackend.dto.ApiResponse;
 import lk.ijse.gdse72.yummygobackend.dto.ItemDTO;
 import lk.ijse.gdse72.yummygobackend.entity.Item;
-import lk.ijse.gdse72.yummygobackend.servicce.ItemService;
+import lk.ijse.gdse72.yummygobackend.service.ItemService;
 import lk.ijse.gdse72.yummygobackend.util.APIResponse;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -13,7 +12,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
-import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -36,6 +34,7 @@ public class ItemController {
     private final ItemService itemService;
     private final ModelMapper modelMapper;
 
+//    ------------------- CREATE ITEM -------------------
     @PostMapping("/create")
     public ResponseEntity<APIResponse<String>> createItem(
             @RequestParam String itemName,
@@ -135,6 +134,7 @@ public class ItemController {
         }
     }
 
+//    ------------------- GET ALL ITEMS -------------------
     @GetMapping("/getAll")
     public ResponseEntity<APIResponse<List<ItemDTO>>> getAllItems() {
         try {
@@ -150,6 +150,7 @@ public class ItemController {
         }
     }
 
+//    ------------------- GET ITEMS BY BUSINESS ID -------------------
     @GetMapping("/getAllThisBusinessItems/{businessId}")
     public ResponseEntity<APIResponse<List<ItemDTO>>> getItemsByBusinessId(
             @PathVariable Long businessId) {  // <-- path variable inject
@@ -166,6 +167,7 @@ public class ItemController {
         }
     }
 
+//    ------------------- CHANGE ITEM STATUS -------------------
     @PatchMapping("/changeStatus/{itemId}")
     public ResponseEntity<APIResponse<Long>> changeItemStatus(@PathVariable("itemId") Long itemId) {
         itemService.changeItemStatus(itemId);

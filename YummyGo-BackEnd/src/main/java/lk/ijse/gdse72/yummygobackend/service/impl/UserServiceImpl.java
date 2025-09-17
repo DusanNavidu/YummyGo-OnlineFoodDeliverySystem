@@ -1,10 +1,10 @@
-package lk.ijse.gdse72.yummygobackend.servicce.impl;
+package lk.ijse.gdse72.yummygobackend.service.impl;
 
 import lk.ijse.gdse72.yummygobackend.dto.UserDTO;
 import lk.ijse.gdse72.yummygobackend.entity.Role;
 import lk.ijse.gdse72.yummygobackend.entity.User;
 import lk.ijse.gdse72.yummygobackend.repository.UserRepository;
-import lk.ijse.gdse72.yummygobackend.servicce.UserService;
+import lk.ijse.gdse72.yummygobackend.service.UserService;
 import lombok.RequiredArgsConstructor;
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;

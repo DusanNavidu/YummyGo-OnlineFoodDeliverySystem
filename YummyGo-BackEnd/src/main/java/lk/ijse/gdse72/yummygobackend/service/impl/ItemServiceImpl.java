@@ -1,13 +1,12 @@
-package lk.ijse.gdse72.yummygobackend.servicce.impl;
+package lk.ijse.gdse72.yummygobackend.service.impl;
 
-import jakarta.transaction.Transactional;
 import lk.ijse.gdse72.yummygobackend.dto.ItemDTO;
 import lk.ijse.gdse72.yummygobackend.entity.Business;
 import lk.ijse.gdse72.yummygobackend.entity.Item;
 import lk.ijse.gdse72.yummygobackend.exception.ResourceNotFound;
 import lk.ijse.gdse72.yummygobackend.repository.BusinessRepository;
 import lk.ijse.gdse72.yummygobackend.repository.ItemRepository;
-import lk.ijse.gdse72.yummygobackend.servicce.ItemService;
+import lk.ijse.gdse72.yummygobackend.service.ItemService;
 import lombok.RequiredArgsConstructor;
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;

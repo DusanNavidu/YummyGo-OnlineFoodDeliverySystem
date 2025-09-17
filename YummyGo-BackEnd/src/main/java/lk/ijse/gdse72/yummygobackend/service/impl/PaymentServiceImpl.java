@@ -1,11 +1,11 @@
-package lk.ijse.gdse72.yummygobackend.servicce.impl;
+package lk.ijse.gdse72.yummygobackend.service.impl;
 
 import lk.ijse.gdse72.yummygobackend.dto.PaymentDTO;
 import lk.ijse.gdse72.yummygobackend.entity.Orders;
 import lk.ijse.gdse72.yummygobackend.entity.Payment;
 import lk.ijse.gdse72.yummygobackend.repository.OrdersRepository;
 import lk.ijse.gdse72.yummygobackend.repository.PaymentRepository;
-import lk.ijse.gdse72.yummygobackend.servicce.PaymentService;
+import lk.ijse.gdse72.yummygobackend.service.PaymentService;
 import lombok.RequiredArgsConstructor;
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;

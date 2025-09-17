@@ -306,6 +306,46 @@ body {
     overflow: scroll;
 }
 
+/* Overlay */
+.profile-modal {
+    display: none; /* Hidden by default */
+    background-color: rgba(0,0,0,0.6); /* dim background */
+    justify-content: center;
+    align-items: center;
+    border-radius: 15px;
+    margin-top: 75px;
+    margin-right: 20px;
+    z-index: 2000;
+}
+
+/* Inner box */
+.profile-content {
+    width: 350px;
+    height: 400px;
+    background: #fff;
+    border-radius: 15px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.3);
+    text-align: center;
+    padding: 20px;
+    animation: fadeIn 0.3s ease-in-out;
+}
+
+.profile-img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    margin-bottom: 15px;
+}
+
+/* Animation */
+@keyframes fadeIn {
+    from { opacity: 0; transform: scale(0.9); }
+    to { opacity: 1; transform: scale(1); }
+}
+#profile-btn:hover {
+    transform: scale(1.05);
+}
+
 /* Success Page Styles */
 
 #success-title {

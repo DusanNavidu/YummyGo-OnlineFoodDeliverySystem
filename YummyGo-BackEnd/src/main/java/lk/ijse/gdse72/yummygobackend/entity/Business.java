@@ -43,6 +43,9 @@ public class Business {
     @Column(precision = 9, scale = 6)
     private BigDecimal longitude;
 
+    @OneToMany(mappedBy = "business", cascade = CascadeType.ALL)
+    private List<Orders> orders;
+
     @ManyToOne
     @JoinColumn(name = "id", nullable = false)
     private User user;

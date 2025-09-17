@@ -24,6 +24,88 @@ $(document).ready(async function () {
     $('#businessId').val(businessId);
     console.log("Business ID from URL:", businessId);
 
+    // $('#order-list').on('', async function() {
+
+    // });
+
+    // setInterval(() => {
+    //     loadAllOrders();
+    // }, 5000);
+
+    let previousOrders = []; // keep track of already loaded orders
+
+    async function loadAllOrders() {
+        const token = (await cookieStore.get('token'))?.value;
+        const userId = sessionStorage.getItem("userId");
+        if (!userId) {
+            alert("User ID not found. Please log in again.");
+            return;
+        }
+
+        $.ajax({
+            method: 'GET',
+            url: backendUrl + '/api/v1/orders/business/' + businessId,
+            headers: token ? { 'Authorization': 'Bearer ' + token } : {},
+            success: function (response) {
+                const container = $('#order-list');
+                container.empty();
+
+                if (response && response.length > 0) {
+                    // Sort or map by orderId to detect new ones
+                    const newOrders = response.filter(order => 
+                        !previousOrders.some(prev => prev.orderId === order.orderId)
+                    );
+
+                    if (newOrders.length > 0) {
+                        // Play sound only for new orders
+                        const audio = new Audio('/assets/audio/mixkit-happy-bells-notification-937.wav'); // your sound file
+                        audio.play();
+                    }
+
+                    response.forEach(order => {
+                        let itemsHtml = "";
+                        order.items.forEach(item => {
+                            const price = parseFloat(item.price) || 0;
+                            const formattedPrice = price.toLocaleString('en-LK', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+                            itemsHtml += `<li>${item.itemName} x ${item.quantity} - LKR ${formattedPrice}</li>`;
+                        });
+
+                        const subTotal = parseFloat(order.subTotal) || 0;
+                        const deliveryFee = parseFloat(order.deliveryFee) || 0;
+                        const total = parseFloat(order.total) || 0;
+
+                        container.append(`
+                            <div class="order-item">
+                                <h6>Order #${order.orderId} (User: ${order.userId})</h6>
+                                <ul>${itemsHtml}</ul>
+                                <p><strong>Subtotal:</strong> LKR ${subTotal.toLocaleString('en-LK', { minimumFractionDigits: 2, maximumFractionDigits: 2 })} | 
+                                <strong>Delivery:</strong> LKR ${deliveryFee.toLocaleString('en-LK', { minimumFractionDigits: 2, maximumFractionDigits: 2 })} | 
+                                <strong>Total:</strong> LKR ${total.toLocaleString('en-LK', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</p>
+                                <p><small>${new Date(order.orderDate).toLocaleString()}</small></p>
+                                <div class="order-buttons">
+                                    <button class="btn btn-success btn-sm">Accept</button>
+                                    <button class="btn btn-danger btn-sm">Reject</button>
+                                    <button class="btn btn-info btn-sm">Preparing</button>
+                                    <button class="btn btn-primary btn-sm">Call Rider</button>
+                                </div>
+                            </div>
+                        `);
+                    });
+
+                    // Update previousOrders after rendering
+                    previousOrders = response;
+                } else {
+                    container.append('<p>No orders found.</p>');
+                    previousOrders = [];
+                }
+            },
+            error: function (xhr) {
+                console.error("Error loading orders:", xhr.responseText);
+                $('#order-list').html('<p class="text-danger">Failed to load orders!</p>');
+            }
+        });
+    }
+
     async function loadBusinesProfile() {
         try {
             const token = (await cookieStore.get('token'))?.value;
@@ -141,40 +223,6 @@ $(document).ready(async function () {
     }
 
     loadBusinessItems();
-
-    // =========================
-    // Image Preview Functions
-    // =========================
-    // function handleFilesAdd(e) {
-    //     const file = e.target.files[0];
-    //     if (!file) return;
-    //     if (!file.type.startsWith('image/')) return alert('Upload an image only!');
-
-    //     const reader = new FileReader();
-    //     reader.onload = (event) => {
-    //         $('#preview').attr('src', event.target.result).show();
-    //     };
-    //     reader.readAsDataURL(file);
-    // }
-
-    // function handleFilesEdit(e) {
-    //     const file = e.target.files[0];
-    //     if (!file) return;
-    //     if (!file.type.startsWith('image/')) return alert('Upload an image only!');
-
-    //     const reader = new FileReader();
-    //     reader.onload = (event) => {
-    //         $('#edit-preview').attr('src', event.target.result).show();
-    //         $('#edit-preview').data('existing', null); // new image, so remove old reference
-    //     };
-    //     reader.readAsDataURL(file);
-    // }
-
-    // $('#drop-area').click(() => $('#fileElem').click());
-    // $('#fileElem').change(handleFilesAdd);
-
-    // $('#edit-drop-area').click(() => $('#edit-fileElem').click());
-    // $('#edit-fileElem').change(handleFilesEdit);
 
     // =========================
     // Availability Toggle Buttons

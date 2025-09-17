@@ -1,4 +1,4 @@
-package lk.ijse.gdse72.yummygobackend.servicce;
+package lk.ijse.gdse72.yummygobackend.service;
 
 import lk.ijse.gdse72.yummygobackend.dto.BusinessDTO;
 import lk.ijse.gdse72.yummygobackend.entity.Business;

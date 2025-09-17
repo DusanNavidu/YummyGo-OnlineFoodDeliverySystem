@@ -46,7 +46,7 @@ $(document).ready(function () {
               } else if (userRole === "CLIENT") {
                 window.location.href = "/pages/mainDashboard.html";
               } else if (userRole === "PARTNER") {
-                window.location.href = "/pages/dashboardPartner.html";
+                window.location.href = "/pages/partnerDashboard.html";
               } else if (userRole === "BUSINESS") {
                 window.location.href = "/pages/businessDashboard.html";
               }

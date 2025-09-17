@@ -3,12 +3,97 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
     <title>Partner Dashboard</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/css/Style.css">
+    <style>
+
+    </style>
 </head>
-<body>
-    
+<body class="position-relative">
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark position-fixed top-0 start-0 w-100 z-1">
+        <div class="container-fluid">
+            <a class="navbar-brand ps-2" href="#"><span class="fw-bold fs-3 text-light">YUMMY</span><span class="fs-3 fw-bold text-warning">GO</span></a>
+            <button id="profile-btn" class="btn position-absolute" style="top:7px; right:70px;">
+                <img class="img-fluid rounded-circle" style="width:40px;" src="/assets/image/download (5).png" alt="User Profile">
+            </button>
+        </div>
+    </nav>
+
+    <!-- Rider Introduction -->
+    <button id="rider-introduction" class="btn btn-light border-black" data-bs-toggle="modal" data-bs-target="#rider-Save-Modal"
+        style="width:50px; height:50px; border-radius:50%; position:fixed; bottom:0; right:0; margin:20px;">
+        <img src="/assets/logo/man.png" alt="rider-introduction btn" style="width:25px; height:25px;">
+    </button>
+
+    <!-- Rider save introduction container -->
+    <div id="rider-save-introduction-container" class="container rounded-5 shadow p-5" style="margin-top:100px;">
+        <div class="d-flex flex-column justify-content-end mb-2">
+            <div class="d-flex justify-content-end">
+                <button class="btn btn-primary" id="addRiderBtn" data-bs-toggle="modal" data-bs-target="#vehicle-Save-Modal">+ Add Vehicle (Partner)</button>
+            </div>
+            <h3>📌 Note for Riders:</h3>
+            <p id="notice-paragraph">
+                "Welcome to the vehicle addition section! Here, riders and partners can easily register their vehicles to the system,
+                allowing them to participate in delivery or ride-sharing services efficiently. It is important to provide accurate and
+                complete information to ensure smooth operation. Please start by selecting the correct vehicle category from the
+                dropdown menu. If your vehicle is a bike, three-wheeler, or any other type, choose the appropriate option carefully.
+                After selecting the category, fill in all required details such as the vehicle license number, vehicle number, and your
+                personal ID number. For bicycles, license and vehicle numbers are not required, so the system will automatically handle
+                this for you. Next, upload a clear image of your vehicle using the provided image upload section. You can either click
+                to select a file or drag and drop it directly into the designated area. Make sure the image is clear and visible, as
+                this will be used for verification purposes. Once all information is entered correctly and the image is uploaded, click
+                the save button to submit your vehicle registration. After successful submission, you can manage or update your vehicle
+                information from the dashboard at any time. Thank you for keeping your information accurate and up to date!
+            </p>
+        </div>
+    </div>
+
+    <div class="modal fade" id="vehicle-Save-Modal" tabindex="-1" aria-labelledby="vehicle-Save-Modal-Label" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content modal-lg">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="vehicle-Save-Modal-Label">Vehicle Save</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <form id="vehicleSaveForm">
+                    <div class="modal-body">
+                        <label for="vehicleCategory">Vehicle Category</label>
+                        <select name="vehicleCategory" id="vehicleCategory" class="form-select mb-3" required>
+                            <option value="" disabled selected>Select Vehicle Category</option>
+                            <option>Bike</option>
+                            <option>Bicycle</option>
+                            <option>Three Wheeler</option>
+                        </select>
+                        <label for="vehicleLicenseNumber">Vehicle License Number</label>
+                        <input type="text" id="vehicleLicenseNumber" name="vehicleLicenseNumber" class="form-control mb-3">
+                        <label for="idNumber">ID Number</label>
+                        <input type="text" id="idNumber" name="idNumber" class="form-control mb-3">
+                        <label for="vehicleNumber">Vehicle Number</label>
+                        <input type="text" id="vehicleNumber" name="vehicleNumber" class="form-control mb-3">
+                        <label for="vehicleImage">Vehicle Image</label>
+                        <div id="vehicleImageDropzone" class="border border-secondary rounded p-3 mb-3 text-center" style="cursor:pointer; position:relative;">
+                            <p id="vehicleImageDropzoneText">Click or drag image here</p>
+                            <input type="file" id="vehicleImage" name="vehicleImage" accept="image/*" style="opacity:0; position:absolute; top:0; left:0; width:100%; height:100%; cursor:pointer;">
+                            <div id="vehicleImagePreview" class="mt-2"></div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-primary">Save Vehicle</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="/js/partnerDashboard.js"></script>
+
 </body>
 </html>

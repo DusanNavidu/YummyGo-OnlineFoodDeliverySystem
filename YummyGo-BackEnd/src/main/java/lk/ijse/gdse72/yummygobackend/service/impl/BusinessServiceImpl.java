@@ -1,11 +1,11 @@
-package lk.ijse.gdse72.yummygobackend.servicce.impl;
+package lk.ijse.gdse72.yummygobackend.service.impl;
 
 import lk.ijse.gdse72.yummygobackend.dto.BusinessDTO;
 import lk.ijse.gdse72.yummygobackend.entity.Business;
 import lk.ijse.gdse72.yummygobackend.entity.User;
 import lk.ijse.gdse72.yummygobackend.repository.BusinessRepository;
 import lk.ijse.gdse72.yummygobackend.repository.UserRepository;
-import lk.ijse.gdse72.yummygobackend.servicce.BusinessService;
+import lk.ijse.gdse72.yummygobackend.service.BusinessService;
 import lombok.RequiredArgsConstructor;
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;

@@ -2,7 +2,7 @@ package lk.ijse.gdse72.yummygobackend.controller;
 
 import lk.ijse.gdse72.yummygobackend.dto.BusinessDTO;
 import lk.ijse.gdse72.yummygobackend.entity.Business;
-import lk.ijse.gdse72.yummygobackend.servicce.BusinessService;
+import lk.ijse.gdse72.yummygobackend.service.BusinessService;
 import lk.ijse.gdse72.yummygobackend.util.APIResponse;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;

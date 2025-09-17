@@ -1,7 +1,8 @@
-package lk.ijse.gdse72.yummygobackend.servicce;
+package lk.ijse.gdse72.yummygobackend.service;
 
 import lk.ijse.gdse72.yummygobackend.dto.OrdersDTO;
-import lk.ijse.gdse72.yummygobackend.entity.Orders;
+
+import java.util.List;
 
 /**
  * @author Dusan
@@ -10,4 +11,6 @@ import lk.ijse.gdse72.yummygobackend.entity.Orders;
 
 public interface OrdersService {
     void placeOrder(OrdersDTO ordersDTO);
+
+    List<OrdersDTO> getAllThisBusinessOrders(Long businessId);
 }

@@ -29,6 +29,47 @@
             margin-top: 100px;
             position: relative;
         }
+        .order-item {
+            background: #f8f9fa;
+            border-radius: 12px;
+            padding: 15px 20px;
+            margin-bottom: 12px;
+            box-shadow: 0 3px 8px rgba(0,0,0,0.1);
+            position: relative;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .order-item:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+        }
+
+        #order-list{
+            height: 600px;
+            overflow-y: auto;
+        }
+
+        .order-item h6 {
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        .order-item ul {
+            padding-left: 20px;
+            margin-bottom: 8px;
+        }
+
+        .order-item p {
+            margin: 2px 0;
+        }
+
+        .order-buttons {
+            display: flex;
+            justify-content: flex-end;
+            gap: 8px;
+            flex-wrap: wrap;
+            margin-top: 8px;
+        }
     </style>
 </head>
 <body>
@@ -68,10 +109,15 @@
         </div>
     </div>
 
-    <div class="container pt-5">
-        <button class="btn btn-dark p-5" id="openAddItemModalBtn" data-bs-toggle="modal" data-bs-target="#Business-Item-Add-Modal">
-            <span class="fw-bold fs-1">+</span><br>Add Business Item
+    <div class="container mt-2 d-flex justify-content-end">
+        <button class="btn btn-dark ps-5 pe-5 d-flex align-items-center gap-3" id="openAddItemModalBtn" data-bs-toggle="modal" data-bs-target="#Business-Item-Add-Modal"
+                style="height: 50px;">
+            <span class="fw-bold fs-1">+</span>Add Business Item
         </button>
+    </div>
+
+    <div id="order-list" class="container mt-4">
+        <h5 class="fw-bold mb-3">Order List</h5>
     </div>
 
     <div class="container mt-2">

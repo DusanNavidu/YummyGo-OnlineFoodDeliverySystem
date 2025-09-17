@@ -2,7 +2,7 @@ package lk.ijse.gdse72.yummygobackend.controller;
 
 import jakarta.validation.Valid;
 import lk.ijse.gdse72.yummygobackend.dto.PaymentDTO;
-import lk.ijse.gdse72.yummygobackend.servicce.PaymentService;
+import lk.ijse.gdse72.yummygobackend.service.PaymentService;
 import lk.ijse.gdse72.yummygobackend.util.APIResponse;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;

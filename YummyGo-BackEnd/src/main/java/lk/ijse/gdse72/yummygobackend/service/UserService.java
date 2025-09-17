@@ -1,4 +1,4 @@
-package lk.ijse.gdse72.yummygobackend.servicce;
+package lk.ijse.gdse72.yummygobackend.service;
 
 import lk.ijse.gdse72.yummygobackend.dto.UserDTO;
 import org.springframework.data.domain.Page;

@@ -3,7 +3,7 @@ package lk.ijse.gdse72.yummygobackend.controller;
 import lk.ijse.gdse72.yummygobackend.dto.ApiResponse;
 import lk.ijse.gdse72.yummygobackend.dto.AuthDTO;
 import lk.ijse.gdse72.yummygobackend.dto.RegisterDTO;
-import lk.ijse.gdse72.yummygobackend.servicce.AuthService;
+import lk.ijse.gdse72.yummygobackend.service.AuthService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;

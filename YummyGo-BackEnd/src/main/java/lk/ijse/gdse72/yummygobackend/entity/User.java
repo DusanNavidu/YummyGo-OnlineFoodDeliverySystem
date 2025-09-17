@@ -33,6 +33,12 @@ public class User {
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
     private List<Business> businesses;
 
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
+    private List<Orders> orders;
+
+    @OneToOne(mappedBy = "user", cascade = CascadeType.ALL)
+    private Vehicle vehicle;
+
     private Timestamp createdAt;
     private Timestamp updatedAt;
 }

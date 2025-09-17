@@ -26,7 +26,13 @@ public class Orders {
 //    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private String orderId;
 
-    private Long userId;
+    @ManyToOne
+    @JoinColumn(name = "user_id", nullable = false)
+    private User user;
+
+    @ManyToOne
+    @JoinColumn(name = "business_id", nullable = false)
+    private Business business;
 
     private String subTotal;
     private String deliveryFee;
