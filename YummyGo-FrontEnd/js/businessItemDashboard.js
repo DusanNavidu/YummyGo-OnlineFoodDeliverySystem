@@ -24,13 +24,9 @@ $(document).ready(async function () {
     $('#businessId').val(businessId);
     console.log("Business ID from URL:", businessId);
 
-    // $('#order-list').on('', async function() {
-
-    // });
-
-    // setInterval(() => {
-    //     loadAllOrders();
-    // }, 5000);
+    setInterval(() => {
+        loadAllOrders();
+    }, 5000);
 
     let previousOrders = []; // keep track of already loaded orders
 
@@ -58,7 +54,7 @@ $(document).ready(async function () {
 
                     if (newOrders.length > 0) {
                         // Play sound only for new orders
-                        const audio = new Audio('/assets/audio/mixkit-happy-bells-notification-937.wav'); // your sound file
+                        const audio = new Audio('/assetsaudio/mixkit-happy-bells-notification-937.wav'); // your sound file
                         audio.play();
                     }
 
@@ -83,10 +79,10 @@ $(document).ready(async function () {
                                 <strong>Total:</strong> LKR ${total.toLocaleString('en-LK', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</p>
                                 <p><small>${new Date(order.orderDate).toLocaleString()}</small></p>
                                 <div class="order-buttons">
-                                    <button class="btn btn-success btn-sm">Accept</button>
-                                    <button class="btn btn-danger btn-sm">Reject</button>
-                                    <button class="btn btn-info btn-sm">Preparing</button>
-                                    <button class="btn btn-primary btn-sm">Call Rider</button>
+                                    <button data-id="${order.orderId}" class="btn btn-success btn-sm accept-btn">Accept</button>
+                                    <button data-id="${order.orderId}" class="btn btn-danger btn-sm reject-btn">Reject</button>
+                                    <button data-id="${order.orderId}" class="btn btn-info btn-sm preparing-btn">Preparing</button>
+                                    <button data-id="${order.orderId}" class="btn btn-primary btn-sm call-rider-btn">Call Rider</button>
                                 </div>
                             </div>
                         `);
@@ -105,6 +101,122 @@ $(document).ready(async function () {
             }
         });
     }
+
+    // =========================
+    // Accept Order
+    // =========================
+    $(document).on("click", ".accept-btn", async function () {
+        const orderId = $(this).data("id");
+        const token = (await cookieStore.get("token"))?.value;
+
+        if (!orderId) {
+            alert("Order ID not found!");
+            return;
+        }
+
+        $.ajax({
+            url: `${backendUrl}/api/v1/orders/updateStatus/${orderId}`,
+            method: "PUT",
+            headers: token ? { Authorization: "Bearer " + token } : {},
+            contentType: "application/json",
+            data: JSON.stringify({ status: "Accepted" }),
+            success: function (res) {
+                alert("Order Accepted!");
+                loadAllOrders(); // refresh list
+            },
+            error: function (err) {
+                console.error(err);
+                alert(err.responseJSON?.message || "Error updating order status!");
+            },
+        });
+    });
+
+    // =========================
+    // Reject Order
+    // =========================
+    $(document).on("click", ".reject-btn", async function () {
+        const orderId = $(this).data("id");
+        const token = (await cookieStore.get("token"))?.value;
+
+        if (!orderId) {
+            alert("Order ID not found!");
+            return;
+        }
+
+        $.ajax({
+            url: `${backendUrl}/api/v1/orders/updateStatus/${orderId}`,
+            method: "PUT",
+            headers: token ? { Authorization: "Bearer " + token } : {},
+            contentType: "application/json",
+            data: JSON.stringify({ status: "Rejected" }),
+            success: function () {
+                alert("Order Rejected!");
+                loadAllOrders();
+            },
+            error: function (err) {
+                console.error(err);
+                alert(err.responseJSON?.message || "Error updating order status!");
+            },
+        });
+    });
+
+    // =========================
+    // Preparing Order
+    // =========================
+    $(document).on("click", ".preparing-btn", async function () {
+        const orderId = $(this).data("id");
+        const token = (await cookieStore.get("token"))?.value;
+
+        if (!orderId) {
+            alert("Order ID not found!");
+            return;
+        }
+
+        $.ajax({
+            url: `${backendUrl}/api/v1/orders/updateStatus/${orderId}`,
+            method: "PUT",
+            headers: token ? { Authorization: "Bearer " + token } : {},
+            contentType: "application/json",
+            data: JSON.stringify({ status: "Preparing" }),
+            success: function () {
+                alert("Order marked as Preparing!");
+                loadAllOrders();
+            },
+            error: function (err) {
+                console.error(err);
+                alert(err.responseJSON?.message || "Error updating order status!");
+            },
+        });
+    });
+
+    // =========================
+    // Call Rider
+    // =========================
+    $(document).on("click", ".call-rider-btn", async function () {
+        const orderId = $(this).data("id");
+        const token = (await cookieStore.get("token"))?.value;
+
+        if (!orderId) {
+            alert("Order ID not found!");
+            return;
+        }
+
+        $.ajax({
+            url: `${backendUrl}/api/v1/orders/updateContactPartner/${orderId}`,
+            method: "PUT",
+            headers: token ? { Authorization: "Bearer " + token } : {},
+            contentType: "application/json",
+            data: JSON.stringify({ contactPartner: "Rider Called" }),
+            success: function () {
+                alert("Rider Called for this order!");
+                loadAllOrders();
+            },
+            error: function (err) {
+                console.error(err);
+                alert(err.responseJSON?.message || "Error updating order status!");
+            },
+        });
+    });
 
     async function loadBusinesProfile() {
         try {

@@ -37,6 +37,8 @@ public class Orders {
     private String subTotal;
     private String deliveryFee;
     private String total;
+    private String status;  //  Pending, Accepted, Preparing, On the way, Delivered, Cancelled
+    private String contactPartner;
 
     @OneToMany(mappedBy = "orders", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<OrderDetails> orderDetailsList;

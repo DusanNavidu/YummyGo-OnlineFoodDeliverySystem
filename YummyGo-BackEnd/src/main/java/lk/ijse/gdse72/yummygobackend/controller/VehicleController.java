@@ -17,6 +17,8 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.nio.file.StandardCopyOption;
+import java.util.List;
+import java.util.Map;
 
 
 @RestController
@@ -72,5 +74,19 @@ public class VehicleController {
            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
                    .body(new APIResponse<>(500, "Failed to save item image: " + e.getMessage(), null));
        }
+    }
+
+    @GetMapping("/user/{userId}")
+    public ResponseEntity<List<VehicleDTO>> getVehiclesByUser(@PathVariable Long userId) {
+        List<VehicleDTO> vehicles = vehicleService.getVehiclesByUser(userId);
+        return ResponseEntity.ok(vehicles);
+    }
+
+    // ------------------- UPDATE VEHICLE STATUS -------------------
+    @PutMapping("/updateStatus/{userId}")
+    public ResponseEntity<?> updateStatus(@PathVariable Long userId, @RequestBody Map<String, String> body) {
+        String status = body.get("vehicleStatus");
+        vehicleService.updateVehicleStatus(userId, status);
+        return ResponseEntity.ok(Map.of("message", "Vehicle status updated successfully"));
     }
 }

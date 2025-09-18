@@ -15,6 +15,8 @@ public class OrdersDTO {
     private Double subTotal;
     private Double deliveryFee;
     private Double total;
+    private String status;  //  Pending, Accepted, Preparing, On the way, Delivered, Cancelled
+    private String contactPartner;
     private Timestamp orderDate;
 
     // Flattened for frontend

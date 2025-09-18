@@ -8,6 +8,9 @@ import lombok.RequiredArgsConstructor;
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
 
+import java.sql.Timestamp;
+import java.util.List;
+
 
 @Service
 @RequiredArgsConstructor
@@ -27,5 +30,38 @@ public class VehicleServiceImpl implements VehicleService {
         vehicle.setUpdatedAt(new java.sql.Timestamp(System.currentTimeMillis()));
 
         vehicleRepository.save(vehicle);
+    }
+
+    @Override
+    public List<VehicleDTO> getVehiclesByUser(Long userId) {
+        List<Vehicle> vehicles = vehicleRepository.findByUserId(userId);
+        return vehicles.stream()
+                .map(vehicle -> modelMapper.map(vehicle, VehicleDTO.class))
+                .toList();
+    }
+
+//    @Override
+//    public void updateVehicleStatus(Long userId, String status) {
+//        List<Vehicle> vehicles = vehicleRepository.findByUserId(userId);
+//        if (vehicles.isEmpty()) {
+//            throw new RuntimeException("No vehicles found for user with id: " + userId);
+//        }
+//
+//        vehicles.forEach(vehicle -> {
+//            vehicle.setVehicleStatus(status);
+//            vehicle.setUpdatedAt(new java.sql.Timestamp(System.currentTimeMillis()));
+//            vehicleRepository.save(vehicle);
+//        });
+//    }
+
+    @Override
+    public void updateVehicleStatus(Long userId, String status) {
+        List<Vehicle> vehicles = vehicleRepository.findByUserId(userId);
+        if (!vehicles.isEmpty()) {
+            Vehicle vehicle = vehicles.get(0); // first vehicle
+            vehicle.setVehicleStatus(status);
+            vehicle.setUpdatedAt(new Timestamp(System.currentTimeMillis()));
+            vehicleRepository.save(vehicle);
+        }
     }
 }

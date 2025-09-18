@@ -34,4 +34,36 @@ public class OrdersController {
     public ResponseEntity<List<OrdersDTO>> getOrdersForBusiness(@PathVariable Long businessId) {
         return ResponseEntity.ok(ordersService.getAllThisBusinessOrders(businessId));
     }
+
+    @GetMapping("/orderHistory/{userId}")
+    public ResponseEntity<List<OrdersDTO>> orderHistory(@PathVariable Long userId) {
+        List<OrdersDTO> orders = ordersService.getAllUserOrders(userId);
+        return ResponseEntity.ok(orders);
+    }
+
+    @PutMapping("/updateStatus/{orderId}")
+    public ResponseEntity<APIResponse<String>> updateOrderStatus(
+            @PathVariable String orderId,
+            @RequestBody OrdersDTO ordersDTO) {
+        try {
+            ordersService.updateOrderStatus(orderId, ordersDTO.getStatus());
+            return ResponseEntity.ok(new APIResponse<>(200, "Order status updated successfully", null));
+        } catch (Exception e) {
+            return ResponseEntity.status(500)
+                    .body(new APIResponse<>(500, "Error updating order status: " + e.getMessage(), null));
+        }
+    }
+
+    @PutMapping("/updateContactPartner/{orderId}")
+    public ResponseEntity<APIResponse<String>> updateContactPartner(
+            @PathVariable String orderId,
+            @RequestBody OrdersDTO ordersDTO) {
+        try {
+            ordersService.updateContactPartner(orderId, ordersDTO.getContactPartner());
+            return ResponseEntity.ok(new APIResponse<>(200, "Contact partner updated successfully", null));
+        } catch (Exception e) {
+            return ResponseEntity.status(500)
+                    .body(new APIResponse<>(500, "Error updating contact partner: " + e.getMessage(), null));
+        }
+    }
 }

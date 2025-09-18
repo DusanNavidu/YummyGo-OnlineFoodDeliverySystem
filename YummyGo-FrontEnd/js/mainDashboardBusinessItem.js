@@ -418,6 +418,8 @@ $(document).ready(async function() {
             subTotal:parseFloat($("#subtotal-amount").text()), 
             deliveryFee:parseFloat($("#delivery-fee").text()), 
             total:parseFloat($("#total-amount").text()), 
+            status: "Pending",
+            contactPartner: "Pending",
             items:cart.map(i=>
                 ({
                     itemId:i.id,

@@ -12,4 +12,8 @@ import java.util.List;
 public interface VehicleService {
 
     void saveVehicle(VehicleDTO vehicleDTO);
+
+    List<VehicleDTO> getVehiclesByUser(Long userId);
+
+    void updateVehicleStatus(Long userId, String status);
 }

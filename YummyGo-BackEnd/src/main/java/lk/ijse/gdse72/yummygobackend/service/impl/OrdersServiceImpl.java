@@ -43,6 +43,8 @@ public class OrdersServiceImpl implements OrdersService {
                 .user(user)
                 .business(business)
                 .subTotal(String.valueOf(ordersDTO.getSubTotal()))
+                .status(String.valueOf(ordersDTO.getStatus()))
+                .contactPartner(String.valueOf(ordersDTO.getContactPartner()))
                 .deliveryFee(String.valueOf(ordersDTO.getDeliveryFee()))
                 .total(String.valueOf(ordersDTO.getTotal()))
                 .createdAt(new Timestamp(System.currentTimeMillis()))
@@ -73,7 +75,7 @@ public class OrdersServiceImpl implements OrdersService {
     @Override
     @Transactional(readOnly = true)
     public List<OrdersDTO> getAllThisBusinessOrders(Long businessId) {
-        List<Orders> ordersList = ordersRepository.findByBusinessBusinessId(businessId);
+        List<Orders> ordersList = ordersRepository.findBusinessOrdersDesc(businessId);
         List<OrdersDTO> dtos = new ArrayList<>();
 
         for (Orders order : ordersList) {
@@ -96,6 +98,67 @@ public class OrdersServiceImpl implements OrdersService {
                     .subTotal(Double.valueOf(order.getSubTotal()))
                     .deliveryFee(Double.valueOf(order.getDeliveryFee()))
                     .total(Double.valueOf(order.getTotal()))
+                    .contactPartner(order.getContactPartner())
+                    .status(order.getStatus())
+                    .orderDate(order.getCreatedAt())
+                    .items(items)
+                    .build();
+
+            dtos.add(dto);
+        }
+
+        return dtos;
+    }
+
+    @Transactional
+    @Override
+    public void updateOrderStatus(String orderId, String status) {
+        Orders order = ordersRepository.findById(orderId)
+                .orElseThrow(() -> new RuntimeException("Order not found with id: " + orderId));
+
+        order.setStatus(status);
+        order.setUpdatedAt(new Timestamp(System.currentTimeMillis()));
+
+        ordersRepository.save(order);
+    }
+
+    @Transactional
+    @Override
+    public void updateContactPartner(String orderId, String contactPartner) {
+        Orders order = ordersRepository.findById(orderId)
+                .orElseThrow(() -> new RuntimeException("Order not found with id: " + orderId));
+
+        order.setContactPartner(contactPartner);
+        order.setUpdatedAt(new Timestamp(System.currentTimeMillis()));
+
+        ordersRepository.save(order);
+    }
+
+    @Transactional(readOnly = true)
+    @Override
+    public List<OrdersDTO> getAllUserOrders(Long userId) {
+        List<Orders> ordersList = ordersRepository.findUserOrdersDesc(userId);
+        List<OrdersDTO> dtos = new ArrayList<>();
+
+        for (Orders order : ordersList) {
+            List<OrderItemDTO> items = new ArrayList<>();
+            for (OrderDetails detail : order.getOrderDetailsList()) {
+                items.add(OrderItemDTO.builder()
+                        .itemId(detail.getItem().getItemId())
+                        .itemName(detail.getItem().getItemName())
+                        .quantity(detail.getQuantity())
+                        .price(detail.getPrice())
+                        .build());
+            }
+
+            OrdersDTO dto = OrdersDTO.builder()
+                    .orderId(order.getOrderId())
+                    .userId(order.getUser().getId())
+                    .businessId(order.getBusiness().getBusinessId())
+                    .subTotal(Double.valueOf(order.getSubTotal()))
+                    .deliveryFee(Double.valueOf(order.getDeliveryFee()))
+                    .total(Double.valueOf(order.getTotal()))
+                    .status(order.getStatus())
                     .orderDate(order.getCreatedAt())
                     .items(items)
                     .build();
