@@ -1,6 +1,7 @@
 package lk.ijse.gdse72.yummygobackend.service;
 
 import lk.ijse.gdse72.yummygobackend.dto.OrdersDTO;
+import lk.ijse.gdse72.yummygobackend.dto.RiderOrderDTO;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
@@ -23,4 +24,10 @@ public interface OrdersService {
 
     @Transactional(readOnly = true)
     List<OrdersDTO> getAllUserOrders(Long userId);
+
+    @Transactional(readOnly = true)
+    List<RiderOrderDTO> getAllOrdersForRiders(Long userId, String location);
+
+    @Transactional
+    void updateRiderReaction(String orderId, String reaction);
 }

@@ -6,6 +6,7 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.math.BigDecimal;
 import java.sql.Timestamp;
 import java.util.List;
 
@@ -34,11 +35,20 @@ public class Orders {
     @JoinColumn(name = "business_id", nullable = false)
     private Business business;
 
+    private String deliveryAddress;
     private String subTotal;
     private String deliveryFee;
     private String total;
     private String status;  //  Pending, Accepted, Preparing, On the way, Delivered, Cancelled
-    private String contactPartner;
+    private String contactPartner; // Pending, Rider Called
+    private String RiderReaction; // Pending, AcceptedByRider, RejectedByRider
+    private Long riderId;
+
+    @Column(precision = 9, scale = 6)
+    private BigDecimal latitude;
+
+    @Column(precision = 9, scale = 6)
+    private BigDecimal longitude;
 
     @OneToMany(mappedBy = "orders", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<OrderDetails> orderDetailsList;

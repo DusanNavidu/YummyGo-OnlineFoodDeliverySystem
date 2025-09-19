@@ -140,88 +140,88 @@
         <div id="business-list" class="row"></div>
     </div>
 
-<script>
-document.addEventListener("DOMContentLoaded", function () {
-    const locationSelect = document.getElementById("location-select");
-    const saveLocationBtn = document.getElementById("save-location");
-    const savedLocationsDiv = document.getElementById("saved-locations");
-    const currentLocationSpan = document.getElementById("current-location");
-
-    let savedLocations = JSON.parse(sessionStorage.getItem("savedLocations")) || [];
-
-    // Render saved locations
-    function renderLocations() {
-        savedLocationsDiv.innerHTML = "";
-        savedLocations.forEach((loc, index) => {
-            let div = document.createElement("div");
-            div.className = "location-item d-flex justify-content-between align-items-center mb-1 p-1 border rounded";
-            div.innerHTML = `
-                <span class="location-name" data-index="${index}" style="cursor:pointer;">
-                    <img src="/assets/logo/maps-and-flags.png" id="map-pin" alt="map pin image"> ${loc}
-                </span> 
-                <span class="delete-btn text-danger" data-index="${index}" style="cursor:pointer;">
-                    <img src="/assets/logo/bin.png" id="map-pin" alt="map pin image">
-                </span>`;
-            savedLocationsDiv.appendChild(div);
-        });
-
-        // Delete buttons
-        document.querySelectorAll(".delete-btn").forEach(btn => {
-            btn.addEventListener("click", function () {
-                let i = this.getAttribute("data-index");
-                savedLocations.splice(i, 1);
-                sessionStorage.setItem("savedLocations", JSON.stringify(savedLocations));
-                renderLocations();
-                if (savedLocations.length > 0) {
-                    currentLocationSpan.innerText = savedLocations[savedLocations.length - 1];
-                    location.reload();
-                } else {
-                    currentLocationSpan.innerText = "Now location";
-                }
-            });
-        });
-
-        // Click on location name → set as last element & refresh
-        document.querySelectorAll(".location-name").forEach(item => {
-            item.addEventListener("click", function () {
-                let index = this.getAttribute("data-index");
-                let selectedLocation = savedLocations[index];
-                savedLocations.splice(index, 1);
-                savedLocations.push(selectedLocation);
-                sessionStorage.setItem("savedLocations", JSON.stringify(savedLocations));
-
-                currentLocationSpan.innerText = selectedLocation;
-
-                let modal = bootstrap.Modal.getInstance(document.getElementById("location-add-modal"));
-                modal.hide();
-
-                location.reload();
-            });
-        });
-
-        if (savedLocations.length > 0) {
-            currentLocationSpan.innerText = savedLocations[savedLocations.length - 1];
-        }
-    }
-
-    // Save location button
-    saveLocationBtn.addEventListener("click", function () {
-        let selectedLocation = locationSelect.value;
-        if (selectedLocation !== "Select a district" && !savedLocations.includes(selectedLocation)) {
-            savedLocations.push(selectedLocation);
-            sessionStorage.setItem("savedLocations", JSON.stringify(savedLocations));
-            renderLocations();
-            location.reload();
-        }
-    });
-
-    renderLocations();
-});
-</script>
-
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"></script>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="/js/mainDashboard.js"></script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const locationSelect = document.getElementById("location-select");
+        const saveLocationBtn = document.getElementById("save-location");
+        const savedLocationsDiv = document.getElementById("saved-locations");
+        const currentLocationSpan = document.getElementById("current-location");
+
+        let savedLocations = JSON.parse(sessionStorage.getItem("savedLocations")) || [];
+
+        // Render saved locations
+        function renderLocations() {
+            savedLocationsDiv.innerHTML = "";
+            savedLocations.forEach((loc, index) => {
+                let div = document.createElement("div");
+                div.className = "location-item d-flex justify-content-between align-items-center mb-1 p-1 border rounded";
+                div.innerHTML = `
+                    <span class="location-name" data-index="${index}" style="cursor:pointer;">
+                        <img src="/assets/logo/maps-and-flags.png" id="map-pin" alt="map pin image"> ${loc}
+                    </span> 
+                    <span class="delete-btn text-danger" data-index="${index}" style="cursor:pointer;">
+                        <img src="/assets/logo/bin.png" id="map-pin" alt="map pin image">
+                    </span>`;
+                savedLocationsDiv.appendChild(div);
+            });
+
+            // Delete buttons
+            document.querySelectorAll(".delete-btn").forEach(btn => {
+                btn.addEventListener("click", function () {
+                    let i = this.getAttribute("data-index");
+                    savedLocations.splice(i, 1);
+                    sessionStorage.setItem("savedLocations", JSON.stringify(savedLocations));
+                    renderLocations();
+                    if (savedLocations.length > 0) {
+                        currentLocationSpan.innerText = savedLocations[savedLocations.length - 1];
+                        location.reload();
+                    } else {
+                        currentLocationSpan.innerText = "Now location";
+                    }
+                });
+            });
+
+            // Click on location name → set as last element & refresh
+            document.querySelectorAll(".location-name").forEach(item => {
+                item.addEventListener("click", function () {
+                    let index = this.getAttribute("data-index");
+                    let selectedLocation = savedLocations[index];
+                    savedLocations.splice(index, 1);
+                    savedLocations.push(selectedLocation);
+                    sessionStorage.setItem("savedLocations", JSON.stringify(savedLocations));
+                    
+                    currentLocationSpan.innerText = selectedLocation;
+
+                    let modal = bootstrap.Modal.getInstance(document.getElementById("location-add-modal"));
+                    modal.hide();
+
+                    location.reload();
+                });
+            });
+
+            if (savedLocations.length > 0) {
+                currentLocationSpan.innerText = savedLocations[savedLocations.length - 1];
+            }
+        }
+
+        // Save location button
+        saveLocationBtn.addEventListener("click", function () {
+            let selectedLocation = locationSelect.value;
+            if (selectedLocation !== "Select a district" && !savedLocations.includes(selectedLocation)) {
+                savedLocations.push(selectedLocation);
+                sessionStorage.setItem("savedLocations", JSON.stringify(savedLocations));
+                renderLocations();
+                location.reload();
+            }
+        });
+
+        renderLocations();
+    });
+</script>
 </body>
 </html>

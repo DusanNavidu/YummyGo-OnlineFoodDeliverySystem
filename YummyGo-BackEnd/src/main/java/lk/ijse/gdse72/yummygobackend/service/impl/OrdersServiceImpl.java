@@ -2,6 +2,7 @@ package lk.ijse.gdse72.yummygobackend.service.impl;
 
 import lk.ijse.gdse72.yummygobackend.dto.OrderItemDTO;
 import lk.ijse.gdse72.yummygobackend.dto.OrdersDTO;
+import lk.ijse.gdse72.yummygobackend.dto.RiderOrderDTO;
 import lk.ijse.gdse72.yummygobackend.entity.*;
 import lk.ijse.gdse72.yummygobackend.repository.BusinessRepository;
 import lk.ijse.gdse72.yummygobackend.repository.ItemRepository;
@@ -42,10 +43,14 @@ public class OrdersServiceImpl implements OrdersService {
                 .orderId(ordersDTO.getOrderId())
                 .user(user)
                 .business(business)
+                .deliveryAddress(String.valueOf(ordersDTO.getDeliveryAddress()))
                 .subTotal(String.valueOf(ordersDTO.getSubTotal()))
                 .status(String.valueOf(ordersDTO.getStatus()))
                 .contactPartner(String.valueOf(ordersDTO.getContactPartner()))
+                .RiderReaction(String.valueOf(ordersDTO.getRiderReaction()))
                 .deliveryFee(String.valueOf(ordersDTO.getDeliveryFee()))
+                .latitude(ordersDTO.getLatitude())
+                .longitude(ordersDTO.getLongitude())
                 .total(String.valueOf(ordersDTO.getTotal()))
                 .createdAt(new Timestamp(System.currentTimeMillis()))
                 .updatedAt(new Timestamp(System.currentTimeMillis()))
@@ -168,4 +173,31 @@ public class OrdersServiceImpl implements OrdersService {
 
         return dtos;
     }
+
+    @Transactional(readOnly = true)
+    @Override
+    public List<RiderOrderDTO> getAllOrdersForRiders(Long userId, String location) {
+        System.out.println("==========================================");
+        System.out.println("userId: " + userId + ", location: " + location);
+        System.out.println(ordersRepository.findOrdersForRiders(location));
+        // later we can filter by rider userId if needed
+        return ordersRepository.findOrdersForRiders(location);
+    }
+
+    @Transactional
+    @Override
+    public void updateRiderReaction(String orderId, String reaction) {
+        Orders order = ordersRepository.findById(orderId)
+                .orElseThrow(() -> new RuntimeException("Order not found with id: " + orderId));
+
+        if (!reaction.equals("AcceptedByRider") && !reaction.equals("RejectedByRider")) {
+            throw new IllegalArgumentException("Invalid reaction value: " + reaction);
+        }
+
+        order.setRiderReaction(reaction);
+        order.setUpdatedAt(new Timestamp(System.currentTimeMillis()));
+
+        ordersRepository.save(order);
+    }
+
 }

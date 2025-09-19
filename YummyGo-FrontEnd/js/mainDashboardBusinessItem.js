@@ -11,9 +11,12 @@ $(document).ready(async function() {
     if (!businessId) { alert("Business not selected!"); return; }
 
     let cart = [];
-    let map, businessMarker, userMarker, routeControl;
+    // let map, businessMarker, userMarker, routeControl;
     let currentStep = parseInt(sessionStorage.getItem("currentStep")) || 1;
     let mapInitialized = false;
+    // let userLatitude = null;
+    // let userLongitude = null;
+
 
     // ======================
     // Logout
@@ -64,6 +67,7 @@ $(document).ready(async function() {
                     if (business) {
                         $('#business-name-profile').text(business.businessName);
                         $('#business-location-profile').text(business.businessAddress);
+                        sessionStorage.setItem("businessAddress", business.businessAddress);
                         $('#business-open-time-profile').text(business.openTime);
                         $('#business-close-time-profile').text(business.closeTime);
                         $('#business-contact1-profile').text(business.contactNumber1);
@@ -406,20 +410,29 @@ $(document).ready(async function() {
         const orderId = generateOrderId();
         sessionStorage.setItem("orderId", orderId);
         
+        const currentLocation = sessionStorage.getItem("businessAddress");
         const businessId = sessionStorage.getItem("businessId");
         const userId = sessionStorage.getItem("userId");
         console.log("Placing order:", orderId, userId, cart);
         // const userId = (await cookieStore.get('username'))?.value || 1;
 
+        // Use the userMarker's actual position if available
+        const userLat = userMarker ? userMarker.getLatLng().lat : 0;
+        const userLng = userMarker ? userMarker.getLatLng().lng : 0;
+        
         const orderData={
             orderId: orderId,
             userId: userId, 
             businessId: businessId,
+            deliveryAddress: currentLocation,
             subTotal:parseFloat($("#subtotal-amount").text()), 
             deliveryFee:parseFloat($("#delivery-fee").text()), 
             total:parseFloat($("#total-amount").text()), 
             status: "Pending",
             contactPartner: "Pending",
+            RiderReaction: "Pending",
+            latitude: userLat,
+            longitude: userLng,
             items:cart.map(i=>
                 ({
                     itemId:i.id,
@@ -428,6 +441,9 @@ $(document).ready(async function() {
                 })
             )
         };
+
+        console.log("Placing order with location:", userLat, userLng, orderData);
+
         $.ajax({
             url:`${backendUrl}/api/v1/orders/placeorder`, 
             type:"POST", contentType:"application/json", 
@@ -548,68 +564,206 @@ $(document).ready(async function() {
         });
     }
 
-    // ==============================
-    // Map + Routing
-    // ==============================
-    function initMap(businessLat,businessLng){
-        const SL_BOUNDS=L.latLngBounds([5.916,79.652],[9.835,81.881]);
-        const centerSL=[7.8731,80.7718];
-        const businessLocation=[isFinite(businessLat)?businessLat:centerSL[0], isFinite(businessLng)?businessLng:centerSL[1]];
+    // Listen to input changes (debounced to avoid too many API calls)
+    let typingTimeout;
+    $("#update-map-location-name").on("input", function() {
+        clearTimeout(typingTimeout);
+        const query = $(this).val().trim();
+        if (!query) return;
 
-        if(!map){
-            map=L.map('update-map',{center:centerSL,zoom:8,minZoom:7,maxZoom:18,maxBounds:SL_BOUNDS,maxBoundsViscosity:1.0,zoomControl:true});
-            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{attribution:'© OpenStreetMap contributors'}).addTo(map);
+        typingTimeout = setTimeout(async () => {
+            try {
+                const res = await fetch(
+                    `https://nominatim.openstreetmap.org/search?format=json&q=${encodeURIComponent(query)}, Sri Lanka&limit=1`
+                );
+                const data = await res.json();
+                if (data && data.length > 0) {
+                    const place = data[0];
+                    const lat = parseFloat(place.lat);
+                    const lon = parseFloat(place.lon);
+
+                    userLatitude = lat;
+                    userLongitude = lon;
+
+                    // Move or create user marker
+                    if (userMarker) {
+                        userMarker.setLatLng([lat, lon]).update();
+                    } else {
+                        userMarker = L.marker([lat, lon], {
+                            draggable: true,
+                            icon: L.icon({
+                                iconUrl: "/assets/logo/people (1).png",
+                                iconSize: [32, 32],
+                            }),
+                        }).addTo(map);
+
+                        userMarker.on("dragend", function (e) {
+                            const pos = e.target.getLatLng();
+                            userLatitude = pos.lat;
+                            userLongitude = pos.lng;
+                            showUserAndRoute(
+                                [parseFloat($("#update-latitude").val()), parseFloat($("#update-longitude").val())],
+                                [userLatitude, userLongitude]
+                            );
+                        });
+                    }
+
+                    // Update route immediately
+                    const businessLat = parseFloat($("#update-latitude").val());
+                    const businessLon = parseFloat($("#update-longitude").val());
+                    showUserAndRoute([businessLat, businessLon], [lat, lon]);
+
+                    // Optionally, pan map to this location
+                    map.panTo([lat, lon]);
+                }
+            } catch (err) {
+                console.error("Realtime map update error:", err);
+            }
+        }, 300); // 300ms debounce
+    });
+
+    // ==============================
+    // Map + Routing (Business fixed, User draggable/clickable)
+    // ==============================
+    let map, businessMarker, userMarker, routeControl;
+    let userLatitude, userLongitude;
+
+    function initMap(businessLat, businessLng) {
+        const SL_BOUNDS = L.latLngBounds([5.916, 79.652], [9.835, 81.881]);
+        const centerSL = [7.8731, 80.7718];
+
+        const businessLocation = [
+            isFinite(businessLat) ? businessLat : centerSL[0],
+            isFinite(businessLng) ? businessLng : centerSL[1]
+        ];
+
+        if (!map) {
+            map = L.map("update-map", {
+                center: centerSL,
+                zoom: 8,
+                minZoom: 7,
+                maxZoom: 18,
+                maxBounds: SL_BOUNDS,
+                maxBoundsViscosity: 1.0,
+                zoomControl: true,
+            });
+
+            L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
+                attribution: "© OpenStreetMap contributors",
+            }).addTo(map);
         }
+
         map.fitBounds(SL_BOUNDS);
 
-        if(businessMarker) map.removeLayer(businessMarker);
-        businessMarker=L.marker(businessLocation).addTo(map).bindPopup("Business Location").openPopup();
+        // 🔹 Business marker (fixed – cannot drag)
+        if (businessMarker) map.removeLayer(businessMarker);
+        businessMarker = L.marker(businessLocation)
+            .addTo(map)
+            .bindPopup("Business Location")
+            .openPopup();
 
-        if(navigator.geolocation){
-            navigator.geolocation.getCurrentPosition(function(pos){
-                const userLoc=[pos.coords.latitude,pos.coords.longitude];
-                showUserAndRoute(businessLocation,userLoc);
-            },function(){ setTimeout(()=>map.invalidateSize(),0); });
+        // 🔹 Get user location
+        if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(
+                function (pos) {
+                    const userLoc = [pos.coords.latitude, pos.coords.longitude];
+                    addUserMarkerAndRoute(businessLocation, userLoc);
+                },
+                function () {
+                    console.warn("Geolocation blocked → fallback");
+                    const fallbackLoc = [7.8731, 80.7718];
+                    addUserMarkerAndRoute(businessLocation, fallbackLoc);
+                }
+            );
+        } else {
+            const fallbackLoc = [7.8731, 80.7718];
+            addUserMarkerAndRoute(businessLocation, fallbackLoc);
         }
-        setTimeout(() => map.invalidateSize(), 0);
+    }
+
+    function addUserMarkerAndRoute(businessLocation, userLocation) {
+        if (userMarker) map.removeLayer(userMarker);
+
+        // 🔹 User marker (draggable)
+        userMarker = L.marker(userLocation, {
+            draggable: true,
+            icon: L.icon({
+                iconUrl: "/assets/logo/people (1).png",
+                iconSize: [32, 32],
+            }),
+        })
+            .addTo(map)
+            .bindPopup("Drag or click map to set your location")
+            .openPopup();
+
+        userLatitude = userLocation[0];
+        userLongitude = userLocation[1];
+
+        showUserAndRoute(businessLocation, userLocation);
+
+        // 🔹 Update when user drags
+        userMarker.on("dragend", function (e) {
+            const pos = e.target.getLatLng();
+            userLatitude = pos.lat;
+            userLongitude = pos.lng;
+            showUserAndRoute(businessLocation, [userLatitude, userLongitude]);
+        });
+
+        // 🔹 Update when user clicks map
+        map.on("click", function (e) {
+            userLatitude = e.latlng.lat;
+            userLongitude = e.latlng.lng;
+            userMarker.setLatLng([userLatitude, userLongitude]);
+            showUserAndRoute(businessLocation, [userLatitude, userLongitude]);
+        });
     }
 
     function showUserAndRoute(businessLocation, userLocation) {
-        if (userMarker) map.removeLayer(userMarker);
-        userMarker = L.marker(userLocation, {icon: L.icon({iconUrl: '/assets/logo/people (1).png', iconSize: [32, 32]})})
-            .addTo(map)
-            .bindPopup("Your Location")
-            .openPopup();
-
         if (routeControl) map.removeControl(routeControl);
+
         routeControl = L.Routing.control({
-            waypoints: [L.latLng(userLocation[0], userLocation[1]), L.latLng(businessLocation[0], businessLocation[1])],
-            lineOptions: { styles: [{ color: 'blue', opacity: 0.6, weight: 4 }] },
-            router: L.Routing.osrmv1({ serviceUrl: 'https://router.project-osrm.org/route/v1' }),
+            waypoints: [
+                L.latLng(userLocation[0], userLocation[1]),
+                L.latLng(businessLocation[0], businessLocation[1]),
+            ],
+            lineOptions: { styles: [{ color: "blue", opacity: 0.6, weight: 4 }] },
+            router: L.Routing.osrmv1({
+                serviceUrl: "https://router.project-osrm.org/route/v1",
+            }),
             show: false,
             addWaypoints: false,
-            draggableWaypoints: false
+            draggableWaypoints: false,
         }).addTo(map);
 
-        routeControl.on('routesfound', function(e) {
+        routeControl.on("routesfound", function (e) {
             const route = e.routes[0];
-            const distanceKm = route.summary.totalDistance / 1000; // in km
+            const distanceKm = route.summary.totalDistance / 1000;
             const deliveryFee = calculateDeliveryFee(distanceKm);
 
-            // Update delivery fee in order summary
             $("#delivery-fee").text(deliveryFee.toFixed(2));
-                loadOrderSummary();
+            loadOrderSummary();
 
-                // Update route info display
-            $("#route-info").html(`Distance: <strong>${distanceKm.toFixed(2)} km</strong> / Shipping Fee: <strong>LKR ${deliveryFee.toFixed(2)}</strong>`);
+            $("#route-info").html(
+                `Distance: <strong>${distanceKm.toFixed(
+                    2
+                )} km</strong> / Shipping Fee: <strong>LKR ${deliveryFee.toFixed(
+                    2
+                )}</strong>`
+            );
         });
     }
 
     function calculateDeliveryFee(distanceKm) {
-        if (distanceKm <= 5) return 150;
-        if (distanceKm <= 10) return 250;
-        if (distanceKm <= 20) return 400;
-        return 600; // flat max fee
+        let fee = 0;
+
+        if (distanceKm <= 1) {
+            fee = 70;
+        } else if (distanceKm <= 10) {
+            fee = 70 + (distanceKm - 1) * 60;
+        } else {
+            fee = 70 + 9 * 60 + (distanceKm - 10) * 50;
+        }
+
+        return fee;
     }
 });
-

@@ -3,6 +3,7 @@ package lk.ijse.gdse72.yummygobackend.controller;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.validation.Valid;
 import lk.ijse.gdse72.yummygobackend.dto.OrdersDTO;
+import lk.ijse.gdse72.yummygobackend.dto.RiderOrderDTO;
 import lk.ijse.gdse72.yummygobackend.service.OrdersService;
 import lk.ijse.gdse72.yummygobackend.util.APIResponse;
 import lombok.RequiredArgsConstructor;
@@ -10,6 +11,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Map;
 
 /**
  * @author Dusan
@@ -65,5 +67,21 @@ public class OrdersController {
             return ResponseEntity.status(500)
                     .body(new APIResponse<>(500, "Error updating contact partner: " + e.getMessage(), null));
         }
+    }
+
+    @GetMapping("/rider/orders")
+    public ResponseEntity<List<RiderOrderDTO>> getOrdersForRider(
+            @RequestParam Long userId,
+            @RequestParam(required = false) String location) {
+        return ResponseEntity.ok(ordersService.getAllOrdersForRiders(userId, location));
+    }
+
+    @PutMapping("/updateRiderReaction/{orderId}")
+    public ResponseEntity<APIResponse<String>> updateRiderReaction(
+            @PathVariable String orderId,
+            @RequestBody Map<String, String> payload) {
+        String reaction = payload.get("RiderReaction");
+        ordersService.updateRiderReaction(orderId, reaction);
+        return ResponseEntity.ok(new APIResponse<>(200, "Rider reaction updated", null));
     }
 }

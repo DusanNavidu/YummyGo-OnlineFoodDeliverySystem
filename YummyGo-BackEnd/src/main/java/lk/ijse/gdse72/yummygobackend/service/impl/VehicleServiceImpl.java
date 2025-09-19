@@ -34,7 +34,7 @@ public class VehicleServiceImpl implements VehicleService {
 
     @Override
     public List<VehicleDTO> getVehiclesByUser(Long userId) {
-        List<Vehicle> vehicles = vehicleRepository.findByUserId(userId);
+        List<Vehicle> vehicles = vehicleRepository.findByUser_Id(userId);
         return vehicles.stream()
                 .map(vehicle -> modelMapper.map(vehicle, VehicleDTO.class))
                 .toList();
