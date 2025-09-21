@@ -10,4 +10,6 @@ import lk.ijse.gdse72.yummygobackend.dto.PaymentDTO;
 public interface PaymentService {
 
     void savePayment(PaymentDTO paymentDTO);
+
+    void updatePaymentStatus(String orderId, String status);
 }

@@ -11,6 +11,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
+import org.springframework.data.domain.Page;
+
 
 import java.io.IOException;
 import java.math.BigDecimal;
@@ -18,7 +20,9 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.nio.file.StandardCopyOption;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
  * @author Dusan
@@ -96,23 +100,28 @@ public class BusinessController {
                     .body(new APIResponse<>(500, "Error saving file", null));
         }
     }
-
     @GetMapping("/getAll")
-    public ResponseEntity<APIResponse<List<BusinessDTO>>> getAllBusinesses() {
-        try {
-            List<Business> businesses = businessService.getAllBusinessesEntity();
-            List<BusinessDTO> businessDTOs = businesses.stream()
-                    .map(b -> modelMapper.map(b, BusinessDTO.class))
-                    .toList();
+    public ResponseEntity<?> getAllBusinesses(@RequestParam(defaultValue = "0") int page,
+                                              @RequestParam(defaultValue = "5") int size) {
+        Page<BusinessDTO> businessPage = businessService.getAllBusinesses(page, size);
 
-            return ResponseEntity.ok(new APIResponse<>(200, "Businesses fetched successfully", businessDTOs));
-
-        } catch (Exception e) {
-            log.error("Error fetching businesses", e);
-            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
-                    .body(new APIResponse<>(500, "Error fetching businesses", null));
-        }
+        return ResponseEntity.ok().body(
+                new ApiResponse<>(200, "Success", businessPage.getContent(),
+                        businessPage.getTotalElements(),
+                        businessPage.getTotalPages(),
+                        businessPage.getNumber())
+        );
     }
+
+    // DTO wrapper for pagination response
+    public record ApiResponse<T>(
+            int code,
+            String message,
+            T data,
+            long totalItems,
+            int totalPages,
+            int currentPage
+    ) {}
 
     @GetMapping("/getAllThisUserBusinesses")
     public ResponseEntity<APIResponse<List<BusinessDTO>>> getAllThisUserBusinesses(@RequestParam Long userId) {
@@ -182,5 +191,4 @@ public class BusinessController {
                     .body(new APIResponse<>(500, "Error fetching business profile", null));
         }
     }
-
 }

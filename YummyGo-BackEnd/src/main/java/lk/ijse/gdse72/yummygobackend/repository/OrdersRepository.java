@@ -24,6 +24,8 @@ public interface OrdersRepository extends JpaRepository<Orders, String> {
         SELECT new lk.ijse.gdse72.yummygobackend.dto.RiderOrderDTO(
             o.orderId,
             b.businessName,
+            u.fullName,
+            o.status,
             o.total,
             o.deliveryFee,
             o.longitude,
@@ -31,13 +33,43 @@ public interface OrdersRepository extends JpaRepository<Orders, String> {
             p.paymentMethod,
             b.longitude,
             b.latitude,
-            o.deliveryAddress
+            o.deliveryAddress,
+            u.phoneNumber,
+            u.email
         )
         FROM Orders o
         JOIN o.business b
         JOIN o.payment p
-        WHERE o.contactPartner = 'Rider Called' AND (:location IS NULL OR o.deliveryAddress = :location)
+        JOIN o.user u
+        WHERE o.contactPartner = 'Rider Called'
+        AND o.status <> 'Delivered' 
+        AND (:location IS NULL OR o.deliveryAddress = :location)
         ORDER BY o.createdAt DESC
         """)
     List<RiderOrderDTO> findOrdersForRiders(@Param("location") String location);
+
+    @Query("""
+    SELECT new lk.ijse.gdse72.yummygobackend.dto.RiderOrderDTO(
+        o.orderId,
+        b.businessName,
+        u.fullName,
+        o.status,
+        o.total,
+        o.deliveryFee,
+        o.longitude,
+        o.latitude,
+        p.paymentMethod,
+        b.longitude,
+        b.latitude,
+        o.deliveryAddress,
+        u.phoneNumber,
+        u.email
+    )
+    FROM Orders o
+    JOIN o.business b
+    JOIN o.payment p
+    JOIN o.user u
+    WHERE o.orderId = :orderId
+    """)
+    RiderOrderDTO findOrderDetailsForRider(@Param("orderId") String orderId);
 }

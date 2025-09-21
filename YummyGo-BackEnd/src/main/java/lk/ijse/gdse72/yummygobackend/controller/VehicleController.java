@@ -17,6 +17,7 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.nio.file.StandardCopyOption;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -88,5 +89,36 @@ public class VehicleController {
         String status = body.get("vehicleStatus");
         vehicleService.updateVehicleStatus(userId, status);
         return ResponseEntity.ok(Map.of("message", "Vehicle status updated successfully"));
+    }
+
+    @GetMapping("/getAll")
+    public Map<String, Object> getAllVehicles(@RequestParam(defaultValue = "0") int page,
+                                              @RequestParam(defaultValue = "5") int size) {
+
+        List<VehicleDTO> vehicles = vehicleService.getAllVehicles(page, size);
+
+        // Counts
+        long total = vehicleService.countVehicles();
+        long bicycles = vehicles.stream().filter(v -> "Bicycle".equalsIgnoreCase(v.getVehicleCategory())).count();
+        long motorcycles = vehicles.stream().filter(v -> "Motorcycle".equalsIgnoreCase(v.getVehicleCategory())).count();
+        long scooties = vehicles.stream().filter(v -> "Scooty".equalsIgnoreCase(v.getVehicleCategory())).count();
+        long active = vehicles.stream().filter(v -> "Active".equalsIgnoreCase(v.getVehicleStatus())).count();
+        long inactive = vehicles.stream().filter(v -> !"Active".equalsIgnoreCase(v.getVehicleStatus())).count();
+
+        Map<String, Object> response = new HashMap<>();
+        response.put("code", 200);
+        response.put("data", vehicles);
+        response.put("currentPage", page);
+        response.put("totalPages", (int) Math.ceil((double) total / size));
+        response.put("counts", Map.of(
+                "total", total,
+                "bicycles", bicycles,
+                "motorcycles", motorcycles,
+                "scooties", scooties,
+                "active", active,
+                "inactive", inactive
+        ));
+
+        return response;
     }
 }

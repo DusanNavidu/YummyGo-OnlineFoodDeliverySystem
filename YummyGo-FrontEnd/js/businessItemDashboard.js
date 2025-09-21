@@ -30,6 +30,16 @@ $(document).ready(async function () {
 
     let previousOrders = []; // keep track of already loaded orders
 
+    const statusColors = {
+        "Pending": "#E0E0E0",       // light gray
+        "Accepted": "#FFEB3B",      // yellow
+        "Preparing": "#FFC107",     // amber
+        "On the way": "#03A9F4",    // blue
+        "Delivered": "#4CAF50",     // green
+        "Rejected": "#F44336",      // red
+        "Cancelled": "#F44336"      // red
+    };
+
     async function loadAllOrders() {
         const token = (await cookieStore.get('token'))?.value;
         const userId = sessionStorage.getItem("userId");
@@ -78,11 +88,14 @@ $(document).ready(async function () {
                                 <strong>Delivery:</strong> LKR ${deliveryFee.toLocaleString('en-LK', { minimumFractionDigits: 2, maximumFractionDigits: 2 })} | 
                                 <strong>Total:</strong> LKR ${total.toLocaleString('en-LK', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</p>
                                 <p><small>${new Date(order.orderDate).toLocaleString()}</small></p>
-                                <div class="order-buttons">
+                                <span class="order-status-badge" style="background-color: ${statusColors[order.status] || '#ccc'}">
+                                    ${order.status}
+                                </span>
+                                <div class="order-buttons mt-2">
                                     <button data-id="${order.orderId}" class="btn btn-success btn-sm accept-btn">Accept</button>
                                     <button data-id="${order.orderId}" class="btn btn-danger btn-sm reject-btn">Reject</button>
-                                    <button data-id="${order.orderId}" class="btn btn-info btn-sm preparing-btn">Preparing</button>
-                                    <button data-id="${order.orderId}" class="btn btn-primary btn-sm call-rider-btn">Call Rider</button>
+                                    <button data-id="${order.orderId}" class="btn btn-warning btn-sm preparing-btn">Preparing</button>
+                                    <button data-id="${order.orderId}" class="btn btn-info btn-sm call-rider-btn">Call Rider</button>
                                 </div>
                             </div>
                         `);

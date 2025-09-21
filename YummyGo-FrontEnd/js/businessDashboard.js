@@ -33,7 +33,6 @@ $(document).ready(async function() {
                                     class="img-fluid mb-2" 
                                     style="max-height:150px; object-fit:cover;">
                                 <h5 style="overflow-y:auto; max-height:60px; height:60px;" class="p-2" >${b.businessName}</h5>
-                                <small class="text-secondary p-2" style="overflow-y:auto; max-height:80px; height:80px;">${b.businessDescription}</small>
                                 <p class="p-2">${b.businessAddress}, ${b.businessAreaPostalCode}</p>
                                 <p class="p-2">${b.businessEmail} | ${b.contactNumber1}</p>
                             </div>

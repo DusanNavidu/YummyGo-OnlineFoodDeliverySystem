@@ -9,6 +9,8 @@ import lk.ijse.gdse72.yummygobackend.service.BusinessService;
 import lombok.RequiredArgsConstructor;
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 
 import java.sql.Timestamp;
 import java.util.List;
@@ -43,11 +45,6 @@ public class BusinessServiceImpl implements BusinessService {
     }
 
     @Override
-    public List<Business> getAllBusinessesEntity() {
-        return businessRepository.findAll();
-    }
-
-    @Override
     public List<Business> getBusinessesByUserId(Long userId) {
         User user = userRepository.findById(userId)
                 .orElseThrow(() -> new RuntimeException("User not found with ID: " + userId));
@@ -67,5 +64,34 @@ public class BusinessServiceImpl implements BusinessService {
     @Override
     public Optional<Business> getBusinessProfile(Long businessId) {
         return businessRepository.findByBusinessId(businessId);
+    }
+
+    @Override
+    public Page<BusinessDTO> getAllBusinesses(int page, int size) {
+        Page<Business> businesses = businessRepository.findAll(PageRequest.of(page, size));
+
+        return businesses.map(b -> {
+            BusinessDTO dto = new BusinessDTO();
+            dto.setBusinessId(b.getBusinessId());
+            dto.setBusinessName(b.getBusinessName());
+            dto.setContactNumber1(b.getContactNumber1());
+            dto.setContactNumber2(b.getContactNumber2());
+            dto.setBusinessEmail(b.getBusinessEmail());
+            dto.setBusinessAddress(b.getBusinessAddress());
+            dto.setBusinessAreaPostalCode(b.getBusinessAreaPostalCode());
+            dto.setBusinessCategory(b.getBusinessCategory());
+            dto.setBusinessLogo(b.getBusinessLogo());
+            dto.setOpenTime(b.getOpenTime());
+            dto.setCloseTime(b.getCloseTime());
+            dto.setOpenOrClose(b.getOpenOrClose());
+            dto.setBusinessDescription(b.getBusinessDescription());
+            dto.setLatitude(b.getLatitude());
+            dto.setLongitude(b.getLongitude());
+            dto.setBusinessStatus(b.getBusinessStatus());
+            dto.setUserId(b.getUser() != null ? b.getUser().getId() : null);
+            dto.setCreatedAt(b.getCreatedAt());
+            dto.setUpdatedAt(b.getUpdatedAt());
+            return dto;
+        });
     }
 }

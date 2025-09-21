@@ -42,7 +42,7 @@ public class Orders {
     private String status;  //  Pending, Accepted, Preparing, On the way, Delivered, Cancelled
     private String contactPartner; // Pending, Rider Called
     private String RiderReaction; // Pending, AcceptedByRider, RejectedByRider
-    private Long riderId;
+    private String riderId;
 
     @Column(precision = 9, scale = 6)
     private BigDecimal latitude;

@@ -10,45 +10,8 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Epunda+Slab:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/css/Style.css">
+    <link rel="stylesheet" href="/css/mainDashboardBusinessItem.css">
     <title>Business profile Dashboard</title>
-    <style>
-        #shopping-cart-btn{
-            /* margin-top: 70px; */
-            margin-right: 10px;
-        }
-        #business-profile{
-            margin-top: 100px;
-        }
-        .item-card:hover .position-absolute {
-            opacity: 1;
-        }
-        #step-footer {
-            position: fixed; /* sticks to bottom */
-            bottom: 0;
-            left: 0;
-            right: 0;
-            z-index: 1050;
-        }
-        .step-indicator {
-            flex: 1;
-        }
-        .step-circle {
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            background: #ddd;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 5px auto;
-            font-weight: bold;
-            color: #555;
-        }
-        .step-indicator.active .step-circle {
-            background: #0d6efd; /* Bootstrap primary color */
-            color: white;
-        }
-    </style>
 </head>
 <body class="position-relative">
     <nav id="placeholder-nav-bar" class="navbar navbar-expand-lg navbar-dark bg-dark position-fixed top-0 start-0 w-100 z-1">
@@ -66,7 +29,7 @@
             <div class="collapse navbar-collapse" id="navbarNav" style="margin-right: 150px;">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item">
-                        <a class="nav-link text-light" href="#">About</a>
+                        <a class="nav-link text-light" href="/pages/about.html">About</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link active" href="/pages/orders.html">Orders</a>
@@ -185,7 +148,7 @@
         <div class="modal-footer gap-2">
             <button type="button" class="btn btn-secondary" id="cancelOrderBtn">Close</button>
             <button type="button" class="btn btn-outline-dark" id="prevStepBtn">Previous</button>
-            <button type="button" class="btn btn-primary" id="nextStepBtn">Next</button>
+            <button type="button" class="btn" id="nextStepBtn" style="background-color: #00c853; border: 1px solid green;">Next</button>
             <button type="button" class="btn btn-success" id="placeOrderBtn">Place Order</button>
             <button type="submit" class="btn btn-success" id="payBtn">Pay</button>
         </div>

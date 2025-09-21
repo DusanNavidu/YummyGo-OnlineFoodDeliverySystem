@@ -10,67 +10,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Epunda+Slab:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/css/Style.css">
-    <style>
-        .item-card {
-            height: 400px; /* fix height for all cards */
-            display: flex;
-            flex-direction: column;
-        }
-
-        .item-description {
-            max-height: 100px; /* description box height */
-            overflow-y: auto; /* scroll if text is too long */
-        }
-        .item-card:hover {
-            box-shadow: 0 10px 20px rgba(0,0,0,0.3);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-        #business-profile{
-            margin-top: 100px;
-            position: relative;
-        }
-        .order-item {
-            background: #f8f9fa;
-            border-radius: 12px;
-            padding: 15px 20px;
-            margin-bottom: 12px;
-            box-shadow: 0 3px 8px rgba(0,0,0,0.1);
-            position: relative;
-            transition: transform 0.2s ease, box-shadow 0.2s ease;
-        }
-
-        .order-item:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 12px rgba(0,0,0,0.15);
-        }
-
-        #order-list{
-            height: 600px;
-            overflow-y: auto;
-        }
-
-        .order-item h6 {
-            font-weight: 600;
-            margin-bottom: 8px;
-        }
-
-        .order-item ul {
-            padding-left: 20px;
-            margin-bottom: 8px;
-        }
-
-        .order-item p {
-            margin: 2px 0;
-        }
-
-        .order-buttons {
-            display: flex;
-            justify-content: flex-end;
-            gap: 8px;
-            flex-wrap: wrap;
-            margin-top: 8px;
-        }
-    </style>
+    <link rel="stylesheet" href="/css/businessItem.css">
 </head>
 <body>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark position-fixed top-0 start-0 w-100 z-1">
@@ -121,7 +61,7 @@
     </div>
 
     <div class="container mt-2">
-        <h3>Business Items</h3>
+        <h3 class="mt-3">Business Items</h3>
         <div class="container text-center">
             <div id="business-items-container" class="row g-3"></div>
         </div>

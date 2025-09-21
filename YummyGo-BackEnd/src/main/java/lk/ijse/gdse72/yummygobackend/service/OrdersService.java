@@ -29,5 +29,7 @@ public interface OrdersService {
     List<RiderOrderDTO> getAllOrdersForRiders(Long userId, String location);
 
     @Transactional
-    void updateRiderReaction(String orderId, String reaction);
+    void updateRiderReaction(String orderId, String reaction, String riderId);
+
+    RiderOrderDTO getOrderDetailsForRider(String orderId);
 }

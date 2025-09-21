@@ -11,43 +11,22 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Epunda+Slab:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/css/Style.css">
-    <style>
-        .business-description-size {
-            height: 70px;
-        }
-        .business-card {
-        transition: transform 0.2s ease, box-shadow 0.2s ease;
-        border-radius: 15px;
-        background: #fff;
-        overflow: hidden;
-        }
-        .business-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
-        }
-        .business-card img {
-            border-radius: 15px 15px 0 0;
-            height: 180px;
-            object-fit: cover;
-            background: #f8f9fa;
-        }
-        .business-description {
-            overflow-y: auto;
-            max-height: 70px;
-            font-size: 14px;
-        }
-    </style>
+    <link rel="stylesheet" href="/css/maindashboard.css">
 </head>
 <body>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark position-fixed top-0 start-0 w-100 z-1">
+    <nav id="placeholder-nav-bar" class="navbar navbar-expand-lg navbar-dark bg-dark position-fixed top-0 start-0 w-100 z-1">
         <div class="container-fluid">
-            <a class="navbar-brand ps-5" href="#"><span class="fw-bold fs-3 text-light">YUMMY</span><span class="fs-3 fw-bold text-warning">GO</span> </a>
+            <a class="navbar-brand ps-2" href="#"><span class="fw-bold fs-3 text-light">YUMMY</span><span class="fs-3 fw-bold text-warning">GO</span> </a>
+            <button id="profile-btn" class="btn"
+                style="position: absolute; top: 7px; right: 70px;">
+                <img class="img-fluid rounded-circle" style="width: 40px;" src="/assets/image/download (5).png" alt="User Profile">
+            </button>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
                     aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
 
-            <div class="collapse navbar-collapse" id="navbarNav">
+            <div class="collapse navbar-collapse" id="navbarNav" style="margin-right: 150px;">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item">
                         <a class="nav-link text-light" href="#">About</a>
@@ -78,8 +57,8 @@
                 <span id="current-location" class="pe-2"></span>
                     Now location
             </button>
-            <button id="shopping-cart-btn" class="btn shadow border-black me-2">
-                <img id="shopping-cart" src="/assets/logo/shopping-cart.png" alt="">
+            <button id="saved-items" class="btn shadow border-black me-2">
+                <img id="saved-items-icon" src="/assets/logo/shopping-cart.png" alt="" style="width: 25px; height: 25px;">
             </button>
         </div>
         <div class="container position-relative w-75">

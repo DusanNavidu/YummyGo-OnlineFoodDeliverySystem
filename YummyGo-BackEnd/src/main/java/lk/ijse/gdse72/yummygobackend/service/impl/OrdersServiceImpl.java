@@ -48,6 +48,7 @@ public class OrdersServiceImpl implements OrdersService {
                 .status(String.valueOf(ordersDTO.getStatus()))
                 .contactPartner(String.valueOf(ordersDTO.getContactPartner()))
                 .RiderReaction(String.valueOf(ordersDTO.getRiderReaction()))
+                .riderId(String.valueOf(ordersDTO.getRiderId()))
                 .deliveryFee(String.valueOf(ordersDTO.getDeliveryFee()))
                 .latitude(ordersDTO.getLatitude())
                 .longitude(ordersDTO.getLongitude())
@@ -186,7 +187,7 @@ public class OrdersServiceImpl implements OrdersService {
 
     @Transactional
     @Override
-    public void updateRiderReaction(String orderId, String reaction) {
+    public void updateRiderReaction(String orderId, String reaction, String riderId) {
         Orders order = ordersRepository.findById(orderId)
                 .orElseThrow(() -> new RuntimeException("Order not found with id: " + orderId));
 
@@ -195,9 +196,19 @@ public class OrdersServiceImpl implements OrdersService {
         }
 
         order.setRiderReaction(reaction);
+
+        // If accepted, assign the riderId
+        if (reaction.equals("AcceptedByRider") && riderId != null) {
+            order.setRiderId(riderId);
+        }
+
         order.setUpdatedAt(new Timestamp(System.currentTimeMillis()));
 
         ordersRepository.save(order);
     }
 
+    @Override
+    public RiderOrderDTO getOrderDetailsForRider(String orderId) {
+        return ordersRepository.findOrderDetailsForRider(orderId);
+    }
 }

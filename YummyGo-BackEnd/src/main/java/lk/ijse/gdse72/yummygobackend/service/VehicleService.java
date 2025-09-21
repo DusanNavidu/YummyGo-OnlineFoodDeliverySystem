@@ -16,4 +16,8 @@ public interface VehicleService {
     List<VehicleDTO> getVehiclesByUser(Long userId);
 
     void updateVehicleStatus(Long userId, String status);
+
+    List<VehicleDTO> getAllVehicles(int page, int size);
+
+    long countVehicles();
 }

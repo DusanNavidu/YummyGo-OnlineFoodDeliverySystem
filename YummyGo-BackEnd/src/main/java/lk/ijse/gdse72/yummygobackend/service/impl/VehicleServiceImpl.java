@@ -7,6 +7,7 @@ import lk.ijse.gdse72.yummygobackend.service.VehicleService;
 import lombok.RequiredArgsConstructor;
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
+import org.springframework.data.domain.PageRequest;
 
 import java.sql.Timestamp;
 import java.util.List;
@@ -40,20 +41,6 @@ public class VehicleServiceImpl implements VehicleService {
                 .toList();
     }
 
-//    @Override
-//    public void updateVehicleStatus(Long userId, String status) {
-//        List<Vehicle> vehicles = vehicleRepository.findByUserId(userId);
-//        if (vehicles.isEmpty()) {
-//            throw new RuntimeException("No vehicles found for user with id: " + userId);
-//        }
-//
-//        vehicles.forEach(vehicle -> {
-//            vehicle.setVehicleStatus(status);
-//            vehicle.setUpdatedAt(new java.sql.Timestamp(System.currentTimeMillis()));
-//            vehicleRepository.save(vehicle);
-//        });
-//    }
-
     @Override
     public void updateVehicleStatus(Long userId, String status) {
         List<Vehicle> vehicles = vehicleRepository.findByUserId(userId);
@@ -63,5 +50,17 @@ public class VehicleServiceImpl implements VehicleService {
             vehicle.setUpdatedAt(new Timestamp(System.currentTimeMillis()));
             vehicleRepository.save(vehicle);
         }
+    }
+
+    @Override
+    public List<VehicleDTO> getAllVehicles(int page, int size) {
+        return vehicleRepository.findAll(PageRequest.of(page, size)).stream()
+                .map(v -> modelMapper.map(v, VehicleDTO.class))
+                .toList();
+    }
+
+    @Override
+    public long countVehicles() {
+        return vehicleRepository.count();
     }
 }

@@ -12,6 +12,22 @@ $(document).ready(async function() {
     loadClientCount();
     loadAdminCount();
 
+    $('#logoutBtn').click(async function (e) {
+        e.preventDefault(); // stop default link navigation
+
+        try {
+            await cookieStore.delete('token');
+            await cookieStore.delete('username');
+            sessionStorage.clear();   // optional: clear session data too
+
+            // redirect to login page
+            window.location.href = '/index.html';
+        } catch (error) {
+            console.error('Error during logout:', error);
+            window.location.href = '/index.html';
+        }
+    });
+
     $("#addUserForm").on("submit", function (event) {
         event.preventDefault();
 

@@ -12,14 +12,15 @@ $(document).ready(async function () {
     };
 
     // Map each status to a color
-    const statusColors = {
-        "Pending": "#f0f0f0",       // future/upcoming
-        "Accepted": "yellow",        // current
-        "Preparing": "yellow",
-        "On the way": "yellow",
-        "Delivered": "green",        // completed
-        "Cancelled": "red"           // cancelled
-    };
+    // const statusColors = {
+    //     "Pending": "#E0E0E0",       // light gray for upcoming/future
+    //     "Accepted": "#FFEB3B",      // bright yellow for current order (attention)
+    //     "Preparing": "#FFC107",     // amber, slightly deeper for cooking stage
+    //     "On the way": "#03A9F4",    // blue for in-transit
+    //     "Delivered": "#4CAF50",     // green for completed
+    //     "Cancelled": "#F44336"      // red for cancelled
+    // };
+
 
     function updateOrderStatusIcons(status, orderId) {
         const container = $(`#order-${orderId}-status`);
@@ -36,11 +37,11 @@ $(document).ready(async function () {
         statuses.forEach((s, idx) => {
             const iconDiv = container.find(`#order-${orderId}-icon-${idx + 1}`).parent();
             if (statuses.indexOf(s) < statuses.indexOf(status)) {
-                iconDiv.css("background-color", "green"); // completed
+                iconDiv.css("background-color", "#4CAF50"); // completed
             } else if (s === status) {
-                iconDiv.css("background-color", "yellow"); // current
+                iconDiv.css("background-color", "#FFEB3B"); // current
             } else {
-                iconDiv.css("background-color", "#f0f0f0"); // future
+                iconDiv.css("background-color", "#E0E0E0"); // future
             }
         });
     }

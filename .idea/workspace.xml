@@ -5,21 +5,49 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0e4c2015-418c-4087-b1aa-100aa7dab4bc" name="Changes" comment="place order">
-      <change afterPath="$PROJECT_DIR$/YummyGo-BackEnd/src/main/java/lk/ijse/gdse72/yummygobackend/dto/RiderOrderDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/YummyGo-BackEnd/src/main/java/lk/ijse/gdse72/yummygobackend/controller/OtpController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/YummyGo-BackEnd/src/main/java/lk/ijse/gdse72/yummygobackend/exception/EmailVerificationException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/YummyGo-BackEnd/src/main/java/lk/ijse/gdse72/yummygobackend/service/OtpService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/YummyGo-BackEnd/src/main/java/lk/ijse/gdse72/yummygobackend/util/EmailUtil.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/YummyGo-BackEnd/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/YummyGo-BackEnd/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/YummyGo-BackEnd/src/main/java/lk/ijse/gdse72/yummygobackend/controller/AuthController.java" beforeDir="false" afterPath="$PROJECT_DIR$/YummyGo-BackEnd/src/main/java/lk/ijse/gdse72/yummygobackend/controller/AuthController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/YummyGo-BackEnd/src/main/java/lk/ijse/gdse72/yummygobackend/controller/BusinessController.java" beforeDir="false" afterPath="$PROJECT_DIR$/YummyGo-BackEnd/src/main/java/lk/ijse/gdse72/yummygobackend/controller/BusinessController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/YummyGo-BackEnd/src/main/java/lk/ijse/gdse72/yummygobackend/controller/OrdersController.java" beforeDir="false" afterPath="$PROJECT_DIR$/YummyGo-BackEnd/src/main/java/lk/ijse/gdse72/yummygobackend/controller/OrdersController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/YummyGo-BackEnd/src/main/java/lk/ijse/gdse72/yummygobackend/controller/PaymentController.java" beforeDir="false" afterPath="$PROJECT_DIR$/YummyGo-BackEnd/src/main/java/lk/ijse/gdse72/yummygobackend/controller/PaymentController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/YummyGo-BackEnd/src/main/java/lk/ijse/gdse72/yummygobackend/controller/VehicleController.java" beforeDir="false" afterPath="$PROJECT_DIR$/YummyGo-BackEnd/src/main/java/lk/ijse/gdse72/yummygobackend/controller/VehicleController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/YummyGo-BackEnd/src/main/java/lk/ijse/gdse72/yummygobackend/dto/OrdersDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/YummyGo-BackEnd/src/main/java/lk/ijse/gdse72/yummygobackend/dto/OrdersDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/YummyGo-BackEnd/src/main/java/lk/ijse/gdse72/yummygobackend/dto/RiderOrderDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/YummyGo-BackEnd/src/main/java/lk/ijse/gdse72/yummygobackend/dto/RiderOrderDTO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/YummyGo-BackEnd/src/main/java/lk/ijse/gdse72/yummygobackend/entity/Orders.java" beforeDir="false" afterPath="$PROJECT_DIR$/YummyGo-BackEnd/src/main/java/lk/ijse/gdse72/yummygobackend/entity/Orders.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/YummyGo-BackEnd/src/main/java/lk/ijse/gdse72/yummygobackend/repository/BusinessRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/YummyGo-BackEnd/src/main/java/lk/ijse/gdse72/yummygobackend/repository/BusinessRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/YummyGo-BackEnd/src/main/java/lk/ijse/gdse72/yummygobackend/repository/OrdersRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/YummyGo-BackEnd/src/main/java/lk/ijse/gdse72/yummygobackend/repository/OrdersRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/YummyGo-BackEnd/src/main/java/lk/ijse/gdse72/yummygobackend/repository/PaymentRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/YummyGo-BackEnd/src/main/java/lk/ijse/gdse72/yummygobackend/repository/PaymentRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/YummyGo-BackEnd/src/main/java/lk/ijse/gdse72/yummygobackend/repository/VehicleRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/YummyGo-BackEnd/src/main/java/lk/ijse/gdse72/yummygobackend/repository/VehicleRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/YummyGo-BackEnd/src/main/java/lk/ijse/gdse72/yummygobackend/service/AuthService.java" beforeDir="false" afterPath="$PROJECT_DIR$/YummyGo-BackEnd/src/main/java/lk/ijse/gdse72/yummygobackend/service/AuthService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/YummyGo-BackEnd/src/main/java/lk/ijse/gdse72/yummygobackend/service/BusinessService.java" beforeDir="false" afterPath="$PROJECT_DIR$/YummyGo-BackEnd/src/main/java/lk/ijse/gdse72/yummygobackend/service/BusinessService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/YummyGo-BackEnd/src/main/java/lk/ijse/gdse72/yummygobackend/service/OrdersService.java" beforeDir="false" afterPath="$PROJECT_DIR$/YummyGo-BackEnd/src/main/java/lk/ijse/gdse72/yummygobackend/service/OrdersService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/YummyGo-BackEnd/src/main/java/lk/ijse/gdse72/yummygobackend/service/PaymentService.java" beforeDir="false" afterPath="$PROJECT_DIR$/YummyGo-BackEnd/src/main/java/lk/ijse/gdse72/yummygobackend/service/PaymentService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/YummyGo-BackEnd/src/main/java/lk/ijse/gdse72/yummygobackend/service/VehicleService.java" beforeDir="false" afterPath="$PROJECT_DIR$/YummyGo-BackEnd/src/main/java/lk/ijse/gdse72/yummygobackend/service/VehicleService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/YummyGo-BackEnd/src/main/java/lk/ijse/gdse72/yummygobackend/service/impl/BusinessServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/YummyGo-BackEnd/src/main/java/lk/ijse/gdse72/yummygobackend/service/impl/BusinessServiceImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/YummyGo-BackEnd/src/main/java/lk/ijse/gdse72/yummygobackend/service/impl/OrdersServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/YummyGo-BackEnd/src/main/java/lk/ijse/gdse72/yummygobackend/service/impl/OrdersServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/YummyGo-BackEnd/src/main/java/lk/ijse/gdse72/yummygobackend/service/impl/PaymentServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/YummyGo-BackEnd/src/main/java/lk/ijse/gdse72/yummygobackend/service/impl/PaymentServiceImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/YummyGo-BackEnd/src/main/java/lk/ijse/gdse72/yummygobackend/service/impl/VehicleServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/YummyGo-BackEnd/src/main/java/lk/ijse/gdse72/yummygobackend/service/impl/VehicleServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/YummyGo-BackEnd/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/YummyGo-BackEnd/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/YummyGo-FrontEnd/css/Style.css" beforeDir="false" afterPath="$PROJECT_DIR$/YummyGo-FrontEnd/css/Style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/YummyGo-FrontEnd/js/businessDashboard.js" beforeDir="false" afterPath="$PROJECT_DIR$/YummyGo-FrontEnd/js/businessDashboard.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/YummyGo-FrontEnd/js/businessItemDashboard.js" beforeDir="false" afterPath="$PROJECT_DIR$/YummyGo-FrontEnd/js/businessItemDashboard.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/YummyGo-FrontEnd/js/login.js" beforeDir="false" afterPath="$PROJECT_DIR$/YummyGo-FrontEnd/js/login.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/YummyGo-FrontEnd/js/mainDashboardBusinessItem.js" beforeDir="false" afterPath="$PROJECT_DIR$/YummyGo-FrontEnd/js/mainDashboardBusinessItem.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/YummyGo-FrontEnd/js/order.js" beforeDir="false" afterPath="$PROJECT_DIR$/YummyGo-FrontEnd/js/order.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/YummyGo-FrontEnd/js/partnerDashboard.js" beforeDir="false" afterPath="$PROJECT_DIR$/YummyGo-FrontEnd/js/partnerDashboard.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/YummyGo-FrontEnd/pages/adimnDashboardManageUsers.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/YummyGo-FrontEnd/pages/adminDashbordHome.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/YummyGo-FrontEnd/pages/businessDashboard.html" beforeDir="false" afterPath="$PROJECT_DIR$/YummyGo-FrontEnd/pages/businessDashboard.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/YummyGo-FrontEnd/pages/businessItemDashboard.html" beforeDir="false" afterPath="$PROJECT_DIR$/YummyGo-FrontEnd/pages/businessItemDashboard.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/YummyGo-FrontEnd/pages/mainDashboard.html" beforeDir="false" afterPath="$PROJECT_DIR$/YummyGo-FrontEnd/pages/mainDashboard.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/YummyGo-FrontEnd/pages/mainDashboardBusinessItems.html" beforeDir="false" afterPath="$PROJECT_DIR$/YummyGo-FrontEnd/pages/mainDashboardBusinessItems.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/YummyGo-FrontEnd/pages/orders.html" beforeDir="false" afterPath="$PROJECT_DIR$/YummyGo-FrontEnd/pages/orders.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/YummyGo-FrontEnd/pages/partnerDashboard.html" beforeDir="false" afterPath="$PROJECT_DIR$/YummyGo-FrontEnd/pages/partnerDashboard.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/logs/application.log" beforeDir="false" afterPath="$PROJECT_DIR$/logs/application.log" afterDir="false" />
     </list>
@@ -104,9 +132,11 @@
       <recent name="D:\Campus IJSE\Campus Documents\YummyGo-OnlineFoodDeliverySystem\YummyGo-BackEnd\src\main\java\lk\ijse\gdse72\yummygobackend\entity" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="lk.ijse.gdse72.yummygobackend.exception" />
+      <recent name="lk.ijse.gdse72.yummygobackend.customOBJ.impl" />
+      <recent name="lk.ijse.gdse72.yummygobackend.customOBJ" />
       <recent name="lk.ijse.gdse72.yummygobackend.config" />
       <recent name="lk.ijse.gdse72.yummygobackend.util" />
-      <recent name="lk.ijse.gdse72.yummygobackend.dto" />
     </key>
   </component>
   <component name="RunManager">
@@ -226,7 +256,13 @@
       <workItem from="1758205835041" duration="6000" />
       <workItem from="1758205923599" duration="11318000" />
       <workItem from="1758229116798" duration="5680000" />
-      <workItem from="1758264583884" duration="7363000" />
+      <workItem from="1758264583884" duration="8878000" />
+      <workItem from="1758285592670" duration="404000" />
+      <workItem from="1758286442118" duration="7418000" />
+      <workItem from="1758312132166" duration="4632000" />
+      <workItem from="1758343385440" duration="3489000" />
+      <workItem from="1758378918979" duration="6506000" />
+      <workItem from="1758417154381" duration="3390000" />
     </task>
     <task id="LOCAL-00001" summary="font end add">
       <option name="closed" value="true" />
@@ -396,7 +432,15 @@
       <option name="project" value="LOCAL" />
       <updated>1758208754667</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL-00022" summary="place order">
+      <option name="closed" value="true" />
+      <created>1758277613647</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1758277613647</updated>
+    </task>
+    <option name="localTasksCounter" value="23" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

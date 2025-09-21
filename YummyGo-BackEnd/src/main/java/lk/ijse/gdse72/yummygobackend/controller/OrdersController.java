@@ -79,9 +79,15 @@ public class OrdersController {
     @PutMapping("/updateRiderReaction/{orderId}")
     public ResponseEntity<APIResponse<String>> updateRiderReaction(
             @PathVariable String orderId,
-            @RequestBody Map<String, String> payload) {
+            @RequestBody Map<String, String> payload,
+            @RequestParam String riderId) { // add riderId param
         String reaction = payload.get("RiderReaction");
-        ordersService.updateRiderReaction(orderId, reaction);
+        ordersService.updateRiderReaction(orderId, reaction, riderId);
         return ResponseEntity.ok(new APIResponse<>(200, "Rider reaction updated", null));
+    }
+
+    @GetMapping("/{orderId}/riderDetails")
+    public ResponseEntity<RiderOrderDTO> getOrderDetailsForRider(@PathVariable String orderId) {
+        return ResponseEntity.ok(ordersService.getOrderDetailsForRider(orderId));
     }
 }

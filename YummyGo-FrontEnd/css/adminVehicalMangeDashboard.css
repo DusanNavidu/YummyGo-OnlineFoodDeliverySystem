@@ -1,0 +1,198 @@
+body {
+    font-family: "Segoe UI", Roboto, sans-serif;
+    background: #0e0e0e; /* Dark base */
+    min-height: 100vh;
+    display: flex;
+    overflow-x: hidden;
+}
+
+/* Sidebar */
+.sidebar {
+    width: 260px;
+    background: #1a1a1a; /* Uber Eats sidebar style */
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-right: 1px solid rgba(255, 255, 255, 0.08);
+    color: #fff;
+    min-height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    padding-top: 80px;
+    transition: all 0.3s ease;
+}
+.sidebar a {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 20px;
+    color: #ccc;
+    text-decoration: none;
+    border-radius: 12px;
+    transition: 0.3s;
+}
+.sidebar a:hover {
+    background: rgba(51, 255, 160, 0.12); /* Uber Eats green hover */
+    color: #32cd32;
+}
+.sidebar .active {
+    background: linear-gradient(90deg, #32cd32, #00a86b); /* Uber Eats green */
+    color: #fff;
+    font-weight: 600;
+}
+
+/* Navbar */
+nav.navbar {
+    height: 70px;
+    background: rgba(20, 20, 20, 0.95) !important;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    margin-left: 260px;
+    color: #fff;
+}
+
+/* Content */
+.content {
+    margin-left: 260px;
+    padding: 90px 30px 30px;
+    color: #f5f5f5;
+    width: 100%;
+}
+
+/* Cards */
+.dashboard-card {
+    background: #1e1e1e;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 20px;
+    padding: 25px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.dashboard-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.6);
+}
+.dashboard-card i {
+    font-size: 2rem;
+    margin-bottom: 10px;
+    color: #32cd32; /* Uber Eats green icons */     
+}
+
+
+
+
+
+
+
+
+
+
+
+#btn-set-admin-user-manage {
+    justify-content: flex-start; /* Align items to start */
+    gap: 20px; /* Space between boxes */
+    flex-wrap: wrap; /* Allow wrapping on smaller screens */
+}
+
+.data-box {
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 14px;
+    padding: 12px 18px;
+    font-size: 14px;
+    font-weight: 500;
+    color: #e9ecef;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: 0.3s ease;
+    cursor: pointer;
+}
+
+.data-box i {
+    font-size: 18px;
+    color: #c4c4c4; /* Bootstrap primary color */
+}
+
+.data-box span:last-child {
+    font-weight: 700; /* Highlight the numeric value */
+}
+
+.data-box:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+    cursor: pointer;
+}
+
+/* Optional: color code active/inactive businesses */
+#activeBusinessesValue {
+    color: green;
+    font-weight: 700;
+}
+
+#inactiveBusinessesValue {
+    color: red;
+    font-weight: 700;
+}
+
+
+
+
+/* Uber Eats Table Theme */
+#usersTable {
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    font-family: 'Epunda Slab', serif;
+    background-color: #fff;
+}
+
+#usersTable th {
+    color: #495057;
+}
+
+#usersTable thead {
+    background-color: #f8f9fa;
+    color: #333;
+    font-weight: 600;
+    border-bottom: 2px solid #e0e0e0;
+}
+
+#usersTable tbody tr:hover {
+    background-color: #f1f6f4;
+}
+
+/* Status Colors */
+.status-active {
+    color: #1db954; /* Uber Eats green */
+}
+
+.status-inactive {
+    color: #e02424; /* Red */
+}
+
+.status-other {
+    color: #ffa500; /* Yellow/Orange */
+}
+
+/* Pagination Styling */
+.pagination .page-item.active .page-link {
+    background-color: #1db954;
+    border-color: #1db954;
+    color: #fff;
+}
+
+.pagination .page-link {
+    color: #1db954;
+}
+
+.pagination .page-link:hover {
+    background-color: #1ed760;
+    color: #fff;
+}
+
+/* Search Input Styling */
+#searchInput {
+    border-radius: 25px;
+    padding: 10px 20px;
+    border: 1px solid #ccc;
+}

@@ -1,0 +1,439 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>About · YummyGo — Food Delivery</title>
+
+  <!-- Bootstrap -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Bootstrap Icons -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+
+  <!-- Google font -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+
+  <meta name="description" content="YummyGo — Fast & reliable food delivery. Learn about our mission, team, and how we work.">
+
+  <style>
+    :root{
+      --yg-green:#22c55e;     /* brand primary */
+      --yg-dark:#0f172a;      /* dark text */
+      --yg-accent:#ffd166;    /* accent yellow */
+      --card-bg: #ffffff;
+      --muted:#6b7280;
+    }
+    html,body{height:100%}
+    body{
+      font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+      color:var(--yg-dark);
+      background:linear-gradient(180deg,#fbfdf9 0%, #f7fcf5 100%);
+      margin:0; -webkit-font-smoothing:antialiased;
+    }
+
+    /* NAV */
+    .brand {
+      font-weight:800;
+      letter-spacing: .6px;
+    }
+    .brand .accent { color: var(--yg-accent); }
+    nav.navbar { background: #0b1220; }
+    nav .nav-link { color: rgba(255,255,255,.9); }
+    nav .btn-cta { background: var(--yg-green); color: #082018; font-weight:700; border-radius:999px; padding: .45rem .9rem; }
+
+    /* HERO */
+    .hero {
+      padding: 5.25rem 0 3rem;
+    }
+    .hero-card {
+      background: linear-gradient(135deg, rgba(34,197,94,.06), rgba(255,209,102,.06));
+      border-radius: 18px;
+      padding: 1.2rem;
+      box-shadow: 0 8px 30px rgba(6,12,34,0.06);
+    }
+    .hero h1 { font-weight:800; letter-spacing: -.5px;}
+    .hero p.lead { color: var(--muted); font-size: 1.05rem; }
+
+    /* Features */
+    .feature-icon {
+      width:56px;height:56px;border-radius:12px;display:inline-flex;align-items:center;justify-content:center;
+      background: linear-gradient(180deg,#fff,#f7fff8); box-shadow: 0 6px 18px rgba(10,30,10,.05);
+      color: var(--yg-green); font-size: 1.4rem;
+    }
+
+    /* Cards */
+    .rounded-lg { border-radius: 14px; }
+    .team-img { width:100%; height:200px; object-fit:cover; border-radius:12px; }
+
+    /* Footer */
+    footer { background: #061019; color: rgba(255,255,255,.9); padding: 2rem 0; margin-top: 3rem; }
+
+    /* small UI touches */
+    .pill { padding:.35rem .7rem; border-radius:999px; font-weight:700; font-size:.85rem; }
+    .muted { color:var(--muted); }
+
+    /* back to top */
+    #backToTop {
+      position: fixed; right: 20px; bottom: 20px; z-index: 1200;
+      background: var(--yg-dark); color: white; border-radius: 50%; width: 44px; height:44px;
+      display:flex;align-items:center;justify-content:center; box-shadow: 0 8px 20px rgba(2,6,23,.25);
+      opacity:0; transform: translateY(8px); transition: all .25s ease;
+    }
+    #backToTop.show { opacity:1; transform: translateY(0); }
+
+    /* responsive spacing */
+    @media (min-width:992px){
+      .hero { padding-top:6.5rem; }
+    }
+
+    /* small niceties for About content */
+    .stats { font-weight:800; font-size:1.4rem; color:var(--yg-dark); }
+    .stat-caption { color:var(--muted); font-size:.85rem; }
+
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav class="navbar navbar-expand-lg navbar-dark sticky-top shadow-sm">
+    <div class="container">
+      <a class="navbar-brand brand text-white" href="/">
+        <span style="color:#fff">YUMMY</span><span class="accent">GO</span>
+      </a>
+
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navMenu">
+        <ul class="navbar-nav ms-auto align-items-center">
+          <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+          <li class="nav-item"><a class="nav-link" href="#how">How it works</a></li>
+          <li class="nav-item"><a class="nav-link" href="#team">Team</a></li>
+          <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+          <li class="nav-item ms-3">
+            <a class="btn btn-cta" href="/pages/order.html"><i class="bi bi-bag-fill me-2"></i>Order Now</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="container">
+      <div class="row align-items-center gx-5">
+        <div class="col-lg-6">
+          <div class="hero-card">
+            <div class="d-inline-block pill mb-3" style="background: #ecfdf3; color:var(--yg-green)">Fast • Fresh • Friendly</div>
+            <h1 class="display-5">YummyGo — Your local food, lightning fast.</h1>
+            <p class="lead">We connect you with nearby restaurants and friendly riders — hot food delivered reliably. Built for convenience and local economies.</p>
+
+            <div class="row gy-3 mt-4">
+              <div class="col-sm-6">
+                <div class="d-flex gap-3">
+                  <div class="feature-icon"><i class="bi bi-clock-history"></i></div>
+                  <div>
+                    <div class="fw-bold">Real-time delivery</div>
+                    <div class="muted small">Track your order live from kitchen to doorstep.</div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-sm-6">
+                <div class="d-flex gap-3">
+                  <div class="feature-icon"><i class="bi bi-shield-check"></i></div>
+                  <div>
+                    <div class="fw-bold">Safe & secure</div>
+                    <div class="muted small">Verified restaurants & contactless delivery options.</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="mt-4">
+              <a href="/pages/menu.html" class="btn btn-dark me-2">Browse Restaurants</a>
+              <button class="btn btn-outline-dark" id="openSubscribe">Subscribe</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-6">
+          <!-- hero collage -->
+          <div class="row g-2">
+            <div class="col-6">
+              <img src="https://images.unsplash.com/photo-1600891964599-f61ba0e24092?q=80&w=800&auto=format&fit=crop&ixlib=rb-4.0.3&s=8e5b3a6b9b237ebf0a5ec3bd2a8a50f9" alt="hot pizza" class="img-fluid rounded-lg shadow-sm">
+            </div>
+            <div class="col-6">
+              <img src="https://images.unsplash.com/photo-1525351484163-7529414344d8?q=80&w=800&auto=format&fit=crop&ixlib=rb-4.0.3&s=20e7379ff2b1c7a7bc8b9539f854e8b7" alt="salad bowl" class="img-fluid rounded-lg shadow-sm mb-2">
+              <img src="https://images.unsplash.com/photo-1600891964599-f61ba0e24092?q=80&w=800&auto=format&fit=crop&ixlib=rb-4.0.3&s=8e5b3a6b9b237ebf0a5ec3bd2a8a50f9" alt="burger" class="img-fluid rounded-lg shadow-sm">
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- stats -->
+      <div class="row mt-5 gx-4">
+        <div class="col-sm-4 text-center">
+          <div class="stats">50k+</div>
+          <div class="stat-caption">Orders delivered</div>
+        </div>
+        <div class="col-sm-4 text-center">
+          <div class="stats">2k+</div>
+          <div class="stat-caption">Partner restaurants</div>
+        </div>
+        <div class="col-sm-4 text-center">
+          <div class="stats">1k+</div>
+          <div class="stat-caption">Active riders</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- About / Mission -->
+  <section id="about" class="py-5">
+    <div class="container">
+      <div class="row align-items-center gx-5">
+        <div class="col-lg-6">
+          <img src="https://images.unsplash.com/photo-1544025162-d76694265947?q=80&w=1200&auto=format&fit=crop&ixlib=rb-4.0.3&s=6d4d0c7ef8c39b6cc8a6b08a0df8d466" alt="about image" class="img-fluid rounded-lg shadow-sm">
+        </div>
+        <div class="col-lg-6">
+          <h2>Our mission</h2>
+          <p class="muted">At YummyGo we aim to make good food accessible while empowering local restaurants and riders. We believe in fair pay, fast deliveries, and a delightful customer experience.</p>
+          <ul>
+            <li><strong>Support local:</strong> we work with neighbourhood kitchens & cafes.</li>
+            <li><strong>Fast & real-time:</strong> optimize routes to cut waiting time.</li>
+            <li><strong>Transparent pricing:</strong> clear delivery fee rules, no surprises.</li>
+          </ul>
+
+          <div class="mt-4">
+            <a href="#how" class="btn btn-cta me-2">How it works</a>
+            <a href="#team" class="btn btn-outline-dark">Meet the team</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- How it works -->
+  <section id="how" class="py-5 bg-white">
+    <div class="container">
+      <div class="text-center mb-4">
+        <h3>How it works</h3>
+        <p class="muted">Three easy steps from order to doorstep</p>
+      </div>
+
+      <div class="row g-4">
+        <div class="col-md-4">
+          <div class="p-4 rounded-lg shadow-sm h-100">
+            <div class="mb-3 feature-icon"><i class="bi bi-search"></i></div>
+            <h5>1. Choose</h5>
+            <p class="muted">Browse restaurants and menus, filter by cuisine or rating.</p>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="p-4 rounded-lg shadow-sm h-100">
+            <div class="mb-3 feature-icon"><i class="bi bi-wallet"></i></div>
+            <h5>2. Order & Pay</h5>
+            <p class="muted">Secure payment options — card, wallet, or cash on delivery.</p>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="p-4 rounded-lg shadow-sm h-100">
+            <div class="mb-3 feature-icon"><i class="bi bi-truck"></i></div>
+            <h5>3. Track & Receive</h5>
+            <p class="muted">Live tracking and contactless delivery options for safety.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Team -->
+  <section id="team" class="py-5">
+    <div class="container">
+      <div class="text-center mb-4">
+        <h3>Meet the team</h3>
+        <p class="muted">A small group with a big appetite for great experiences</p>
+      </div>
+
+      <div class="row g-4">
+        <div class="col-md-3">
+          <div class="card border-0 rounded-lg shadow-sm">
+            <img src="/assets/image/IMG_20250113_112451 (2).jpg" class="team-img" alt="Team member">
+            <div class="card-body">
+              <h6 class="mb-0">G.Dusan Navidu</h6><small class="muted">Founder & CEO</small>
+              <p class="mt-2 muted small">Designing local-first delivery solutions.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-3">
+          <div class="card border-0 rounded-lg shadow-sm">
+            <img src="/assets/image/1736622221073 (1).jpg" class="team-img" alt="Team member">
+            <div class="card-body">
+              <h6 class="mb-0">J.K.Dilmi Sandamini</h6><small class="muted">Head of Operations</small>
+              <p class="mt-2 muted small">Logistics & partner relations.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-3">
+          <div class="card border-0 rounded-lg shadow-sm">
+            <img src="https://images.unsplash.com/photo-1541532713592-79a0317b6b77?q=80&w=800&auto=format&fit=crop&ixlib=rb-4.0.3&s=51f0b4b1aeda410d7d6f8f7c4c1b24a7" class="team-img" alt="Team member">
+            <div class="card-body">
+              <h6 class="mb-0">Nirosha K.</h6><small class="muted">Lead Engineer</small>
+              <p class="mt-2 muted small">Building delightful user experiences.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-3">
+          <div class="card border-0 rounded-lg shadow-sm">
+            <img src="https://images.unsplash.com/photo-1544006659-f0b21884ce1d?q=80&w=800&auto=format&fit=crop&ixlib=rb-4.0.3&s=a890b3d5c9e3d4f7c7f1b0a8b7c8f4a6" class="team-img" alt="Team member">
+            <div class="card-body">
+              <h6 class="mb-0">Kasun M.</h6><small class="muted">Head of Rider Ops</small>
+              <p class="mt-2 muted small">Ensuring timely pickups & deliveries.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact / CTA -->
+  <section id="contact" class="py-5 bg-white">
+    <div class="container">
+      <div class="row align-items-center gx-5">
+        <div class="col-lg-7">
+          <h3>Partner with YummyGo</h3>
+          <p class="muted">Join our network of restaurants and reach more customers. Or, if you're a rider, sign up to start delivering.</p>
+
+          <div class="row mt-4">
+            <div class="col-sm-6 mb-2">
+              <a href="/pages/partner-signup.html" class="btn btn-outline-dark w-100">Become a Partner</a>
+            </div>
+            <div class="col-sm-6 mb-2">
+              <a href="/pages/rider-signup.html" class="btn btn-dark w-100">Join as Rider</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-5">
+          <div class="card rounded-lg shadow-sm p-3">
+            <h5>Contact us</h5>
+            <p class="muted small">Have questions? Send us a message and we'll get back soon.</p>
+            <form id="contactForm">
+              <div class="mb-2"><input class="form-control" placeholder="Your name" required id="cName"></div>
+              <div class="mb-2"><input class="form-control" placeholder="Email" type="email" required id="cEmail"></div>
+              <div class="mb-2"><textarea class="form-control" placeholder="Message" rows="3" id="cMessage"></textarea></div>
+              <div class="d-grid">
+                <button class="btn btn-cta" type="submit">Send message</button>
+              </div>
+            </form>
+            <div id="contactAlert" class="mt-2" style="display:none"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-md-6">
+          <h5 class="text-white mb-2">YummyGo</h5>
+          <p class="muted small mb-0">© <span id="year"></span> YummyGo. All rights reserved.</p>
+        </div>
+        <div class="col-md-6 text-md-end">
+          <a class="text-white me-2" href="#"><i class="bi bi-twitter"></i></a>
+          <a class="text-white me-2" href="#"><i class="bi bi-facebook"></i></a>
+          <a class="text-white" href="#"><i class="bi bi-instagram"></i></a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- back to top -->
+  <button id="backToTop" aria-label="Back to top" title="Back to top"><i class="bi bi-arrow-up"></i></button>
+
+  <!-- Subscribe Modal (simple) -->
+  <div class="modal fade" id="subscribeModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-sm modal-dialog-centered">
+      <div class="modal-content rounded-lg">
+        <div class="modal-body text-center p-4">
+          <h5 class="mb-2">Subscribe to updates</h5>
+          <p class="muted small mb-3">Get promo codes & launch news from YummyGo.</p>
+          <input id="subEmail" class="form-control mb-2" placeholder="Your email" type="email">
+          <div class="d-grid">
+            <button id="doSubscribe" class="btn btn-cta">Subscribe</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SCRIPTS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    // small UI behaviors
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // smooth scroll for internal links
+    document.querySelectorAll('a[href^="#"]').forEach(a=>{
+      a.addEventListener('click', function(e){
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target){ e.preventDefault(); target.scrollIntoView({behavior:'smooth', block:'start'}); }
+      });
+    });
+
+    // contact form (demo only)
+    document.getElementById('contactForm').addEventListener('submit', function(e){
+      e.preventDefault();
+      const name = document.getElementById('cName').value.trim();
+      const email = document.getElementById('cEmail').value.trim();
+      const message = document.getElementById('cMessage').value.trim();
+      const alertEl = document.getElementById('contactAlert');
+
+      if (!name || !email || !message) {
+        alertEl.style.display = 'block';
+        alertEl.className = 'alert alert-danger mt-2';
+        alertEl.textContent = 'Please fill all fields.';
+        return;
+      }
+
+      // Replace the following with real AJAX POST to your backend
+      alertEl.style.display = 'block';
+      alertEl.className = 'alert alert-success mt-2';
+      alertEl.textContent = 'Thanks — we received your message!';
+      this.reset();
+    });
+
+    // back to top show/hide
+    const back = document.getElementById('backToTop');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 300) back.classList.add('show'); else back.classList.remove('show');
+    });
+    back.addEventListener('click', ()=> window.scrollTo({top:0, behavior:'smooth'}));
+
+    // subscribe modal
+    const subscribeModal = new bootstrap.Modal(document.getElementById('subscribeModal'));
+    document.getElementById('openSubscribe').addEventListener('click', ()=> subscribeModal.show());
+    document.getElementById('doSubscribe').addEventListener('click', ()=> {
+      const email = document.getElementById('subEmail').value.trim();
+      if (!email) { alert('Please enter your email'); return; }
+      // TODO: send to server
+      subscribeModal.hide();
+      alert('Thanks — you are subscribed!');
+    });
+
+    // Small image hover effect (optional): add subtle scale on hover to all images
+    document.querySelectorAll('img').forEach(img=>{
+      img.style.transition = 'transform .25s ease, box-shadow .25s ease';
+      img.addEventListener('mouseenter', ()=> img.style.transform = 'scale(1.03)');
+      img.addEventListener('mouseleave', ()=> img.style.transform = 'scale(1)');
+    });
+  </script>
+</body>
+</html>

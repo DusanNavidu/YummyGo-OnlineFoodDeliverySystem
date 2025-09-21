@@ -212,90 +212,17 @@
     }
 }
 
-/* business item */
-
-
-
-/* Admin Dashboard Styles */
-
-.sidebar a {
-    margin: 10px 10px;
-    display: block;
-    padding: 10px;
-    text-decoration: none;
-    color: #ffffff;
-    font-weight: 600;
-    border: 1px solid #444;
-    border-radius: 30px;
-    transition: background-color 0.3s, color 0.2s;
-    text-align: center;
-    box-shadow: 10px 5px 8px rgba(255, 255, 255, 0.3);
-
-}
-
-.sidebar a:hover {
-    color: #09b95b;
-    background-color: #222;
-    box-shadow: #09b95b 10px 10px 10px;
-}
-
-#reports-link:hover {
-    color: #ffb833;
-    box-shadow: #ffb833 10px 10px 10px;
-}
-
-#settings-link:hover {
-    color: #33c1ff;
-    box-shadow: #33c1ff 10px 10px 10px;
-}
-
-#logout-link:hover {
-    color: #ff3333;
-    box-shadow: #ff3333 10px 10px 10px;
-}
-
-/* Admin Dashboard User Management Styles */
-
-.data-box {
-    background-color: #d8d6d6;
-    border-radius: 30px;
-    height: 40px;
-    width: 180px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    box-shadow: 10px 5px 8px rgba(0, 0, 0, 0.3);
-    margin-bottom: 20px;
-    border: none;
-}
-
-#userCount {
-    font-size: 1.2rem;
-    background-color: #ffeb33;
-}   
-
-#activeUsers {
-    background-color: #33ff57;
-}
-
-#inactiveUsers {
-    background-color: #ff5733;
-}
-
-.data-box:hover {
-    border: #000000 solid 1px;
-    box-shadow: 10px 5px 8px rgba(0, 0, 0, 0.8);
-}
-
-#btn-set-admin-user-manage {
-    flex-wrap: wrap;
-}
 
 /* all */
 
 body {
     /* font-family: "Roboto Slab", serif; */
-    font-family: 'Poppins', sans-serif;
+    /* font-family: 'Poppins', sans-serif; */
+    font-family: 'Epunda Slab', serif;
+}
+
+#logoutBtn{
+    color: rgb(214, 48, 48);
 }
 
 #usersManagement {

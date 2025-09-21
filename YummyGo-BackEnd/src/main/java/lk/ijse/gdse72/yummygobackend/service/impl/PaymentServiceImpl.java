@@ -40,4 +40,12 @@ public class PaymentServiceImpl implements PaymentService {
         }
         paymentRepository.save(payment);
     }
+
+    @Override
+    public void updatePaymentStatus(String orderId, String status) {
+        Payment payment = paymentRepository.findByOrders_OrderId(orderId)
+                .orElseThrow(() -> new RuntimeException("Payment not found for order: " + orderId));
+        payment.setPaymentStatus(status);
+        paymentRepository.save(payment);
+    }
 }

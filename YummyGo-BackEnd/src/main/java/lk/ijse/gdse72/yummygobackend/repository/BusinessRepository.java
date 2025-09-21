@@ -1,13 +1,12 @@
 package lk.ijse.gdse72.yummygobackend.repository;
 
-import jakarta.transaction.Transactional;
 import lk.ijse.gdse72.yummygobackend.entity.Business;
 import lk.ijse.gdse72.yummygobackend.entity.User;
 import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
+import org.springframework.data.domain.Page;
 
 import java.util.List;
 import java.util.Optional;
@@ -32,4 +31,6 @@ public interface BusinessRepository extends JpaRepository<Business, Long> {
     List<Business> searchBusinesses(@Param("keyword") String keyword, @Param("location") String location);
 
     Optional<Business> findByBusinessId(Long businessId);
+
+    Page<Business> findAll(org.springframework.data.domain.Pageable pageable);
 }

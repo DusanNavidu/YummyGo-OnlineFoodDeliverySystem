@@ -20,7 +20,7 @@ public class OrdersDTO {
     private String status;  //  Pending, Accepted, Preparing, On the way, Delivered, Cancelled
     private String contactPartner;
     private String RiderReaction; // AcceptedByRider, RejectedByRider
-    private Long riderId;
+    private String riderId;
 
     private BigDecimal latitude;
     private BigDecimal longitude;

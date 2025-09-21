@@ -270,7 +270,6 @@ $(document).ready(async function() {
                         </p>
                         <div class="d-flex gap-2">
                             <button class="btn btn-success btn-sm accept-order-btn" data-id="${order.orderId}">Accept</button>
-                            <button class="btn btn-danger btn-sm reject-order-btn" data-id="${order.orderId}">Reject</button>
                         </div>
                     </div>
                 </div>
@@ -301,6 +300,8 @@ $(document).ready(async function() {
         previousOrderIds = new Set(orders.map(o => o.orderId));
     }
 
+    const riderId = parseInt(userId); // current logged-in rider
+
     // Accept order
     $(document).on('click', '.accept-order-btn', async function () {
         const orderId = $(this).data('id');
@@ -308,42 +309,44 @@ $(document).ready(async function() {
 
         try {
             await $.ajax({
-                url: `${backendUrl}/orders/updateRiderReaction/${orderId}`,
+                url: `${backendUrl}/orders/updateRiderReaction/${orderId}?riderId=${riderId}`,
                 method: "PUT",
                 headers: { 'Authorization': `Bearer ${token}` },
                 contentType: "application/json",
                 data: JSON.stringify({ RiderReaction: "AcceptedByRider" })
             });
             Swal.fire({ icon: "success", title: "Order Accepted", text: `Order ${orderId} accepted.` });
-            fetchRiderOrders();
+            sessionStorage.setItem("acceptedOrderId", orderId);
+            window.location.href = '/pages/orderRootMap.html';
         } catch (err) {
             console.error("Error accepting order:", err);
             Swal.fire({ icon: "error", title: "Error", text: "Could not accept the order!" });
         }
     });
 
-    // Reject order
-    $(document).on('click', '.reject-order-btn', async function () {
-        const orderId = $(this).data('id');
-        const token = (await cookieStore.get('token'))?.value;
 
-        try {
-            await $.ajax({
-                url: `${backendUrl}/orders/updateRiderReaction/${orderId}`,
-                method: "PUT",
-                headers: { 'Authorization': `Bearer ${token}` },
-                contentType: "application/json",
-                data: JSON.stringify({ RiderReaction: "RejectedByRider" })
-            });
-            Swal.fire({ icon: "info", title: "Order Rejected", text: `Order ${orderId} rejected.` });
-            fetchRiderOrders();
-        } catch (err) {
-            console.error("Error rejecting order:", err);
-            Swal.fire({ icon: "error", title: "Error", text: "Could not reject the order!" });
-        }
-    });
+    // // Reject order
+    // $(document).on('click', '.reject-order-btn', async function () {
+    //     const orderId = $(this).data('id');
+    //     const token = (await cookieStore.get('token'))?.value;
+
+    //     try {
+    //         await $.ajax({
+    //             url: `${backendUrl}/orders/updateRiderReaction/${orderId}`,
+    //             method: "PUT",
+    //             headers: { 'Authorization': `Bearer ${token}` },
+    //             contentType: "application/json",
+    //             data: JSON.stringify({ RiderReaction: "RejectedByRider" })
+    //         });
+    //         Swal.fire({ icon: "info", title: "Order Rejected", text: `Order ${orderId} rejected.` });
+    //         fetchRiderOrders();
+    //     } catch (err) {
+    //         console.error("Error rejecting order:", err);
+    //         Swal.fire({ icon: "error", title: "Error", text: "Could not reject the order!" });
+    //     }
+    // });
 
     // Initial fetch and polling
     fetchRiderOrders();
-    setInterval(fetchRiderOrders, 5000);
+    setInterval(fetchRiderOrders, 10000); 
 });

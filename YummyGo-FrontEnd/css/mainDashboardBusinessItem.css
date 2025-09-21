@@ -1,0 +1,211 @@
+#shopping-cart-btn{
+    /* margin-top: 70px; */
+    margin-right: 10px;
+}
+#business-profile{
+    margin-top: 100px;
+}
+.item-card:hover .position-absolute {
+    opacity: 1;
+}
+#step-footer {
+    position: fixed; /* sticks to bottom */
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 1050;
+}
+.step-indicator {
+    flex: 1;
+}
+.step-circle {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: #ddd;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 5px auto;
+    font-weight: bold;
+    color: #555;
+}
+.step-indicator.active .step-circle {
+    background: #00c853; /* Bootstrap primary color */
+    color: white;
+}
+/* Cart Table Container *
+
+/* Table Styling */
+#cart-table-container table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0 10px; /* space between rows */
+}
+
+#cart-table-container th {
+    background-color: #00c853; /* Uber Eats green */
+    color: white;
+    font-weight: 600;
+    text-align: center;
+    padding: 12px;
+}
+
+#cart-table-container td {
+    background-color: #f9f9f9;
+    padding: 10px;
+    vertical-align: middle;
+    text-align: center;
+    border-bottom: none;
+}
+
+#cart-table-container tr {
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+#cart-table-container tr:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Image */
+#cart-table-container img {
+    border-radius: 8px;
+    border: 1px solid #e0e0e0;
+}
+
+/* Buttons */
+#cart-table-container .btn {
+    border-radius: 6px;
+    width: 32px;
+    height: 32px;
+    padding: 0;
+    font-weight: 600;
+    transition: all 0.2s;
+}
+
+#cart-table-container .btn:hover {
+    background-color: #00e676;
+    color: white;
+    transform: scale(1.1);
+}
+
+/* Remove button */
+#cart-table-container .remove-item {
+    background-color: #ff5252;
+    color: white;
+    border-radius: 6px;
+    width: auto;
+    padding: 2px 10px;
+}
+
+#cart-table-container .remove-item:hover {
+    background-color: #ff1744;
+    transform: scale(1.05);
+}
+
+/* Quantity input */
+#cart-table-container .item-qty {
+    text-align: center;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+}
+
+/* Total row */
+#cart-table-container tr.fw-bold td {
+    background-color: #e8f5e9; /* light green */
+    font-weight: 600;
+    font-size: 1.05rem;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    #cart-table-container th, 
+    #cart-table-container td {
+        font-size: 0.85rem;
+        padding: 6px;
+    }
+
+    #cart-table-container .btn {
+        width: 28px;
+        height: 28px;
+        font-size: 0.9rem;
+    }
+
+    #cart-table-container .remove-item {
+        padding: 2px 4px;
+    }
+}
+/* Step 3: Order Summary Container */
+#wizard-step-3, #step-3 {
+    background-color: #ffffff;
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
+    max-width: 600px;
+    margin: 20px auto;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Order Summary Header */
+#step-3 h5 {
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 15px;
+}
+
+/* Order summary amounts */
+#order-summary p {
+    font-size: 1rem;
+    margin-bottom: 8px;
+    color: #555;
+}
+
+#order-summary p span {
+    font-weight: 600;
+    color: #00c853; /* Uber Eats green accent */
+}
+
+/* Payment Method Section */
+#step-3 .form-check {
+    margin-bottom: 12px;
+    padding: 10px;
+    border: 1px solid #e0e0e0;
+    border-radius: 10px;
+    transition: all 0.2s ease-in-out;
+    cursor: pointer;
+    background-color: #f9f9f9;
+}
+
+#step-3 .form-check:hover {
+    border-color: #00c853;
+    background-color: #e8f5e9;
+}
+
+#step-3 .form-check-input:checked + .form-check-label {
+    font-weight: 600;
+    color: #00c853;
+}
+
+/* Radio button styling */
+#step-3 .form-check-input {
+    margin-top: 4px;
+    accent-color: #00c853; /* Uber Eats green */
+}
+
+/* Payment section heading */
+#step-3 h5 + .form-check {
+    margin-top: 10px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    #step-3 {
+        padding: 15px;
+        margin: 15px;
+    }
+
+    #order-summary p {
+        font-size: 0.95rem;
+    }
+}

@@ -15,6 +15,8 @@ import java.math.BigDecimal;
 public class RiderOrderDTO {
     private String orderId;
     private String businessName;
+    private String clientName;
+    private String status;
     private String total;
     private String deliveryFee;
     private BigDecimal orderLongitude;
@@ -23,4 +25,6 @@ public class RiderOrderDTO {
     private BigDecimal businessLongitude;
     private BigDecimal businessLatitude;
     private String deliveryAddress;
+    private String userPhone;
+    private String userEmail;
 }

@@ -42,7 +42,7 @@ $(document).ready(function () {
 
             setTimeout(() => {
               if (userRole === "ADMIN") {
-                window.location.href = "/pages/adminDashbordHome.html";
+                window.location.href = "/pages/adminOverviweDashboard.html";
               } else if (userRole === "CLIENT") {
                 window.location.href = "/pages/mainDashboard.html";
               } else if (userRole === "PARTNER") {

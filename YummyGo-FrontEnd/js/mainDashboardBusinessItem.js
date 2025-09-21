@@ -431,6 +431,7 @@ $(document).ready(async function() {
             status: "Pending",
             contactPartner: "Pending",
             RiderReaction: "Pending",
+            riderId: "Pending",
             latitude: userLat,
             longitude: userLng,
             items:cart.map(i=>
@@ -676,7 +677,7 @@ $(document).ready(async function() {
                 }
             );
         } else {
-            const fallbackLoc = [7.8731, 80.7718];
+            // const fallbackLoc = [7.8731, 80.7718];
             addUserMarkerAndRoute(businessLocation, fallbackLoc);
         }
     }
@@ -723,8 +724,8 @@ $(document).ready(async function() {
 
         routeControl = L.Routing.control({
             waypoints: [
-                L.latLng(userLocation[0], userLocation[1]),
-                L.latLng(businessLocation[0], businessLocation[1]),
+                L.latLng(businessLocation[0], businessLocation[1]), // Business first
+                L.latLng(userLocation[0], userLocation[1])          // Then user
             ],
             lineOptions: { styles: [{ color: "blue", opacity: 0.6, weight: 4 }] },
             router: L.Routing.osrmv1({

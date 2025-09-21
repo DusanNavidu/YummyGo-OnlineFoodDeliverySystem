@@ -26,4 +26,15 @@ public class PaymentController {
         paymentService.savePayment(paymentDTO);
         return ResponseEntity.ok(new APIResponse<>(200, "Payment saved successfully", null));
     }
+
+    @PutMapping("/updateStatus/{orderId}")
+    public ResponseEntity<APIResponse<String>> updatePaymentStatus(@PathVariable String orderId) {
+        try {
+            paymentService.updatePaymentStatus(orderId, "Completed");
+            return ResponseEntity.ok(new APIResponse<>(200, "Payment status updated to Completed", null));
+        } catch (Exception e) {
+            return ResponseEntity.status(500)
+                    .body(new APIResponse<>(500, "Error updating payment status: " + e.getMessage(), null));
+        }
+    }
 }
