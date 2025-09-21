@@ -22,8 +22,13 @@ public class User {
 
     private String fullName;
     private String phoneNumber;
+
+    @Column(unique = true)
     private String email;
+
+    @Column(unique = true)
     private String username;
+
     private String password;
     private String userStatus; // "Active" or "Inactive"
 
@@ -41,4 +46,7 @@ public class User {
 
     private Timestamp createdAt;
     private Timestamp updatedAt;
+
+    private String resetOtp;
+    private Timestamp otpExpiration;
 }

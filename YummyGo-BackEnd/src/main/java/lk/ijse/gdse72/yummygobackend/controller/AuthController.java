@@ -1,9 +1,6 @@
 package lk.ijse.gdse72.yummygobackend.controller;
 
-import lk.ijse.gdse72.yummygobackend.dto.ApiResponse;
-import lk.ijse.gdse72.yummygobackend.dto.AuthDTO;
-import lk.ijse.gdse72.yummygobackend.dto.AuthResponseDTO;
-import lk.ijse.gdse72.yummygobackend.dto.RegisterDTO;
+import lk.ijse.gdse72.yummygobackend.dto.*;
 import lk.ijse.gdse72.yummygobackend.exception.InactiveUserException;
 import lk.ijse.gdse72.yummygobackend.service.AuthService;
 import lombok.RequiredArgsConstructor;
@@ -75,5 +72,4 @@ public class AuthController {
             ));
         }
     }
-
 }

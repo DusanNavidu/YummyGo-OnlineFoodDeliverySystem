@@ -19,6 +19,7 @@ import java.util.Optional;
 @Repository
 public interface UserRepository extends JpaRepository<User, Long> {
     Optional<User> findByUsername(String username);
+    Optional<User> findByEmail(String email);
     Page<User> findAllByRole(Role role, org.springframework.data.domain.Pageable pageable);
     Page<User> findAllByRoleNot(Role role, org.springframework.data.domain.Pageable pageable);
     Page<User> findAllByUserStatusIgnoreCase(String status, org.springframework.data.domain.Pageable pageable);

@@ -6,12 +6,10 @@
     <title>Login page</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Epunda+Slab:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Epunda+Slab:wght@400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/css/login.css">
 </head>
-<body id="login-page" class="d-flex flex-column align-items-center justify-content-center vh-100">
+<body id="login-page" class="d-flex flex-column align-items-center justify-content-center vh-100" style="  font-family: 'Epunda Slab', serif;">
     
 <div id="login-container" class="shadow d-flex flex-column flex-lg-row">
     <div id="login-left-side" class="w-100 w-lg-50 position-relative mb-4 mb-lg-0">
@@ -26,12 +24,17 @@
             <input class="form-control mb-3 mb-lg-4" type="text" id="username" name="username" placeholder="Enter your username" required>
 
             <label for="password">Password: </label>
-            <div class="input-group mb-3 mb-lg-4">
+            <div class="input-group mb-lg-4">
                 <input class="form-control" type="password" id="password" name="password" placeholder="Enter your password" required>
                 <button class="btn btn-outline-secondary" type="button" id="toggleLoginPassword">
                     <i class="bi bi-eye"></i>
                 </button>
             </div>  
+            <div class="d-flex justify-content-end text-primary fst-italic">
+                <small>
+                    <a href="#" data-bs-toggle="modal" data-bs-target="#forgotPasswordModal">Forgot password?</a>
+                </small>
+            </div>
 
             <div id="message" class="mb-3"></div>
 
@@ -52,6 +55,37 @@
         </form>
     </div>
 </div>
+
+<!-- Forgot Password Modal -->
+<div class="modal fade" id="forgotPasswordModal" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content rounded-4 shadow-lg">
+      <div class="modal-header border-0">
+        <h5 class="modal-title fw-bold">Reset Password</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+      </div>
+      <div class="modal-body">
+        <!-- Step 1: Email -->
+        <div id="forgotStep1">
+          <input type="email" id="resetEmail" class="form-control mb-3" placeholder="Enter your registered email">
+          <button class="btn btn-primary w-100" id="sendResetLinkBtn">Send OTP</button>
+        </div>
+
+        <!-- Step 2: OTP & new password -->
+        <div id="forgotStep2" class="d-none">
+          <input type="text" id="resetToken" class="form-control mb-2" placeholder="Enter OTP">
+          <input type="text" id="newUsername" class="form-control mb-2" placeholder="New Username">
+          <div class="input-group mb-3">
+            <input type="password" id="newPassword" class="form-control" placeholder="New Password">
+            <button type="button" class="btn btn-outline-secondary" id="toggleResetPassword"><i class="bi bi-eye"></i></button>
+          </div>
+          <button class="btn btn-success w-100" id="resetPasswordBtn">Update Password</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
 
 <script>
   document.getElementById("toggleLoginPassword").addEventListener("click", function () {
