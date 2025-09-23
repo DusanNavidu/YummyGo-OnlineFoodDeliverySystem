@@ -14,11 +14,19 @@ $(document).ready(function () {
       return;
     }
 
+    const $btn = $("#loginBtn");
+    const originalText = $btn.html();
+    $btn.prop("disabled", true).html('<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> Logging in...');
+    
     $.ajax({
       url: "http://localhost:8080/api/v1/auth/login",
       type: "POST",
       contentType: "application/json",
       data: JSON.stringify(loginDTO),
+      complete: function () {
+        // Hide spinner after request
+        $btn.prop("disabled", false).html(originalText);
+      },
       success: function (response) {
         if (response.code === 200) {
           console.log("Login successful", response);
@@ -71,7 +79,7 @@ $(document).ready(function () {
       }
     });
   });
-  
+
   // Forgot password step 1: send OTP
   $("#sendResetLinkBtn").click(function () {
     const email = $("#resetEmail").val();
@@ -84,6 +92,10 @@ $(document).ready(function () {
       });
       return; 
     }
+
+    const $btn = $(this);
+    const originalText = $btn.html();
+    $btn.prop("disabled", true).html('<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> Sending...');
 
     $.post("http://localhost:8080/api/v1/auth/otp/send?email=" + email)
       .done(() => { 
@@ -103,6 +115,9 @@ $(document).ready(function () {
           text: 'Failed to send OTP',
           confirmButtonColor: '#d33'
         });
+      })
+      .always(() => {
+        $btn.prop("disabled", false).html(originalText);
       });
   });
 
@@ -115,11 +130,18 @@ $(document).ready(function () {
       newPassword: $("#newPassword").val()
     };
 
+    const $btn = $(this);
+    const originalText = $btn.html();
+    $btn.prop("disabled", true).html('<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> Resetting...');
+
     $.ajax({
       url: "http://localhost:8080/api/v1/auth/otp/reset",
       type: "POST",
       contentType: "application/json",
       data: JSON.stringify(dto),
+      complete: function () {
+        $btn.prop("disabled", false).html(originalText);
+      },
       success: function () {
         Swal.fire({
           icon: 'success',

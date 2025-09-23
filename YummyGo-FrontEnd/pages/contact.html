@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact · YummyGo</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Epunda+Slab:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/Style.css">
+  <style>
+    :root {
+      --yg-green: #22c55e;
+      --yg-dark: #0f172a;
+      --yg-accent: #ffd166;
+      --muted: #6b7280;
+    }
+    body {
+      color: var(--yg-dark);
+      background: linear-gradient(180deg,#fbfdf9 0%, #f7fcf5 100%);
+      margin: 0;
+    }
+    .muted { color: var(--muted); }
+    .pill { padding:.35rem .7rem; border-radius:999px; font-weight:700; font-size:.85rem; }
+    footer { background: #061019; color: rgba(255,255,255,.9); padding: 2rem 0; margin-top: 3rem; }
+    #backToTop {
+      position: fixed; right: 20px; bottom: 20px; z-index: 1200;
+      background: var(--yg-dark); color: white; border-radius: 50%; width: 44px; height:44px;
+      display:flex;align-items:center;justify-content:center; box-shadow: 0 8px 20px rgba(2,6,23,.25);
+      opacity:0; transform: translateY(8px); transition: all .25s ease;
+    }
+    #backToTop.show { opacity:1; transform: translateY(0); }
+  </style>
+</head>
+<body>
+
+  <nav id="placeholder-nav-bar" class="navbar navbar-expand-lg navbar-dark bg-dark position-fixed top-0 start-0 w-100 z-1">
+        <div class="container-fluid">
+            <a class="navbar-brand ps-2" href="#"><span class="fw-bold fs-3 text-light">YUMMY</span><span class="fs-3 fw-bold text-warning">GO</span> </a>
+            <button id="profile-btn" class="btn"
+                style="position: absolute; top: 7px; right: 70px;">
+                <img class="img-fluid rounded-circle" style="width: 40px;" src="/assets/image/download (5).png" alt="User Profile">
+            </button>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarNav" style="margin-right: 150px;">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link text-light" href="/pages/mainDashboard.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-light" href="/pages/about.html">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="/pages/orders.html">Orders</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-light" href="/pages/service.html">Services</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-light" href="/pages/contact.html">Contact</a>
+                    </li>
+                    <li class="nav-item">
+                        <button class="btn btn-dark" id="logoutBtn">
+                            Logout
+                        </button>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+  <!-- HERO -->
+  <section class="py-5" style="margin-top: 68px;">
+    <div class="container text-center">
+      <h1>Contact YummyGo</h1>
+      <p class="muted">Have questions or want to partner with us? Reach out below.</p>
+    </div>
+  </section>
+
+  <!-- CONTACT FORM + INFO -->
+  <section class="py-5">
+    <div class="container">
+      <div class="row g-5">
+        <div class="col-lg-6">
+          <div class="card rounded-lg shadow-sm p-4">
+            <h5>Send us a message</h5>
+            <p class="muted small mb-3">We'll respond as soon as possible.</p>
+            <form id="contactForm">
+              <div class="mb-3">
+                <input type="text" id="cName" class="form-control" placeholder="Your name" required>
+              </div>
+              <div class="mb-3">
+                <input type="email" id="cEmail" class="form-control" placeholder="Email" required>
+              </div>
+              <div class="mb-3">
+                <textarea id="cMessage" class="form-control" rows="4" placeholder="Message" required></textarea>
+              </div>
+              <div class="d-grid">
+                <button class="btn btn-success" type="submit">Send message</button>
+              </div>
+            </form>
+            <div id="contactAlert" class="mt-2" style="display:none;"></div>
+          </div>
+        </div>
+
+        <div class="col-lg-6">
+          <div class="card rounded-lg shadow-sm p-4 h-100">
+            <h5>Our Info</h5>
+            <p class="muted small">Reach us through any of these channels:</p>
+            <ul class="list-unstyled">
+              <li><i class="bi bi-geo-alt-fill me-2"></i>123 Yummy Street, Colombo, Sri Lanka</li>
+              <li><i class="bi bi-telephone-fill me-2"></i>+94 77 123 4567</li>
+              <li><i class="bi bi-envelope-fill me-2"></i>support@yummygo.com</li>
+            </ul>
+            <h6 class="mt-4">Follow us</h6>
+            <a href="#" class="text-success me-2"><i class="bi bi-twitter"></i></a>
+            <a href="#" class="text-success me-2"><i class="bi bi-facebook"></i></a>
+            <a href="#" class="text-success"><i class="bi bi-instagram"></i></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="position-fixed bottom-0 start-0 w-100">
+    <div class="container text-center text-md-start">
+      <div class="row align-items-center">
+        <div class="col-md-6">
+          <h5 class="text-white mb-2">YummyGo</h5>
+          <p class="muted small mb-0">© <span id="year"></span> YummyGo. All rights reserved.</p>
+        </div>
+        <div class="col-md-6 text-md-end">
+          <a class="text-white me-2" href="#"><i class="bi bi-twitter"></i></a>
+          <a class="text-white me-2" href="#"><i class="bi bi-facebook"></i></a>
+          <a class="text-white" href="#"><i class="bi bi-instagram"></i></a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Back to top -->
+  <button id="backToTop" aria-label="Back to top" title="Back to top"><i class="bi bi-arrow-up"></i></button>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    // dynamic year
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // contact form demo
+    document.getElementById('contactForm').addEventListener('submit', function(e){
+      e.preventDefault();
+      const name = document.getElementById('cName').value.trim();
+      const email = document.getElementById('cEmail').value.trim();
+      const message = document.getElementById('cMessage').value.trim();
+      const alertEl = document.getElementById('contactAlert');
+
+      if(!name || !email || !message){
+        alertEl.style.display = 'block';
+        alertEl.className = 'alert alert-danger mt-2';
+        alertEl.textContent = 'Please fill all fields.';
+        return;
+      }
+
+      alertEl.style.display = 'block';
+      alertEl.className = 'alert alert-success mt-2';
+      alertEl.textContent = 'Thanks — we received your message!';
+      this.reset();
+    });
+
+    // back to top show/hide
+    const back = document.getElementById('backToTop');
+    window.addEventListener('scroll', () => {
+      if(window.scrollY > 300) back.classList.add('show');
+      else back.classList.remove('show');
+    });
+    back.addEventListener('click', ()=> window.scrollTo({top:0, behavior:'smooth'}));
+  </script>
+</body>
+</html>

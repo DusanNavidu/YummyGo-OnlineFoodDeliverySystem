@@ -14,7 +14,7 @@
     <link rel="stylesheet" href="/css/maindashboard.css">
 </head>
 <body>
-    <nav id="placeholder-nav-bar" class="navbar navbar-expand-lg navbar-dark bg-dark position-fixed top-0 start-0 w-100 z-1">
+    <nav id="placeholder-nav-bar" class="navbar navbar-expand-lg navbar-dark bg-black position-fixed top-0 start-0 w-100 z-1">
         <div class="container-fluid">
             <a class="navbar-brand ps-2" href="#"><span class="fw-bold fs-3 text-light">YUMMY</span><span class="fs-3 fw-bold text-warning">GO</span> </a>
             <button id="profile-btn" class="btn"
@@ -29,16 +29,19 @@
             <div class="collapse navbar-collapse" id="navbarNav" style="margin-right: 150px;">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item">
-                        <a class="nav-link text-light" href="#">About</a>
+                        <a class="nav-link text-light" href="/pages/mainDashboard.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-light" href="/pages/about.html">About</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link active" href="/pages/orders.html">Orders</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link text-light" href="#">Services</a>
+                        <a class="nav-link text-light" href="/pages/service.html">Services</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link text-light" href="#">Contact</a>
+                        <a class="nav-link text-light" href="/pages/contact.html">Contact</a>
                     </li>
                     <li class="nav-item">
                         <button class="btn btn-dark" id="logoutBtn">
@@ -58,7 +61,7 @@
                     Now location
             </button>
             <button id="saved-items" class="btn shadow border-black me-2">
-                <img id="saved-items-icon" src="/assets/logo/shopping-cart.png" alt="" style="width: 25px; height: 25px;">
+                <i class="bi bi-heart"></i>
             </button>
         </div>
         <div class="container position-relative w-75">
@@ -114,7 +117,7 @@
         </div>
     </div>
 
-    <div class="container mt-5">
+    <div class="container w-100 mt-5">
         <h3><span id="current-location-business" class="pe-2"></span> Businesses</h3>
         <div id="business-list" class="row"></div>
     </div>

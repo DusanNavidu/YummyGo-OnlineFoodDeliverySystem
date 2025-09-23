@@ -14,7 +14,7 @@
     <title>Business profile Dashboard</title>
 </head>
 <body class="position-relative">
-    <nav id="placeholder-nav-bar" class="navbar navbar-expand-lg navbar-dark bg-dark position-fixed top-0 start-0 w-100 z-1">
+    <nav id="placeholder-nav-bar" class="navbar navbar-expand-lg navbar-dark bg-black position-fixed top-0 start-0 w-100 z-1">
         <div class="container-fluid">
             <a class="navbar-brand ps-2" href="#"><span class="fw-bold fs-3 text-light">YUMMY</span><span class="fs-3 fw-bold text-warning">GO</span> </a>
             <button id="profile-btn" class="btn"
@@ -29,16 +29,19 @@
             <div class="collapse navbar-collapse" id="navbarNav" style="margin-right: 150px;">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item">
+                        <a class="nav-link text-light" href="/pages/mainDashboard.html">Home</a>
+                    </li>
+                    <li class="nav-item">
                         <a class="nav-link text-light" href="/pages/about.html">About</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link active" href="/pages/orders.html">Orders</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link text-light" href="#">Services</a>
+                        <a class="nav-link text-light" href="/pages/service.html">Services</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link text-light" href="#">Contact</a>
+                        <a class="nav-link text-light" href="/pages/contact.html">Contact</a>
                     </li>
                     <li class="nav-item">
                         <button class="btn btn-dark" id="logoutBtn">
@@ -67,10 +70,14 @@
     </div>
 
     <div id="business-profile-container" class="container mt-5">
+        <a href="/pages/mainDashboard.html"><button id="back-btn" class="btn border-black bg-dark text-light position-absolute top-0 start-0" style="padding: 5px 20px; margin-left: 10px;"> Back </button></a>
         <button id="shopping-cart-btn" class="btn border-black position-absolute top-0 end-0">
             <img id="shopping-cart" src="/assets/logo/shopping-cart.png" alt="">
+                <span id="cart-count" 
+                        class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+                    0
+                </span>
         </button>
-
         <div id="business-profile" class="p-3 rounded-3 shadow d-flex align-items-center gap-4">
             <div id="business-logo-profile" class="img-fluid"></div>
             <div>

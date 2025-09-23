@@ -1,0 +1,116 @@
+.item-card {
+    height: 400px; /* fix height for all cards */
+    display: flex;
+    flex-direction: column;
+}
+
+.item-description {
+    max-height: 100px; /* description box height */
+    overflow-y: auto; /* scroll if text is too long */
+}
+.item-card:hover {
+    box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+#business-profile{
+    margin-top: 100px;
+    position: relative;
+}
+.order-item {
+    background: #f8f9fa;
+    border-radius: 12px;
+    padding: 15px 20px;
+    margin-bottom: 12px;
+    box-shadow: 0 3px 8px rgba(0,0,0,0.1);
+    position: relative;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.order-item:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+}
+
+#order-list{
+    height: 600px;
+    overflow-y: auto;
+}
+
+.order-item h6 {
+    font-weight: 600;
+    margin-bottom: 8px;
+}
+
+.order-item ul {
+    padding-left: 20px;
+    margin-bottom: 8px;
+}
+
+.order-item p {
+    margin: 2px 0;
+}
+
+.order-buttons {
+    display: flex;
+    justify-content: flex-end;
+    gap: 8px;
+    flex-wrap: wrap;
+    margin-top: 8px;
+}
+/* Order card container */
+.order-item {
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    padding: 16px;
+    margin-bottom: 16px;
+    transition: transform 0.2s;
+}
+
+.order-item:hover {
+    transform: translateY(-2px);
+}
+
+/* Order header */
+.order-item h6 {
+    font-weight: 600;
+    color: #333;
+}
+
+/* Items list */
+.order-item ul {
+    list-style: none;
+    padding: 0;
+    margin: 8px 0;
+}
+
+.order-item ul li {
+    display: flex;
+    justify-content: space-between;
+    padding: 6px 0;
+    border-bottom: 1px dashed #eee;
+}
+
+/* Subtotal/Total text */
+.order-item p {
+    margin: 4px 0;
+    font-size: 0.95rem;
+    color: #555;
+}
+
+/* Status badge */
+.order-status-badge {
+    display: inline-block;
+    padding: 4px 10px;
+    border-radius: 12px;
+    color: #fff;
+    font-size: 0.85rem;
+    font-weight: 500;
+}
+
+/* Buttons */
+.order-buttons .btn {
+    margin: 4px 2px;
+    font-size: 0.85rem;
+    border-radius: 6px;
+}

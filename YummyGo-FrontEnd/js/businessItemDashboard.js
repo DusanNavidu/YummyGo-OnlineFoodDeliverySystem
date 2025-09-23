@@ -64,7 +64,7 @@ $(document).ready(async function () {
 
                     if (newOrders.length > 0) {
                         // Play sound only for new orders
-                        const audio = new Audio('/assetsaudio/mixkit-happy-bells-notification-937.wav'); // your sound file
+                        const audio = new Audio('/assets/audio/mixkit-happy-bells-notification-937.wav'); // your sound file
                         audio.play();
                     }
 

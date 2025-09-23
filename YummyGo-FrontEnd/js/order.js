@@ -1,7 +1,6 @@
 $(document).ready(async function () {
     const backendUrl = "http://localhost:8080";
 
-    // Map each status to an icon
     const statusIcons = {
         "Pending": "⏳",
         "Accepted": "✅",
@@ -11,38 +10,21 @@ $(document).ready(async function () {
         "Cancelled": "❌"
     };
 
-    // Map each status to a color
-    // const statusColors = {
-    //     "Pending": "#E0E0E0",       // light gray for upcoming/future
-    //     "Accepted": "#FFEB3B",      // bright yellow for current order (attention)
-    //     "Preparing": "#FFC107",     // amber, slightly deeper for cooking stage
-    //     "On the way": "#03A9F4",    // blue for in-transit
-    //     "Delivered": "#4CAF50",     // green for completed
-    //     "Cancelled": "#F44336"      // red for cancelled
-    // };
-
+    const statuses = ["Pending", "Accepted", "Preparing", "On the way", "Delivered"];
 
     function updateOrderStatusIcons(status, orderId) {
-        const container = $(`#order-${orderId}-status`);
-        const statuses = ["Pending", "Accepted", "Preparing", "On the way", "Delivered"];
-
-        // Reset all icons
-        container.find(".order-icon-container").css("background-color", "#f0f0f0");
+        const container = $(`#order-${orderId}-status .status-step`);
+        container.removeClass("completed current");
 
         if (status === "Cancelled") {
-            container.find(`#order-${orderId}-icon-1`).parent().css("background-color", "red");
+            container.first().addClass("current").css("background", "#F44336").text("❌");
             return;
         }
 
-        statuses.forEach((s, idx) => {
-            const iconDiv = container.find(`#order-${orderId}-icon-${idx + 1}`).parent();
-            if (statuses.indexOf(s) < statuses.indexOf(status)) {
-                iconDiv.css("background-color", "#4CAF50"); // completed
-            } else if (s === status) {
-                iconDiv.css("background-color", "#FFEB3B"); // current
-            } else {
-                iconDiv.css("background-color", "#E0E0E0"); // future
-            }
+        const currentIndex = statuses.indexOf(status);
+        container.each(function (index) {
+            if (index < currentIndex) $(this).addClass("completed");
+            else if (index === currentIndex) $(this).addClass("current");
         });
     }
 
@@ -58,6 +40,8 @@ $(document).ready(async function () {
             success: function (response) {
                 if (response && response.length > 0) {
                     renderOrdersHistory(response);
+                } else {
+                    $("#orders-history").html(`<h5 class="text-center text-muted">No orders yet 🍔</h5>`);
                 }
             },
             error: function (err) {
@@ -69,36 +53,34 @@ $(document).ready(async function () {
     function renderOrdersHistory(orders) {
         let container = $("#orders-history");
         container.empty();
-        container.append("<h4>Orders History</h4>");
+        container.append("<h4 class='mb-4 fw-bold'>My Orders</h4>");
 
         orders.forEach((order) => {
-            let itemsHtml = order.items
-                .map(
-                    (i) => `
-                <div class="d-flex justify-content-between border p-2 rounded mb-2">
-                    <span>${i.itemName}</span>
-                    <span>Status: ${order.status}</span>
-                    <span>Qty: ${i.quantity}</span>
-                    <span>Price: ${i.price}</span>
-                </div>`
-                )
-                .join("");
+            let itemsHtml = order.items.map(i => `
+                <div class="order-item">
+                    <span>${i.itemName} × ${i.quantity}</span>
+                    <span>LKR ${i.price}</span>
+                </div>`).join("");
 
             let orderHtml = `
-                <div class="shadow border p-3 rounded mb-4">
-                    <h6>Order ID: ${order.orderId}</h6>
+                <div class="order-card">
+                    <div class="order-header">Order #${order.orderId}</div>
 
-                    <!-- Order Status Icons -->
-                    <div id="order-${order.orderId}-status" class="d-flex justify-content-between mt-3">
-                        ${["Pending","Accepted","Preparing","On the way","Delivered"].map((s, i) => `
-                            <div class="border border-black rounded-2 d-flex justify-content-center align-items-center order-icon-container" style="width:50px;height:50px;">
-                                <span id="order-${order.orderId}-icon-${i+1}" style="font-size:24px;">${statusIcons[s]}</span>
+                    <div id="order-${order.orderId}-status" class="order-status">
+                        ${statuses.map((s, i) => `
+                            <div class="status-step" id="order-${order.orderId}-icon-${i+1}">
+                                ${statusIcons[s]}
                             </div>
                         `).join('')}
                     </div>
 
-                    <div class="mt-3">${itemsHtml}</div>
-                    <p>Subtotal: ${order.subTotal}, Shipping: ${order.deliveryFee}, Total: ${order.total}</p>
+                    <div class="mt-2">${itemsHtml}</div>
+
+                    <div class="order-summary">
+                        <p class="mb-1">Subtotal: <strong>LKR ${order.subTotal}</strong></p>
+                        <p class="mb-1">Delivery: <strong>LKR ${order.deliveryFee}</strong></p>
+                        <p class="mb-0">Total: <strong>LKR ${order.total}</strong></p>
+                    </div>
                 </div>
             `;
 

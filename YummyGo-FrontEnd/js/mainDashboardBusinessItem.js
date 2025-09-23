@@ -157,6 +157,13 @@ $(document).ready(async function() {
     // ==============================
     // Cart Logic
     // ==============================
+    // Update cart count badge
+    function updateCartCount() {
+        let totalCount = 0;
+        cart.forEach(item => totalCount += item.quantity);
+        $("#cart-count").text(totalCount);
+    }
+
     $(document).on('click', '.add-to-cart-btn', function() {
         const item = {
             id: $(this).data('item-id'),
@@ -169,7 +176,21 @@ $(document).ready(async function() {
         if (existing) existing.quantity++;
         else cart.push(item);
         updateCartTable();
+
+        // 🔹 Show toast msg
+        showToast(`${item.name} added to cart!`);
+
+        // 🔹 Animate cart button
+        $("#shopping-cart-btn").addClass("cart-animate");
+        setTimeout(() => $("#shopping-cart-btn").removeClass("cart-animate"), 400);
     });
+
+    // Toast function
+    function showToast(message) {
+        const toast = $(`<div class="toast-msg">${message}</div>`);
+        $("#toast").append(toast);
+        setTimeout(() => toast.remove(), 2000);
+    }
 
     function updateCartTable() {
         let html = `<table class="table table-bordered">
@@ -205,6 +226,7 @@ $(document).ready(async function() {
         $("#cart-table-container").html(html);
         saveCart();
         loadOrderSummary();
+        updateCartCount(); 
     }
 
     $(document).on('click', '.remove-item', function() { cart.splice($(this).data('index'), 1); updateCartTable(); });

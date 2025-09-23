@@ -4,19 +4,29 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0e4c2015-418c-4087-b1aa-100aa7dab4bc" name="Changes" comment="Admin Login email update fixed">
-      <change afterPath="$PROJECT_DIR$/YummyGo-BackEnd/src/main/java/lk/ijse/gdse72/yummygobackend/dto/ResetPasswordDTO.java" afterDir="false" />
+    <list default="true" id="0e4c2015-418c-4087-b1aa-100aa7dab4bc" name="Changes" comment="forgot password fixed">
+      <change afterPath="$PROJECT_DIR$/YummyGo-BackEnd/README.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/YummyGo-BackEnd/src/main/java/lk/ijse/gdse72/yummygobackend/controller/AuthController.java" beforeDir="false" afterPath="$PROJECT_DIR$/YummyGo-BackEnd/src/main/java/lk/ijse/gdse72/yummygobackend/controller/AuthController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/YummyGo-BackEnd/src/main/java/lk/ijse/gdse72/yummygobackend/controller/OtpController.java" beforeDir="false" afterPath="$PROJECT_DIR$/YummyGo-BackEnd/src/main/java/lk/ijse/gdse72/yummygobackend/controller/OtpController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/YummyGo-BackEnd/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/YummyGo-BackEnd/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/YummyGo-BackEnd/src/main/java/lk/ijse/gdse72/yummygobackend/entity/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/YummyGo-BackEnd/src/main/java/lk/ijse/gdse72/yummygobackend/entity/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/YummyGo-BackEnd/src/main/java/lk/ijse/gdse72/yummygobackend/repository/UserRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/YummyGo-BackEnd/src/main/java/lk/ijse/gdse72/yummygobackend/repository/UserRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/YummyGo-BackEnd/src/main/java/lk/ijse/gdse72/yummygobackend/service/AuthService.java" beforeDir="false" afterPath="$PROJECT_DIR$/YummyGo-BackEnd/src/main/java/lk/ijse/gdse72/yummygobackend/service/AuthService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/YummyGo-BackEnd/src/main/java/lk/ijse/gdse72/yummygobackend/service/OtpService.java" beforeDir="false" afterPath="$PROJECT_DIR$/YummyGo-BackEnd/src/main/java/lk/ijse/gdse72/yummygobackend/service/OtpService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/YummyGo-FrontEnd/css/Style.css" beforeDir="false" afterPath="$PROJECT_DIR$/YummyGo-FrontEnd/css/Style.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/YummyGo-FrontEnd/css/login.css" beforeDir="false" afterPath="$PROJECT_DIR$/YummyGo-FrontEnd/css/login.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/YummyGo-FrontEnd/css/mainDashboardBusinessItem.css" beforeDir="false" afterPath="$PROJECT_DIR$/YummyGo-FrontEnd/css/mainDashboardBusinessItem.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/YummyGo-FrontEnd/css/maindashboard.css" beforeDir="false" afterPath="$PROJECT_DIR$/YummyGo-FrontEnd/css/maindashboard.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/YummyGo-FrontEnd/infomation-pages/success.html" beforeDir="false" afterPath="$PROJECT_DIR$/YummyGo-FrontEnd/infomation-pages/success.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/YummyGo-FrontEnd/js/businessItemDashboard.js" beforeDir="false" afterPath="$PROJECT_DIR$/YummyGo-FrontEnd/js/businessItemDashboard.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/YummyGo-FrontEnd/js/login.js" beforeDir="false" afterPath="$PROJECT_DIR$/YummyGo-FrontEnd/js/login.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/YummyGo-FrontEnd/js/mainDashboard.js" beforeDir="false" afterPath="$PROJECT_DIR$/YummyGo-FrontEnd/js/mainDashboard.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/YummyGo-FrontEnd/js/mainDashboardBusinessItem.js" beforeDir="false" afterPath="$PROJECT_DIR$/YummyGo-FrontEnd/js/mainDashboardBusinessItem.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/YummyGo-FrontEnd/js/order.js" beforeDir="false" afterPath="$PROJECT_DIR$/YummyGo-FrontEnd/js/order.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/YummyGo-FrontEnd/pages/about.html" beforeDir="false" afterPath="$PROJECT_DIR$/YummyGo-FrontEnd/pages/about.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/YummyGo-FrontEnd/pages/loging.html" beforeDir="false" afterPath="$PROJECT_DIR$/YummyGo-FrontEnd/pages/loging.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/YummyGo-FrontEnd/pages/mainDashboard.html" beforeDir="false" afterPath="$PROJECT_DIR$/YummyGo-FrontEnd/pages/mainDashboard.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/YummyGo-FrontEnd/pages/mainDashboardBusinessItems.html" beforeDir="false" afterPath="$PROJECT_DIR$/YummyGo-FrontEnd/pages/mainDashboardBusinessItems.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/YummyGo-FrontEnd/pages/orders.html" beforeDir="false" afterPath="$PROJECT_DIR$/YummyGo-FrontEnd/pages/orders.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/YummyGo-FrontEnd/pages/register.html" beforeDir="false" afterPath="$PROJECT_DIR$/YummyGo-FrontEnd/pages/register.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/logs/application.log" beforeDir="false" afterPath="$PROJECT_DIR$/logs/application.log" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -230,7 +240,13 @@
       <workItem from="1758312132166" duration="4632000" />
       <workItem from="1758343385440" duration="3489000" />
       <workItem from="1758378918979" duration="6506000" />
-      <workItem from="1758417154381" duration="7491000" />
+      <workItem from="1758417154381" duration="12253000" />
+      <workItem from="1758441913180" duration="3125000" />
+      <workItem from="1758457139979" duration="995000" />
+      <workItem from="1758465115167" duration="232000" />
+      <workItem from="1758470474172" duration="1086000" />
+      <workItem from="1758475428234" duration="1903000" />
+      <workItem from="1758594517030" duration="1727000" />
     </task>
     <task id="LOCAL-00001" summary="font end add">
       <option name="closed" value="true" />
@@ -416,7 +432,15 @@
       <option name="project" value="LOCAL" />
       <updated>1758421568728</updated>
     </task>
-    <option name="localTasksCounter" value="24" />
+    <task id="LOCAL-00024" summary="forgot password fixed">
+      <option name="closed" value="true" />
+      <created>1758426079522</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1758426079522</updated>
+    </task>
+    <option name="localTasksCounter" value="25" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -457,6 +481,7 @@
     <MESSAGE value="Admin user manage user getting success" />
     <MESSAGE value="place order" />
     <MESSAGE value="Admin Login email update fixed" />
-    <option name="LAST_COMMIT_MESSAGE" value="Admin Login email update fixed" />
+    <MESSAGE value="forgot password fixed" />
+    <option name="LAST_COMMIT_MESSAGE" value="forgot password fixed" />
   </component>
 </project>

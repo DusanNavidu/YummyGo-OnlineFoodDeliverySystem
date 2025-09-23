@@ -1,9 +1,12 @@
 package lk.ijse.gdse72.yummygobackend.service;
 
+import com.google.api.client.googleapis.auth.oauth2.GoogleIdToken;
+import com.google.api.client.googleapis.auth.oauth2.GoogleIdTokenVerifier;
+import com.google.api.client.http.javanet.NetHttpTransport;
+import com.google.api.client.json.gson.GsonFactory;
 import lk.ijse.gdse72.yummygobackend.dto.AuthDTO;
 import lk.ijse.gdse72.yummygobackend.dto.AuthResponseDTO;
 import lk.ijse.gdse72.yummygobackend.dto.RegisterDTO;
-import lk.ijse.gdse72.yummygobackend.dto.ResetPasswordDTO;
 import lk.ijse.gdse72.yummygobackend.entity.Role;
 import lk.ijse.gdse72.yummygobackend.entity.User;
 import lk.ijse.gdse72.yummygobackend.exception.InactiveUserException;
@@ -15,7 +18,13 @@ import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 
+import java.sql.Timestamp;
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.UUID;
 
 /**
@@ -137,5 +146,52 @@ public class AuthService {
         user.setResetOtp(null);
         user.setOtpExpiration(null);
         userRepository.save(user);
+    }
+
+    @PostMapping("/google")
+    public Map<String, Object> googleLogin(@RequestBody Map<String, String> body) {
+        String idToken = body.get("idToken");
+
+        // Verify token using Google API
+        GoogleIdTokenVerifier verifier = new GoogleIdTokenVerifier.Builder(new NetHttpTransport(), new GsonFactory())
+                .setAudience(Collections.singletonList("557187205992-dccisljpqtprs915032l79tj2knr68q9.apps.googleusercontent.com"))
+                .build();
+
+        try {
+            GoogleIdToken googleIdToken = GoogleIdToken.parse(verifier.getJsonFactory(), idToken);
+            GoogleIdToken.Payload payload = googleIdToken.getPayload();
+
+            String email = payload.getEmail();
+            String fullName = (String) payload.get("name");
+
+            // Check if user exists
+            User user = userRepository.findByEmail(email).orElseGet(() -> {
+                User newUser = User.builder()
+                        .fullName(fullName)
+                        .email(email)
+                        .username(email.split("@")[0])
+                        .password(passwordEncoder.encode(UUID.randomUUID().toString()))
+                        .userStatus("Active")
+                        .role(Role.CLIENT) // default role
+                        .createdAt(new Timestamp(System.currentTimeMillis()))
+                        .updatedAt(new Timestamp(System.currentTimeMillis()))
+                        .build();
+                return userRepository.save(newUser);
+            });
+
+            String token = jwtUtil.generateToken(user.getUsername());
+
+            Map<String, Object> response = new HashMap<>();
+            response.put("username", user.getUsername());
+            response.put("email", user.getEmail());
+            response.put("role", user.getRole());
+            response.put("token", token);
+
+            return response;
+
+        } catch (Exception e) {
+            e.printStackTrace();
+            throw new RuntimeException("Invalid Google ID token");
+        }
     }
 }

@@ -1,0 +1,164 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Services · YummyGo — Food Delivery</title>
+
+  <!-- Bootstrap -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Bootstrap Icons -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+
+  <!-- Google font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Epunda+Slab:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/Style.css">
+
+  <meta name="description" content="YummyGo — Learn about our delivery services, restaurant partnerships, and rider solutions.">
+
+  <style>
+    :root{
+      --yg-green:#22c55e;  
+      --yg-dark:#0f172a;   
+      --yg-accent:#ffd166; 
+      --card-bg: #ffffff;
+      --muted:#6b7280;
+    }
+    html,body{height:100%}
+    body{
+      color:var(--yg-dark);
+      background:linear-gradient(180deg,#fbfdf9 0%, #f7fcf5 100%);
+      margin:0; -webkit-font-smoothing:antialiased;
+    }
+
+    nav.navbar { background: #0b1220; }
+    nav .nav-link { color: rgba(255,255,255,.9); }
+    nav .btn-cta { background: var(--yg-green); color: #082018; font-weight:700; border-radius:999px; padding: .45rem .9rem; }
+
+    .hero { padding: 5rem 0 3rem; }
+    .hero h1 { font-weight:800; letter-spacing: -.5px;}
+    .hero p.lead { color: var(--muted); font-size: 1.05rem; }
+
+    .feature-icon {
+      width:56px;height:56px;border-radius:12px;display:inline-flex;align-items:center;justify-content:center;
+      background: linear-gradient(180deg,#fff,#f7fff8); box-shadow: 0 6px 18px rgba(10,30,10,.05);
+      color: var(--yg-green); font-size: 1.4rem;
+    }
+
+    .rounded-lg { border-radius: 14px; }
+    footer { background: #061019; color: rgba(255,255,255,.9); padding: 2rem 0; margin-top: 3rem; }
+    .muted { color:var(--muted); }
+
+    #backToTop {
+      position: fixed; right: 20px; bottom: 20px; z-index: 1200;
+      background: var(--yg-dark); color: white; border-radius: 50%; width: 44px; height:44px;
+      display:flex;align-items:center;justify-content:center; box-shadow: 0 8px 20px rgba(2,6,23,.25);
+      opacity:0; transform: translateY(8px); transition: all .25s ease;
+    }
+    #backToTop.show { opacity:1; transform: translateY(0); }
+
+    @media (min-width:992px){ .hero { padding-top:6.5rem; } }
+  </style>
+</head>
+<body>
+  <!-- NAV -->
+  <nav id="placeholder-nav-bar" class="navbar navbar-expand-lg navbar-dark bg-dark position-fixed top-0 start-0 w-100 z-1">
+        <div class="container-fluid">
+            <a class="navbar-brand ps-2" href="#"><span class="fw-bold fs-3 text-light">YUMMY</span><span class="fs-3 fw-bold text-warning">GO</span> </a>
+            <button id="profile-btn" class="btn"
+                style="position: absolute; top: 7px; right: 70px;">
+                <img class="img-fluid rounded-circle" style="width: 40px;" src="/assets/image/download (5).png" alt="User Profile">
+            </button>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarNav" style="margin-right: 150px;">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link text-light" href="/pages/mainDashboard.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-light" href="/pages/about.html">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="/pages/orders.html">Orders</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-light" href="/pages/service.html">Services</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-light" href="/pages/contact.html">Contact</a>
+                    </li>
+                    <li class="nav-item">
+                        <button class="btn btn-dark" id="logoutBtn">
+                            Logout
+                        </button>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="container text-center">
+      <h1 class="display-5">Our Services</h1>
+      <p class="lead">Fast, reliable, and local-focused delivery solutions for restaurants and riders.</p>
+    </div>
+  </section>
+
+  <!-- SERVICES FEATURES -->
+  <section class="py-5">
+    <div class="container">
+      <div class="row g-4 text-center">
+        <div class="col-md-4">
+          <div class="p-4 rounded-lg shadow-sm h-100">
+            <div class="mb-3 feature-icon"><i class="bi bi-bicycle"></i></div>
+            <h5>Quick Delivery</h5>
+            <p class="muted">Get your food fast with optimized routes and real-time tracking.</p>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="p-4 rounded-lg shadow-sm h-100">
+            <div class="mb-3 feature-icon"><i class="bi bi-shop"></i></div>
+            <h5>Restaurant Partnerships</h5>
+            <p class="muted">We partner with local restaurants to expand their reach and efficiency.</p>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="p-4 rounded-lg shadow-sm h-100">
+            <div class="mb-3 feature-icon"><i class="bi bi-people"></i></div>
+            <h5>Rider Solutions</h5>
+            <p class="muted">Riders get fair pay, flexible schedules, and a supportive network.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="position-fixed bottom-0 start-0 w-100">
+    <div class="container text-center">
+      <p class="muted small mb-0">© <span id="year"></span> YummyGo. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <!-- back to top -->
+  <button id="backToTop" aria-label="Back to top"><i class="bi bi-arrow-up"></i></button>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+    const back = document.getElementById('backToTop');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 300) back.classList.add('show'); else back.classList.remove('show');
+    });
+    back.addEventListener('click', ()=> window.scrollTo({top:0, behavior:'smooth'}));
+  </script>
+</body>
+</html>

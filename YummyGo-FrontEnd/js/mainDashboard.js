@@ -6,6 +6,9 @@ $(document).ready(async function() {
 
     const backendUrl = "http://localhost:8080"; // backend URL
 
+    // Page load උනාම cart clear කරන්න
+    sessionStorage.removeItem("cart");
+
     $('#logoutBtn').click(async function () {
         try {
             await cookieStore.delete('token');
@@ -49,7 +52,7 @@ $(document).ready(async function() {
                 if (response.data && response.data.length > 0) {
                     response.data.forEach(b => {
                 container.append(`
-                    <div class="col-md-4 col-sm-6 mb-4">
+                    <div class="col-md-3 col-sm-6 mb-4">
                         <a href="/pages/mainDashboardBusinessItems.html?businessId=${b.businessId}" class="text-decoration-none text-dark">
                             <div class="card business-card shadow-sm border-0 h-100">
                                 <img src="${backendUrl}${b.businessLogo}" 

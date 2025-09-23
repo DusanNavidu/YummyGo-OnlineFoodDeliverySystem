@@ -1,11 +1,8 @@
-/* Container styling */
 #business-list {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 1rem;
+    margin-top: 1rem;
 }
 
-/* Business card styling */
+/* Business card styling remains the same */
 .business-card {
     border-radius: 12px;
     overflow: hidden;
@@ -14,13 +11,6 @@
     background-color: #fff;
 }
 
-/* Card hover effect: zoom + lift */
-/* .business-card:hover {
-    transform: translateY(-5px) scale(1.03);
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
-} */
-
-/* Card image styling */
 .business-card img.card-img-top {
     height: 180px;
     width: 100%;
@@ -28,32 +18,27 @@
     transition: transform 0.3s ease, filter 0.3s ease;
 }
 
-/* Image hover: zoom slightly + brighten */
 .business-card:hover img.card-img-top {
     transform: scale(1.05);
     filter: brightness(1.1);
 }
 
-/* Card body */
 .business-card .card-body {
     padding: 0.8rem 1rem;
 }
 
-/* Card title */
 .business-card .card-title {
     font-size: 1.1rem;
     color: #111;
     margin-bottom: 0.4rem;
 }
 
-/* Card text */
 .business-card p {
     font-size: 0.85rem;
     color: #555;
     margin-bottom: 0.2rem;
 }
 
-/* Info icon color */
 .business-card i.bi {
     color: #ff4d4f; /* red for location icon */
     margin-right: 0.25rem;

@@ -223,6 +223,8 @@ body {
 
 #logoutBtn{
     color: rgb(214, 48, 48);
+    border: none;
+    background: none;
 }
 
 #usersManagement {
