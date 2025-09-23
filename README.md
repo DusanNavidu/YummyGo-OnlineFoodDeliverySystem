@@ -168,6 +168,11 @@ YummyGo follows a **modern design inspired by Uber Eats**:
 
 🎥 A full video demo is available to showcase **YummyGo** features.
 
+[YouTube – YummyGo Demo](https://youtu.be/xds_9bmyPE0)
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/xds_9bmyPE0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+
+
 ---
 
 ## 🙏 Conclusion
